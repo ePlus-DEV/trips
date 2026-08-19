@@ -1,0 +1,77 @@
+name: Update live flight prices
+
+on:
+  workflow_dispatch:
+  schedule:
+    # 07:17 and 19:17 in Vietnam (UTC+7)
+    - cron: '17 0,12 * * *'
+
+permissions:
+  contents: write
+  pages: write
+
+concurrency:
+  group: live-flight-prices-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.ref_name }}
+          fetch-depth: 0
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Check live Duffel secret
+        id: config
+        env:
+          DUFFEL_ACCESS_TOKEN: ${{ secrets.DUFFEL_ACCESS_TOKEN }}
+        run: |
+          if [ -z "$DUFFEL_ACCESS_TOKEN" ]; then
+            echo "enabled=false" >> "$GITHUB_OUTPUT"
+            echo "::warning::DUFFEL_ACCESS_TOKEN is not configured. Add a Duffel LIVE token in Settings → Secrets and variables → Actions."
+          else
+            echo "enabled=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Fetch real airline offers from Duffel
+        if: steps.config.outputs.enabled == 'true'
+        env:
+          DUFFEL_ACCESS_TOKEN: ${{ secrets.DUFFEL_ACCESS_TOKEN }}
+        run: node scripts/fetch-flights.mjs
+
+      - name: Commit refreshed price snapshot
+        if: steps.config.outputs.enabled == 'true'
+        id: commit
+        run: |
+          if git diff --quiet -- data/flights.json data/flight-history.json; then
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+            echo "No flight price changes to commit."
+            exit 0
+          fi
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/flights.json data/flight-history.json
+          git commit -m "chore: refresh live flight prices [skip ci]"
+          git push origin "HEAD:${GITHUB_REF_NAME}"
+          echo "changed=true" >> "$GITHUB_OUTPUT"
+
+      - name: Request GitHub Pages rebuild
+        if: steps.config.outputs.enabled == 'true' && steps.commit.outputs.changed == 'true' && github.ref_name == 'main'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          curl --fail-with-body -L \
+            -X POST \
+            -H "Accept: application/vnd.github+json" \
+            -H "Authorization: Bearer $GH_TOKEN" \
+            -H "X-GitHub-Api-Version: 2022-11-28" \
+            "https://api.github.com/repos/${GITHUB_REPOSITORY}/pages/builds"
