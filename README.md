@@ -19,7 +19,7 @@ A lightweight personal travel dashboard built for GitHub Pages. It works as a st
 - Mobile bottom navigation
 - PWA manifest + service worker for install/offline use
 - **Live airline price snapshots from Duffel via GitHub Actions**
-- Price history stored in the repository for later comparison
+- Price comparison, filters, target alerts and saved price history
 - No backend server required
 
 ## Files
@@ -58,6 +58,25 @@ The starter data is configured for the China trip in October 2026:
 
 Flight prices are fetched by `.github/workflows/update-flight-prices.yml` using the Duffel **live** API. The Duffel access token is never stored in the repository or sent to the browser.
 
+### Flight dashboard features
+
+`flights.html` includes:
+
+- direct comparison of returning on 25 vs 26 October
+- Cheapest / Fastest sorting
+- Direct only / 1 stop filtering
+- airline filtering
+- current cheapest total for all 7 travellers
+- rough average price per traveller
+- difference from the previous check
+- lowest and highest saved prices
+- a price-history trend chart
+- live-data freshness indicator
+- browser-local target price
+- shortcut to manually trigger a fresh GitHub Actions check
+
+The browser target is stored only on that device. For automatic notifications, configure the GitHub Issue alert below.
+
 ### 1. Create a Duffel live access token
 
 Use the Duffel dashboard to create a live-mode access token.
@@ -73,7 +92,32 @@ Value: duffel_live_...
 
 Do not add this token to source code, `flights.json`, or any public GitHub variable.
 
-### 3. Run the first live search
+### 3. Optional: automatic GitHub price alert
+
+The workflow can open a GitHub Issue when the cheapest total reaches a target. This uses normal GitHub notifications and does not require another service.
+
+Repository → **Settings → Secrets and variables → Actions → Variables**
+
+Example:
+
+```text
+FLIGHT_ALERT_AMOUNT=30000000
+FLIGHT_ALERT_CURRENCY=VND
+```
+
+`FLIGHT_ALERT_AMOUNT` enables the alert. `FLIGHT_ALERT_CURRENCY` is optional; if omitted, the workflow uses the currency returned by the cheapest current offer.
+
+If the configured currency differs from the Duffel result, the workflow skips the comparison rather than performing an implicit currency conversion.
+
+When the live total is at or below the target, the workflow opens or updates:
+
+```text
+✈️ Flight price alert · China 2026
+```
+
+When the fare rises above the target again, the alert issue is closed. A later drop can create a fresh notification.
+
+### 4. Run the first live search
 
 Repository → **Actions → Update live flight prices → Run workflow**
 
@@ -84,8 +128,9 @@ The workflow:
 3. keeps the cheapest results with at most one connection,
 4. stores the current snapshot in `data/flights.json`,
 5. appends the cheapest results to `data/flight-history.json`,
-6. commits the changed data back to the current branch,
-7. explicitly requests a GitHub Pages rebuild when running on `main`.
+6. checks the optional GitHub Issue price target,
+7. commits the changed data back to the current branch,
+8. explicitly requests a GitHub Pages rebuild when running on `main`.
 
 ### Automatic refresh
 
@@ -102,7 +147,7 @@ It can also be run manually at any time before checking or booking a fare.
 
 `flights.html` shows search snapshots, not locked fares. Airline offers can change or expire quickly, so refresh the workflow before making a booking decision.
 
-Duffel may charge excess-search fees if the account exceeds its allowed search-to-book ratio. The default schedule in this project intentionally uses only two refreshes per day.
+The “average per traveller” display is only a simple total ÷ 7 reference value. Infant pricing may differ significantly from adult pricing.
 
 ## Personal data
 
