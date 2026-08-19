@@ -1,0 +1,19 @@
+{
+  "status": "setup_required",
+  "provider": "Duffel",
+  "generated_at": null,
+  "live_mode": false,
+  "disclaimer": "Add the DUFFEL_ACCESS_TOKEN repository secret and run the Update live flight prices workflow to populate real prices.",
+  "search": {
+    "passengers": {
+      "adults": 6,
+      "infantAge": 1,
+      "label": "6 adults + 1 infant (<2)"
+    },
+    "cabin_class": "economy",
+    "max_connections": 1,
+    "route_label": "SGN → Shanghai · Beijing → SGN"
+  },
+  "scenarios": [],
+  "cheapest": null
+}
