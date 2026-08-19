@@ -1,47 +1,82 @@
 # Personal Travel Log
 
-A lightweight personal travel dashboard built as a single static page. No framework, build step, account, or database is required.
+A lightweight personal travel dashboard built for GitHub Pages. It works as a static site, stores personal planning data locally in the browser, and can also behave like a small installable web app.
 
-## Included
+## Features
 
-- Responsive personal travel homepage
+- Responsive desktop and mobile layout
 - Live countdown to the next departure
+- Visual trip route and overview statistics
+- Trip essentials: flights, hotels, internet and map shortcuts
+- Expandable day-by-day itinerary
 - Upcoming destination cards
-- Simple visual route
-- Pre-trip checklist saved in browser `localStorage`
-- Mobile-friendly layout
-- Zero external dependencies
+- Pre-trip checklist with completion percentage
+- Budget tracker with planned / actual / remaining totals
+- Personal trip notes saved automatically in `localStorage`
+- Export / import local travel data as JSON
+- Native share button when supported
+- Light / dark mode
+- Mobile bottom navigation
+- PWA manifest + service worker for install/offline use
+- No framework, database or build process required
 
-## Update the next trip
+## Files
 
-Open `index.html` and find the `nextTrip` object near the bottom:
-
-```js
-const nextTrip = {
-  departure: '2026-10-20T00:00:00+07:00',
-  dateLabel: '20–26 October 2026',
-  name: 'China, autumn 2026',
-  subtitle: 'A city-to-city journey through Shanghai and Beijing — food, streets, architecture and unhurried wandering.'
-};
+```text
+trip/
+├── index.html
+├── manifest.webmanifest
+├── sw.js
+├── icon.svg
+├── .nojekyll
+└── README.md
 ```
 
-Change those values to update the main trip card and countdown.
+## Current trip
 
-Destination cards and route stops are plain HTML in the same file so they are easy to edit without a build process.
+The starter data is configured for the China trip in October 2026:
+
+- Ho Chi Minh City → Shanghai → Beijing
+- 20–26 October 2026
+- Day-by-day itinerary included in `index.html`
+
+The site intentionally keeps travel data in plain HTML/JavaScript so it is easy to edit directly from GitHub without a build pipeline.
+
+## Personal data
+
+Checklist, budget and notes are stored in the browser using `localStorage` under:
+
+```text
+travel-log-v2
+```
+
+Use **Export data** before changing browsers/devices. The exported JSON file can later be restored with **Import data**.
 
 ## Run locally
-
-You can simply open `index.html` in a browser, or run a tiny local server:
 
 ```bash
 python3 -m http.server 8080
 ```
 
-Then open `http://localhost:8080`.
+Open:
 
-## Publish with GitHub Pages
+```text
+http://localhost:8080
+```
 
-Because this is a static site, it can be published directly from the repository root using GitHub Pages. In repository settings, open **Pages**, choose **Deploy from a branch**, select `main` and `/ (root)`, then save.
+Using a local server is recommended when testing the service worker and PWA behavior.
+
+## GitHub Pages
+
+Repository Settings → Pages:
+
+```text
+Source: Deploy from a branch
+Branch: main
+Folder: / (root)
+```
+
+The `.nojekyll` file keeps GitHub Pages in simple static-site mode.
 
 ---
 
