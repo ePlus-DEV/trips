@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#f4f0e8" />
+  <title>Live Flight Prices · Travel Log</title>
+  <style>
+    :root{--bg:#f4f0e8;--surface:#fffdf8;--ink:#17322d;--muted:#6f7d77;--line:rgba(23,50,45,.12);--accent:#e16043;--green:#2c6b5d;--shadow:0 20px 60px rgba(41,55,48,.10)}
+    [data-theme="dark"]{--bg:#101714;--surface:#19231f;--ink:#edf3ef;--muted:#aab8b1;--line:rgba(237,243,239,.12);--accent:#ef7659;--green:#76b5a4;--shadow:0 20px 60px rgba(0,0,0,.24)}
+    *{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at 8% 0%,rgba(240,197,107,.20),transparent 30%),var(--bg);color:var(--ink);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}.shell{width:min(1080px,calc(100% - 28px));margin:auto}a{color:inherit;text-decoration:none}.top{position:sticky;top:0;z-index:10;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(18px);border-bottom:1px solid var(--line)}.nav{height:68px;display:flex;align-items:center;justify-content:space-between;gap:12px}.brand{font-weight:850;display:flex;align-items:center;gap:10px}.mark{width:38px;height:38px;border-radius:14px;background:var(--ink);color:var(--bg);display:grid;place-items:center}.btn{border:1px solid var(--line);background:var(--surface);color:var(--ink);padding:10px 14px;border-radius:999px;font-weight:800;cursor:pointer}.btn.primary{background:var(--ink);color:var(--bg);border-color:var(--ink)}main{padding:42px 0 72px}.eyebrow{color:var(--green);font-weight:900;font-size:11px;text-transform:uppercase;letter-spacing:.14em}.hero{display:grid;grid-template-columns:1.2fr .8fr;gap:22px;align-items:stretch}.hero-card,.status-card,.panel{background:var(--surface);border:1px solid var(--line);border-radius:28px;box-shadow:var(--shadow)}.hero-card{padding:30px}.hero h1{font:500 clamp(42px,7vw,76px)/.95 Georgia,serif;letter-spacing:-.055em;margin:12px 0 18px}.hero p{color:var(--muted);line-height:1.6;margin:0;max-width:680px}.chips{display:flex;gap:8px;flex-wrap:wrap;margin-top:22px}.chip{padding:7px 10px;border:1px solid var(--line);border-radius:999px;font-size:12px;font-weight:800}.status-card{padding:26px;display:flex;flex-direction:column;justify-content:space-between;background:var(--ink);color:var(--bg)}.status-label{text-transform:uppercase;letter-spacing:.12em;font-size:11px;opacity:.62;font-weight:900}.status-main{font:500 46px Georgia,serif;margin-top:18px}.status-note{font-size:12px;opacity:.68;line-height:1.5;margin-top:8px}.section{margin-top:34px}.section-head{display:flex;justify-content:space-between;gap:18px;align-items:end;margin-bottom:14px}.section-head h2{font:500 clamp(30px,4vw,44px) Georgia,serif;letter-spacing:-.04em;margin:6px 0 0}.section-head span{color:var(--muted);font-size:12px}.scenario{margin-top:18px}.scenario-head{display:flex;justify-content:space-between;gap:14px;align-items:center;margin-bottom:10px}.scenario-head h3{margin:0;font-size:18px}.scenario-head small{color:var(--muted)}.offers{display:grid;gap:10px}.offer{background:var(--surface);border:1px solid var(--line);border-radius:22px;padding:18px;display:grid;grid-template-columns:1.1fr 1.5fr auto;gap:18px;align-items:center}.airline{display:flex;align-items:center;gap:12px}.airline img{width:38px;height:38px;object-fit:contain;border-radius:10px;background:#fff;padding:4px}.airline strong{display:block}.airline small{display:block;color:var(--muted);margin-top:4px}.legs{display:grid;gap:7px}.leg{font-size:13px}.leg b{font-weight:850}.leg small{display:block;color:var(--muted);margin-top:3px;line-height:1.45}.price{text-align:right}.price strong{display:block;font:500 28px Georgia,serif;white-space:nowrap}.price small{display:block;color:var(--muted);margin-top:3px}.delta{margin-top:6px;font-size:11px;font-weight:850}.delta.down{color:var(--green)}.delta.up{color:var(--accent)}.empty{padding:30px;text-align:center;border:1px dashed var(--line);border-radius:22px;color:var(--muted);background:var(--surface)}.notice{margin-top:24px;padding:18px 20px;border:1px solid var(--line);border-radius:20px;color:var(--muted);font-size:12px;line-height:1.6;background:var(--surface)}.history{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}.history .panel{padding:18px;box-shadow:none}.history strong{display:block;font:500 25px Georgia,serif}.history span{font-size:11px;color:var(--muted)}footer{padding:25px 0 45px;color:var(--muted);font-size:12px}.skeleton{animation:pulse 1.3s infinite;background:var(--line);border-radius:8px;height:18px;width:70%}@keyframes pulse{50%{opacity:.45}}@media(max-width:780px){.hero{grid-template-columns:1fr}.offer{grid-template-columns:1fr}.price{text-align:left}.section-head{align-items:start;flex-direction:column}.history{grid-template-columns:1fr 1fr}}@media(max-width:500px){main{padding-top:24px}.hero-card,.status-card{padding:20px;border-radius:22px}.offer{padding:15px}.history{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+  <header class="top"><div class="shell nav"><a class="brand" href="./index.html"><span class="mark">✈</span><span>Travel Log</span></a><div style="display:flex;gap:8px"><button class="btn" id="themeBtn" aria-label="Toggle theme">◐</button><a class="btn" href="./index.html">← Trip</a></div></div></header>
+  <main><div class="shell">
+    <section class="hero">
+      <div class="hero-card"><div class="eyebrow">Duffel live data</div><h1>Flight price watch</h1><p>Real airline offer snapshots for the China trip. The search is run automatically by GitHub Actions and the access token never reaches the browser.</p><div class="chips"><span class="chip">SGN → Shanghai</span><span class="chip">Beijing → SGN</span><span class="chip">6 adults + 1 infant (&lt;2)</span><span class="chip">Economy</span><span class="chip">Max 1 stop</span></div></div>
+      <aside class="status-card"><div><div class="status-label">Cheapest snapshot</div><div class="status-main" id="cheapest">—</div><div class="status-note" id="cheapestMeta">Loading live price snapshot…</div></div><div class="status-note" id="lastChecked">Last checked: —</div></aside>
+    </section>
+
+    <section class="section">
+      <div class="section-head"><div><div class="eyebrow">Live snapshots</div><h2>Current offers</h2></div><span id="searchMeta">Reading data/flights.json…</span></div>
+      <div id="scenarios"><div class="empty"><div class="skeleton" style="margin:0 auto 12px"></div>Loading flight offers…</div></div>
+    </section>
+
+    <section class="section">
+      <div class="section-head"><div><div class="eyebrow">Price tracking</div><h2>Recent range</h2></div><span>Based on snapshots saved by the Action</span></div>
+      <div class="history" id="history"><div class="panel"><strong>—</strong><span>checks</span></div><div class="panel"><strong>—</strong><span>lowest</span></div><div class="panel"><strong>—</strong><span>highest</span></div><div class="panel"><strong>—</strong><span>latest airline</span></div></div>
+    </section>
+
+    <div class="notice"><strong>Important:</strong> these are live-search snapshots, not locked fares. Duffel airline offers can change or expire quickly. Before booking, refresh the workflow and re-check the chosen offer. Prices shown are totals for all 7 travellers in the exact currency returned by the airline/Duffel account.</div>
+  </div></main>
+  <footer><div class="shell">© <span id="year"></span> David · Travel Log · Live prices powered by Duffel</div></footer>
+
+<script>
+  const $=s=>document.querySelector(s);
+  const savedTheme=localStorage.getItem('travel-theme');if(savedTheme)document.documentElement.dataset.theme=savedTheme;
+  $('#themeBtn').onclick=()=>{const d=document.documentElement.dataset.theme==='dark';document.documentElement.dataset.theme=d?'light':'dark';localStorage.setItem('travel-theme',d?'light':'dark')};
+  $('#year').textContent=new Date().getFullYear();
+
+  function currency(amount,code){const n=Number(amount);try{return new Intl.NumberFormat('vi-VN',{style:'currency',currency:code,maximumFractionDigits:code==='VND'?0:2}).format(n)}catch{return `${amount} ${code}`}}
+  function dt(v){if(!v)return '—';const d=new Date(v);return Number.isNaN(d.valueOf())?v:new Intl.DateTimeFormat('en-GB',{day:'2-digit',month:'short',hour:'2-digit',minute:'2-digit'}).format(d)}
+  function duration(v){if(!v)return '';const m=v.match(/PT(?:(\d+)H)?(?:(\d+)M)?/);if(!m)return v;return `${m[1]?m[1]+'h ':''}${m[2]?m[2]+'m':''}`.trim()}
+  function operators(offer){const names=new Set();(offer.slices||[]).forEach(s=>(s.segments||[]).forEach(seg=>{if(seg.operating_carrier?.name)names.add(seg.operating_carrier.name)}));return [...names].join(', ')||'—'}
+  function legHtml(slice){const first=slice.segments?.[0],last=slice.segments?.at?.(-1)||slice.segments?.[slice.segments.length-1];const stops=Math.max(0,(slice.segments?.length||1)-1);return `<div class="leg"><b>${slice.origin} → ${slice.destination}</b> · ${dt(first?.departing_at)} → ${dt(last?.arriving_at)} · ${duration(slice.duration)}<small>${stops===0?'Direct':stops+' stop'+(stops>1?'s':'')} · Operated by ${slice.segments?.map(s=>s.operating_carrier?.name).filter(Boolean).filter((v,i,a)=>a.indexOf(v)===i).join(', ')||'—'}</small></div>`}
+  function deltaHtml(o){if(o.price_delta===undefined)return '';const d=Number(o.price_delta);if(!d)return '<div class="delta">No change</div>';return `<div class="delta ${d<0?'down':'up'}">${d<0?'↓':'↑'} ${currency(Math.abs(d),o.total_currency)} since last check</div>`}
+  function offerHtml(o){return `<article class="offer"><div class="airline">${o.owner?.logo_symbol_url?`<img src="${o.owner.logo_symbol_url}" alt="">`:''}<div><strong>${o.owner?.name||'Airline'}</strong><small>Operated by ${operators(o)}</small></div></div><div class="legs">${(o.slices||[]).map(legHtml).join('')}</div><div class="price"><strong>${currency(o.total_amount,o.total_currency)}</strong><small>Total · 7 travellers</small>${deltaHtml(o)}</div></article>`}
+
+  async function load(){
+    try{
+      const [data,history]=await Promise.all([
+        fetch(`./data/flights.json?t=${Date.now()}`,{cache:'no-store'}).then(r=>{if(!r.ok)throw new Error('flights.json unavailable');return r.json()}),
+        fetch(`./data/flight-history.json?t=${Date.now()}`,{cache:'no-store'}).then(r=>r.ok?r.json():[]).catch(()=>[])
+      ]);
+      $('#searchMeta').textContent=`${data.search?.route_label||'Flight search'} · ${data.search?.passengers?.label||''}`;
+      if(data.status!=='ok'){
+        $('#cheapest').textContent='Setup needed';
+        $('#cheapestMeta').textContent=data.disclaimer||'Run the GitHub Action after adding the live token.';
+        $('#scenarios').innerHTML=`<div class="empty"><strong>Live token not configured yet.</strong><br><br>Add repository secret <code>DUFFEL_ACCESS_TOKEN</code>, then run <b>Update live flight prices</b> from GitHub Actions.</div>`;
+        return;
+      }
+      const cheapest=data.cheapest?.offer;
+      if(cheapest){$('#cheapest').textContent=currency(cheapest.total_amount,cheapest.total_currency);$('#cheapestMeta').textContent=`${data.cheapest.label} · ${cheapest.owner?.name||'Airline'} · total for 7 travellers`}
+      $('#lastChecked').textContent=`Last checked: ${dt(data.generated_at)}`;
+      $('#scenarios').innerHTML=(data.scenarios||[]).map(s=>`<div class="scenario"><div class="scenario-head"><div><h3>${s.label}</h3><small>${s.preferred_window_matched?'Preferred time window matched':'Showing closest available results'} · ${s.offer_count_seen} offers scanned</small></div></div><div class="offers">${s.offers?.length?s.offers.slice(0,5).map(offerHtml).join(''):'<div class="empty">No offers returned for this scenario.</div>'}</div></div>`).join('')||'<div class="empty">No flight scenarios available.</div>';
+
+      const rows=Array.isArray(history)?history:[];
+      const comparable=rows.filter(x=>cheapest&&x.total_currency===cheapest.total_currency).map(x=>({...x,n:Number(x.total_amount)})).filter(x=>Number.isFinite(x.n));
+      const low=comparable.length?Math.min(...comparable.map(x=>x.n)):null, high=comparable.length?Math.max(...comparable.map(x=>x.n)):null, latest=rows.at?.(-1)||rows[rows.length-1];
+      $('#history').innerHTML=`<div class="panel"><strong>${rows.length}</strong><span>saved checks</span></div><div class="panel"><strong>${low!==null?currency(low,cheapest.total_currency):'—'}</strong><span>lowest saved</span></div><div class="panel"><strong>${high!==null?currency(high,cheapest.total_currency):'—'}</strong><span>highest saved</span></div><div class="panel"><strong>${latest?.airline||'—'}</strong><span>latest cheapest airline</span></div>`;
+    }catch(e){
+      $('#cheapest').textContent='Unavailable';$('#cheapestMeta').textContent=e.message;$('#scenarios').innerHTML=`<div class="empty">Could not load flight price data. ${e.message}</div>`;
+    }
+  }
+  load();
+</script>
+</body>
+</html>
