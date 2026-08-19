@@ -9,6 +9,7 @@ on:
 permissions:
   contents: write
   pages: write
+  issues: write
 
 concurrency:
   group: live-flight-prices-${{ github.ref }}
@@ -46,6 +47,74 @@ jobs:
         env:
           DUFFEL_ACCESS_TOKEN: ${{ secrets.DUFFEL_ACCESS_TOKEN }}
         run: node scripts/fetch-flights.mjs
+
+      - name: Evaluate price alert
+        if: steps.config.outputs.enabled == 'true' && github.ref_name == 'main'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          ALERT_AMOUNT: ${{ vars.FLIGHT_ALERT_AMOUNT }}
+          ALERT_CURRENCY: ${{ vars.FLIGHT_ALERT_CURRENCY }}
+        shell: bash
+        run: |
+          if [ -z "$ALERT_AMOUNT" ]; then
+            echo "No FLIGHT_ALERT_AMOUNT repository variable configured; skipping GitHub Issue alert."
+            exit 0
+          fi
+
+          CURRENT_AMOUNT=$(node -p "require('./data/flights.json').cheapest?.offer?.total_amount || ''")
+          CURRENT_CURRENCY=$(node -p "require('./data/flights.json').cheapest?.offer?.total_currency || ''")
+          CURRENT_AIRLINE=$(node -p "require('./data/flights.json').cheapest?.offer?.owner?.name || 'Unknown airline'")
+          CURRENT_SCENARIO=$(node -p "require('./data/flights.json').cheapest?.label || 'China trip'")
+          CHECKED_AT=$(node -p "require('./data/flights.json').generated_at || new Date().toISOString()")
+          ALERT_CURRENCY=${ALERT_CURRENCY:-$CURRENT_CURRENCY}
+
+          if [ -z "$CURRENT_AMOUNT" ] || [ -z "$CURRENT_CURRENCY" ]; then
+            echo "No cheapest live price found; skipping alert."
+            exit 0
+          fi
+
+          if [ "$CURRENT_CURRENCY" != "$ALERT_CURRENCY" ]; then
+            echo "::warning::Price alert currency is $ALERT_CURRENCY but Duffel returned $CURRENT_CURRENCY. Alert comparison skipped."
+            exit 0
+          fi
+
+          TITLE="✈️ Flight price alert · China 2026"
+          ISSUE=$(gh issue list --state open --json number,title --jq '.[] | select(.title == "✈️ Flight price alert · China 2026") | .number' | head -n 1)
+
+          if node -e "process.exit(Number(process.argv[1]) <= Number(process.argv[2]) ? 0 : 1)" "$CURRENT_AMOUNT" "$ALERT_AMOUNT"; then
+            BODY=$(cat <<EOF
+          ## Price target reached 🎯
+
+          The latest live Duffel snapshot is at or below the configured target.
+
+          | | |
+          |---|---|
+          | **Current total** | ${CURRENT_AMOUNT} ${CURRENT_CURRENCY} |
+          | **Target** | ${ALERT_AMOUNT} ${ALERT_CURRENCY} |
+          | **Airline** | ${CURRENT_AIRLINE} |
+          | **Scenario** | ${CURRENT_SCENARIO} |
+          | **Checked** | ${CHECKED_AT} |
+          | **Travellers** | 6 adults + 1 infant under 2 |
+
+          Open the live dashboard: https://trips.eplus.dev/flights.html
+
+          > Flight offers can change or expire. Refresh and verify the fare before booking.
+          EOF
+          )
+
+            if [ -n "$ISSUE" ]; then
+              gh issue edit "$ISSUE" --body "$BODY"
+              echo "Updated existing price alert issue #$ISSUE."
+            else
+              gh issue create --title "$TITLE" --body "$BODY"
+              echo "Created a new price alert issue."
+            fi
+          else
+            echo "Current price ${CURRENT_AMOUNT} ${CURRENT_CURRENCY} is above target ${ALERT_AMOUNT} ${ALERT_CURRENCY}."
+            if [ -n "$ISSUE" ]; then
+              gh issue close "$ISSUE" --comment "Latest price moved back above the target: ${CURRENT_AMOUNT} ${CURRENT_CURRENCY} (target ${ALERT_AMOUNT} ${ALERT_CURRENCY}). The next target hit will open a fresh alert."
+            fi
+          fi
 
       - name: Commit refreshed price snapshot
         if: steps.config.outputs.enabled == 'true'
