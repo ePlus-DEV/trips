@@ -139,6 +139,19 @@ trips/
 └── README.md
 ```
 
+## Navigation & languages
+
+The main dashboard links directly to the flight price watcher from the desktop navigation, hero actions, Flights essentials card and mobile navigation.
+
+The dashboard and flight-price page share `i18n.js` with these languages:
+
+- English
+- Tiếng Việt
+- 中文 (Simplified Chinese)
+- 日本語
+
+The selected language is stored in `localStorage` as `travel-language`; otherwise the browser language is detected automatically.
+
 ## Local development
 
 ```bash
