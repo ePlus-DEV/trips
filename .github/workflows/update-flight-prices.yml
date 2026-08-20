@@ -3,8 +3,9 @@ name: Update live flight prices
 on:
   workflow_dispatch:
   schedule:
-    # 07:17 and 19:17 in Vietnam (UTC+7)
-    - cron: '17 0,12 * * *'
+    # 07:17 in Vietnam (UTC+7). One refresh uses 4 SerpApi searches.
+    # Daily schedule keeps the project comfortably inside the 250-search free tier.
+    - cron: '17 0 * * *'
 
 permissions:
   contents: write
@@ -30,22 +31,22 @@ jobs:
         with:
           node-version: '20'
 
-      - name: Check live Duffel secret
+      - name: Check SerpApi secret
         id: config
         env:
-          DUFFEL_ACCESS_TOKEN: ${{ secrets.DUFFEL_ACCESS_TOKEN }}
+          SERPAPI_API_KEY: ${{ secrets.SERPAPI_API_KEY }}
         run: |
-          if [ -z "$DUFFEL_ACCESS_TOKEN" ]; then
+          if [ -z "$SERPAPI_API_KEY" ]; then
             echo "enabled=false" >> "$GITHUB_OUTPUT"
-            echo "::warning::DUFFEL_ACCESS_TOKEN is not configured. Add a Duffel LIVE token in Settings → Secrets and variables → Actions."
+            echo "::warning::SERPAPI_API_KEY is not configured. Add it in Settings → Secrets and variables → Actions."
           else
             echo "enabled=true" >> "$GITHUB_OUTPUT"
           fi
 
-      - name: Fetch real airline offers from Duffel
+      - name: Fetch Google Flights prices via SerpApi
         if: steps.config.outputs.enabled == 'true'
         env:
-          DUFFEL_ACCESS_TOKEN: ${{ secrets.DUFFEL_ACCESS_TOKEN }}
+          SERPAPI_API_KEY: ${{ secrets.SERPAPI_API_KEY }}
         run: node scripts/fetch-flights.mjs
 
       - name: Evaluate price alert
@@ -74,7 +75,7 @@ jobs:
           fi
 
           if [ "$CURRENT_CURRENCY" != "$ALERT_CURRENCY" ]; then
-            echo "::warning::Price alert currency is $ALERT_CURRENCY but Duffel returned $CURRENT_CURRENCY. Alert comparison skipped."
+            echo "::warning::Price alert currency is $ALERT_CURRENCY but Google Flights returned $CURRENT_CURRENCY. Alert comparison skipped."
             exit 0
           fi
 
@@ -85,7 +86,7 @@ jobs:
             BODY=$(cat <<EOF
           ## Price target reached 🎯
 
-          The latest live Duffel snapshot is at or below the configured target.
+          Latest Google Flights snapshot via SerpApi is at or below the configured target.
 
           | | |
           |---|---|
@@ -94,11 +95,11 @@ jobs:
           | **Airline** | ${CURRENT_AIRLINE} |
           | **Scenario** | ${CURRENT_SCENARIO} |
           | **Checked** | ${CHECKED_AT} |
-          | **Travellers** | 6 adults + 1 infant under 2 |
+          | **Travellers** | 6 adults + 1 infant under 2 on lap |
 
           Open the live dashboard: https://trips.eplus.dev/flights.html
 
-          > Flight offers can change or expire. Refresh and verify the fare before booking.
+          > Search prices can change. Verify the itinerary and final booking price before paying.
           EOF
           )
 
@@ -112,7 +113,7 @@ jobs:
           else
             echo "Current price ${CURRENT_AMOUNT} ${CURRENT_CURRENCY} is above target ${ALERT_AMOUNT} ${ALERT_CURRENCY}."
             if [ -n "$ISSUE" ]; then
-              gh issue close "$ISSUE" --comment "Latest price moved back above the target: ${CURRENT_AMOUNT} ${CURRENT_CURRENCY} (target ${ALERT_AMOUNT} ${ALERT_CURRENCY}). The next target hit will open a fresh alert."
+              gh issue close "$ISSUE" --comment "Latest price moved back above the target: ${CURRENT_AMOUNT} ${CURRENT_CURRENCY} (target ${ALERT_AMOUNT} ${ALERT_CURRENCY}). The next target hit can create a fresh alert."
             fi
           fi
 
@@ -129,7 +130,7 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add data/flights.json data/flight-history.json
-          git commit -m "chore: refresh live flight prices [skip ci]"
+          git commit -m "chore: refresh Google Flights prices [skip ci]"
           git push origin "HEAD:${GITHUB_REF_NAME}"
           echo "changed=true" >> "$GITHUB_OUTPUT"
 
