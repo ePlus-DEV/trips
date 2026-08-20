@@ -1,0 +1,22 @@
+{
+  "status": "setup_required",
+  "provider": "SerpApi",
+  "source": "Google Flights",
+  "generated_at": null,
+  "live_mode": false,
+  "disclaimer": "Add the SERPAPI_API_KEY repository secret, merge the PR, and run the Update live flight prices workflow to populate Google Flights prices.",
+  "search": {
+    "passengers": {
+      "adults": 6,
+      "infantsOnLap": 1,
+      "label": "6 adults + 1 infant (<2, on lap)"
+    },
+    "cabin_class": "economy",
+    "max_connections": 1,
+    "currency": "VND",
+    "searches_per_refresh": 4,
+    "route_label": "SGN → Shanghai · Beijing → SGN"
+  },
+  "scenarios": [],
+  "cheapest": null
+}

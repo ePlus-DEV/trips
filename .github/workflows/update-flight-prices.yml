@@ -1,0 +1,147 @@
+name: Update live flight prices
+
+on:
+  workflow_dispatch:
+  schedule:
+    # 07:17 in Vietnam (UTC+7). One refresh uses 4 SerpApi searches.
+    # Daily schedule keeps the project comfortably inside the 250-search free tier.
+    - cron: '17 0 * * *'
+
+permissions:
+  contents: write
+  pages: write
+  issues: write
+
+concurrency:
+  group: live-flight-prices-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.ref_name }}
+          fetch-depth: 0
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Check SerpApi secret
+        id: config
+        env:
+          SERPAPI_API_KEY: ${{ secrets.SERPAPI_API_KEY }}
+        run: |
+          if [ -z "$SERPAPI_API_KEY" ]; then
+            echo "enabled=false" >> "$GITHUB_OUTPUT"
+            echo "::warning::SERPAPI_API_KEY is not configured. Add it in Settings → Secrets and variables → Actions."
+          else
+            echo "enabled=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Fetch Google Flights prices via SerpApi
+        if: steps.config.outputs.enabled == 'true'
+        env:
+          SERPAPI_API_KEY: ${{ secrets.SERPAPI_API_KEY }}
+        run: node scripts/fetch-flights.mjs
+
+      - name: Evaluate price alert
+        if: steps.config.outputs.enabled == 'true' && github.ref_name == 'main'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          ALERT_AMOUNT: ${{ vars.FLIGHT_ALERT_AMOUNT }}
+          ALERT_CURRENCY: ${{ vars.FLIGHT_ALERT_CURRENCY }}
+        shell: bash
+        run: |
+          if [ -z "$ALERT_AMOUNT" ]; then
+            echo "No FLIGHT_ALERT_AMOUNT repository variable configured; skipping GitHub Issue alert."
+            exit 0
+          fi
+
+          CURRENT_AMOUNT=$(node -p "require('./data/flights.json').cheapest?.offer?.total_amount || ''")
+          CURRENT_CURRENCY=$(node -p "require('./data/flights.json').cheapest?.offer?.total_currency || ''")
+          CURRENT_AIRLINE=$(node -p "require('./data/flights.json').cheapest?.offer?.owner?.name || 'Unknown airline'")
+          CURRENT_SCENARIO=$(node -p "require('./data/flights.json').cheapest?.label || 'China trip'")
+          CHECKED_AT=$(node -p "require('./data/flights.json').generated_at || new Date().toISOString()")
+          ALERT_CURRENCY=${ALERT_CURRENCY:-$CURRENT_CURRENCY}
+
+          if [ -z "$CURRENT_AMOUNT" ] || [ -z "$CURRENT_CURRENCY" ]; then
+            echo "No cheapest live price found; skipping alert."
+            exit 0
+          fi
+
+          if [ "$CURRENT_CURRENCY" != "$ALERT_CURRENCY" ]; then
+            echo "::warning::Price alert currency is $ALERT_CURRENCY but Google Flights returned $CURRENT_CURRENCY. Alert comparison skipped."
+            exit 0
+          fi
+
+          TITLE="✈️ Flight price alert · China 2026"
+          ISSUE=$(gh issue list --state open --json number,title --jq '.[] | select(.title == "✈️ Flight price alert · China 2026") | .number' | head -n 1)
+
+          if node -e "process.exit(Number(process.argv[1]) <= Number(process.argv[2]) ? 0 : 1)" "$CURRENT_AMOUNT" "$ALERT_AMOUNT"; then
+            BODY=$(cat <<EOF
+          ## Price target reached 🎯
+
+          Latest Google Flights snapshot via SerpApi is at or below the configured target.
+
+          | | |
+          |---|---|
+          | **Current total** | ${CURRENT_AMOUNT} ${CURRENT_CURRENCY} |
+          | **Target** | ${ALERT_AMOUNT} ${ALERT_CURRENCY} |
+          | **Airline** | ${CURRENT_AIRLINE} |
+          | **Scenario** | ${CURRENT_SCENARIO} |
+          | **Checked** | ${CHECKED_AT} |
+          | **Travellers** | 6 adults + 1 infant under 2 on lap |
+
+          Open the live dashboard: https://trips.eplus.dev/flights.html
+
+          > Search prices can change. Verify the itinerary and final booking price before paying.
+          EOF
+          )
+
+            if [ -n "$ISSUE" ]; then
+              gh issue edit "$ISSUE" --body "$BODY"
+              echo "Updated existing price alert issue #$ISSUE."
+            else
+              gh issue create --title "$TITLE" --body "$BODY"
+              echo "Created a new price alert issue."
+            fi
+          else
+            echo "Current price ${CURRENT_AMOUNT} ${CURRENT_CURRENCY} is above target ${ALERT_AMOUNT} ${ALERT_CURRENCY}."
+            if [ -n "$ISSUE" ]; then
+              gh issue close "$ISSUE" --comment "Latest price moved back above the target: ${CURRENT_AMOUNT} ${CURRENT_CURRENCY} (target ${ALERT_AMOUNT} ${ALERT_CURRENCY}). The next target hit can create a fresh alert."
+            fi
+          fi
+
+      - name: Commit refreshed price snapshot
+        if: steps.config.outputs.enabled == 'true'
+        id: commit
+        run: |
+          if git diff --quiet -- data/flights.json data/flight-history.json; then
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+            echo "No flight price changes to commit."
+            exit 0
+          fi
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/flights.json data/flight-history.json
+          git commit -m "chore: refresh Google Flights prices [skip ci]"
+          git push origin "HEAD:${GITHUB_REF_NAME}"
+          echo "changed=true" >> "$GITHUB_OUTPUT"
+
+      - name: Request GitHub Pages rebuild
+        if: steps.config.outputs.enabled == 'true' && steps.commit.outputs.changed == 'true' && github.ref_name == 'main'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          curl --fail-with-body -L \
+            -X POST \
+            -H "Accept: application/vnd.github+json" \
+            -H "Authorization: Bearer $GH_TOKEN" \
+            -H "X-GitHub-Api-Version: 2022-11-28" \
+            "https://api.github.com/repos/${GITHUB_REPOSITORY}/pages/builds"
