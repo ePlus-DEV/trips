@@ -1,0 +1,32 @@
+name: Apply navigation and multilingual update
+
+on:
+  push:
+    branches:
+      - agent/navigation-i18n
+    paths:
+      - '.github/workflows/apply-navigation-i18n.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  patch:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout branch
+        uses: actions/checkout@v4
+        with:
+          ref: agent/navigation-i18n
+          fetch-depth: 0
+
+      - name: Apply navigation and multilingual patch
+        run: python3 scripts/apply-navigation-i18n.py
+
+      - name: Commit generated changes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -m "Add flight navigation and multilingual interface"
+          git push origin HEAD:agent/navigation-i18n
