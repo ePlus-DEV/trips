@@ -1,1 +1,20 @@
-[]
+[
+  {
+    "checked_at": "2026-08-20T16:39:38.457Z",
+    "scenario_id": "return-25",
+    "total_amount": "42101088",
+    "total_currency": "VND",
+    "airline": "Mixed airlines",
+    "provider": "SerpApi",
+    "source": "Google Flights"
+  },
+  {
+    "checked_at": "2026-08-20T16:39:38.457Z",
+    "scenario_id": "return-26",
+    "total_amount": "42101088",
+    "total_currency": "VND",
+    "airline": "Mixed airlines",
+    "provider": "SerpApi",
+    "source": "Google Flights"
+  }
+]

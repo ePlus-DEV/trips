@@ -1,10 +1,10 @@
 {
-  "status": "setup_required",
+  "status": "ok",
   "provider": "SerpApi",
   "source": "Google Flights",
-  "generated_at": null,
-  "live_mode": false,
-  "disclaimer": "Add the SERPAPI_API_KEY repository secret, merge the PR, and run the Update live flight prices workflow to populate Google Flights prices.",
+  "generated_at": "2026-08-20T16:39:38.457Z",
+  "live_mode": true,
+  "disclaimer": "Google Flights multi-city search snapshot for the selected 7 travellers. Fares can change and baggage/payment fees may apply.",
   "search": {
     "passengers": {
       "adults": 6,
@@ -17,6 +17,679 @@
     "searches_per_refresh": 4,
     "route_label": "SGN → Shanghai · Beijing → SGN"
   },
-  "scenarios": [],
-  "cheapest": null
+  "scenarios": [
+    {
+      "id": "return-25",
+      "label": "Return 25 Oct · evening preferred",
+      "search_ids": [
+        "6a872dca18dc9366487f2aee",
+        "6a872dcd97c19f9454ea48cc"
+      ],
+      "google_flights_url": "https://www.google.com/travel/flights?hl=en&gl=vn&curr=VND&tfs=CBwQAhpLEgoyMDI2LTEwLTIwIiAKA1NHThIKMjAyNi0xMC0yMBoDUFZHKgJWSjIEMzkwMCgBagcIARIDU0dOcgcIARIDU0hBcgcIARIDUFZHGikSCjIwMjYtMTAtMjUoAWoHCAESA1BFS2oHCAESA1BLWHIHCAESA1NHTkABQAFAAUABQAFAAUADSAFwAZgBAw&tfu=EgIIAg",
+      "slices": [
+        {
+          "origin": "SGN",
+          "destination": "SHA,PVG",
+          "departure_date": "2026-10-20"
+        },
+        {
+          "origin": "PEK,PKX",
+          "destination": "SGN",
+          "departure_date": "2026-10-25"
+        }
+      ],
+      "selected_outbound": {
+        "airline": "Vietjet",
+        "departure": "2026-10-20 20:00",
+        "arrival": "2026-10-21 01:00",
+        "price_hint": 42101088
+      },
+      "preferred_window_matched": true,
+      "offers": [
+        {
+          "id": "WyJDalJJYm1Sd2JuQndTRUp4V25OQlJITldWa0ZDUnkwdExTMHRMUzB0TFhsc2Fta3hOMEZCUVVGQlIzRklUR00wU0V3d1dpMUJFZzFEV2pNeE1EQjhRMW8yTURnNUdnd0k0TktKRkJBQUdnTldUa1E0SEhDTzdBaz0iLFtbIlNHTiIsIjIwMjYtMTAtMjAiLCJQVkciLG51bGwsIlZKIiwiMzkwMCJdXSxbWyJQS1giLCIyMDI2LTEwLTI1IiwiQ0FOIixudWxsLCJDWiIsIjMxMDAiXSxbIkNBTiIsIjIwMjYtMTAtMjUiLCJTR04iLG51bGwsIkNaIiwiNjA4OSJdXV0=",
+          "source": "Google Flights via SerpApi",
+          "live_mode": true,
+          "expires_at": null,
+          "total_amount": "42101088",
+          "total_currency": "VND",
+          "base_amount": null,
+          "tax_amount": null,
+          "total_emissions_kg": null,
+          "total_duration_minutes": 710,
+          "booking_token": "WyJDalJJYm1Sd2JuQndTRUp4V25OQlJITldWa0ZDUnkwdExTMHRMUzB0TFhsc2Fta3hOMEZCUVVGQlIzRklUR00wU0V3d1dpMUJFZzFEV2pNeE1EQjhRMW8yTURnNUdnd0k0TktKRkJBQUdnTldUa1E0SEhDTzdBaz0iLFtbIlNHTiIsIjIwMjYtMTAtMjAiLCJQVkciLG51bGwsIlZKIiwiMzkwMCJdXSxbWyJQS1giLCIyMDI2LTEwLTI1IiwiQ0FOIixudWxsLCJDWiIsIjMxMDAiXSxbIkNBTiIsIjIwMjYtMTAtMjUiLCJTR04iLG51bGwsIkNaIiwiNjA4OSJdXV0=",
+          "google_flights_url": "https://www.google.com/travel/flights?hl=en&gl=vn&curr=VND&tfs=CBwQAhpLEgoyMDI2LTEwLTIwIiAKA1NHThIKMjAyNi0xMC0yMBoDUFZHKgJWSjIEMzkwMCgBagcIARIDU0dOcgcIARIDU0hBcgcIARIDUFZHGikSCjIwMjYtMTAtMjUoAWoHCAESA1BFS2oHCAESA1BLWHIHCAESA1NHTkABQAFAAUABQAFAAUADSAFwAZgBAw&tfu=EgIIAg",
+          "owner": {
+            "name": "Mixed airlines",
+            "iata_code": "VJ",
+            "logo_symbol_url": "https://www.gstatic.com/flights/airline_logos/70px/CZ.png"
+          },
+          "slices": [
+            {
+              "origin": "SGN",
+              "destination": "PVG",
+              "duration": "PT4H",
+              "segments": [
+                {
+                  "origin": "SGN",
+                  "destination": "PVG",
+                  "departing_at": "2026-10-20T20:00:00",
+                  "arriving_at": "2026-10-21T01:00:00",
+                  "duration": "PT4H",
+                  "flight_number": "VJ 3900",
+                  "airplane": "Airbus A321",
+                  "travel_class": "Economy",
+                  "marketing_carrier": {
+                    "name": "Vietjet",
+                    "iata_code": "VJ"
+                  },
+                  "operating_carrier": {
+                    "name": "Vietjet",
+                    "iata_code": null
+                  }
+                }
+              ]
+            },
+            {
+              "origin": "PKX",
+              "destination": "SGN",
+              "duration": "PT7H50M",
+              "segments": [
+                {
+                  "origin": "PKX",
+                  "destination": "CAN",
+                  "departing_at": "2026-10-25T18:30:00",
+                  "arriving_at": "2026-10-25T21:50:00",
+                  "duration": "PT3H20M",
+                  "flight_number": "CZ 3100",
+                  "airplane": "Boeing 787",
+                  "travel_class": "Economy",
+                  "marketing_carrier": {
+                    "name": "China Southern",
+                    "iata_code": "CZ"
+                  },
+                  "operating_carrier": {
+                    "name": "China Southern",
+                    "iata_code": null
+                  }
+                },
+                {
+                  "origin": "CAN",
+                  "destination": "SGN",
+                  "departing_at": "2026-10-25T23:25:00",
+                  "arriving_at": "2026-10-26T01:20:00",
+                  "duration": "PT2H55M",
+                  "flight_number": "CZ 6089",
+                  "airplane": "Airbus A320",
+                  "travel_class": "Economy",
+                  "marketing_carrier": {
+                    "name": "China Southern",
+                    "iata_code": "CZ"
+                  },
+                  "operating_carrier": {
+                    "name": "China Southern",
+                    "iata_code": null
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "WyJDalJJYm1Sd2JuQndTRUp4V25OQlJITldWa0ZDUnkwdExTMHRMUzB0TFhsc2Fta3hOMEZCUVVGQlIzRklUR00wU0V3d1dpMUJFZzFEV2pNeE1UUjhRMW80TVRVNUdnd0k0TktKRkJBQUdnTldUa1E0SEhDTzdBaz0iLFtbIlNHTiIsIjIwMjYtMTAtMjAiLCJQVkciLG51bGwsIlZKIiwiMzkwMCJdXSxbWyJQS1giLCIyMDI2LTEwLTI1IiwiQ0FOIixudWxsLCJDWiIsIjMxMTQiXSxbIkNBTiIsIjIwMjYtMTAtMjYiLCJTR04iLG51bGwsIkNaIiwiODE1OSJdXV0=",
+          "source": "Google Flights via SerpApi",
+          "live_mode": true,
+          "expires_at": null,
+          "total_amount": "42101088",
+          "total_currency": "VND",
+          "base_amount": null,
+          "tax_amount": null,
+          "total_emissions_kg": null,
+          "total_duration_minutes": 1090,
+          "booking_token": "WyJDalJJYm1Sd2JuQndTRUp4V25OQlJITldWa0ZDUnkwdExTMHRMUzB0TFhsc2Fta3hOMEZCUVVGQlIzRklUR00wU0V3d1dpMUJFZzFEV2pNeE1UUjhRMW80TVRVNUdnd0k0TktKRkJBQUdnTldUa1E0SEhDTzdBaz0iLFtbIlNHTiIsIjIwMjYtMTAtMjAiLCJQVkciLG51bGwsIlZKIiwiMzkwMCJdXSxbWyJQS1giLCIyMDI2LTEwLTI1IiwiQ0FOIixudWxsLCJDWiIsIjMxMTQiXSxbIkNBTiIsIjIwMjYtMTAtMjYiLCJTR04iLG51bGwsIkNaIiwiODE1OSJdXV0=",
+          "google_flights_url": "https://www.google.com/travel/flights?hl=en&gl=vn&curr=VND&tfs=CBwQAhpLEgoyMDI2LTEwLTIwIiAKA1NHThIKMjAyNi0xMC0yMBoDUFZHKgJWSjIEMzkwMCgBagcIARIDU0dOcgcIARIDU0hBcgcIARIDUFZHGikSCjIwMjYtMTAtMjUoAWoHCAESA1BFS2oHCAESA1BLWHIHCAESA1NHTkABQAFAAUABQAFAAUADSAFwAZgBAw&tfu=EgIIAg",
+          "owner": {
+            "name": "Mixed airlines",
+            "iata_code": "VJ",
+            "logo_symbol_url": "https://www.gstatic.com/flights/airline_logos/70px/CZ.png"
+          },
+          "slices": [
+            {
+              "origin": "SGN",
+              "destination": "PVG",
+              "duration": "PT4H",
+              "segments": [
+                {
+                  "origin": "SGN",
+                  "destination": "PVG",
+                  "departing_at": "2026-10-20T20:00:00",
+                  "arriving_at": "2026-10-21T01:00:00",
+                  "duration": "PT4H",
+                  "flight_number": "VJ 3900",
+                  "airplane": "Airbus A321",
+                  "travel_class": "Economy",
+                  "marketing_carrier": {
+                    "name": "Vietjet",
+                    "iata_code": "VJ"
+                  },
+                  "operating_carrier": {
+                    "name": "Vietjet",
+                    "iata_code": null
+                  }
+                }
+              ]
+            },
+            {
+              "origin": "PKX",
+              "destination": "SGN",
+              "duration": "PT14H10M",
+              "segments": [
+                {
+                  "origin": "PKX",
+                  "destination": "CAN",
+                  "departing_at": "2026-10-25T21:30:00",
+                  "arriving_at": "2026-10-26T00:50:00",
+                  "duration": "PT3H20M",
+                  "flight_number": "CZ 3114",
+                  "airplane": "Airbus A321neo",
+                  "travel_class": "Economy",
+                  "marketing_carrier": {
+                    "name": "China Southern",
+                    "iata_code": "CZ"
+                  },
+                  "operating_carrier": {
+                    "name": "China Southern",
+                    "iata_code": null
+                  }
+                },
+                {
+                  "origin": "CAN",
+                  "destination": "SGN",
+                  "departing_at": "2026-10-26T08:45:00",
+                  "arriving_at": "2026-10-26T10:40:00",
+                  "duration": "PT2H55M",
+                  "flight_number": "CZ 8159",
+                  "airplane": "Boeing 737MAX 8 Passenger",
+                  "travel_class": "Economy",
+                  "marketing_carrier": {
+                    "name": "China Southern",
+                    "iata_code": "CZ"
+                  },
+                  "operating_carrier": {
+                    "name": "China Southern",
+                    "iata_code": null
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "WyJDalJJYm1Sd2JuQndTRUp4V25OQlJITldWa0ZDUnkwdExTMHRMUzB0TFhsc2Fta3hOMEZCUVVGQlIzRklUR00wU0V3d1dpMUJFZ3hhU0RreE1EWjhXa2d4TVRjYURBamdpdmdaRUFBYUExWk9SRGdjY0kvY0RBPT0iLFtbIlNHTiIsIjIwMjYtMTAtMjAiLCJQVkciLG51bGwsIlZKIiwiMzkwMCJdXSxbWyJQRUsiLCIyMDI2LTEwLTI1IiwiU1pYIixudWxsLCJaSCIsIjkxMDYiXSxbIlNaWCIsIjIwMjYtMTAtMjYiLCJTR04iLG51bGwsIlpIIiwiMTE3Il1dXQ==",
+          "source": "Google Flights via SerpApi",
+          "live_mode": true,
+          "expires_at": null,
+          "total_amount": "54396256",
+          "total_currency": "VND",
+          "base_amount": null,
+          "tax_amount": null,
+          "total_emissions_kg": null,
+          "total_duration_minutes": 830,
+          "booking_token": "WyJDalJJYm1Sd2JuQndTRUp4V25OQlJITldWa0ZDUnkwdExTMHRMUzB0TFhsc2Fta3hOMEZCUVVGQlIzRklUR00wU0V3d1dpMUJFZ3hhU0RreE1EWjhXa2d4TVRjYURBamdpdmdaRUFBYUExWk9SRGdjY0kvY0RBPT0iLFtbIlNHTiIsIjIwMjYtMTAtMjAiLCJQVkciLG51bGwsIlZKIiwiMzkwMCJdXSxbWyJQRUsiLCIyMDI2LTEwLTI1IiwiU1pYIixudWxsLCJaSCIsIjkxMDYiXSxbIlNaWCIsIjIwMjYtMTAtMjYiLCJTR04iLG51bGwsIlpIIiwiMTE3Il1dXQ==",
+          "google_flights_url": "https://www.google.com/travel/flights?hl=en&gl=vn&curr=VND&tfs=CBwQAhpLEgoyMDI2LTEwLTIwIiAKA1NHThIKMjAyNi0xMC0yMBoDUFZHKgJWSjIEMzkwMCgBagcIARIDU0dOcgcIARIDU0hBcgcIARIDUFZHGikSCjIwMjYtMTAtMjUoAWoHCAESA1BFS2oHCAESA1BLWHIHCAESA1NHTkABQAFAAUABQAFAAUADSAFwAZgBAw&tfu=EgIIAg",
+          "owner": {
+            "name": "Mixed airlines",
+            "iata_code": "VJ",
+            "logo_symbol_url": "https://www.gstatic.com/flights/airline_logos/70px/ZH.png"
+          },
+          "slices": [
+            {
+              "origin": "SGN",
+              "destination": "PVG",
+              "duration": "PT4H",
+              "segments": [
+                {
+                  "origin": "SGN",
+                  "destination": "PVG",
+                  "departing_at": "2026-10-20T20:00:00",
+                  "arriving_at": "2026-10-21T01:00:00",
+                  "duration": "PT4H",
+                  "flight_number": "VJ 3900",
+                  "airplane": "Airbus A321",
+                  "travel_class": "Economy",
+                  "marketing_carrier": {
+                    "name": "Vietjet",
+                    "iata_code": "VJ"
+                  },
+                  "operating_carrier": {
+                    "name": "Vietjet",
+                    "iata_code": null
+                  }
+                }
+              ]
+            },
+            {
+              "origin": "PEK",
+              "destination": "SGN",
+              "duration": "PT9H50M",
+              "segments": [
+                {
+                  "origin": "PEK",
+                  "destination": "SZX",
+                  "departing_at": "2026-10-25T17:00:00",
+                  "arriving_at": "2026-10-25T20:35:00",
+                  "duration": "PT3H35M",
+                  "flight_number": "ZH 9106",
+                  "airplane": "Airbus A321",
+                  "travel_class": "Economy",
+                  "marketing_carrier": {
+                    "name": "Shenzhen",
+                    "iata_code": "ZH"
+                  },
+                  "operating_carrier": {
+                    "name": "Shenzhen",
+                    "iata_code": null
+                  }
+                },
+                {
+                  "origin": "SZX",
+                  "destination": "SGN",
+                  "departing_at": "2026-10-26T00:10:00",
+                  "arriving_at": "2026-10-26T01:50:00",
+                  "duration": "PT2H40M",
+                  "flight_number": "ZH 117",
+                  "airplane": "Boeing 737",
+                  "travel_class": "Economy",
+                  "marketing_carrier": {
+                    "name": "Shenzhen",
+                    "iata_code": "ZH"
+                  },
+                  "operating_carrier": {
+                    "name": "Shenzhen",
+                    "iata_code": null
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "offer_count_seen": 5,
+      "price_insights": null
+    },
+    {
+      "id": "return-26",
+      "label": "Return 26 Oct · morning preferred",
+      "search_ids": [
+        "6a872dce73d1752682b5ef9a",
+        "6a872ddcd2d7405ff57f4c21"
+      ],
+      "google_flights_url": "https://www.google.com/travel/flights?hl=en&gl=vn&curr=VND&tfs=CBwQAhpLEgoyMDI2LTEwLTIwIiAKA1NHThIKMjAyNi0xMC0yMBoDUFZHKgJWSjIEMzkwMCgBagcIARIDU0dOcgcIARIDU0hBcgcIARIDUFZHGikSCjIwMjYtMTAtMjYoAWoHCAESA1BFS2oHCAESA1BLWHIHCAESA1NHTkABQAFAAUABQAFAAUADSAFwAZgBAw&tfu=EgIIAg",
+      "slices": [
+        {
+          "origin": "SGN",
+          "destination": "SHA,PVG",
+          "departure_date": "2026-10-20"
+        },
+        {
+          "origin": "PEK,PKX",
+          "destination": "SGN",
+          "departure_date": "2026-10-26"
+        }
+      ],
+      "selected_outbound": {
+        "airline": "Vietjet",
+        "departure": "2026-10-20 20:00",
+        "arrival": "2026-10-21 01:00",
+        "price_hint": 42101088
+      },
+      "preferred_window_matched": true,
+      "offers": [
+        {
+          "id": "WyJDalJJZVZKZk1XNXdkRzF3VWxWQlJXTlVNa0ZDUnkwdExTMHRMUzB0TFhscFltSnBNa0ZCUVVGQlIzRklUR1IzVGkxbVpqSkJFZ3hEV2pNeE1UWjhRMW96TnpNYURBamcwb2tVRUFBYUExWk9SRGdjY0k3c0NRPT0iLFtbIlNHTiIsIjIwMjYtMTAtMjAiLCJQVkciLG51bGwsIlZKIiwiMzkwMCJdXSxbWyJQS1giLCIyMDI2LTEwLTI2IiwiQ0FOIixudWxsLCJDWiIsIjMxMTYiXSxbIkNBTiIsIjIwMjYtMTAtMjYiLCJTR04iLG51bGwsIkNaIiwiMzczIl1dXQ==",
+          "source": "Google Flights via SerpApi",
+          "live_mode": true,
+          "expires_at": null,
+          "total_amount": "42101088",
+          "total_currency": "VND",
+          "base_amount": null,
+          "tax_amount": null,
+          "total_emissions_kg": null,
+          "total_duration_minutes": 755,
+          "booking_token": "WyJDalJJZVZKZk1XNXdkRzF3VWxWQlJXTlVNa0ZDUnkwdExTMHRMUzB0TFhscFltSnBNa0ZCUVVGQlIzRklUR1IzVGkxbVpqSkJFZ3hEV2pNeE1UWjhRMW96TnpNYURBamcwb2tVRUFBYUExWk9SRGdjY0k3c0NRPT0iLFtbIlNHTiIsIjIwMjYtMTAtMjAiLCJQVkciLG51bGwsIlZKIiwiMzkwMCJdXSxbWyJQS1giLCIyMDI2LTEwLTI2IiwiQ0FOIixudWxsLCJDWiIsIjMxMTYiXSxbIkNBTiIsIjIwMjYtMTAtMjYiLCJTR04iLG51bGwsIkNaIiwiMzczIl1dXQ==",
+          "google_flights_url": "https://www.google.com/travel/flights?hl=en&gl=vn&curr=VND&tfs=CBwQAhpLEgoyMDI2LTEwLTIwIiAKA1NHThIKMjAyNi0xMC0yMBoDUFZHKgJWSjIEMzkwMCgBagcIARIDU0dOcgcIARIDU0hBcgcIARIDUFZHGikSCjIwMjYtMTAtMjYoAWoHCAESA1BFS2oHCAESA1BLWHIHCAESA1NHTkABQAFAAUABQAFAAUADSAFwAZgBAw&tfu=EgIIAg",
+          "owner": {
+            "name": "Mixed airlines",
+            "iata_code": "VJ",
+            "logo_symbol_url": "https://www.gstatic.com/flights/airline_logos/70px/CZ.png"
+          },
+          "slices": [
+            {
+              "origin": "SGN",
+              "destination": "PVG",
+              "duration": "PT4H",
+              "segments": [
+                {
+                  "origin": "SGN",
+                  "destination": "PVG",
+                  "departing_at": "2026-10-20T20:00:00",
+                  "arriving_at": "2026-10-21T01:00:00",
+                  "duration": "PT4H",
+                  "flight_number": "VJ 3900",
+                  "airplane": "Airbus A321",
+                  "travel_class": "Economy",
+                  "marketing_carrier": {
+                    "name": "Vietjet",
+                    "iata_code": "VJ"
+                  },
+                  "operating_carrier": {
+                    "name": "Vietjet",
+                    "iata_code": null
+                  }
+                }
+              ]
+            },
+            {
+              "origin": "PKX",
+              "destination": "SGN",
+              "duration": "PT8H35M",
+              "segments": [
+                {
+                  "origin": "PKX",
+                  "destination": "CAN",
+                  "departing_at": "2026-10-26T07:30:00",
+                  "arriving_at": "2026-10-26T10:45:00",
+                  "duration": "PT3H15M",
+                  "flight_number": "CZ 3116",
+                  "airplane": "Boeing 737MAX 8 Passenger",
+                  "travel_class": "Economy",
+                  "marketing_carrier": {
+                    "name": "China Southern",
+                    "iata_code": "CZ"
+                  },
+                  "operating_carrier": {
+                    "name": "China Southern",
+                    "iata_code": null
+                  }
+                },
+                {
+                  "origin": "CAN",
+                  "destination": "SGN",
+                  "departing_at": "2026-10-26T13:05:00",
+                  "arriving_at": "2026-10-26T15:05:00",
+                  "duration": "PT3H",
+                  "flight_number": "CZ 373",
+                  "airplane": "Airbus A321neo",
+                  "travel_class": "Economy",
+                  "marketing_carrier": {
+                    "name": "China Southern",
+                    "iata_code": "CZ"
+                  },
+                  "operating_carrier": {
+                    "name": "China Southern",
+                    "iata_code": null
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "WyJDalJJZVZKZk1XNXdkRzF3VWxWQlJXTlVNa0ZDUnkwdExTMHRMUzB0TFhscFltSnBNa0ZCUVVGQlIzRklUR1IzVGkxbVpqSkJFZzFUUXpRMk5UaDhVME0wTmpRMUdnd0k3OXl4RlJBQUdnTldUa1E0SEhERXZnbz0iLFtbIlNHTiIsIjIwMjYtMTAtMjAiLCJQVkciLG51bGwsIlZKIiwiMzkwMCJdXSxbWyJQRUsiLCIyMDI2LTEwLTI2IiwiVEFPIixudWxsLCJTQyIsIjQ2NTgiXSxbIlRBTyIsIjIwMjYtMTAtMjciLCJTR04iLG51bGwsIlNDIiwiNDY0NSJdXV0=",
+          "source": "Google Flights via SerpApi",
+          "live_mode": true,
+          "expires_at": null,
+          "total_amount": "44854895",
+          "total_currency": "VND",
+          "base_amount": null,
+          "tax_amount": null,
+          "total_emissions_kg": null,
+          "total_duration_minutes": 2585,
+          "booking_token": "WyJDalJJZVZKZk1XNXdkRzF3VWxWQlJXTlVNa0ZDUnkwdExTMHRMUzB0TFhscFltSnBNa0ZCUVVGQlIzRklUR1IzVGkxbVpqSkJFZzFUUXpRMk5UaDhVME0wTmpRMUdnd0k3OXl4RlJBQUdnTldUa1E0SEhERXZnbz0iLFtbIlNHTiIsIjIwMjYtMTAtMjAiLCJQVkciLG51bGwsIlZKIiwiMzkwMCJdXSxbWyJQRUsiLCIyMDI2LTEwLTI2IiwiVEFPIixudWxsLCJTQyIsIjQ2NTgiXSxbIlRBTyIsIjIwMjYtMTAtMjciLCJTR04iLG51bGwsIlNDIiwiNDY0NSJdXV0=",
+          "google_flights_url": "https://www.google.com/travel/flights?hl=en&gl=vn&curr=VND&tfs=CBwQAhpLEgoyMDI2LTEwLTIwIiAKA1NHThIKMjAyNi0xMC0yMBoDUFZHKgJWSjIEMzkwMCgBagcIARIDU0dOcgcIARIDU0hBcgcIARIDUFZHGikSCjIwMjYtMTAtMjYoAWoHCAESA1BFS2oHCAESA1BLWHIHCAESA1NHTkABQAFAAUABQAFAAUADSAFwAZgBAw&tfu=EgIIAg",
+          "owner": {
+            "name": "Mixed airlines",
+            "iata_code": "VJ",
+            "logo_symbol_url": "https://www.gstatic.com/flights/airline_logos/70px/SC.png"
+          },
+          "slices": [
+            {
+              "origin": "SGN",
+              "destination": "PVG",
+              "duration": "PT4H",
+              "segments": [
+                {
+                  "origin": "SGN",
+                  "destination": "PVG",
+                  "departing_at": "2026-10-20T20:00:00",
+                  "arriving_at": "2026-10-21T01:00:00",
+                  "duration": "PT4H",
+                  "flight_number": "VJ 3900",
+                  "airplane": "Airbus A321",
+                  "travel_class": "Economy",
+                  "marketing_carrier": {
+                    "name": "Vietjet",
+                    "iata_code": "VJ"
+                  },
+                  "operating_carrier": {
+                    "name": "Vietjet",
+                    "iata_code": null
+                  }
+                }
+              ]
+            },
+            {
+              "origin": "PEK",
+              "destination": "SGN",
+              "duration": "PT39H5M",
+              "segments": [
+                {
+                  "origin": "PEK",
+                  "destination": "TAO",
+                  "departing_at": "2026-10-26T10:25:00",
+                  "arriving_at": "2026-10-26T12:00:00",
+                  "duration": "PT1H35M",
+                  "flight_number": "SC 4658",
+                  "airplane": "Boeing 737",
+                  "travel_class": "Economy",
+                  "marketing_carrier": {
+                    "name": "Shandong",
+                    "iata_code": "SC"
+                  },
+                  "operating_carrier": {
+                    "name": "Shandong",
+                    "iata_code": null
+                  }
+                },
+                {
+                  "origin": "TAO",
+                  "destination": "SGN",
+                  "departing_at": "2026-10-27T20:05:00",
+                  "arriving_at": "2026-10-28T00:30:00",
+                  "duration": "PT5H25M",
+                  "flight_number": "SC 4645",
+                  "airplane": "Boeing 737MAX 8 Passenger",
+                  "travel_class": "Economy",
+                  "marketing_carrier": {
+                    "name": "Shandong",
+                    "iata_code": "SC"
+                  },
+                  "operating_carrier": {
+                    "name": "Shandong",
+                    "iata_code": null
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "WyJDalJJZVZKZk1XNXdkRzF3VWxWQlJXTlVNa0ZDUnkwdExTMHRMUzB0TFhscFltSnBNa0ZCUVVGQlIzRklUR1IzVGkxbVpqSkJFZ1ZXVGpVeE54b01DSXlFcGhjUUFCb0RWazVFT0J4d3E3WUwiLFtbIlNHTiIsIjIwMjYtMTAtMjAiLCJQVkciLG51bGwsIlZKIiwiMzkwMCJdXSxbWyJQS1giLCIyMDI2LTEwLTI2IiwiU0dOIixudWxsLCJWTiIsIjUxNyJdXV0=",
+          "source": "Google Flights via SerpApi",
+          "live_mode": true,
+          "expires_at": null,
+          "total_amount": "48857612",
+          "total_currency": "VND",
+          "base_amount": null,
+          "tax_amount": null,
+          "total_emissions_kg": null,
+          "total_duration_minutes": 525,
+          "booking_token": "WyJDalJJZVZKZk1XNXdkRzF3VWxWQlJXTlVNa0ZDUnkwdExTMHRMUzB0TFhscFltSnBNa0ZCUVVGQlIzRklUR1IzVGkxbVpqSkJFZ1ZXVGpVeE54b01DSXlFcGhjUUFCb0RWazVFT0J4d3E3WUwiLFtbIlNHTiIsIjIwMjYtMTAtMjAiLCJQVkciLG51bGwsIlZKIiwiMzkwMCJdXSxbWyJQS1giLCIyMDI2LTEwLTI2IiwiU0dOIixudWxsLCJWTiIsIjUxNyJdXV0=",
+          "google_flights_url": "https://www.google.com/travel/flights?hl=en&gl=vn&curr=VND&tfs=CBwQAhpLEgoyMDI2LTEwLTIwIiAKA1NHThIKMjAyNi0xMC0yMBoDUFZHKgJWSjIEMzkwMCgBagcIARIDU0dOcgcIARIDU0hBcgcIARIDUFZHGikSCjIwMjYtMTAtMjYoAWoHCAESA1BFS2oHCAESA1BLWHIHCAESA1NHTkABQAFAAUABQAFAAUADSAFwAZgBAw&tfu=EgIIAg",
+          "owner": {
+            "name": "Mixed airlines",
+            "iata_code": "VJ",
+            "logo_symbol_url": "https://www.gstatic.com/flights/airline_logos/70px/VN.png"
+          },
+          "slices": [
+            {
+              "origin": "SGN",
+              "destination": "PVG",
+              "duration": "PT4H",
+              "segments": [
+                {
+                  "origin": "SGN",
+                  "destination": "PVG",
+                  "departing_at": "2026-10-20T20:00:00",
+                  "arriving_at": "2026-10-21T01:00:00",
+                  "duration": "PT4H",
+                  "flight_number": "VJ 3900",
+                  "airplane": "Airbus A321",
+                  "travel_class": "Economy",
+                  "marketing_carrier": {
+                    "name": "Vietjet",
+                    "iata_code": "VJ"
+                  },
+                  "operating_carrier": {
+                    "name": "Vietjet",
+                    "iata_code": null
+                  }
+                }
+              ]
+            },
+            {
+              "origin": "PKX",
+              "destination": "SGN",
+              "duration": "PT4H45M",
+              "segments": [
+                {
+                  "origin": "PKX",
+                  "destination": "SGN",
+                  "departing_at": "2026-10-26T08:30:00",
+                  "arriving_at": "2026-10-26T12:15:00",
+                  "duration": "PT4H45M",
+                  "flight_number": "VN 517",
+                  "airplane": "Airbus A321",
+                  "travel_class": "Economy",
+                  "marketing_carrier": {
+                    "name": "Vietnam Airlines",
+                    "iata_code": "VN"
+                  },
+                  "operating_carrier": {
+                    "name": "Vietnam Airlines",
+                    "iata_code": null
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "offer_count_seen": 6,
+      "price_insights": null
+    }
+  ],
+  "cheapest": {
+    "scenario_id": "return-25",
+    "label": "Return 25 Oct · evening preferred",
+    "offer": {
+      "id": "WyJDalJJYm1Sd2JuQndTRUp4V25OQlJITldWa0ZDUnkwdExTMHRMUzB0TFhsc2Fta3hOMEZCUVVGQlIzRklUR00wU0V3d1dpMUJFZzFEV2pNeE1EQjhRMW8yTURnNUdnd0k0TktKRkJBQUdnTldUa1E0SEhDTzdBaz0iLFtbIlNHTiIsIjIwMjYtMTAtMjAiLCJQVkciLG51bGwsIlZKIiwiMzkwMCJdXSxbWyJQS1giLCIyMDI2LTEwLTI1IiwiQ0FOIixudWxsLCJDWiIsIjMxMDAiXSxbIkNBTiIsIjIwMjYtMTAtMjUiLCJTR04iLG51bGwsIkNaIiwiNjA4OSJdXV0=",
+      "source": "Google Flights via SerpApi",
+      "live_mode": true,
+      "expires_at": null,
+      "total_amount": "42101088",
+      "total_currency": "VND",
+      "base_amount": null,
+      "tax_amount": null,
+      "total_emissions_kg": null,
+      "total_duration_minutes": 710,
+      "booking_token": "WyJDalJJYm1Sd2JuQndTRUp4V25OQlJITldWa0ZDUnkwdExTMHRMUzB0TFhsc2Fta3hOMEZCUVVGQlIzRklUR00wU0V3d1dpMUJFZzFEV2pNeE1EQjhRMW8yTURnNUdnd0k0TktKRkJBQUdnTldUa1E0SEhDTzdBaz0iLFtbIlNHTiIsIjIwMjYtMTAtMjAiLCJQVkciLG51bGwsIlZKIiwiMzkwMCJdXSxbWyJQS1giLCIyMDI2LTEwLTI1IiwiQ0FOIixudWxsLCJDWiIsIjMxMDAiXSxbIkNBTiIsIjIwMjYtMTAtMjUiLCJTR04iLG51bGwsIkNaIiwiNjA4OSJdXV0=",
+      "google_flights_url": "https://www.google.com/travel/flights?hl=en&gl=vn&curr=VND&tfs=CBwQAhpLEgoyMDI2LTEwLTIwIiAKA1NHThIKMjAyNi0xMC0yMBoDUFZHKgJWSjIEMzkwMCgBagcIARIDU0dOcgcIARIDU0hBcgcIARIDUFZHGikSCjIwMjYtMTAtMjUoAWoHCAESA1BFS2oHCAESA1BLWHIHCAESA1NHTkABQAFAAUABQAFAAUADSAFwAZgBAw&tfu=EgIIAg",
+      "owner": {
+        "name": "Mixed airlines",
+        "iata_code": "VJ",
+        "logo_symbol_url": "https://www.gstatic.com/flights/airline_logos/70px/CZ.png"
+      },
+      "slices": [
+        {
+          "origin": "SGN",
+          "destination": "PVG",
+          "duration": "PT4H",
+          "segments": [
+            {
+              "origin": "SGN",
+              "destination": "PVG",
+              "departing_at": "2026-10-20T20:00:00",
+              "arriving_at": "2026-10-21T01:00:00",
+              "duration": "PT4H",
+              "flight_number": "VJ 3900",
+              "airplane": "Airbus A321",
+              "travel_class": "Economy",
+              "marketing_carrier": {
+                "name": "Vietjet",
+                "iata_code": "VJ"
+              },
+              "operating_carrier": {
+                "name": "Vietjet",
+                "iata_code": null
+              }
+            }
+          ]
+        },
+        {
+          "origin": "PKX",
+          "destination": "SGN",
+          "duration": "PT7H50M",
+          "segments": [
+            {
+              "origin": "PKX",
+              "destination": "CAN",
+              "departing_at": "2026-10-25T18:30:00",
+              "arriving_at": "2026-10-25T21:50:00",
+              "duration": "PT3H20M",
+              "flight_number": "CZ 3100",
+              "airplane": "Boeing 787",
+              "travel_class": "Economy",
+              "marketing_carrier": {
+                "name": "China Southern",
+                "iata_code": "CZ"
+              },
+              "operating_carrier": {
+                "name": "China Southern",
+                "iata_code": null
+              }
+            },
+            {
+              "origin": "CAN",
+              "destination": "SGN",
+              "departing_at": "2026-10-25T23:25:00",
+              "arriving_at": "2026-10-26T01:20:00",
+              "duration": "PT2H55M",
+              "flight_number": "CZ 6089",
+              "airplane": "Airbus A320",
+              "travel_class": "Economy",
+              "marketing_carrier": {
+                "name": "China Southern",
+                "iata_code": "CZ"
+              },
+              "operating_carrier": {
+                "name": "China Southern",
+                "iata_code": null
+              }
+            }
+          ]
+        }
+      ]
+    }
+  }
 }
