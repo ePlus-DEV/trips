@@ -1,174 +1,288 @@
 import fs from 'node:fs/promises';
 import path from 'node:path';
 
-const TOKEN = process.env.DUFFEL_ACCESS_TOKEN;
-if (!TOKEN) {
-  console.error('Missing DUFFEL_ACCESS_TOKEN. Add it as a GitHub Actions repository secret.');
+const API_KEY = process.env.SERPAPI_API_KEY;
+if (!API_KEY) {
+  console.error('Missing SERPAPI_API_KEY. Add it as a GitHub Actions repository secret.');
   process.exit(2);
 }
 
-const API = 'https://api.duffel.com';
+const API = 'https://serpapi.com/search.json';
 const OUT = path.resolve('data/flights.json');
 const HISTORY = path.resolve('data/flight-history.json');
 
 const SEARCH = {
   passengers: {
     adults: 6,
-    infantAge: 1,
-    label: '6 adults + 1 infant (<2)'
+    infantsOnLap: 1,
+    label: '6 adults + 1 infant (<2, on lap)'
   },
+  travelClass: 1,
   cabinClass: 'economy',
+  stops: 2,
   maxConnections: 1,
+  currency: 'VND',
   scenarios: [
     {
       id: 'return-25',
       label: 'Return 25 Oct · evening preferred',
-      slices: [
-        { origin: 'SGN', destination: 'SHA', departure_date: '2026-10-20' },
-        { origin: 'BJS', destination: 'SGN', departure_date: '2026-10-25' }
+      legs: [
+        { departure_id: 'SGN', arrival_id: 'SHA,PVG', date: '2026-10-20' },
+        { departure_id: 'PEK,PKX', arrival_id: 'SGN', date: '2026-10-25' }
       ],
       returnWindow: { afterHour: 17 }
     },
     {
       id: 'return-26',
       label: 'Return 26 Oct · morning preferred',
-      slices: [
-        { origin: 'SGN', destination: 'SHA', departure_date: '2026-10-20' },
-        { origin: 'BJS', destination: 'SGN', departure_date: '2026-10-26' }
+      legs: [
+        { departure_id: 'SGN', arrival_id: 'SHA,PVG', date: '2026-10-20' },
+        { departure_id: 'PEK,PKX', arrival_id: 'SGN', date: '2026-10-26' }
       ],
       returnWindow: { beforeHour: 12 }
     }
   ]
 };
 
-const headers = {
-  Accept: 'application/json',
-  'Content-Type': 'application/json',
-  'Duffel-Version': 'v2',
-  Authorization: `Bearer ${TOKEN}`
-};
-
-async function duffel(url, options = {}) {
-  const response = await fetch(`${API}${url}`, {
-    ...options,
-    headers: { ...headers, ...(options.headers || {}) }
+async function serpapi(params) {
+  const url = new URL(API);
+  Object.entries(params).forEach(([key, value]) => {
+    if (value !== undefined && value !== null && value !== '') {
+      url.searchParams.set(key, String(value));
+    }
   });
+  url.searchParams.set('api_key', API_KEY);
 
+  const response = await fetch(url, { headers: { Accept: 'application/json' } });
   const text = await response.text();
+
   let body;
   try { body = text ? JSON.parse(text) : {}; }
   catch { body = { raw: text }; }
 
-  if (!response.ok) {
-    const message = body?.errors?.map?.(e => e.message).filter(Boolean).join('; ') || body?.message || `HTTP ${response.status}`;
-    throw new Error(`Duffel request failed: ${message}`);
+  if (!response.ok || body?.error) {
+    throw new Error(`SerpApi request failed: ${body?.error || `HTTP ${response.status}`}`);
   }
+
+  if (body?.search_metadata?.status && body.search_metadata.status !== 'Success') {
+    throw new Error(`SerpApi search did not complete successfully: ${body.search_metadata.status}`);
+  }
+
   return body;
 }
 
-function passengers() {
+function baseParams(scenario) {
+  return {
+    engine: 'google_flights',
+    type: 3,
+    multi_city_json: JSON.stringify(scenario.legs),
+    adults: SEARCH.passengers.adults,
+    infants_on_lap: SEARCH.passengers.infantsOnLap,
+    travel_class: SEARCH.travelClass,
+    stops: SEARCH.stops,
+    currency: SEARCH.currency,
+    hl: 'en',
+    gl: 'vn',
+    sort_by: 2
+  };
+}
+
+function allResults(body) {
   return [
-    ...Array.from({ length: SEARCH.passengers.adults }, () => ({ type: 'adult' })),
-    { age: SEARCH.passengers.infantAge }
-  ];
+    ...(Array.isArray(body?.best_flights) ? body.best_flights : []),
+    ...(Array.isArray(body?.other_flights) ? body.other_flights : [])
+  ].filter(x => Number.isFinite(Number(x?.price)));
+}
+
+function minutesToIso(minutes) {
+  const n = Number(minutes);
+  if (!Number.isFinite(n) || n < 0) return null;
+  const hours = Math.floor(n / 60);
+  const mins = Math.round(n % 60);
+  return `PT${hours ? `${hours}H` : ''}${mins ? `${mins}M` : (!hours ? '0M' : '')}`;
+}
+
+function timeToIso(value) {
+  if (!value) return null;
+  const raw = String(value).trim();
+  if (/^\d{4}-\d{2}-\d{2}T/.test(raw)) return raw;
+  const match = raw.match(/^(\d{4}-\d{2}-\d{2})\s+(\d{1,2}):(\d{2})$/);
+  if (match) return `${match[1]}T${match[2].padStart(2, '0')}:${match[3]}:00`;
+  return raw;
 }
 
 function localHour(value) {
-  if (!value || value.length < 13) return null;
-  const hour = Number(value.slice(11, 13));
+  if (!value) return null;
+  const match = String(value).match(/[T\s](\d{1,2}):/);
+  if (!match) return null;
+  const hour = Number(match[1]);
   return Number.isFinite(hour) ? hour : null;
 }
 
+function compactSegment(flight) {
+  const airline = flight.airline || flight.operated_by || 'Airline';
+  return {
+    origin: flight.departure_airport?.id || flight.departure_airport?.name || null,
+    destination: flight.arrival_airport?.id || flight.arrival_airport?.name || null,
+    departing_at: timeToIso(flight.departure_airport?.time),
+    arriving_at: timeToIso(flight.arrival_airport?.time),
+    duration: minutesToIso(flight.duration),
+    flight_number: flight.flight_number || null,
+    airplane: flight.airplane || null,
+    travel_class: flight.travel_class || null,
+    marketing_carrier: {
+      name: airline,
+      iata_code: String(flight.flight_number || '').replace(/\s+/g, '').match(/^([A-Z0-9]{2})/)?.[1] || null
+    },
+    operating_carrier: {
+      name: flight.operated_by || airline,
+      iata_code: null
+    }
+  };
+}
+
+function compactLeg(raw, fallback) {
+  const flights = Array.isArray(raw?.flights) ? raw.flights : [];
+  if (!flights.length) return null;
+
+  return {
+    origin: flights[0]?.departure_airport?.id || fallback?.departure_id || null,
+    destination: flights.at(-1)?.arrival_airport?.id || fallback?.arrival_id || null,
+    duration: minutesToIso(raw.total_duration || flights.reduce((sum, f) => sum + (Number(f.duration) || 0), 0)),
+    segments: flights.map(compactSegment)
+  };
+}
+
+function airlineNames(raw) {
+  return [...new Set((raw?.flights || []).map(f => f.airline || f.operated_by).filter(Boolean))];
+}
+
+function ownerFor(outbound, returning) {
+  const names = [...new Set([...airlineNames(outbound), ...airlineNames(returning)])];
+  const firstFlight = outbound?.flights?.[0] || returning?.flights?.[0];
+  return {
+    name: names.length === 1 ? names[0] : names.length > 1 ? 'Mixed airlines' : 'Airline',
+    iata_code: String(firstFlight?.flight_number || '').replace(/\s+/g, '').match(/^([A-Z0-9]{2})/)?.[1] || null,
+    logo_symbol_url: returning?.airline_logo || outbound?.airline_logo || firstFlight?.airline_logo || null
+  };
+}
+
+function compactOffer(outbound, returning, scenario, body, index) {
+  const outboundSlice = compactLeg(outbound, scenario.legs[0]);
+  const returnSlice = compactLeg(returning, scenario.legs[1]);
+  if (!outboundSlice || !returnSlice) return null;
+
+  return {
+    id: returning.booking_token || `${scenario.id}-${index}-${returning.price}`,
+    source: 'Google Flights via SerpApi',
+    live_mode: true,
+    expires_at: null,
+    total_amount: String(returning.price),
+    total_currency: SEARCH.currency,
+    base_amount: null,
+    tax_amount: null,
+    total_emissions_kg: null,
+    total_duration_minutes: (Number(outbound.total_duration) || 0) + (Number(returning.total_duration) || 0),
+    booking_token: returning.booking_token || null,
+    google_flights_url: body?.search_metadata?.google_flights_url || null,
+    owner: ownerFor(outbound, returning),
+    slices: [outboundSlice, returnSlice]
+  };
+}
+
 function preferredReturn(offer, scenario) {
-  const returnSlice = offer?.slices?.[1];
-  const depart = returnSlice?.segments?.[0]?.departing_at;
-  const hour = localHour(depart);
+  const hour = localHour(offer?.slices?.[1]?.segments?.[0]?.departing_at);
   if (hour === null || !scenario.returnWindow) return true;
   if (scenario.returnWindow.afterHour !== undefined && hour < scenario.returnWindow.afterHour) return false;
   if (scenario.returnWindow.beforeHour !== undefined && hour >= scenario.returnWindow.beforeHour) return false;
   return true;
 }
 
-function compactSegment(segment) {
-  return {
-    origin: segment.origin?.iata_code || segment.origin?.city_name || segment.origin?.name,
-    destination: segment.destination?.iata_code || segment.destination?.city_name || segment.destination?.name,
-    departing_at: segment.departing_at,
-    arriving_at: segment.arriving_at,
-    duration: segment.duration,
-    flight_number: segment.marketing_carrier_flight_number || null,
-    marketing_carrier: segment.marketing_carrier ? {
-      name: segment.marketing_carrier.name,
-      iata_code: segment.marketing_carrier.iata_code
-    } : null,
-    operating_carrier: segment.operating_carrier ? {
-      name: segment.operating_carrier.name,
-      iata_code: segment.operating_carrier.iata_code
-    } : null
-  };
-}
+function dedupeOffers(items) {
+  const seen = new Set();
+  return items.filter(offer => {
+    const key = [
+      offer.total_amount,
+      ...offer.slices.flatMap(slice =>
+        slice.segments.map(seg => `${seg.flight_number || ''}:${seg.departing_at || ''}`)
+      )
+    ].join('|');
 
-function compactOffer(offer) {
-  return {
-    id: offer.id,
-    live_mode: offer.live_mode,
-    expires_at: offer.expires_at,
-    total_amount: offer.total_amount,
-    total_currency: offer.total_currency,
-    base_amount: offer.base_amount,
-    tax_amount: offer.tax_amount,
-    total_emissions_kg: offer.total_emissions_kg,
-    owner: offer.owner ? {
-      name: offer.owner.name,
-      iata_code: offer.owner.iata_code,
-      logo_symbol_url: offer.owner.logo_symbol_url || null
-    } : null,
-    slices: (offer.slices || []).map(slice => ({
-      origin: slice.origin?.iata_code || slice.origin?.city_name || slice.origin?.name,
-      destination: slice.destination?.iata_code || slice.destination?.city_name || slice.destination?.name,
-      duration: slice.duration,
-      segments: (slice.segments || []).map(compactSegment)
-    }))
-  };
+    if (seen.has(key)) return false;
+    seen.add(key);
+    return true;
+  });
 }
 
 async function searchScenario(scenario) {
   console.log(`Searching ${scenario.label}...`);
 
-  const created = await duffel('/air/offer_requests?return_offers=false&supplier_timeout=20000', {
-    method: 'POST',
-    body: JSON.stringify({
-      data: {
-        slices: scenario.slices,
-        passengers: passengers(),
-        cabin_class: SEARCH.cabinClass
-      }
-    })
+  // Google Flights multi-city selection is sequential in SerpApi.
+  // First request returns the first-leg choices + departure_token.
+  // Second request selects that first leg and returns the next leg + total itinerary prices.
+  const initial = await serpapi(baseParams(scenario));
+  const outboundCandidates = allResults(initial)
+    .filter(x => x.departure_token)
+    .sort((a, b) => Number(a.price) - Number(b.price));
+
+  const outbound = outboundCandidates[0];
+  if (!outbound) {
+    return {
+      id: scenario.id,
+      label: scenario.label,
+      search_ids: [initial?.search_metadata?.id].filter(Boolean),
+      google_flights_url: initial?.search_metadata?.google_flights_url || null,
+      slices: scenario.legs.map(leg => ({ origin: leg.departure_id, destination: leg.arrival_id, departure_date: leg.date })),
+      preferred_window_matched: false,
+      offers: [],
+      offer_count_seen: 0,
+      warning: 'Google Flights returned no selectable outbound flight.'
+    };
+  }
+
+  const next = await serpapi({
+    ...baseParams(scenario),
+    departure_token: outbound.departure_token
   });
 
-  const requestId = created?.data?.id;
-  if (!requestId) throw new Error(`Duffel did not return an offer request id for ${scenario.id}`);
-  if (created?.data?.live_mode !== true) throw new Error('Duffel token is not in live mode. Refusing to publish test prices as live prices.');
+  const selectedOutbound = Array.isArray(next.selected_flights) && next.selected_flights.length
+    ? next.selected_flights[0]
+    : outbound;
 
-  const params = new URLSearchParams({
-    offer_request_id: requestId,
-    limit: '100',
-    sort: 'total_amount',
-    max_connections: String(SEARCH.maxConnections)
-  });
-  const listed = await duffel(`/air/offers?${params.toString()}`);
-  const allOffers = listed?.data || [];
-  const preferred = allOffers.filter(offer => preferredReturn(offer, scenario));
-  const selected = (preferred.length ? preferred : allOffers).slice(0, 8).map(compactOffer);
+  const returningCandidates = allResults(next)
+    .filter(x => x.booking_token || Number.isFinite(Number(x.price)))
+    .sort((a, b) => Number(a.price) - Number(b.price));
+
+  const normalized = dedupeOffers(
+    returningCandidates
+      .map((returning, index) => compactOffer(selectedOutbound, returning, scenario, next, index))
+      .filter(Boolean)
+      .sort((a, b) => Number(a.total_amount) - Number(b.total_amount))
+  );
+
+  const preferred = normalized.filter(offer => preferredReturn(offer, scenario));
+  const selected = (preferred.length ? preferred : normalized).slice(0, 12);
 
   return {
     id: scenario.id,
     label: scenario.label,
-    offer_request_id: requestId,
-    slices: scenario.slices,
+    search_ids: [initial?.search_metadata?.id, next?.search_metadata?.id].filter(Boolean),
+    google_flights_url: next?.search_metadata?.google_flights_url || initial?.search_metadata?.google_flights_url || null,
+    slices: scenario.legs.map(leg => ({
+      origin: leg.departure_id,
+      destination: leg.arrival_id,
+      departure_date: leg.date
+    })),
+    selected_outbound: {
+      airline: selectedOutbound?.flights?.[0]?.airline || null,
+      departure: selectedOutbound?.flights?.[0]?.departure_airport?.time || null,
+      arrival: selectedOutbound?.flights?.at(-1)?.arrival_airport?.time || null,
+      price_hint: selectedOutbound?.price ?? null
+    },
     preferred_window_matched: preferred.length > 0,
     offers: selected,
-    offer_count_seen: allOffers.length
+    offer_count_seen: normalized.length,
+    price_insights: next?.price_insights || null
   };
 }
 
@@ -190,33 +304,37 @@ for (const scenario of scenarios) {
   const current = scenario.offers[0];
   const previousScenario = previous?.scenarios?.find?.(s => s.id === scenario.id);
   const old = previousScenario?.offers?.[0];
+
   if (current && old && current.total_currency === old.total_currency) {
     current.previous_total_amount = old.total_amount;
-    current.price_delta = (Number(current.total_amount) - Number(old.total_amount)).toFixed(2);
+    current.price_delta = (Number(current.total_amount) - Number(old.total_amount)).toFixed(0);
   }
 }
 
 const allCheapest = scenarios
   .map(s => ({ scenario_id: s.id, label: s.label, offer: s.offers[0] }))
-  .filter(x => x.offer);
+  .filter(x => x.offer)
+  .sort((a, b) => Number(a.offer.total_amount) - Number(b.offer.total_amount));
 
 const result = {
-  status: 'ok',
-  provider: 'Duffel',
+  status: allCheapest.length ? 'ok' : 'no_results',
+  provider: 'SerpApi',
+  source: 'Google Flights',
   generated_at: generatedAt,
   live_mode: true,
-  disclaimer: 'Search snapshot only. Airline offers can change or expire; refresh before booking.',
+  disclaimer: allCheapest.length
+    ? 'Google Flights multi-city search snapshot for the selected 7 travellers. Fares can change and baggage/payment fees may apply.'
+    : 'SerpApi completed successfully but Google Flights returned no comparable itinerary for the configured routes.',
   search: {
     passengers: SEARCH.passengers,
     cabin_class: SEARCH.cabinClass,
     max_connections: SEARCH.maxConnections,
+    currency: SEARCH.currency,
+    searches_per_refresh: SEARCH.scenarios.length * 2,
     route_label: 'SGN → Shanghai · Beijing → SGN'
   },
   scenarios,
-  cheapest: allCheapest.sort((a, b) => {
-    if (a.offer.total_currency !== b.offer.total_currency) return 0;
-    return Number(a.offer.total_amount) - Number(b.offer.total_amount);
-  })[0] || null
+  cheapest: allCheapest[0] || null
 };
 
 const historyRows = scenarios.flatMap(s => {
@@ -226,10 +344,13 @@ const historyRows = scenarios.flatMap(s => {
     scenario_id: s.id,
     total_amount: o.total_amount,
     total_currency: o.total_currency,
-    airline: o.owner?.name || null
+    airline: o.owner?.name || null,
+    provider: 'SerpApi',
+    source: 'Google Flights'
   }] : [];
 });
-const history = [...oldHistory, ...historyRows].slice(-360);
+
+const history = [...(Array.isArray(oldHistory) ? oldHistory : []), ...historyRows].slice(-360);
 
 await fs.mkdir(path.dirname(OUT), { recursive: true });
 await fs.writeFile(OUT, JSON.stringify(result, null, 2) + '\n');
