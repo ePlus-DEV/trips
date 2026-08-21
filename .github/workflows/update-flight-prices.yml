@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
   schedule:
     # 07:17 in Vietnam (UTC+7). One refresh uses 4 SerpApi searches.
-    # Daily schedule keeps the project comfortably inside the 250-search free tier.
+    # Daily schedule keeps the project comfortably inside the configured provider quota.
     - cron: '17 0 * * *'
 
 permissions:
@@ -31,14 +31,16 @@ jobs:
         with:
           node-version: '20'
 
-      - name: Check SerpApi secret
+      - name: Check SerpApi secrets
         id: config
         env:
           SERPAPI_API_KEY: ${{ secrets.SERPAPI_API_KEY }}
+          SERPAPI_API_KEY_2: ${{ secrets.SERPAPI_API_KEY_2 }}
+          SERPAPI_API_KEY_3: ${{ secrets.SERPAPI_API_KEY_3 }}
         run: |
-          if [ -z "$SERPAPI_API_KEY" ]; then
+          if [ -z "$SERPAPI_API_KEY" ] && [ -z "$SERPAPI_API_KEY_2" ] && [ -z "$SERPAPI_API_KEY_3" ]; then
             echo "enabled=false" >> "$GITHUB_OUTPUT"
-            echo "::warning::SERPAPI_API_KEY is not configured. Add it in Settings → Secrets and variables → Actions."
+            echo "::warning::No SerpApi key is configured. Add SERPAPI_API_KEY and optional backup keys SERPAPI_API_KEY_2 / SERPAPI_API_KEY_3 in Settings → Secrets and variables → Actions."
           else
             echo "enabled=true" >> "$GITHUB_OUTPUT"
           fi
@@ -47,7 +49,55 @@ jobs:
         if: steps.config.outputs.enabled == 'true'
         env:
           SERPAPI_API_KEY: ${{ secrets.SERPAPI_API_KEY }}
-        run: node scripts/fetch-flights.mjs
+          SERPAPI_API_KEY_2: ${{ secrets.SERPAPI_API_KEY_2 }}
+          SERPAPI_API_KEY_3: ${{ secrets.SERPAPI_API_KEY_3 }}
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          keys=("$SERPAPI_API_KEY" "$SERPAPI_API_KEY_2" "$SERPAPI_API_KEY_3")
+          attempted=0
+          last_status=1
+
+          for index in "${!keys[@]}"; do
+            key="${keys[$index]}"
+            [ -z "$key" ] && continue
+
+            attempted=$((attempted + 1))
+            slot=$((index + 1))
+            echo "Trying configured SerpApi key slot #${slot}..."
+
+            set +e
+            output=$(SERPAPI_API_KEY="$key" node scripts/fetch-flights.mjs 2>&1)
+            status=$?
+            set -e
+
+            printf '%s\n' "$output"
+
+            if [ "$status" -eq 0 ]; then
+              echo "SerpApi key slot #${slot} completed successfully."
+              exit 0
+            fi
+
+            last_status=$status
+
+            # Do not use backup credentials to bypass provider quota/rate limits.
+            # Backups are only for invalid/revoked credentials or transient service failures.
+            if printf '%s' "$output" | grep -Eqi '(^|[^0-9])429([^0-9]|$)|quota|rate[ -]?limit|monthly[[:space:]]+search|search(es)?[[:space:]]+limit|credit(s)?[[:space:]]+(exhausted|limit)'; then
+              echo "::error::SerpApi quota/rate limit detected. Backup keys will not be used to bypass provider limits."
+              exit "$status"
+            fi
+
+            echo "::warning::SerpApi key slot #${slot} failed for a non-quota reason. Trying the next configured backup key, if any."
+          done
+
+          if [ "$attempted" -eq 0 ]; then
+            echo "::error::No non-empty SerpApi key was available."
+            exit 2
+          fi
+
+          echo "::error::All configured SerpApi key slots failed."
+          exit "$last_status"
 
       - name: Evaluate price alert
         if: steps.config.outputs.enabled == 'true' && github.ref_name == 'main'
