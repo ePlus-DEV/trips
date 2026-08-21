@@ -2,7 +2,7 @@
   "status": "ok",
   "provider": "SerpApi",
   "source": "Google Flights",
-  "generated_at": "2026-08-20T16:39:38.457Z",
+  "generated_at": "2026-08-21T01:57:10.367Z",
   "live_mode": true,
   "disclaimer": "Google Flights multi-city search snapshot for the selected 7 travellers. Fares can change and baggage/payment fees may apply.",
   "search": {
@@ -22,8 +22,8 @@
       "id": "return-25",
       "label": "Return 25 Oct · evening preferred",
       "search_ids": [
-        "6a872dca18dc9366487f2aee",
-        "6a872dcd97c19f9454ea48cc"
+        "6a87b076f2593a07d9912efe",
+        "6a87b079079a2bc248706fa9"
       ],
       "google_flights_url": "https://www.google.com/travel/flights?hl=en&gl=vn&curr=VND&tfs=CBwQAhpLEgoyMDI2LTEwLTIwIiAKA1NHThIKMjAyNi0xMC0yMBoDUFZHKgJWSjIEMzkwMCgBagcIARIDU0dOcgcIARIDU0hBcgcIARIDUFZHGikSCjIwMjYtMTAtMjUoAWoHCAESA1BFS2oHCAESA1BLWHIHCAESA1NHTkABQAFAAUABQAFAAUADSAFwAZgBAw&tfu=EgIIAg",
       "slices": [
@@ -42,22 +42,22 @@
         "airline": "Vietjet",
         "departure": "2026-10-20 20:00",
         "arrival": "2026-10-21 01:00",
-        "price_hint": 42101088
+        "price_hint": 42123176
       },
       "preferred_window_matched": true,
       "offers": [
         {
-          "id": "WyJDalJJYm1Sd2JuQndTRUp4V25OQlJITldWa0ZDUnkwdExTMHRMUzB0TFhsc2Fta3hOMEZCUVVGQlIzRklUR00wU0V3d1dpMUJFZzFEV2pNeE1EQjhRMW8yTURnNUdnd0k0TktKRkJBQUdnTldUa1E0SEhDTzdBaz0iLFtbIlNHTiIsIjIwMjYtMTAtMjAiLCJQVkciLG51bGwsIlZKIiwiMzkwMCJdXSxbWyJQS1giLCIyMDI2LTEwLTI1IiwiQ0FOIixudWxsLCJDWiIsIjMxMDAiXSxbIkNBTiIsIjIwMjYtMTAtMjUiLCJTR04iLG51bGwsIkNaIiwiNjA4OSJdXV0=",
+          "id": "WyJDalJJVlZkWU4ySlVWVjlRY0VWQlFrMTFObEZDUnkwdExTMHRMUzB0TFhscGJHY3hNVUZCUVVGQlIzRkljMGh2U3pKNmNITkJFZzFEV2pNeE1EQjhRMW8yTURnNUdnd0lxUCtLRkJBQUdnTldUa1E0SEhEajdBaz0iLFtbIlNHTiIsIjIwMjYtMTAtMjAiLCJQVkciLG51bGwsIlZKIiwiMzkwMCJdXSxbWyJQS1giLCIyMDI2LTEwLTI1IiwiQ0FOIixudWxsLCJDWiIsIjMxMDAiXSxbIkNBTiIsIjIwMjYtMTAtMjUiLCJTR04iLG51bGwsIkNaIiwiNjA4OSJdXV0=",
           "source": "Google Flights via SerpApi",
           "live_mode": true,
           "expires_at": null,
-          "total_amount": "42101088",
+          "total_amount": "42123176",
           "total_currency": "VND",
           "base_amount": null,
           "tax_amount": null,
           "total_emissions_kg": null,
           "total_duration_minutes": 710,
-          "booking_token": "WyJDalJJYm1Sd2JuQndTRUp4V25OQlJITldWa0ZDUnkwdExTMHRMUzB0TFhsc2Fta3hOMEZCUVVGQlIzRklUR00wU0V3d1dpMUJFZzFEV2pNeE1EQjhRMW8yTURnNUdnd0k0TktKRkJBQUdnTldUa1E0SEhDTzdBaz0iLFtbIlNHTiIsIjIwMjYtMTAtMjAiLCJQVkciLG51bGwsIlZKIiwiMzkwMCJdXSxbWyJQS1giLCIyMDI2LTEwLTI1IiwiQ0FOIixudWxsLCJDWiIsIjMxMDAiXSxbIkNBTiIsIjIwMjYtMTAtMjUiLCJTR04iLG51bGwsIkNaIiwiNjA4OSJdXV0=",
+          "booking_token": "WyJDalJJVlZkWU4ySlVWVjlRY0VWQlFrMTFObEZDUnkwdExTMHRMUzB0TFhscGJHY3hNVUZCUVVGQlIzRkljMGh2U3pKNmNITkJFZzFEV2pNeE1EQjhRMW8yTURnNUdnd0lxUCtLRkJBQUdnTldUa1E0SEhEajdBaz0iLFtbIlNHTiIsIjIwMjYtMTAtMjAiLCJQVkciLG51bGwsIlZKIiwiMzkwMCJdXSxbWyJQS1giLCIyMDI2LTEwLTI1IiwiQ0FOIixudWxsLCJDWiIsIjMxMDAiXSxbIkNBTiIsIjIwMjYtMTAtMjUiLCJTR04iLG51bGwsIkNaIiwiNjA4OSJdXV0=",
           "google_flights_url": "https://www.google.com/travel/flights?hl=en&gl=vn&curr=VND&tfs=CBwQAhpLEgoyMDI2LTEwLTIwIiAKA1NHThIKMjAyNi0xMC0yMBoDUFZHKgJWSjIEMzkwMCgBagcIARIDU0dOcgcIARIDU0hBcgcIARIDUFZHGikSCjIwMjYtMTAtMjUoAWoHCAESA1BFS2oHCAESA1BLWHIHCAESA1NHTkABQAFAAUABQAFAAUADSAFwAZgBAw&tfu=EgIIAg",
           "owner": {
             "name": "Mixed airlines",
@@ -133,20 +133,22 @@
                 }
               ]
             }
-          ]
+          ],
+          "previous_total_amount": "42101088",
+          "price_delta": "22088"
         },
         {
-          "id": "WyJDalJJYm1Sd2JuQndTRUp4V25OQlJITldWa0ZDUnkwdExTMHRMUzB0TFhsc2Fta3hOMEZCUVVGQlIzRklUR00wU0V3d1dpMUJFZzFEV2pNeE1UUjhRMW80TVRVNUdnd0k0TktKRkJBQUdnTldUa1E0SEhDTzdBaz0iLFtbIlNHTiIsIjIwMjYtMTAtMjAiLCJQVkciLG51bGwsIlZKIiwiMzkwMCJdXSxbWyJQS1giLCIyMDI2LTEwLTI1IiwiQ0FOIixudWxsLCJDWiIsIjMxMTQiXSxbIkNBTiIsIjIwMjYtMTAtMjYiLCJTR04iLG51bGwsIkNaIiwiODE1OSJdXV0=",
+          "id": "WyJDalJJVlZkWU4ySlVWVjlRY0VWQlFrMTFObEZDUnkwdExTMHRMUzB0TFhscGJHY3hNVUZCUVVGQlIzRkljMGh2U3pKNmNITkJFZzFEV2pNeE1UUjhRMW80TVRVNUdnd0lxUCtLRkJBQUdnTldUa1E0SEhEajdBaz0iLFtbIlNHTiIsIjIwMjYtMTAtMjAiLCJQVkciLG51bGwsIlZKIiwiMzkwMCJdXSxbWyJQS1giLCIyMDI2LTEwLTI1IiwiQ0FOIixudWxsLCJDWiIsIjMxMTQiXSxbIkNBTiIsIjIwMjYtMTAtMjYiLCJTR04iLG51bGwsIkNaIiwiODE1OSJdXV0=",
           "source": "Google Flights via SerpApi",
           "live_mode": true,
           "expires_at": null,
-          "total_amount": "42101088",
+          "total_amount": "42123176",
           "total_currency": "VND",
           "base_amount": null,
           "tax_amount": null,
           "total_emissions_kg": null,
           "total_duration_minutes": 1090,
-          "booking_token": "WyJDalJJYm1Sd2JuQndTRUp4V25OQlJITldWa0ZDUnkwdExTMHRMUzB0TFhsc2Fta3hOMEZCUVVGQlIzRklUR00wU0V3d1dpMUJFZzFEV2pNeE1UUjhRMW80TVRVNUdnd0k0TktKRkJBQUdnTldUa1E0SEhDTzdBaz0iLFtbIlNHTiIsIjIwMjYtMTAtMjAiLCJQVkciLG51bGwsIlZKIiwiMzkwMCJdXSxbWyJQS1giLCIyMDI2LTEwLTI1IiwiQ0FOIixudWxsLCJDWiIsIjMxMTQiXSxbIkNBTiIsIjIwMjYtMTAtMjYiLCJTR04iLG51bGwsIkNaIiwiODE1OSJdXV0=",
+          "booking_token": "WyJDalJJVlZkWU4ySlVWVjlRY0VWQlFrMTFObEZDUnkwdExTMHRMUzB0TFhscGJHY3hNVUZCUVVGQlIzRkljMGh2U3pKNmNITkJFZzFEV2pNeE1UUjhRMW80TVRVNUdnd0lxUCtLRkJBQUdnTldUa1E0SEhEajdBaz0iLFtbIlNHTiIsIjIwMjYtMTAtMjAiLCJQVkciLG51bGwsIlZKIiwiMzkwMCJdXSxbWyJQS1giLCIyMDI2LTEwLTI1IiwiQ0FOIixudWxsLCJDWiIsIjMxMTQiXSxbIkNBTiIsIjIwMjYtMTAtMjYiLCJTR04iLG51bGwsIkNaIiwiODE1OSJdXV0=",
           "google_flights_url": "https://www.google.com/travel/flights?hl=en&gl=vn&curr=VND&tfs=CBwQAhpLEgoyMDI2LTEwLTIwIiAKA1NHThIKMjAyNi0xMC0yMBoDUFZHKgJWSjIEMzkwMCgBagcIARIDU0dOcgcIARIDU0hBcgcIARIDUFZHGikSCjIwMjYtMTAtMjUoAWoHCAESA1BFS2oHCAESA1BLWHIHCAESA1NHTkABQAFAAUABQAFAAUADSAFwAZgBAw&tfu=EgIIAg",
           "owner": {
             "name": "Mixed airlines",
@@ -225,17 +227,17 @@
           ]
         },
         {
-          "id": "WyJDalJJYm1Sd2JuQndTRUp4V25OQlJITldWa0ZDUnkwdExTMHRMUzB0TFhsc2Fta3hOMEZCUVVGQlIzRklUR00wU0V3d1dpMUJFZ3hhU0RreE1EWjhXa2d4TVRjYURBamdpdmdaRUFBYUExWk9SRGdjY0kvY0RBPT0iLFtbIlNHTiIsIjIwMjYtMTAtMjAiLCJQVkciLG51bGwsIlZKIiwiMzkwMCJdXSxbWyJQRUsiLCIyMDI2LTEwLTI1IiwiU1pYIixudWxsLCJaSCIsIjkxMDYiXSxbIlNaWCIsIjIwMjYtMTAtMjYiLCJTR04iLG51bGwsIlpIIiwiMTE3Il1dXQ==",
+          "id": "WyJDalJJVlZkWU4ySlVWVjlRY0VWQlFrMTFObEZDUnkwdExTMHRMUzB0TFhscGJHY3hNVUZCUVVGQlIzRkljMGh2U3pKNmNITkJFZ3hhU0RreE1EWjhXa2d4TVRjYURBaWJsUG9aRUFBYUExWk9SRGdjY0pIZERBPT0iLFtbIlNHTiIsIjIwMjYtMTAtMjAiLCJQVkciLG51bGwsIlZKIiwiMzkwMCJdXSxbWyJQRUsiLCIyMDI2LTEwLTI1IiwiU1pYIixudWxsLCJaSCIsIjkxMDYiXSxbIlNaWCIsIjIwMjYtMTAtMjYiLCJTR04iLG51bGwsIlpIIiwiMTE3Il1dXQ==",
           "source": "Google Flights via SerpApi",
           "live_mode": true,
           "expires_at": null,
-          "total_amount": "54396256",
+          "total_amount": "54430235",
           "total_currency": "VND",
           "base_amount": null,
           "tax_amount": null,
           "total_emissions_kg": null,
           "total_duration_minutes": 830,
-          "booking_token": "WyJDalJJYm1Sd2JuQndTRUp4V25OQlJITldWa0ZDUnkwdExTMHRMUzB0TFhsc2Fta3hOMEZCUVVGQlIzRklUR00wU0V3d1dpMUJFZ3hhU0RreE1EWjhXa2d4TVRjYURBamdpdmdaRUFBYUExWk9SRGdjY0kvY0RBPT0iLFtbIlNHTiIsIjIwMjYtMTAtMjAiLCJQVkciLG51bGwsIlZKIiwiMzkwMCJdXSxbWyJQRUsiLCIyMDI2LTEwLTI1IiwiU1pYIixudWxsLCJaSCIsIjkxMDYiXSxbIlNaWCIsIjIwMjYtMTAtMjYiLCJTR04iLG51bGwsIlpIIiwiMTE3Il1dXQ==",
+          "booking_token": "WyJDalJJVlZkWU4ySlVWVjlRY0VWQlFrMTFObEZDUnkwdExTMHRMUzB0TFhscGJHY3hNVUZCUVVGQlIzRkljMGh2U3pKNmNITkJFZ3hhU0RreE1EWjhXa2d4TVRjYURBaWJsUG9aRUFBYUExWk9SRGdjY0pIZERBPT0iLFtbIlNHTiIsIjIwMjYtMTAtMjAiLCJQVkciLG51bGwsIlZKIiwiMzkwMCJdXSxbWyJQRUsiLCIyMDI2LTEwLTI1IiwiU1pYIixudWxsLCJaSCIsIjkxMDYiXSxbIlNaWCIsIjIwMjYtMTAtMjYiLCJTR04iLG51bGwsIlpIIiwiMTE3Il1dXQ==",
           "google_flights_url": "https://www.google.com/travel/flights?hl=en&gl=vn&curr=VND&tfs=CBwQAhpLEgoyMDI2LTEwLTIwIiAKA1NHThIKMjAyNi0xMC0yMBoDUFZHKgJWSjIEMzkwMCgBagcIARIDU0dOcgcIARIDU0hBcgcIARIDUFZHGikSCjIwMjYtMTAtMjUoAWoHCAESA1BFS2oHCAESA1BLWHIHCAESA1NHTkABQAFAAUABQAFAAUADSAFwAZgBAw&tfu=EgIIAg",
           "owner": {
             "name": "Mixed airlines",
@@ -321,10 +323,10 @@
       "id": "return-26",
       "label": "Return 26 Oct · morning preferred",
       "search_ids": [
-        "6a872dce73d1752682b5ef9a",
-        "6a872ddcd2d7405ff57f4c21"
+        "6a87b07bfbbeb584b06735c3",
+        "6a87b080998aadcc9c676170"
       ],
-      "google_flights_url": "https://www.google.com/travel/flights?hl=en&gl=vn&curr=VND&tfs=CBwQAhpLEgoyMDI2LTEwLTIwIiAKA1NHThIKMjAyNi0xMC0yMBoDUFZHKgJWSjIEMzkwMCgBagcIARIDU0dOcgcIARIDU0hBcgcIARIDUFZHGikSCjIwMjYtMTAtMjYoAWoHCAESA1BFS2oHCAESA1BLWHIHCAESA1NHTkABQAFAAUABQAFAAUADSAFwAZgBAw&tfu=EgIIAg",
+      "google_flights_url": "https://www.google.com/travel/flights?hl=en&gl=vn&curr=VND&tfs=CBwQAhptEgoyMDI2LTEwLTIwIiAKA1NHThIKMjAyNi0xMC0yMBoDQ0FOKgJDWjIENjA5MCIgCgNDQU4SCjIwMjYtMTAtMjAaA1NIQSoCQ1oyBDM1MjMoAWoHCAESA1NHTnIHCAESA1NIQXIHCAESA1BWRxopEgoyMDI2LTEwLTI2KAFqBwgBEgNQRUtqBwgBEgNQS1hyBwgBEgNTR05AAUABQAFAAUABQAFAA0gBcAGYAQM&tfu=EgIIAg",
       "slices": [
         {
           "origin": "SGN",
@@ -338,52 +340,70 @@
         }
       ],
       "selected_outbound": {
-        "airline": "Vietjet",
-        "departure": "2026-10-20 20:00",
-        "arrival": "2026-10-21 01:00",
-        "price_hint": 42101088
+        "airline": "China Southern",
+        "departure": "2026-10-20 02:35",
+        "arrival": "2026-10-20 10:20",
+        "price_hint": 49680000
       },
       "preferred_window_matched": true,
       "offers": [
         {
-          "id": "WyJDalJJZVZKZk1XNXdkRzF3VWxWQlJXTlVNa0ZDUnkwdExTMHRMUzB0TFhscFltSnBNa0ZCUVVGQlIzRklUR1IzVGkxbVpqSkJFZ3hEV2pNeE1UWjhRMW96TnpNYURBamcwb2tVRUFBYUExWk9SRGdjY0k3c0NRPT0iLFtbIlNHTiIsIjIwMjYtMTAtMjAiLCJQVkciLG51bGwsIlZKIiwiMzkwMCJdXSxbWyJQS1giLCIyMDI2LTEwLTI2IiwiQ0FOIixudWxsLCJDWiIsIjMxMTYiXSxbIkNBTiIsIjIwMjYtMTAtMjYiLCJTR04iLG51bGwsIkNaIiwiMzczIl1dXQ==",
+          "id": "WyJDalJJTjI1UFJVOWFZamRYYkZGQlFuQnVUWGRDUnkwdExTMHRMWFowZDJneE55MXVNa0ZCUVVGQlIzRkljMGxaUVVaelZXRkJFZzVEV2pNeE1UWjhRMW96TnpNak1ob01DSUNkMkJjUUFCb0RWazVFT0J4dytzNEwiLFtbIlNHTiIsIjIwMjYtMTAtMjAiLCJDQU4iLG51bGwsIkNaIiwiNjA5MCJdLFsiQ0FOIiwiMjAyNi0xMC0yMCIsIlNIQSIsbnVsbCwiQ1oiLCIzNTIzIl1dLFtbIlBLWCIsIjIwMjYtMTAtMjYiLCJDQU4iLG51bGwsIkNaIiwiMzExNiJdLFsiQ0FOIiwiMjAyNi0xMC0yNiIsIlNHTiIsbnVsbCwiQ1oiLCIzNzMiXV1d",
           "source": "Google Flights via SerpApi",
           "live_mode": true,
           "expires_at": null,
-          "total_amount": "42101088",
+          "total_amount": "49680000",
           "total_currency": "VND",
           "base_amount": null,
           "tax_amount": null,
           "total_emissions_kg": null,
-          "total_duration_minutes": 755,
-          "booking_token": "WyJDalJJZVZKZk1XNXdkRzF3VWxWQlJXTlVNa0ZDUnkwdExTMHRMUzB0TFhscFltSnBNa0ZCUVVGQlIzRklUR1IzVGkxbVpqSkJFZ3hEV2pNeE1UWjhRMW96TnpNYURBamcwb2tVRUFBYUExWk9SRGdjY0k3c0NRPT0iLFtbIlNHTiIsIjIwMjYtMTAtMjAiLCJQVkciLG51bGwsIlZKIiwiMzkwMCJdXSxbWyJQS1giLCIyMDI2LTEwLTI2IiwiQ0FOIixudWxsLCJDWiIsIjMxMTYiXSxbIkNBTiIsIjIwMjYtMTAtMjYiLCJTR04iLG51bGwsIkNaIiwiMzczIl1dXQ==",
-          "google_flights_url": "https://www.google.com/travel/flights?hl=en&gl=vn&curr=VND&tfs=CBwQAhpLEgoyMDI2LTEwLTIwIiAKA1NHThIKMjAyNi0xMC0yMBoDUFZHKgJWSjIEMzkwMCgBagcIARIDU0dOcgcIARIDU0hBcgcIARIDUFZHGikSCjIwMjYtMTAtMjYoAWoHCAESA1BFS2oHCAESA1BLWHIHCAESA1NHTkABQAFAAUABQAFAAUADSAFwAZgBAw&tfu=EgIIAg",
+          "total_duration_minutes": 920,
+          "booking_token": "WyJDalJJTjI1UFJVOWFZamRYYkZGQlFuQnVUWGRDUnkwdExTMHRMWFowZDJneE55MXVNa0ZCUVVGQlIzRkljMGxaUVVaelZXRkJFZzVEV2pNeE1UWjhRMW96TnpNak1ob01DSUNkMkJjUUFCb0RWazVFT0J4dytzNEwiLFtbIlNHTiIsIjIwMjYtMTAtMjAiLCJDQU4iLG51bGwsIkNaIiwiNjA5MCJdLFsiQ0FOIiwiMjAyNi0xMC0yMCIsIlNIQSIsbnVsbCwiQ1oiLCIzNTIzIl1dLFtbIlBLWCIsIjIwMjYtMTAtMjYiLCJDQU4iLG51bGwsIkNaIiwiMzExNiJdLFsiQ0FOIiwiMjAyNi0xMC0yNiIsIlNHTiIsbnVsbCwiQ1oiLCIzNzMiXV1d",
+          "google_flights_url": "https://www.google.com/travel/flights?hl=en&gl=vn&curr=VND&tfs=CBwQAhptEgoyMDI2LTEwLTIwIiAKA1NHThIKMjAyNi0xMC0yMBoDQ0FOKgJDWjIENjA5MCIgCgNDQU4SCjIwMjYtMTAtMjAaA1NIQSoCQ1oyBDM1MjMoAWoHCAESA1NHTnIHCAESA1NIQXIHCAESA1BWRxopEgoyMDI2LTEwLTI2KAFqBwgBEgNQRUtqBwgBEgNQS1hyBwgBEgNTR05AAUABQAFAAUABQAFAA0gBcAGYAQM&tfu=EgIIAg",
           "owner": {
-            "name": "Mixed airlines",
-            "iata_code": "VJ",
+            "name": "China Southern",
+            "iata_code": "CZ",
             "logo_symbol_url": "https://www.gstatic.com/flights/airline_logos/70px/CZ.png"
           },
           "slices": [
             {
               "origin": "SGN",
-              "destination": "PVG",
-              "duration": "PT4H",
+              "destination": "SHA",
+              "duration": "PT6H45M",
               "segments": [
                 {
                   "origin": "SGN",
-                  "destination": "PVG",
-                  "departing_at": "2026-10-20T20:00:00",
-                  "arriving_at": "2026-10-21T01:00:00",
-                  "duration": "PT4H",
-                  "flight_number": "VJ 3900",
-                  "airplane": "Airbus A321",
+                  "destination": "CAN",
+                  "departing_at": "2026-10-20T02:35:00",
+                  "arriving_at": "2026-10-20T06:30:00",
+                  "duration": "PT2H55M",
+                  "flight_number": "CZ 6090",
+                  "airplane": "Airbus A320neo",
                   "travel_class": "Economy",
                   "marketing_carrier": {
-                    "name": "Vietjet",
-                    "iata_code": "VJ"
+                    "name": "China Southern",
+                    "iata_code": "CZ"
                   },
                   "operating_carrier": {
-                    "name": "Vietjet",
+                    "name": "China Southern",
+                    "iata_code": null
+                  }
+                },
+                {
+                  "origin": "CAN",
+                  "destination": "SHA",
+                  "departing_at": "2026-10-20T08:00:00",
+                  "arriving_at": "2026-10-20T10:20:00",
+                  "duration": "PT2H20M",
+                  "flight_number": "CZ 3523",
+                  "airplane": "Airbus A350",
+                  "travel_class": "Economy",
+                  "marketing_carrier": {
+                    "name": "China Southern",
+                    "iata_code": "CZ"
+                  },
+                  "operating_carrier": {
+                    "name": "China Southern",
                     "iata_code": null
                   }
                 }
@@ -432,47 +452,67 @@
                 }
               ]
             }
-          ]
+          ],
+          "previous_total_amount": "42101088",
+          "price_delta": "7578912"
         },
         {
-          "id": "WyJDalJJZVZKZk1XNXdkRzF3VWxWQlJXTlVNa0ZDUnkwdExTMHRMUzB0TFhscFltSnBNa0ZCUVVGQlIzRklUR1IzVGkxbVpqSkJFZzFUUXpRMk5UaDhVME0wTmpRMUdnd0k3OXl4RlJBQUdnTldUa1E0SEhERXZnbz0iLFtbIlNHTiIsIjIwMjYtMTAtMjAiLCJQVkciLG51bGwsIlZKIiwiMzkwMCJdXSxbWyJQRUsiLCIyMDI2LTEwLTI2IiwiVEFPIixudWxsLCJTQyIsIjQ2NTgiXSxbIlRBTyIsIjIwMjYtMTAtMjciLCJTR04iLG51bGwsIlNDIiwiNDY0NSJdXV0=",
+          "id": "WyJDalJJTjI1UFJVOWFZamRYYkZGQlFuQnVUWGRDUnkwdExTMHRMWFowZDJneE55MXVNa0ZCUVVGQlIzRkljMGxaUVVaelZXRkJFZzFUUXpRMk5UaDhVME0wTmpRMUdnd0lyOS9QR3hBQUdnTldUa1E0SEhEdnhRMD0iLFtbIlNHTiIsIjIwMjYtMTAtMjAiLCJDQU4iLG51bGwsIkNaIiwiNjA5MCJdLFsiQ0FOIiwiMjAyNi0xMC0yMCIsIlNIQSIsbnVsbCwiQ1oiLCIzNTIzIl1dLFtbIlBFSyIsIjIwMjYtMTAtMjYiLCJUQU8iLG51bGwsIlNDIiwiNDY1OCJdLFsiVEFPIiwiMjAyNi0xMC0yNyIsIlNHTiIsbnVsbCwiU0MiLCI0NjQ1Il1dXQ==",
           "source": "Google Flights via SerpApi",
           "live_mode": true,
           "expires_at": null,
-          "total_amount": "44854895",
+          "total_amount": "57929647",
           "total_currency": "VND",
           "base_amount": null,
           "tax_amount": null,
           "total_emissions_kg": null,
-          "total_duration_minutes": 2585,
-          "booking_token": "WyJDalJJZVZKZk1XNXdkRzF3VWxWQlJXTlVNa0ZDUnkwdExTMHRMUzB0TFhscFltSnBNa0ZCUVVGQlIzRklUR1IzVGkxbVpqSkJFZzFUUXpRMk5UaDhVME0wTmpRMUdnd0k3OXl4RlJBQUdnTldUa1E0SEhERXZnbz0iLFtbIlNHTiIsIjIwMjYtMTAtMjAiLCJQVkciLG51bGwsIlZKIiwiMzkwMCJdXSxbWyJQRUsiLCIyMDI2LTEwLTI2IiwiVEFPIixudWxsLCJTQyIsIjQ2NTgiXSxbIlRBTyIsIjIwMjYtMTAtMjciLCJTR04iLG51bGwsIlNDIiwiNDY0NSJdXV0=",
-          "google_flights_url": "https://www.google.com/travel/flights?hl=en&gl=vn&curr=VND&tfs=CBwQAhpLEgoyMDI2LTEwLTIwIiAKA1NHThIKMjAyNi0xMC0yMBoDUFZHKgJWSjIEMzkwMCgBagcIARIDU0dOcgcIARIDU0hBcgcIARIDUFZHGikSCjIwMjYtMTAtMjYoAWoHCAESA1BFS2oHCAESA1BLWHIHCAESA1NHTkABQAFAAUABQAFAAUADSAFwAZgBAw&tfu=EgIIAg",
+          "total_duration_minutes": 2750,
+          "booking_token": "WyJDalJJTjI1UFJVOWFZamRYYkZGQlFuQnVUWGRDUnkwdExTMHRMWFowZDJneE55MXVNa0ZCUVVGQlIzRkljMGxaUVVaelZXRkJFZzFUUXpRMk5UaDhVME0wTmpRMUdnd0lyOS9QR3hBQUdnTldUa1E0SEhEdnhRMD0iLFtbIlNHTiIsIjIwMjYtMTAtMjAiLCJDQU4iLG51bGwsIkNaIiwiNjA5MCJdLFsiQ0FOIiwiMjAyNi0xMC0yMCIsIlNIQSIsbnVsbCwiQ1oiLCIzNTIzIl1dLFtbIlBFSyIsIjIwMjYtMTAtMjYiLCJUQU8iLG51bGwsIlNDIiwiNDY1OCJdLFsiVEFPIiwiMjAyNi0xMC0yNyIsIlNHTiIsbnVsbCwiU0MiLCI0NjQ1Il1dXQ==",
+          "google_flights_url": "https://www.google.com/travel/flights?hl=en&gl=vn&curr=VND&tfs=CBwQAhptEgoyMDI2LTEwLTIwIiAKA1NHThIKMjAyNi0xMC0yMBoDQ0FOKgJDWjIENjA5MCIgCgNDQU4SCjIwMjYtMTAtMjAaA1NIQSoCQ1oyBDM1MjMoAWoHCAESA1NHTnIHCAESA1NIQXIHCAESA1BWRxopEgoyMDI2LTEwLTI2KAFqBwgBEgNQRUtqBwgBEgNQS1hyBwgBEgNTR05AAUABQAFAAUABQAFAA0gBcAGYAQM&tfu=EgIIAg",
           "owner": {
             "name": "Mixed airlines",
-            "iata_code": "VJ",
+            "iata_code": "CZ",
             "logo_symbol_url": "https://www.gstatic.com/flights/airline_logos/70px/SC.png"
           },
           "slices": [
             {
               "origin": "SGN",
-              "destination": "PVG",
-              "duration": "PT4H",
+              "destination": "SHA",
+              "duration": "PT6H45M",
               "segments": [
                 {
                   "origin": "SGN",
-                  "destination": "PVG",
-                  "departing_at": "2026-10-20T20:00:00",
-                  "arriving_at": "2026-10-21T01:00:00",
-                  "duration": "PT4H",
-                  "flight_number": "VJ 3900",
-                  "airplane": "Airbus A321",
+                  "destination": "CAN",
+                  "departing_at": "2026-10-20T02:35:00",
+                  "arriving_at": "2026-10-20T06:30:00",
+                  "duration": "PT2H55M",
+                  "flight_number": "CZ 6090",
+                  "airplane": "Airbus A320neo",
                   "travel_class": "Economy",
                   "marketing_carrier": {
-                    "name": "Vietjet",
-                    "iata_code": "VJ"
+                    "name": "China Southern",
+                    "iata_code": "CZ"
                   },
                   "operating_carrier": {
-                    "name": "Vietjet",
+                    "name": "China Southern",
+                    "iata_code": null
+                  }
+                },
+                {
+                  "origin": "CAN",
+                  "destination": "SHA",
+                  "departing_at": "2026-10-20T08:00:00",
+                  "arriving_at": "2026-10-20T10:20:00",
+                  "duration": "PT2H20M",
+                  "flight_number": "CZ 3523",
+                  "airplane": "Airbus A350",
+                  "travel_class": "Economy",
+                  "marketing_carrier": {
+                    "name": "China Southern",
+                    "iata_code": "CZ"
+                  },
+                  "operating_carrier": {
+                    "name": "China Southern",
                     "iata_code": null
                   }
                 }
@@ -524,44 +564,62 @@
           ]
         },
         {
-          "id": "WyJDalJJZVZKZk1XNXdkRzF3VWxWQlJXTlVNa0ZDUnkwdExTMHRMUzB0TFhscFltSnBNa0ZCUVVGQlIzRklUR1IzVGkxbVpqSkJFZ1ZXVGpVeE54b01DSXlFcGhjUUFCb0RWazVFT0J4d3E3WUwiLFtbIlNHTiIsIjIwMjYtMTAtMjAiLCJQVkciLG51bGwsIlZKIiwiMzkwMCJdXSxbWyJQS1giLCIyMDI2LTEwLTI2IiwiU0dOIixudWxsLCJWTiIsIjUxNyJdXV0=",
+          "id": "WyJDalJJTjI1UFJVOWFZamRYYkZGQlFuQnVUWGRDUnkwdExTMHRMWFowZDJneE55MXVNa0ZCUVVGQlIzRkljMGxaUVVaelZXRkJFZ1ZXVGpVeE54b01DT3VreEIwUUFCb0RWazVFT0J4dzViME8iLFtbIlNHTiIsIjIwMjYtMTAtMjAiLCJDQU4iLG51bGwsIkNaIiwiNjA5MCJdLFsiQ0FOIiwiMjAyNi0xMC0yMCIsIlNIQSIsbnVsbCwiQ1oiLCIzNTIzIl1dLFtbIlBLWCIsIjIwMjYtMTAtMjYiLCJTR04iLG51bGwsIlZOIiwiNTE3Il1dXQ==",
           "source": "Google Flights via SerpApi",
           "live_mode": true,
           "expires_at": null,
-          "total_amount": "48857612",
+          "total_amount": "61936235",
           "total_currency": "VND",
           "base_amount": null,
           "tax_amount": null,
           "total_emissions_kg": null,
-          "total_duration_minutes": 525,
-          "booking_token": "WyJDalJJZVZKZk1XNXdkRzF3VWxWQlJXTlVNa0ZDUnkwdExTMHRMUzB0TFhscFltSnBNa0ZCUVVGQlIzRklUR1IzVGkxbVpqSkJFZ1ZXVGpVeE54b01DSXlFcGhjUUFCb0RWazVFT0J4d3E3WUwiLFtbIlNHTiIsIjIwMjYtMTAtMjAiLCJQVkciLG51bGwsIlZKIiwiMzkwMCJdXSxbWyJQS1giLCIyMDI2LTEwLTI2IiwiU0dOIixudWxsLCJWTiIsIjUxNyJdXV0=",
-          "google_flights_url": "https://www.google.com/travel/flights?hl=en&gl=vn&curr=VND&tfs=CBwQAhpLEgoyMDI2LTEwLTIwIiAKA1NHThIKMjAyNi0xMC0yMBoDUFZHKgJWSjIEMzkwMCgBagcIARIDU0dOcgcIARIDU0hBcgcIARIDUFZHGikSCjIwMjYtMTAtMjYoAWoHCAESA1BFS2oHCAESA1BLWHIHCAESA1NHTkABQAFAAUABQAFAAUADSAFwAZgBAw&tfu=EgIIAg",
+          "total_duration_minutes": 690,
+          "booking_token": "WyJDalJJTjI1UFJVOWFZamRYYkZGQlFuQnVUWGRDUnkwdExTMHRMWFowZDJneE55MXVNa0ZCUVVGQlIzRkljMGxaUVVaelZXRkJFZ1ZXVGpVeE54b01DT3VreEIwUUFCb0RWazVFT0J4dzViME8iLFtbIlNHTiIsIjIwMjYtMTAtMjAiLCJDQU4iLG51bGwsIkNaIiwiNjA5MCJdLFsiQ0FOIiwiMjAyNi0xMC0yMCIsIlNIQSIsbnVsbCwiQ1oiLCIzNTIzIl1dLFtbIlBLWCIsIjIwMjYtMTAtMjYiLCJTR04iLG51bGwsIlZOIiwiNTE3Il1dXQ==",
+          "google_flights_url": "https://www.google.com/travel/flights?hl=en&gl=vn&curr=VND&tfs=CBwQAhptEgoyMDI2LTEwLTIwIiAKA1NHThIKMjAyNi0xMC0yMBoDQ0FOKgJDWjIENjA5MCIgCgNDQU4SCjIwMjYtMTAtMjAaA1NIQSoCQ1oyBDM1MjMoAWoHCAESA1NHTnIHCAESA1NIQXIHCAESA1BWRxopEgoyMDI2LTEwLTI2KAFqBwgBEgNQRUtqBwgBEgNQS1hyBwgBEgNTR05AAUABQAFAAUABQAFAA0gBcAGYAQM&tfu=EgIIAg",
           "owner": {
             "name": "Mixed airlines",
-            "iata_code": "VJ",
+            "iata_code": "CZ",
             "logo_symbol_url": "https://www.gstatic.com/flights/airline_logos/70px/VN.png"
           },
           "slices": [
             {
               "origin": "SGN",
-              "destination": "PVG",
-              "duration": "PT4H",
+              "destination": "SHA",
+              "duration": "PT6H45M",
               "segments": [
                 {
                   "origin": "SGN",
-                  "destination": "PVG",
-                  "departing_at": "2026-10-20T20:00:00",
-                  "arriving_at": "2026-10-21T01:00:00",
-                  "duration": "PT4H",
-                  "flight_number": "VJ 3900",
-                  "airplane": "Airbus A321",
+                  "destination": "CAN",
+                  "departing_at": "2026-10-20T02:35:00",
+                  "arriving_at": "2026-10-20T06:30:00",
+                  "duration": "PT2H55M",
+                  "flight_number": "CZ 6090",
+                  "airplane": "Airbus A320neo",
                   "travel_class": "Economy",
                   "marketing_carrier": {
-                    "name": "Vietjet",
-                    "iata_code": "VJ"
+                    "name": "China Southern",
+                    "iata_code": "CZ"
                   },
                   "operating_carrier": {
-                    "name": "Vietjet",
+                    "name": "China Southern",
+                    "iata_code": null
+                  }
+                },
+                {
+                  "origin": "CAN",
+                  "destination": "SHA",
+                  "departing_at": "2026-10-20T08:00:00",
+                  "arriving_at": "2026-10-20T10:20:00",
+                  "duration": "PT2H20M",
+                  "flight_number": "CZ 3523",
+                  "airplane": "Airbus A350",
+                  "travel_class": "Economy",
+                  "marketing_carrier": {
+                    "name": "China Southern",
+                    "iata_code": "CZ"
+                  },
+                  "operating_carrier": {
+                    "name": "China Southern",
                     "iata_code": null
                   }
                 }
@@ -603,17 +661,17 @@
     "scenario_id": "return-25",
     "label": "Return 25 Oct · evening preferred",
     "offer": {
-      "id": "WyJDalJJYm1Sd2JuQndTRUp4V25OQlJITldWa0ZDUnkwdExTMHRMUzB0TFhsc2Fta3hOMEZCUVVGQlIzRklUR00wU0V3d1dpMUJFZzFEV2pNeE1EQjhRMW8yTURnNUdnd0k0TktKRkJBQUdnTldUa1E0SEhDTzdBaz0iLFtbIlNHTiIsIjIwMjYtMTAtMjAiLCJQVkciLG51bGwsIlZKIiwiMzkwMCJdXSxbWyJQS1giLCIyMDI2LTEwLTI1IiwiQ0FOIixudWxsLCJDWiIsIjMxMDAiXSxbIkNBTiIsIjIwMjYtMTAtMjUiLCJTR04iLG51bGwsIkNaIiwiNjA4OSJdXV0=",
+      "id": "WyJDalJJVlZkWU4ySlVWVjlRY0VWQlFrMTFObEZDUnkwdExTMHRMUzB0TFhscGJHY3hNVUZCUVVGQlIzRkljMGh2U3pKNmNITkJFZzFEV2pNeE1EQjhRMW8yTURnNUdnd0lxUCtLRkJBQUdnTldUa1E0SEhEajdBaz0iLFtbIlNHTiIsIjIwMjYtMTAtMjAiLCJQVkciLG51bGwsIlZKIiwiMzkwMCJdXSxbWyJQS1giLCIyMDI2LTEwLTI1IiwiQ0FOIixudWxsLCJDWiIsIjMxMDAiXSxbIkNBTiIsIjIwMjYtMTAtMjUiLCJTR04iLG51bGwsIkNaIiwiNjA4OSJdXV0=",
       "source": "Google Flights via SerpApi",
       "live_mode": true,
       "expires_at": null,
-      "total_amount": "42101088",
+      "total_amount": "42123176",
       "total_currency": "VND",
       "base_amount": null,
       "tax_amount": null,
       "total_emissions_kg": null,
       "total_duration_minutes": 710,
-      "booking_token": "WyJDalJJYm1Sd2JuQndTRUp4V25OQlJITldWa0ZDUnkwdExTMHRMUzB0TFhsc2Fta3hOMEZCUVVGQlIzRklUR00wU0V3d1dpMUJFZzFEV2pNeE1EQjhRMW8yTURnNUdnd0k0TktKRkJBQUdnTldUa1E0SEhDTzdBaz0iLFtbIlNHTiIsIjIwMjYtMTAtMjAiLCJQVkciLG51bGwsIlZKIiwiMzkwMCJdXSxbWyJQS1giLCIyMDI2LTEwLTI1IiwiQ0FOIixudWxsLCJDWiIsIjMxMDAiXSxbIkNBTiIsIjIwMjYtMTAtMjUiLCJTR04iLG51bGwsIkNaIiwiNjA4OSJdXV0=",
+      "booking_token": "WyJDalJJVlZkWU4ySlVWVjlRY0VWQlFrMTFObEZDUnkwdExTMHRMUzB0TFhscGJHY3hNVUZCUVVGQlIzRkljMGh2U3pKNmNITkJFZzFEV2pNeE1EQjhRMW8yTURnNUdnd0lxUCtLRkJBQUdnTldUa1E0SEhEajdBaz0iLFtbIlNHTiIsIjIwMjYtMTAtMjAiLCJQVkciLG51bGwsIlZKIiwiMzkwMCJdXSxbWyJQS1giLCIyMDI2LTEwLTI1IiwiQ0FOIixudWxsLCJDWiIsIjMxMDAiXSxbIkNBTiIsIjIwMjYtMTAtMjUiLCJTR04iLG51bGwsIkNaIiwiNjA4OSJdXV0=",
       "google_flights_url": "https://www.google.com/travel/flights?hl=en&gl=vn&curr=VND&tfs=CBwQAhpLEgoyMDI2LTEwLTIwIiAKA1NHThIKMjAyNi0xMC0yMBoDUFZHKgJWSjIEMzkwMCgBagcIARIDU0dOcgcIARIDU0hBcgcIARIDUFZHGikSCjIwMjYtMTAtMjUoAWoHCAESA1BFS2oHCAESA1BLWHIHCAESA1NHTkABQAFAAUABQAFAAUADSAFwAZgBAw&tfu=EgIIAg",
       "owner": {
         "name": "Mixed airlines",
@@ -689,7 +747,9 @@
             }
           ]
         }
-      ]
+      ],
+      "previous_total_amount": "42101088",
+      "price_delta": "22088"
     }
   }
 }
