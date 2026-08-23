@@ -34,5 +34,23 @@
     "airline": "China Southern",
     "provider": "SerpApi",
     "source": "Google Flights"
+  },
+  {
+    "checked_at": "2026-08-23T01:59:10.805Z",
+    "scenario_id": "return-25",
+    "total_amount": "40950106",
+    "total_currency": "VND",
+    "airline": "Mixed airlines",
+    "provider": "SerpApi",
+    "source": "Google Flights"
+  },
+  {
+    "checked_at": "2026-08-23T01:59:10.805Z",
+    "scenario_id": "return-26",
+    "total_amount": "40950106",
+    "total_currency": "VND",
+    "airline": "Mixed airlines",
+    "provider": "SerpApi",
+    "source": "Google Flights"
   }
 ]
