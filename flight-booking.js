@@ -28,3 +28,8 @@
   async function load(){try{const[d,h]=await Promise.all([fetch(`./data/flights.json?t=${Date.now()}`,{cache:'no-store'}).then(r=>r.json()),fetch(`./data/flight-history.json?t=${Date.now()}`,{cache:'no-store'}).then(r=>r.ok?r.json():[]).catch(()=>[])]);LIVE=d;HISTORY=Array.isArray(h)?h:[];const names=[...new Set(allOffers().map(o=>o.owner?.name).filter(Boolean))].sort();$('#airline').innerHTML='<option value="all">Tất cả hãng</option>'+names.map(n=>`<option value="${esc(n)}">${esc(n)}</option>`).join('');stats();render();renderChart(historyRows());target()}catch(e){$('#results').innerHTML='<div class="offer-empty">Không thể tải dữ liệu chuyến bay. Hãy thử tải lại trang.</div>';$('#resultMeta').textContent='Dữ liệu không khả dụng'}}
   $$('#routeTabs .route-tab').forEach(b=>b.onclick=()=>{$$('#routeTabs .route-tab').forEach(x=>x.classList.remove('active'));b.classList.add('active');routeMode=b.dataset.route;render()});['stops','airline','sort'].forEach(id=>$('#'+id).onchange=render);$('#flightSearch').oninput=render;$('#resetFilters').onclick=()=>{routeMode='all';$$('#routeTabs .route-tab').forEach((x,i)=>x.classList.toggle('active',i===0));$('#flightSearch').value='';$('#stops').value='all';$('#airline').value='all';$('#sort').value='recommended';render()};$('#saveTarget').onclick=()=>{const v=$('#targetPrice').value.replace(/\D/g,'');localStorage.setItem('flight-target',v);$('#targetPrice').value=v;target()};load();
 })();
+
+(()=>{
+  const css=document.createElement('link');css.rel='stylesheet';css.href='./flight-details.css';document.head.appendChild(css);
+  const script=document.createElement('script');script.src='./flight-details.js';script.defer=true;document.body.appendChild(script);
+})();
