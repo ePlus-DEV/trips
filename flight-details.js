@@ -13,6 +13,19 @@
   const stopLabel=o=>isDirect(o)?'Bay thẳng':`${Number(o?.stops)||1} điểm dừng`;
   let DATA=null,scheduled=false;
 
+  function baggageText(text){
+    const value=String(text||'').trim();
+    let m;
+    if((m=value.match(/^(\d+)\s+free carry[- ]?on/i)))return `${m[1]} hành lý xách tay miễn phí`;
+    if((m=value.match(/^(\d+)\s+free checked bags?/i)))return `${m[1]} kiện hành lý ký gửi miễn phí`;
+    if(/^checked baggage for a fee$/i.test(value))return 'Hành lý ký gửi: có tính phí';
+    if(/^no checked bags?$/i.test(value))return 'Không bao gồm hành lý ký gửi';
+    if(/^carry[- ]?on bags? not allowed$/i.test(value))return 'Không bao gồm hành lý xách tay';
+    if((m=value.match(/^(\d+)(?:st|nd|rd|th) checked bag:\s*(.+)$/i)))return `Hành lý ký gửi kiện ${m[1]}: ${m[2]}`;
+    if(/bag and fare conditions depend/i.test(value))return 'Điều kiện hành lý phụ thuộc lựa chọn giá vé';
+    return value;
+  }
+
   function offerForCard(card,routeId){
     const route=DATA?.routes?.find(r=>r.id===routeId);if(!route)return null;
     const no=card.querySelector('.offer-airline-copy span')?.textContent?.trim()||'';
@@ -39,13 +52,22 @@
     return `<div class="layover"><span>Đổi chuyến tại ${esc(seg.destination||next.origin||'sân bay nối chuyến')}</span>${Number.isFinite(mins)&&mins>=0?`<span>· Chờ ${minutesLabel(mins)}</span>`:''}</div>`;
   }
 
+  function baggageHtml(o){
+    const items=[...new Set((o?.baggage?.items||[]).filter(Boolean))];
+    const icon='<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="6" y="7" width="12" height="13" rx="2"/><path d="M9 7V5a3 3 0 0 1 6 0v2M9 11h6"/></svg>';
+    if(!items.length){
+      return `<section class="baggage-card is-empty"><div class="baggage-title">${icon}<div><strong>Hành lý</strong><span>Theo mức giá đang hiển thị</span></div></div><p>Chưa có thông tin hành lý cho mức giá này.</p><small>Google Flights chưa trả allowance cụ thể trong kết quả tìm kiếm. Không nên suy ra 7 kg / 20 kg chỉ từ chính sách chung của hãng.</small></section>`;
+    }
+    return `<section class="baggage-card"><div class="baggage-title">${icon}<div><strong>Hành lý</strong><span>Theo dữ liệu Google Flights của mức giá này</span></div></div><ul>${items.map(x=>`<li>${esc(baggageText(x))}</li>`).join('')}</ul><small>Allowance có thể thay đổi theo gói giá hoặc nơi bán. Kiểm tra lại trước khi thanh toán.</small></section>`;
+  }
+
   function detailsHtml(o,id){
     const segments=o?.slices?.[0]?.segments||[],url=o.google_flights_url||'https://www.google.com/travel/flights';
     const total=o.total_duration_minutes?minutesLabel(o.total_duration_minutes):isoDuration(o?.slices?.[0]?.duration);
     const travelClass=cabin(segments[0]?.travel_class);
     const source=o.source||DATA?.source||'Google Flights';
     let timeline='';segments.forEach((seg,i)=>{timeline+=segmentHtml(seg);if(i<segments.length-1)timeline+=layoverHtml(seg,segments[i+1])});
-    return `<div class="offer-details" id="${id}" hidden><div class="details-summary"><div class="details-summary-item"><span>Tổng thời gian</span><strong>${esc(total)}</strong></div><div class="details-summary-item"><span>Hành trình</span><strong>${esc(stopLabel(o))}</strong></div><div class="details-summary-item"><span>Hạng ghế</span><strong>${esc(travelClass)}</strong></div><div class="details-summary-item"><span>Nguồn dữ liệu</span><strong>${esc(source)}</strong></div></div><div class="segment-list">${timeline}</div><div class="details-actions"><p>Thông tin hiển thị theo dữ liệu Google Flights đã lưu. Hành lý, điều kiện đổi/hoàn và giá cuối cùng cần kiểm tra lại trước khi đặt.</p><a class="btn sm primary" href="${esc(url)}" target="_blank" rel="noopener">Mở Google Flights</a></div></div>`;
+    return `<div class="offer-details" id="${id}" hidden><div class="details-summary"><div class="details-summary-item"><span>Tổng thời gian</span><strong>${esc(total)}</strong></div><div class="details-summary-item"><span>Hành trình</span><strong>${esc(stopLabel(o))}</strong></div><div class="details-summary-item"><span>Hạng ghế</span><strong>${esc(travelClass)}</strong></div><div class="details-summary-item"><span>Nguồn dữ liệu</span><strong>${esc(source)}</strong></div></div>${baggageHtml(o)}<div class="segment-list">${timeline}</div><div class="details-actions"><p>Giá, hành lý và điều kiện vé có thể thay đổi theo gói giá hoặc nơi bán; hãy kiểm tra lại trước khi đặt.</p><a class="btn sm primary" href="${esc(url)}" target="_blank" rel="noopener">Mở Google Flights</a></div></div>`;
   }
 
   function attach(card,routeId,index){
