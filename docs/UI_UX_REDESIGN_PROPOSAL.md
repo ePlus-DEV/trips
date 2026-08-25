@@ -2,9 +2,9 @@
 
 Status: **Implemented on PR branch for review**
 
-This branch now contains the approved TravelLog visual direction based on the reviewed mockup.
+This branch contains the approved TravelLog visual direction based on the reviewed mockup.
 
-## What is implemented
+## Implemented
 
 ### Shared visual system
 - Professional light dashboard style with blue primary color
@@ -16,10 +16,10 @@ This branch now contains the approved TravelLog visual direction based on the re
 - Shared `app.css` for both public pages
 
 ### Dashboard (`index.html`)
-- China Autumn 2026 hero with custom Shanghai skyline artwork
+- China Autumn 2026 hero with local Shanghai skyline artwork
 - Correct trip dates: 19/10–26/10/2026
 - Countdown to 19/10/2026
-- Summary cards for budget, flights, destinations and outstanding tasks
+- Summary cards for budget, flights, destinations and remaining tasks
 - Highlight itinerary timeline
 - Checklist with localStorage persistence
 - Budget planner with localStorage persistence
@@ -30,10 +30,10 @@ This branch now contains the approved TravelLog visual direction based on the re
   - 19/10/2026: SGN → PVG/SHA
   - 26/10/2026: PEK/PKX → SGN
 - Keeps direct + max 1-stop results
-- Direct flights are ranked first by default
+- Direct flights ranked first by default
 - Route tabs: all / outbound / return
 - Stops, airline, sorting and text-search filters
-- Price summary cards based on real saved data
+- Summary cards based on real saved data
 - Price trend based on `flight-history.json`
 - Target price helper
 - No fabricated price-drop probability
@@ -41,7 +41,7 @@ This branch now contains the approved TravelLog visual direction based on the re
 ### Assets / PWA
 - `app.css` — shared UI design system
 - `assets/china-hero.svg` — local hero artwork, no third-party image dependency
-- `sw.js` updated to cache the new assets
+- `sw.js` caches the redesigned UI assets
 
 ## Review checklist
 - [ ] Desktop dashboard visual quality
@@ -51,7 +51,7 @@ This branch now contains the approved TravelLog visual direction based on the re
 - [ ] Flight list readability with many results
 - [ ] Direct-flight priority is clear but not visually excessive
 - [ ] Dark mode
-- [ ] No regression in localStorage data interactions
+- [ ] No regression in localStorage interactions
 - [ ] No regression in live flight JSON rendering
 
 ## Workflow
