@@ -2,10 +2,18 @@
   'use strict';
 
   const LANGUAGE_KEY = 'travel-language';
+  const MIGRATION_KEY = 'travel-language-vi-default-v1';
   const supported = new Set(['vi', 'en', 'zh', 'ja']);
+  const needsVietnameseMigration = !localStorage.getItem(MIGRATION_KEY);
 
-  // Vietnamese is the primary UI. Preserve an explicit user choice.
-  if (!localStorage.getItem(LANGUAGE_KEY)) localStorage.setItem(LANGUAGE_KEY, 'vi');
+  // Move existing visitors to the new Vietnamese-first default once.
+  // After this migration, an explicit language choice is preserved normally.
+  if (needsVietnameseMigration) {
+    localStorage.setItem(LANGUAGE_KEY, 'vi');
+    localStorage.setItem(MIGRATION_KEY, '1');
+  } else if (!localStorage.getItem(LANGUAGE_KEY)) {
+    localStorage.setItem(LANGUAGE_KEY, 'vi');
+  }
 
   const style = document.createElement('style');
   style.id = 'travel-shared-typography';
@@ -93,10 +101,19 @@
     if (flightHero) flightHero.textContent = copy.heroFlight;
   }
 
+  function finishMigration() {
+    if (!needsVietnameseMigration) return;
+    const picker = document.getElementById('languageSelect');
+    if (picker && picker.value !== 'vi') {
+      picker.value = 'vi';
+      picker.dispatchEvent(new Event('change'));
+    }
+  }
+
   document.addEventListener('travel-language-change', () => queueMicrotask(applyTripCorrections));
   if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', () => setTimeout(applyTripCorrections, 0), { once: true });
+    document.addEventListener('DOMContentLoaded', () => setTimeout(() => { finishMigration(); applyTripCorrections(); }, 0), { once: true });
   } else {
-    setTimeout(applyTripCorrections, 0);
+    setTimeout(() => { finishMigration(); applyTripCorrections(); }, 0);
   }
 })();
