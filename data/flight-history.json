@@ -88,5 +88,25 @@
     "airline": "Mixed airlines",
     "provider": "SerpApi",
     "source": "Google Flights"
+  },
+  {
+    "checked_at": "2026-08-25T09:07:38.632Z",
+    "scenario_id": "return-25",
+    "mode": "direct",
+    "total_amount": "98186048",
+    "total_currency": "VND",
+    "airline": "Vietjet",
+    "provider": "SerpApi",
+    "source": "Google Flights"
+  },
+  {
+    "checked_at": "2026-08-25T09:07:38.632Z",
+    "scenario_id": "return-26",
+    "mode": "direct",
+    "total_amount": "50060492",
+    "total_currency": "VND",
+    "airline": "Mixed airlines",
+    "provider": "SerpApi",
+    "source": "Google Flights"
   }
 ]
