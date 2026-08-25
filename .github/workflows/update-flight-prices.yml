@@ -73,6 +73,7 @@ jobs:
           keys=("$SERPAPI_API_KEY" "$SERPAPI_API_KEY_2" "$SERPAPI_API_KEY_3")
           attempted=0
           last_status=1
+          search_ok=0
 
           for index in "${!keys[@]}"; do
             key="${keys[$index]}"
@@ -90,6 +91,7 @@ jobs:
             printf '%s\n' "$output"
 
             if [ "$status" -eq 0 ]; then
+              search_ok=1
               echo "SerpApi search key slot #${slot} completed successfully."
               break
             fi
@@ -111,9 +113,14 @@ jobs:
             exit 2
           fi
 
+          if [ "$search_ok" -ne 1 ]; then
+            echo "::error::All configured SerpApi search keys failed. Booking Options enrichment will not run against stale data."
+            exit "$last_status"
+          fi
+
           if [ ! -f data/flights.json ]; then
             echo "::error::Flight search did not produce data/flights.json."
-            exit "$last_status"
+            exit 3
           fi
 
       - name: Enrich Booking Options and baggage
