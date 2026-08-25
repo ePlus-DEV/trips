@@ -91,3 +91,10 @@
   async function init(){try{DATA=await fetch(`./data/flights.json?details=${Date.now()}`,{cache:'no-store'}).then(r=>r.json());schedule();const root=$('#results');if(root)new MutationObserver(schedule).observe(root,{childList:true,subtree:true})}catch(e){console.warn('Flight details unavailable',e)}}
   init();
 })();
+
+(()=>{
+  const script=document.createElement('script');
+  script.src='./flight-deeplink.js';
+  script.defer=true;
+  document.body.appendChild(script);
+})();
