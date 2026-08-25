@@ -10,34 +10,30 @@ A lightweight personal travel dashboard for GitHub Pages with itinerary, budget,
 - Export/import local travel data
 - Light/dark mode and PWA/offline support
 - **Google Flights price snapshots through SerpApi + GitHub Actions**
-- Return-date comparison, airline/stops filters, price history and price alerts
+- Direct-flight priority, stops/airline filters, price history and price alerts
 - No separate backend server
 
 ## Current China trip
 
 - Ho Chi Minh City → Shanghai → Beijing
-- Outbound: **20 October 2026**
-- Return options: **25 October evening** or **26 October morning**
+- Outbound: **19 October 2026** — SGN → SHA/PVG
+- Return: **26 October 2026** — PEK/PKX → SGN
 - **6 adults + 1 infant under 2 on lap**
 - Economy
-- Direct or maximum 1 stop per leg
+- Direct flights are prioritized; maximum 1 stop remains available
 
 ## Live flight prices
 
 The workflow `.github/workflows/update-flight-prices.yml` calls SerpApi's Google Flights engine. The API key remains in GitHub Actions Secrets and is never exposed in the browser.
 
-Google Flights multi-city selection is sequential. For each return-date scenario the fetcher performs:
+The current fetcher searches each direction separately so the dashboard can keep a broader list of flight options:
 
-1. initial multi-city search to get the first-leg options and a `departure_token`,
-2. a second search with that token to get the next leg and complete itinerary prices.
+1. Ho Chi Minh City → Shanghai on 19 October 2026,
+2. Beijing → Ho Chi Minh City on 26 October 2026.
 
-There are two scenarios, so one refresh uses **4 SerpApi searches**.
+Each route keeps non-stop and 1-stop results, then ranks **non-stop first** by default. One refresh currently uses **2 SerpApi searches**.
 
-### 1. Create a SerpApi key
-
-Create a SerpApi account and copy your private API key.
-
-### 2. Add the GitHub Actions secret
+### SerpApi secret
 
 Repository → **Settings → Secrets and variables → Actions → New repository secret**
 
@@ -48,9 +44,7 @@ Value: <your SerpApi API key>
 
 Do not add the key to source code, repository variables, `flights.json`, issues or PR comments.
 
-### 3. Merge the PR and run the first check
-
-After the workflow exists on `main`:
+### Run a manual check
 
 ```text
 Actions
@@ -75,45 +69,57 @@ The default schedule is:
 07:17 Asia/Ho_Chi_Minh
 ```
 
-One refresh uses 4 API searches, so a 30-day month is roughly **120 searches**, leaving room for manual checks within SerpApi's free quota.
+At 2 API searches per refresh, a 30-day month is roughly **60 searches**, plus any manual checks.
 
 ### Price dashboard
 
 `flights.html` provides:
 
-- comparison of returning **25 vs 26 October**
-- Cheapest / Fastest sorting
-- Direct only / 1 stop filters
+- separate outbound and return flight lists
+- **Recommended · direct first** sorting by default
+- Cheapest / Fastest / Departure-time sorting
+- All / Direct only / 1 stop only filters
 - airline filter
-- total search price for the selected 7 travellers
-- rough total ÷ 7 reference value
-- price change from the previous check
-- lowest/highest saved prices
-- saved trend chart
-- Fresh / Aging / Stale indicator
+- one-way fare for the selected travellers
+- estimated best outbound + return total
+- price history for the current trip dates
+- freshness indicator
 - browser-local target price
 - shortcut to run GitHub Actions manually
+
+## UI / localization standard
+
+Public pages use UTF-8 and the shared Vietnamese-safe system font stack:
+
+```text
+system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans", "Helvetica Neue", Arial, sans-serif
+```
+
+Vietnamese is the default UI for first-time visitors. The main dashboard keeps the existing language switcher for:
+
+- Tiếng Việt
+- English
+- 中文 (Simplified Chinese)
+- 日本語
+
+The selected language is stored in `localStorage` as `travel-language`.
+
+VND values are displayed in the Vietnamese format, for example:
+
+```text
+21.840.000 đ
+```
 
 ## Optional GitHub Issue price alert
 
 Create repository Actions variables:
 
 ```text
-FLIGHT_ALERT_AMOUNT=30000000
+FLIGHT_ALERT_AMOUNT=50000000
 FLIGHT_ALERT_CURRENCY=VND
 ```
 
-When the current cheapest total is at or below the threshold, the workflow opens or updates:
-
-```text
-✈️ Flight price alert · China 2026
-```
-
-When the price moves above the target again, the issue is closed.
-
-## Price notes
-
-The results are Google Flights search snapshots, not locked fares. Google Flights may omit some carriers/options and final seller prices can change. Baggage, card and other optional fees may be additional. Always verify the itinerary and final amount on Google Flights or the airline/agency before paying.
+When the current estimated best pair total is at or below the threshold, the workflow opens or updates the flight-price alert issue. Final fares can still change, so always verify the itinerary and checkout amount before payment.
 
 ## Files
 
@@ -131,6 +137,8 @@ trips/
 │   └── index.html
 ├── flights.html
 ├── index.html
+├── i18n.js
+├── site-standard.js
 ├── manifest.webmanifest
 ├── sw.js
 ├── icon.svg
@@ -138,19 +146,6 @@ trips/
 ├── .nojekyll
 └── README.md
 ```
-
-## Navigation & languages
-
-The main dashboard links directly to the flight price watcher from the desktop navigation, hero actions, Flights essentials card and mobile navigation.
-
-The dashboard and flight-price page share `i18n.js` with these languages:
-
-- English
-- Tiếng Việt
-- 中文 (Simplified Chinese)
-- 日本語
-
-The selected language is stored in `localStorage` as `travel-language`; otherwise the browser language is detected automatically.
 
 ## Local development
 
