@@ -59,12 +59,12 @@
     btn.addEventListener('click',()=>{
       const panel=document.getElementById(id),open=btn.getAttribute('aria-expanded')==='true';
       $$('.offer-details-toggle[aria-expanded="true"]').forEach(other=>{if(other===btn)return;other.setAttribute('aria-expanded','false');const p=document.getElementById(other.getAttribute('aria-controls'));if(p)p.hidden=true;const s=other.querySelector('span');if(s)s.textContent='Chi tiết chuyến bay'});
-      btn.setAttribute('aria-expanded',String(!open));panel.hidden=open;btn.querySelector('span').textContent=open?'Chi tiết chuyến bay':'Ẩn chi tiết';
+      btn.setAttribute('aria-expanded',String(!open));if(panel)panel.hidden=open;btn.querySelector('span').textContent=open?'Chi tiết chuyến bay':'Ẩn chi tiết';
       if(!open&&window.innerWidth<821)setTimeout(()=>card.scrollIntoView({behavior:'smooth',block:'nearest'}),80);
     });
   }
 
-  function decorate(){scheduled=false;if(!DATA)return;$$('#results .route-group').forEach(group=>{const text=group.querySelector('.route-group-head strong')?.textContent||'',routeId=text.includes('Chiều đi')?'outbound':'return';$$('.flight-offer',group).forEach((card,i)=>attach(card,routeId,i))})}
+  function decorate(){scheduled=false;if(!DATA)return;$$('#results .route-group').forEach(group=>{const text=group.querySelector('.route-group-head strong')?.textContent||'',routeId=text.includes('Chiều đi')?'outbound':'return';[...group.querySelectorAll('.flight-offer')].forEach((card,i)=>attach(card,routeId,i))})}
   function schedule(){if(scheduled)return;scheduled=true;requestAnimationFrame(decorate)}
   async function init(){try{DATA=await fetch(`./data/flights.json?details=${Date.now()}`,{cache:'no-store'}).then(r=>r.json());schedule();const root=$('#results');if(root)new MutationObserver(schedule).observe(root,{childList:true,subtree:true})}catch(e){console.warn('Flight details unavailable',e)}}
   init();
