@@ -4,38 +4,53 @@
   const LANGUAGE_KEY = 'travel-language';
   const supported = new Set(['vi', 'en', 'zh', 'ja']);
 
-  // The site is primarily used in Vietnamese. Keep an explicit user choice,
-  // but make Vietnamese the default for first-time visitors.
+  // Vietnamese is the primary UI. Preserve an explicit user choice.
   if (!localStorage.getItem(LANGUAGE_KEY)) localStorage.setItem(LANGUAGE_KEY, 'vi');
+
+  const style = document.createElement('style');
+  style.id = 'travel-shared-typography';
+  style.textContent = `
+    html,body,button,input,textarea,select{font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans","Helvetica Neue",Arial,sans-serif}
+    .language-select{font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans","Helvetica Neue",Arial,sans-serif!important;font-weight:700!important}
+  `;
+  document.head.appendChild(style);
 
   const COPY = {
     vi: {
+      title: 'Nhật ký du lịch · David',
       tripDate: '19–26/10/2026',
       flightSummary: 'Đi 19/10: TP.HCM → Thượng Hải · Về 26/10: Bắc Kinh → TP.HCM. Theo dõi giá Google Flights trước khi đặt vé.',
       returnText: 'Bay về TP.HCM ngày 26/10. Ưu tiên chuyến bay thẳng.',
       flightLabel: 'Giá vé',
-      heroFlight: '✈ Theo dõi giá vé →'
+      heroFlight: '✈ Theo dõi giá vé →',
+      dateLocale: 'vi-VN'
     },
     en: {
+      title: "David's Travel Log",
       tripDate: '19–26 October 2026',
       flightSummary: 'Outbound 19 Oct: Ho Chi Minh City → Shanghai · Return 26 Oct: Beijing → Ho Chi Minh City. Track Google Flights prices before booking.',
       returnText: 'Return to Ho Chi Minh City on 26 Oct. Direct flights are preferred.',
       flightLabel: 'Flight prices',
-      heroFlight: '✈ Watch flight prices →'
+      heroFlight: '✈ Watch flight prices →',
+      dateLocale: 'en-GB'
     },
     zh: {
+      title: '旅行日志 · David',
       tripDate: '2026年10月19–26日',
       flightSummary: '去程 10月19日：胡志明市 → 上海 · 回程 10月26日：北京 → 胡志明市。预订前跟踪 Google Flights 价格。',
       returnText: '10月26日返回胡志明市，优先直飞航班。',
       flightLabel: '机票价格',
-      heroFlight: '✈ 查看机票价格 →'
+      heroFlight: '✈ 查看机票价格 →',
+      dateLocale: 'zh-CN'
     },
     ja: {
+      title: '旅行ログ · David',
       tripDate: '2026年10月19–26日',
       flightSummary: '往路 10月19日：ホーチミン → 上海 · 復路 10月26日：北京 → ホーチミン。予約前に Google Flights の価格を確認します。',
       returnText: '10月26日にホーチミンへ帰国。直行便を優先します。',
       flightLabel: '航空券価格',
-      heroFlight: '✈ 航空券価格を見る →'
+      heroFlight: '✈ 航空券価格を見る →',
+      dateLocale: 'ja-JP'
     }
   };
 
@@ -47,9 +62,13 @@
   function applyTripCorrections() {
     const lang = currentLanguage();
     const copy = COPY[lang] || COPY.vi;
+    document.title = copy.title;
 
     const tripDate = document.querySelector('.trip-date');
     if (tripDate) tripDate.textContent = copy.tripDate;
+
+    const today = document.getElementById('todayLabel');
+    if (today) today.textContent = new Intl.DateTimeFormat(copy.dateLocale, { day: '2-digit', month: '2-digit', year: 'numeric' }).format(new Date());
 
     const flightCard = [...document.querySelectorAll('#essentials .quick')].find(card => {
       const title = card.querySelector('h3')?.textContent?.trim() || '';
