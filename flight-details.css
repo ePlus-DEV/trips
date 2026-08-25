@@ -7,10 +7,22 @@
 .offer-details{border-top:1px solid var(--line);background:color-mix(in srgb,var(--surface-2) 72%,var(--surface));padding:16px}
 .offer-details:not([hidden]){animation:offer-details-in .24s var(--ease-out) both}
 @keyframes offer-details-in{from{opacity:0;transform:translateY(-4px)}to{opacity:1;transform:none}}
-.details-summary{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;margin-bottom:14px}
+.details-summary{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;margin-bottom:12px}
 .details-summary-item{padding:10px 11px;border:1px solid var(--line);border-radius:9px;background:var(--surface)}
 .details-summary-item span{display:block;font-size:9.5px;color:var(--muted);font-weight:700}
 .details-summary-item strong{display:block;margin-top:3px;font-size:11.5px;line-height:1.35}
+.baggage-card{margin-bottom:14px;padding:12px;border:1px solid color-mix(in srgb,var(--primary) 20%,var(--line));border-radius:11px;background:color-mix(in srgb,var(--primary-soft) 46%,var(--surface));color:var(--text)}
+.baggage-card.is-empty{border-color:var(--line);background:var(--surface)}
+.baggage-title{display:flex;align-items:center;gap:10px}
+.baggage-title>svg{width:20px;height:20px;flex:0 0 auto;stroke:var(--primary);fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.baggage-card.is-empty .baggage-title>svg{stroke:var(--muted)}
+.baggage-title strong{display:block;font-size:11.5px}
+.baggage-title span{display:block;margin-top:2px;font-size:9.5px;color:var(--muted)}
+.baggage-card ul{margin:10px 0 0;padding:0;display:grid;gap:6px;list-style:none}
+.baggage-card li{position:relative;padding-left:17px;font-size:10.5px;font-weight:700;line-height:1.45}
+.baggage-card li:before{content:"✓";position:absolute;left:0;top:0;color:var(--success);font-weight:800}
+.baggage-card p{margin:9px 0 0;font-size:10.5px;font-weight:700;color:var(--text)}
+.baggage-card small{display:block;margin-top:7px;font-size:9.5px;line-height:1.45;color:var(--muted)}
 .segment-list{display:grid;gap:0}
 .segment-card{position:relative;padding:2px 0 2px 26px}
 .segment-card:before{content:"";position:absolute;left:7px;top:14px;width:9px;height:9px;border-radius:50%;background:var(--surface);border:2px solid var(--primary)}
@@ -30,5 +42,5 @@
 .details-actions p{margin:0;font-size:9.5px;color:var(--muted);line-height:1.45}
 .details-actions .btn{flex:0 0 auto}
 @media(max-width:820px){.details-summary{grid-template-columns:1fr 1fr}.offer-details{padding:13px}.segment-head{align-items:flex-start;flex-direction:column;gap:2px}.segment-head span{text-align:left}.details-actions{align-items:flex-start;flex-direction:column}.details-actions .btn{width:100%}.offer-details-toggle{margin-left:0;width:100%;justify-content:center;border-top:1px solid var(--line);padding:8px 0 2px}}
-@media(max-width:480px){.details-summary{grid-template-columns:1fr}.segment-route{grid-template-columns:1fr 26px 1fr;padding:10px}.segment-airport strong{font-size:15px}.segment-card{padding-left:22px}.segment-card:before{left:4px}.segment-card:not(:last-of-type):after{left:8px}.layover{margin-left:22px}}
+@media(max-width:480px){.details-summary{grid-template-columns:1fr}.segment-route{grid-template-columns:1fr 26px 1fr;padding:10px}.segment-airport strong{font-size:15px}.segment-card{padding-left:22px}.segment-card:before{left:4px}.segment-card:not(:last-of-type):after{left:8px}.layover{margin-left:22px}.baggage-card{padding:11px}}
 @media(prefers-reduced-motion:reduce){.offer-details:not([hidden]){animation:none}.offer-details-toggle svg{transition:none}}
