@@ -1,163 +1,191 @@
 <!doctype html>
 <html lang="vi">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-  <meta name="theme-color" content="#f4f0e8" />
-  <meta name="description" content="Nhật ký du lịch cá nhân cho lịch trình, ngân sách, ghi chú và chuẩn bị chuyến đi." />
-  <link rel="manifest" href="./manifest.webmanifest" />
-  <link rel="icon" href="./icon.svg" type="image/svg+xml" />
-  <title>Nhật ký du lịch · David</title>
-  <script>if(!localStorage.getItem('travel-language'))localStorage.setItem('travel-language','vi')</script>
-  <style>
-    :root{
-      --bg:#f4f0e8;--surface:rgba(255,255,255,.72);--surface2:#fffdf8;--ink:#17322d;--muted:#6f7d77;
-      --line:rgba(23,50,45,.12);--accent:#e16043;--green:#2c6b5d;--yellow:#f0c56b;--blue:#d8e4ea;
-      --shadow:0 20px 60px rgba(41,55,48,.10);--radius:28px;--nav:rgba(244,240,232,.88)
-    }
-    [data-theme="dark"]{
-      --bg:#101714;--surface:rgba(27,39,34,.86);--surface2:#19231f;--ink:#edf3ef;--muted:#aab8b1;
-      --line:rgba(237,243,239,.12);--accent:#ef7659;--green:#76b5a4;--yellow:#d8ad58;--blue:#243932;
-      --shadow:0 20px 60px rgba(0,0,0,.24);--nav:rgba(16,23,20,.88)
-    }
-    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans","Helvetica Neue",Arial,sans-serif;font-size:14px;font-weight:400;line-height:1.5;color:var(--ink);background:radial-gradient(circle at 5% 0%,rgba(240,197,107,.22),transparent 30%),radial-gradient(circle at 95% 12%,rgba(225,96,67,.13),transparent 30%),var(--bg);min-height:100vh;transition:background .25s,color .25s;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
-    a{color:inherit;text-decoration:none}button,input,textarea,select{font:inherit}button{color:inherit}.shell{width:min(1180px,calc(100% - 32px));margin:0 auto}
-    header{position:sticky;top:0;z-index:30;backdrop-filter:blur(18px);background:var(--nav);border-bottom:1px solid var(--line)}
-    .nav{min-height:72px;display:flex;align-items:center;justify-content:space-between;gap:20px}.brand{display:flex;align-items:center;gap:12px;font-weight:700;letter-spacing:-.03em}.brand-mark{width:38px;height:38px;border-radius:14px;background:var(--ink);color:var(--bg);display:grid;place-items:center;transform:rotate(-4deg);box-shadow:0 8px 20px rgba(23,50,45,.18)}.brand-mark span{transform:rotate(4deg)}
-    nav{display:flex;gap:6px}nav a{padding:10px 12px;border-radius:999px;color:var(--muted);font-size:14px;font-weight:700}nav a:hover{color:var(--ink);background:var(--surface)}
-    .actions{display:flex;gap:8px}.icon-btn{width:42px;height:42px;border-radius:50%;border:1px solid var(--line);background:var(--surface);cursor:pointer;display:grid;place-items:center}.icon-btn:hover{transform:translateY(-1px)}
-    main{padding:42px 0 90px}.eyebrow{display:inline-flex;align-items:center;gap:8px;text-transform:uppercase;font-size:11px;font-weight:800;letter-spacing:.14em;color:var(--green)}.eyebrow:before{content:"";width:24px;height:2px;background:currentColor;border-radius:2px}
-    .hero{min-height:390px;display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center;padding:20px 0 48px}.hero h1{max-width:720px;margin:16px 0 18px;font-family:Georgia,"Times New Roman",serif;font-size:clamp(54px,8vw,102px);line-height:.88;letter-spacing:-.065em;font-weight:500}.hero h1 em{color:var(--accent);font-weight:500}.hero p{max-width:600px;color:var(--muted);font-size:clamp(17px,2vw,20px);line-height:1.65;margin:0 0 26px}.hero-actions{display:flex;flex-wrap:wrap;gap:10px}
-    .btn{border:1px solid var(--line);padding:12px 17px;border-radius:999px;font-weight:700;display:inline-flex;align-items:center;gap:9px;background:var(--surface);cursor:pointer}.btn.primary{background:var(--ink);color:var(--bg);border-color:var(--ink)}.btn.small{padding:8px 12px;font-size:12px}.btn:hover{transform:translateY(-1px)}
-    .passport{position:relative;width:min(360px,90%);aspect-ratio:4/5;margin-left:auto;background:var(--green);border-radius:30px;color:#f6edda;padding:34px;transform:rotate(4deg);box-shadow:0 35px 80px rgba(23,50,45,.2);overflow:hidden}.passport:before,.passport:after{content:"";position:absolute;border:1px solid rgba(255,255,255,.18);border-radius:50%}.passport:before{width:280px;height:280px;right:-100px;bottom:-80px}.passport:after{width:180px;height:180px;right:-52px;bottom:-30px}.passport-small{font-size:11px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;opacity:.72}.passport-title{margin-top:18px;font-family:Georgia,serif;font-size:38px;line-height:1.05}.passport-plane{font-size:74px;margin-top:52px;transform:rotate(-18deg);display:inline-block}.passport-code{position:absolute;bottom:32px;left:34px;font-family:ui-monospace,monospace;letter-spacing:.15em;font-size:13px;opacity:.7}
-    .section{margin-top:48px;scroll-margin-top:96px}.section-head{display:flex;justify-content:space-between;gap:18px;align-items:end;margin-bottom:20px}.section-head h2{margin:6px 0 0;font-family:Georgia,serif;font-size:clamp(34px,5vw,54px);letter-spacing:-.045em;font-weight:500}.section-head p{margin:0;color:var(--muted);max-width:430px;text-align:right;line-height:1.6}
-    .next-trip{border:1px solid var(--line);border-radius:34px;background:var(--surface2);box-shadow:var(--shadow);padding:28px;display:grid;grid-template-columns:1.15fr .85fr;gap:24px;overflow:hidden;position:relative}.next-trip:after{content:"";width:330px;height:330px;border-radius:50%;position:absolute;right:-110px;top:-140px;background:rgba(240,197,107,.14);pointer-events:none}.trip-kicker{display:flex;align-items:center;gap:12px;flex-wrap:wrap}.tag{background:rgba(225,96,67,.13);color:var(--accent);border-radius:999px;padding:7px 11px;font-size:12px;font-weight:700}.trip-date{color:var(--muted);font-size:14px;font-weight:700}.trip-name{font-family:Georgia,serif;font-size:clamp(42px,6vw,68px);margin:22px 0 10px;letter-spacing:-.05em;font-weight:500}.trip-subtitle{color:var(--muted);margin:0 0 22px;line-height:1.6}
-    .route{display:grid;grid-template-columns:repeat(3,1fr);align-items:center;margin-top:26px}.route-stop{position:relative}.route-stop:not(:last-child):after{content:"";position:absolute;top:10px;left:26px;right:-6px;border-top:2px dashed rgba(44,107,93,.22)}.dot{width:20px;height:20px;border-radius:50%;background:var(--surface2);border:6px solid var(--green);position:relative;z-index:2}.route-stop.active .dot{border-color:var(--accent)}.route-city{margin-top:10px;font-weight:700;font-size:14px}.route-note{color:var(--muted);font-size:12px;margin-top:3px}
-    .countdown{min-height:100%;border-radius:28px;background:var(--ink);color:var(--bg);padding:28px;display:flex;flex-direction:column;justify-content:space-between;position:relative;overflow:hidden}.countdown:after{content:"✦";position:absolute;right:22px;top:12px;font-size:110px;opacity:.06}.count-label{opacity:.62;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.13em}.count-number{font-family:Georgia,serif;font-size:clamp(78px,12vw,132px);line-height:.8;margin-top:30px;letter-spacing:-.07em}.count-unit{margin-top:12px;font-size:18px;opacity:.74}.count-footer{margin-top:50px;display:flex;justify-content:space-between;opacity:.6;font-size:12px}
-    .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:16px}.stat{border:1px solid var(--line);background:var(--surface);border-radius:20px;padding:17px}.stat strong{display:block;font:500 30px Georgia,serif;letter-spacing:-.04em}.stat span{display:block;margin-top:4px;color:var(--muted);font-size:12px;font-weight:700}
-    .quick-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}.quick{border:1px solid var(--line);background:var(--surface);border-radius:22px;padding:18px;min-height:150px;display:flex;flex-direction:column}.quick-icon{font-size:24px}.quick h3{margin:20px 0 6px;font-size:16px}.quick p{margin:0;color:var(--muted);font-size:13px;line-height:1.5}.quick .btn{margin-top:auto;align-self:flex-start}
-    .timeline{display:grid;gap:12px}.day{border:1px solid var(--line);border-radius:22px;background:var(--surface);overflow:hidden}.day summary{list-style:none;display:grid;grid-template-columns:80px 1fr auto;gap:16px;align-items:center;padding:18px 20px;cursor:pointer}.day summary::-webkit-details-marker{display:none}.day-num{font:500 25px Georgia,serif}.day-title strong{display:block}.day-title span{display:block;color:var(--muted);font-size:12px;margin-top:4px}.day-toggle{width:32px;height:32px;border-radius:50%;display:grid;place-items:center;background:var(--surface2);border:1px solid var(--line);transition:.2s}.day[open] .day-toggle{transform:rotate(45deg)}.day-body{border-top:1px solid var(--line);padding:4px 20px 18px 116px}.activity{position:relative;padding:13px 0 13px 20px;border-left:1px solid var(--line)}.activity:before{content:"";width:9px;height:9px;border-radius:50%;background:var(--accent);position:absolute;left:-5px;top:19px}.activity strong{font-size:14px}.activity span{display:block;color:var(--muted);font-size:12px;margin-top:4px;line-height:1.45}.activity a{color:var(--green);font-weight:700}
-    .destination-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.destination{min-height:280px;border-radius:var(--radius);padding:24px;border:1px solid var(--line);position:relative;overflow:hidden;display:flex;flex-direction:column;justify-content:space-between;transition:.25s ease}.destination:hover{transform:translateY(-4px);box-shadow:var(--shadow)}.destination:nth-child(1){background:#dce9de;color:#17322d}.destination:nth-child(2){background:#eedbc8;color:#17322d}.destination:nth-child(3){background:#d8e4ea;color:#17322d}.destination:after{content:attr(data-symbol);position:absolute;right:-8px;bottom:-25px;font-size:150px;filter:grayscale(1);opacity:.12;transform:rotate(-5deg)}.destination .num{font-family:ui-monospace,monospace;font-size:12px;opacity:.55}.destination h3{font-family:Georgia,serif;font-weight:500;font-size:38px;margin:auto 0 8px;letter-spacing:-.04em}.destination p{margin:0;opacity:.68;font-size:14px;line-height:1.55;max-width:82%}.destination-meta{margin-top:18px;display:flex;gap:8px;flex-wrap:wrap;position:relative;z-index:2}.mini-tag{padding:6px 9px;border-radius:999px;background:rgba(255,255,255,.5);font-size:11px;font-weight:700}
-    .planner-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}.panel{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:24px}.panel h3{margin:0 0 18px;font-size:20px;letter-spacing:-.02em}.progress-row{display:flex;justify-content:space-between;align-items:center;color:var(--muted);font-size:12px;font-weight:700}.progress{height:9px;background:var(--line);border-radius:999px;overflow:hidden;margin:10px 0 12px}.progress>span{display:block;height:100%;width:0;background:var(--green);border-radius:999px;transition:.25s}.check-item{display:flex;align-items:center;gap:12px;padding:13px 0;border-top:1px solid var(--line)}.check-item input{width:19px;height:19px;accent-color:var(--green);cursor:pointer}.check-item label{flex:1;cursor:pointer}.check-item input:checked+label{color:var(--muted);text-decoration:line-through}
-    .budget-head{display:grid;grid-template-columns:1fr 110px 110px;gap:10px;color:var(--muted);font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;padding:0 4px 8px}.budget-row{display:grid;grid-template-columns:1fr 110px 110px;gap:10px;align-items:center;padding:10px 0;border-top:1px solid var(--line)}.money{width:100%;border:1px solid var(--line);background:var(--surface2);color:var(--ink);border-radius:12px;padding:9px 10px;outline:none}.money:focus,textarea:focus{border-color:var(--green)}.budget-total{margin-top:14px;padding-top:14px;border-top:1px solid var(--line);display:grid;grid-template-columns:1fr auto;gap:8px}.budget-total div{color:var(--muted);font-size:12px}.budget-total strong{text-align:right}
-    textarea{width:100%;min-height:190px;resize:vertical;border:1px solid var(--line);background:var(--surface2);color:var(--ink);border-radius:18px;padding:16px;line-height:1.55;outline:none}.save-hint{color:var(--muted);font-size:11px;margin-top:8px}.data-actions{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
-    .quote{margin-top:52px;border-radius:34px;padding:clamp(30px,6vw,68px);background:var(--accent);color:#fff8ef;text-align:center;position:relative;overflow:hidden}.quote:before{content:"“";position:absolute;left:24px;top:-44px;font:200px Georgia,serif;opacity:.12}.quote blockquote{margin:0 auto;max-width:850px;font:500 clamp(32px,5vw,58px)/1.08 Georgia,serif;letter-spacing:-.04em}.quote small{display:block;margin-top:20px;opacity:.72;font-weight:700}
-    footer{padding:34px 0 90px;color:var(--muted);font-size:13px}.footer-row{display:flex;justify-content:space-between;gap:20px;align-items:center;border-top:1px solid var(--line);padding-top:24px}.mobile-nav{display:none}
-    .toast{position:fixed;left:50%;bottom:26px;z-index:100;transform:translate(-50%,20px);opacity:0;pointer-events:none;background:var(--ink);color:var(--bg);padding:11px 16px;border-radius:999px;font-size:12px;font-weight:700;box-shadow:var(--shadow);transition:.22s}.toast.show{opacity:1;transform:translate(-50%,0)}
-    @media(max-width:900px){nav{display:none}.hero{grid-template-columns:1fr;padding-top:18px}.passport{margin:10px auto 0;width:min(340px,86%);transform:rotate(2deg)}.next-trip,.planner-grid{grid-template-columns:1fr}.quick-grid,.stats{grid-template-columns:1fr 1fr}.destination-grid{grid-template-columns:1fr 1fr}.section-head{align-items:start;flex-direction:column}.section-head p{text-align:left}}
-    @media(max-width:620px){.shell{width:min(100% - 22px,1180px)}header .actions .btn{display:none}main{padding-top:24px}.hero{gap:12px}.hero h1{font-size:clamp(58px,20vw,82px)}.passport{display:none}.next-trip{padding:16px;border-radius:24px}.countdown{min-height:245px}.stats,.quick-grid,.destination-grid{grid-template-columns:1fr}.quick{min-height:120px}.route{gap:6px}.route-city{font-size:12px}.day summary{grid-template-columns:54px 1fr auto;padding:16px 14px}.day-body{padding:4px 14px 16px 68px}.budget-head,.budget-row{grid-template-columns:1fr 92px 92px;gap:6px}.panel{padding:18px}.footer-row{flex-direction:column;align-items:flex-start}.mobile-nav{display:grid;grid-template-columns:repeat(5,1fr);position:fixed;z-index:50;bottom:0;left:0;right:0;padding:8px max(8px,env(safe-area-inset-right)) calc(8px + env(safe-area-inset-bottom)) max(8px,env(safe-area-inset-left));background:var(--nav);backdrop-filter:blur(18px);border-top:1px solid var(--line)}.mobile-nav a{display:grid;place-items:center;gap:2px;padding:5px;color:var(--muted);font-size:10px;font-weight:700}.mobile-nav b{font-size:19px;font-weight:400}.toast{bottom:82px}}
-  </style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#f4f7fb">
+  <meta name="description" content="TravelLog — lịch trình Trung Quốc 19–26/10/2026, chuyến bay, ngân sách, checklist và ghi chú.">
+  <link rel="manifest" href="./manifest.webmanifest">
+  <link rel="icon" href="./icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="./app.css">
+  <title>TravelLog · Trung Quốc 2026</title>
 </head>
 <body>
-<header>
-  <div class="shell nav">
-    <a class="brand" href="#top"><div class="brand-mark"><span>✈</span></div><span>Travel Log</span></a>
-    <nav aria-label="Primary navigation"><a href="#next">Next trip</a><a href="#itinerary">Itinerary</a><a href="#places">Places</a><a href="./flights/" data-flight-nav="1">Flight prices</a><a href="#planner">Planner</a></nav>
-    <div class="actions"><button class="icon-btn" id="themeBtn" aria-label="Toggle theme">◐</button><button class="btn" id="shareBtn">Share ↗</button></div>
+<div class="app">
+  <aside class="sidebar">
+    <a class="logo" href="#top"><span class="logo-mark"><svg><use href="#i-plane"/></svg></span><span>TravelLog</span></a>
+    <nav class="side-nav" aria-label="Điều hướng chính">
+      <a class="active" href="#top"><span class="nav-icon"><svg><use href="#i-home"/></svg></span>Tổng quan</a>
+      <a href="#itinerary"><span class="nav-icon"><svg><use href="#i-calendar"/></svg></span>Lịch trình</a>
+      <a href="./flights/"><span class="nav-icon"><svg><use href="#i-plane"/></svg></span>Theo dõi chuyến bay</a>
+      <a href="#budget"><span class="nav-icon"><svg><use href="#i-wallet"/></svg></span>Ngân sách</a>
+      <a href="#notes"><span class="nav-icon"><svg><use href="#i-note"/></svg></span>Ghi chú</a>
+      <a href="#checklist"><span class="nav-icon"><svg><use href="#i-check"/></svg></span>Danh sách việc</a>
+    </nav>
+    <div class="sidebar-bottom">
+      <button id="themeBtn"><span class="nav-icon"><svg><use href="#i-moon"/></svg></span>Giao diện sáng / tối</button>
+      <a href="https://github.com/ePlus-DEV/trips" target="_blank" rel="noopener"><span class="nav-icon"><svg><use href="#i-github"/></svg></span>Repository</a>
+    </div>
+  </aside>
+
+  <div class="main">
+    <header class="topbar">
+      <label class="searchbox" aria-label="Tìm kiếm trong hành trình">
+        <svg><use href="#i-search"/></svg>
+        <input id="pageSearch" type="search" placeholder="Tìm kiếm hành trình, địa điểm...">
+      </label>
+      <div class="profile">
+        <button class="theme-btn" id="themeBtnTop" aria-label="Đổi giao diện"><svg width="16" height="16"><use href="#i-moon"/></svg></button>
+        <span class="avatar">TL</span>
+        <span class="profile-copy"><strong>Travel Log</strong><span>China · 2026</span></span>
+      </div>
+    </header>
+
+    <header class="mobile-header">
+      <a class="logo" href="#top"><span class="logo-mark"><svg><use href="#i-plane"/></svg></span><span>TravelLog</span></a>
+      <div class="right"><button class="theme-btn" id="themeBtnMobile" aria-label="Đổi giao diện"><svg width="16" height="16"><use href="#i-moon"/></svg></button><span class="avatar">TL</span></div>
+    </header>
+
+    <main class="content" id="top">
+      <section class="trip-hero" aria-labelledby="tripTitle">
+        <div class="hero-copy">
+          <div class="eyebrow">Hành trình sắp tới</div>
+          <h1 id="tripTitle">Trung Quốc — Thu 2026</h1>
+          <p>Hồ Chí Minh → Thượng Hải → Bắc Kinh</p>
+          <div class="meta">19/10 – 26/10/2026 · 8 ngày 7 đêm · 6 người lớn + 1 em bé</div>
+          <a class="btn" href="#itinerary"><svg width="15" height="15"><use href="#i-calendar"/></svg>Xem lịch trình</a>
+        </div>
+        <aside class="countdown-card">
+          <div class="small">Đếm ngược khởi hành</div>
+          <strong id="daysLeft">—</strong><span id="daysUnit">ngày</span>
+          <hr><div class="small">Khởi hành vào</div><b>19/10/2026</b>
+        </aside>
+      </section>
+
+      <section class="stat-grid" aria-label="Tổng quan chuyến đi">
+        <article class="card stat-card"><div class="top"><span class="label">Tổng chi phí dự kiến</span><span class="stat-icon"><svg><use href="#i-wallet"/></svg></span></div><strong id="summaryBudget">0 đ</strong><small id="budgetPerPerson">Chưa nhập ngân sách</small></article>
+        <article class="card stat-card"><div class="top"><span class="label">Chuyến bay theo dõi</span><span class="stat-icon"><svg><use href="#i-plane"/></svg></span></div><strong>2</strong><small>Ưu tiên chuyến bay thẳng</small></article>
+        <article class="card stat-card"><div class="top"><span class="label">Điểm đến</span><span class="stat-icon"><svg><use href="#i-pin"/></svg></span></div><strong>3</strong><small>TP.HCM · Thượng Hải · Bắc Kinh</small></article>
+        <article class="card stat-card"><div class="top"><span class="label">Việc cần làm</span><span class="stat-icon"><svg><use href="#i-check"/></svg></span></div><strong id="taskCount">7</strong><small id="taskStatus">Hoàn thành 0/7</small></article>
+      </section>
+
+      <section class="dashboard-grid">
+        <article class="card" id="itinerary">
+          <div class="card-head"><h2>Lịch trình nổi bật</h2><a href="#itinerary">Xem toàn bộ</a></div>
+          <div class="timeline">
+            <div class="timeline-item">
+              <div class="date-box"><strong>19</strong><span>TH10</span></div><span class="time-dot"></span>
+              <div class="timeline-info"><strong>Hồ Chí Minh → Thượng Hải <span class="pill success">Bay thẳng ưu tiên</span></strong><div class="sub">20:00 SGN → 01:00 PVG (+1)</div><div class="detail">Vietjet · VJ3900 · Theo dõi giá trước khi đặt</div></div><div class="timeline-photo shanghai"></div>
+            </div>
+            <div class="timeline-item">
+              <div class="date-box"><strong>20</strong><span>TH10</span></div><span class="time-dot"></span>
+              <div class="timeline-info"><strong>Thượng Hải</strong><div class="sub">Bến Thượng Hải · Dự Viên · phố cổ</div><div class="detail">Ngày đầu làm quen thành phố, lịch nhẹ</div></div><div class="timeline-photo shanghai"></div>
+            </div>
+            <div class="timeline-item">
+              <div class="date-box"><strong>23</strong><span>TH10</span></div><span class="time-dot"></span>
+              <div class="timeline-info"><strong>Thượng Hải → Bắc Kinh</strong><div class="sub">Di chuyển nội địa</div><div class="detail">Chốt tàu cao tốc / chuyến bay sau</div></div><div class="timeline-photo beijing"></div>
+            </div>
+            <div class="timeline-item">
+              <div class="date-box"><strong>26</strong><span>TH10</span></div><span class="time-dot"></span>
+              <div class="timeline-info"><strong>Bắc Kinh → Hồ Chí Minh <span class="pill success">Bay thẳng ưu tiên</span></strong><div class="sub">08:30 PKX → 12:15 SGN</div><div class="detail">Vietnam Airlines · VN517</div></div><div class="timeline-photo beijing"></div>
+            </div>
+          </div>
+        </article>
+
+        <div class="stack">
+          <article class="card" id="checklist">
+            <div class="card-head"><h3>Kế hoạch & checklist</h3><a href="#checklist">Xem tất cả</a></div>
+            <div class="checklist">
+              <label class="check-item"><input id="c1" type="checkbox">Hộ chiếu còn hạn &gt; 6 tháng</label>
+              <label class="check-item"><input id="c2" type="checkbox">Xin visa Trung Quốc</label>
+              <label class="check-item"><input id="c3" type="checkbox">Đặt chỗ khách sạn</label>
+              <label class="check-item"><input id="c4" type="checkbox">Mua eSIM / SIM Trung Quốc</label>
+              <label class="check-item"><input id="c5" type="checkbox">Bảo hiểm du lịch</label>
+              <label class="check-item"><input id="c6" type="checkbox">Đổi ngoại tệ (CNY)</label>
+              <label class="check-item"><input id="c7" type="checkbox">Xác nhận vé máy bay</label>
+              <div class="progress" aria-label="Tiến độ checklist"><span id="checkProgress"></span></div>
+              <div class="progress-meta"><span id="checkText">0 / 7 hoàn thành</span><span id="checkPercent">0%</span></div>
+            </div>
+          </article>
+
+          <article class="card" id="budget">
+            <div class="card-head"><h3>Ngân sách</h3><span class="pill primary">VND</span></div>
+            <div class="budget">
+              <div class="budget-total"><div><span>Tổng dự kiến</span><strong id="budgetTotal">0 đ</strong></div><span id="budgetHint">Tự động lưu</span></div>
+              <div class="progress"><span id="budgetProgress" style="width:0"></span></div>
+              <div class="budget-row"><span>Chuyến bay</span><input data-budget="flight" inputmode="numeric" placeholder="0"></div>
+              <div class="budget-row"><span>Khách sạn</span><input data-budget="hotel" inputmode="numeric" placeholder="0"></div>
+              <div class="budget-row"><span>Ăn uống</span><input data-budget="food" inputmode="numeric" placeholder="0"></div>
+              <div class="budget-row"><span>Di chuyển nội địa</span><input data-budget="transport" inputmode="numeric" placeholder="0"></div>
+              <div class="budget-row"><span>Mua sắm & khác</span><input data-budget="other" inputmode="numeric" placeholder="0"></div>
+            </div>
+          </article>
+        </div>
+
+        <article class="card notes-card" id="notes">
+          <div class="card-head"><h3>Ghi chú chuyến đi</h3><span class="pill">Lưu trên trình duyệt</span></div>
+          <div class="notes-wrap"><textarea id="tripNotes" placeholder="Địa chỉ khách sạn, mã đặt chỗ, quán ăn, chi tiết tàu, điều cần nhớ..."></textarea><div class="notes-actions"><button class="btn sm" id="copyNotes">Sao chép</button><button class="btn sm" id="exportData">Xuất dữ liệu</button><label class="btn sm" for="importData">Nhập dữ liệu<input id="importData" type="file" accept="application/json" hidden></label><span class="save-state" id="saveState">Đã lưu</span></div></div>
+        </article>
+      </section>
+    </main>
   </div>
-</header>
+</div>
 
-<main id="top"><div class="shell">
-  <section class="hero">
-    <div><span class="eyebrow">Personal travel journal</span><h1>Where to <em>next?</em></h1><p>A personal dashboard for the journeys ahead — itinerary, places, budget, preparation and the small notes worth remembering.</p><div class="hero-actions"><a class="btn primary" href="#next">View next journey →</a><a class="btn" href="./flights/" data-flight-hero="1">✈ Watch flight prices →</a><a class="btn" href="#itinerary">Open itinerary</a></div></div>
-    <div class="passport" aria-hidden="true"><div class="passport-small">Personal travel document</div><div class="passport-title">Go somewhere<br>worth remembering.</div><div class="passport-plane">✈</div><div class="passport-code">DAVID · TRAVEL · 2026</div></div>
-  </section>
+<nav class="mobile-bottom" aria-label="Điều hướng di động">
+  <a class="active" href="#top"><svg><use href="#i-home"/></svg>Tổng quan</a>
+  <a href="#itinerary"><svg><use href="#i-calendar"/></svg>Lịch trình</a>
+  <a href="./flights/"><svg><use href="#i-plane"/></svg>Giá vé</a>
+  <a href="#checklist"><svg><use href="#i-check"/></svg>Checklist</a>
+</nav>
 
-  <section class="section" id="next">
-    <div class="section-head"><div><span class="eyebrow">Coming up</span><h2>Next journey</h2></div><p>Your closest trip, countdown, route and the essentials you will want at a glance.</p></div>
-    <article class="next-trip">
-      <div><div class="trip-kicker"><span class="tag">UPCOMING</span><span class="trip-date">20–26 October 2026</span></div><h3 class="trip-name">China, autumn 2026</h3><p class="trip-subtitle">Shanghai → Beijing — food, streets, architecture, history and enough free time to wander.</p>
-        <div class="route"><div class="route-stop active"><div class="dot"></div><div class="route-city">Ho Chi Minh City</div><div class="route-note">Start · SGN</div></div><div class="route-stop"><div class="dot"></div><div class="route-city">Shanghai</div><div class="route-note">Explore</div></div><div class="route-stop"><div class="dot"></div><div class="route-city">Beijing</div><div class="route-note">Final stop</div></div></div>
-      </div>
-      <aside class="countdown"><div><div class="count-label">Departure countdown</div><div class="count-number" id="daysLeft">—</div><div class="count-unit" id="countUnit">days to go</div></div><div class="count-footer"><span id="todayLabel">Today</span><span>SGN → China</span></div></aside>
-    </article>
-    <div class="stats"><div class="stat"><strong id="tripDays">8</strong><span>trip days</span></div><div class="stat"><strong>2</strong><span>main cities</span></div><div class="stat"><strong>1</strong><span>return options</span></div><div class="stat"><strong id="prepPercent">0%</strong><span>ready to go</span></div></div>
-  </section>
-
-  <section class="section" id="essentials">
-    <div class="section-head"><div><span class="eyebrow">At a glance</span><h2>Trip essentials</h2></div><p>Quick access to the details that are normally scattered across different apps.</p></div>
-    <div class="quick-grid">
-      <article class="quick"><div class="quick-icon">✈️</div><h3>Flights</h3><p>Outbound 20 Oct · Return 25/26 Oct. Track live Google Flights prices before booking.</p><a class="btn small" href="./flights/">Watch flight prices →</a></article>
-      <article class="quick"><div class="quick-icon">🏨</div><h3>Hotels</h3><p>Shanghai + Beijing. Keep address and check-in notes together here.</p><button class="btn small" onclick="document.querySelector('#notes').scrollIntoView()">Open notes ↓</button></article>
-      <article class="quick"><div class="quick-icon">📶</div><h3>Internet</h3><p>Plan eSIM / roaming and keep VPN or connectivity notes before departure.</p><button class="btn small" onclick="toggleCheck('c3')">Mark prepared ✓</button></article>
-      <article class="quick"><div class="quick-icon">🗺️</div><h3>Maps</h3><p>Jump straight to the two main cities and save places as the itinerary grows.</p><a class="btn small" href="https://www.google.com/maps/search/?api=1&query=Shanghai" target="_blank" rel="noopener">Shanghai ↗</a></article>
-    </div>
-  </section>
-
-  <section class="section" id="itinerary">
-    <div class="section-head"><div><span class="eyebrow">Day by day</span><h2>Itinerary</h2></div><p>A flexible outline, intentionally leaving room for discoveries instead of overbooking every hour.</p></div>
-    <div class="timeline">
-      <details class="day" open><summary><div class="day-num">D1</div><div class="day-title"><strong>Arrive in Shanghai</strong><span>20 Oct · arrival + easy evening</span></div><div class="day-toggle">+</div></summary><div class="day-body"><div class="activity"><strong>Airport → hotel</strong><span>Check in, get connected and settle in.</span></div><div class="activity"><strong>Bund evening walk</strong><span>First look at the skyline. <a href="https://www.google.com/maps/search/?api=1&query=The+Bund+Shanghai" target="_blank" rel="noopener">Map ↗</a></span></div></div></details>
-      <details class="day"><summary><div class="day-num">D2</div><div class="day-title"><strong>Old Shanghai + neighborhoods</strong><span>21 Oct · streets, food, architecture</span></div><div class="day-toggle">+</div></summary><div class="day-body"><div class="activity"><strong>French Concession</strong><span>Slow morning walk and cafés.</span></div><div class="activity"><strong>Yu Garden area</strong><span>Historic streets and local food.</span></div></div></details>
-      <details class="day"><summary><div class="day-num">D3</div><div class="day-title"><strong>Free Shanghai day</strong><span>22 Oct · keep this flexible</span></div><div class="day-toggle">+</div></summary><div class="day-body"><div class="activity"><strong>Choose on the day</strong><span>Museum, shopping, river, day trip or just wander.</span></div></div></details>
-      <details class="day"><summary><div class="day-num">D4</div><div class="day-title"><strong>Shanghai → Beijing</strong><span>23 Oct · transfer day</span></div><div class="day-toggle">+</div></summary><div class="day-body"><div class="activity"><strong>Travel north</strong><span>Add final train/flight information to notes after booking.</span></div><div class="activity"><strong>Beijing evening</strong><span>Easy dinner near the hotel.</span></div></div></details>
-      <details class="day"><summary><div class="day-num">D5</div><div class="day-title"><strong>Imperial Beijing</strong><span>24 Oct · history + hutongs</span></div><div class="day-toggle">+</div></summary><div class="day-body"><div class="activity"><strong>Forbidden City area</strong><span>Reserve ahead if required for your final plan.</span></div><div class="activity"><strong>Hutong walk</strong><span>Neighborhood atmosphere in the late afternoon.</span></div></div></details>
-      <details class="day"><summary><div class="day-num">D6–7</div><div class="day-title"><strong>Great Wall + return</strong><span>25–26 Oct · final memories</span></div><div class="day-toggle">+</div></summary><div class="day-body"><div class="activity"><strong>Great Wall option</strong><span>Choose section and transport after confirming the return flight.</span></div><div class="activity"><strong>Beijing → Ho Chi Minh City</strong><span>Return evening 25 Oct or morning 26 Oct.</span></div></div></details>
-    </div>
-  </section>
-
-  <section class="section" id="places">
-    <div class="section-head"><div><span class="eyebrow">On my radar</span><h2>Upcoming places</h2></div><p>Not a bucket list — just places that are becoming real plans.</p></div>
-    <div class="destination-grid">
-      <article class="destination" data-symbol="沪"><span class="num">01 / SHANGHAI</span><div><h3>Shanghai</h3><p>Skyline contrasts, old lanes, river walks and late-night food stops.</p><div class="destination-meta"><span class="mini-tag">Oct 2026</span><span class="mini-tag">City</span><span class="mini-tag">Food</span></div></div></article>
-      <article class="destination" data-symbol="京"><span class="num">02 / BEIJING</span><div><h3>Beijing</h3><p>Hutongs, imperial architecture, history at scale and crisp autumn days.</p><div class="destination-meta"><span class="mini-tag">Oct 2026</span><span class="mini-tag">History</span><span class="mini-tag">Culture</span></div></div></article>
-      <article class="destination" data-symbol="✦"><span class="num">03 / WISHLIST</span><div><h3>Somewhere new</h3><p>A placeholder for the next destination after China.</p><div class="destination-meta"><span class="mini-tag">TBD</span><span class="mini-tag">New story</span></div></div></article>
-    </div>
-  </section>
-
-  <section class="section" id="planner">
-    <div class="section-head"><div><span class="eyebrow">Before I go</span><h2>Travel planner</h2></div><p>Checklist, budget and notes are saved automatically in this browser.</p></div>
-    <div class="planner-grid">
-      <div class="panel"><h3>Pre-trip checklist</h3><div class="progress-row"><span>Preparation</span><span id="checkProgressText">0 / 7</span></div><div class="progress"><span id="checkProgressBar"></span></div>
-        <div class="check-item"><input id="c1" type="checkbox"><label for="c1">Passport & travel documents</label></div><div class="check-item"><input id="c2" type="checkbox"><label for="c2">Flights confirmed</label></div><div class="check-item"><input id="c3" type="checkbox"><label for="c3">Internet / eSIM plan</label></div><div class="check-item"><input id="c4" type="checkbox"><label for="c4">Hotels confirmed</label></div><div class="check-item"><input id="c5" type="checkbox"><label for="c5">Payments & local apps</label></div><div class="check-item"><input id="c6" type="checkbox"><label for="c6">Weather check & packing</label></div><div class="check-item"><input id="c7" type="checkbox"><label for="c7">Travel insurance / emergency info</label></div>
-      </div>
-      <div class="panel"><h3>Budget tracker</h3><div class="budget-head"><span>Category</span><span>Planned</span><span>Actual</span></div>
-        <div class="budget-row"><span>Flights</span><input class="money" data-budget="flight-plan" inputmode="numeric" placeholder="0"><input class="money" data-budget="flight-actual" inputmode="numeric" placeholder="0"></div><div class="budget-row"><span>Hotels</span><input class="money" data-budget="hotel-plan" inputmode="numeric" placeholder="0"><input class="money" data-budget="hotel-actual" inputmode="numeric" placeholder="0"></div><div class="budget-row"><span>Transport</span><input class="money" data-budget="transport-plan" inputmode="numeric" placeholder="0"><input class="money" data-budget="transport-actual" inputmode="numeric" placeholder="0"></div><div class="budget-row"><span>Food</span><input class="money" data-budget="food-plan" inputmode="numeric" placeholder="0"><input class="money" data-budget="food-actual" inputmode="numeric" placeholder="0"></div><div class="budget-row"><span>Activities</span><input class="money" data-budget="activity-plan" inputmode="numeric" placeholder="0"><input class="money" data-budget="activity-actual" inputmode="numeric" placeholder="0"></div>
-        <div class="budget-total"><div>Planned total</div><strong id="plannedTotal">0 đ</strong><div>Actual total</div><strong id="actualTotal">0 đ</strong><div>Remaining</div><strong id="remainingTotal">0 đ</strong></div>
-      </div>
-      <div class="panel" id="notes"><h3>Trip notes</h3><textarea id="tripNotes" placeholder="Hotel addresses, booking codes, places to eat, train details, things to remember..."></textarea><div class="save-hint">Saved automatically on this device.</div><div class="data-actions"><button class="btn small" id="copyNotesBtn">Copy notes</button><button class="btn small" id="exportBtn">Export data</button><label class="btn small" for="importFile" style="cursor:pointer">Import data<input id="importFile" type="file" accept="application/json" hidden></label></div></div>
-      <div class="panel"><h3>Useful reminders</h3><div class="activity"><strong>Leave one free block</strong><span>At least half a day with nothing booked.</span></div><div class="activity"><strong>Photo rule</strong><span>Take fewer photos, but write one sentence about places worth remembering.</span></div><div class="activity"><strong>Backup essentials</strong><span>Keep offline copies of passport, bookings and important addresses.</span></div><div class="activity"><strong>Emergency card</strong><span>Save hotel address and emergency contact information offline before leaving.</span></div></div>
-    </div>
-  </section>
-
-  <section class="quote"><blockquote>Collect places slowly. Remember them deeply.</blockquote><small>Personal travel log · 2026</small></section>
-</div></main>
-
-<footer><div class="shell footer-row"><span>Built for the journeys ahead.</span><span>© <span id="year"></span> David · Travel Log</span></div></footer>
-<nav class="mobile-nav" aria-label="Mobile navigation"><a href="#next"><b>✈</b>Trip</a><a href="./flights/"><b>💸</b>Flight prices</a><a href="#itinerary"><b>☷</b>Plan</a><a href="#planner"><b>✓</b>Ready</a><a href="#notes"><b>✎</b>Notes</a></nav>
-<div class="toast" id="toast">Saved</div>
+<svg width="0" height="0" style="position:absolute;overflow:hidden" aria-hidden="true">
+  <symbol id="i-plane" viewBox="0 0 24 24"><path d="M22 2 9.5 14.5M22 2l-7 20-4-9-9-4Z"/></symbol>
+  <symbol id="i-home" viewBox="0 0 24 24"><path d="m3 11 9-8 9 8v9a1 1 0 0 1-1 1h-5v-7H9v7H4a1 1 0 0 1-1-1Z"/></symbol>
+  <symbol id="i-calendar" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M16 3v4M8 3v4M3 10h18"/></symbol>
+  <symbol id="i-wallet" viewBox="0 0 24 24"><path d="M4 6h14a2 2 0 0 1 2 2v11H4a2 2 0 0 1-2-2V6a3 3 0 0 1 3-3h12"/><path d="M16 11h5v5h-5a2.5 2.5 0 0 1 0-5Z"/></symbol>
+  <symbol id="i-note" viewBox="0 0 24 24"><path d="M5 3h14a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2Z"/><path d="M7 8h10M7 12h10M7 16h6"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="M9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></symbol>
+  <symbol id="i-pin" viewBox="0 0 24 24"><path d="M20 10c0 5-8 12-8 12S4 15 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="2.5"/></symbol>
+  <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></symbol>
+  <symbol id="i-moon" viewBox="0 0 24 24"><path d="M20 15.5A8 8 0 0 1 8.5 4 8 8 0 1 0 20 15.5Z"/></symbol>
+  <symbol id="i-github" viewBox="0 0 24 24"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3.3-.4 6.8-1.6 6.8-7.4A5.8 5.8 0 0 0 19.3 3 5.4 5.4 0 0 0 19.1 0S17.9-.4 15 1.5a14 14 0 0 0-6 0C6.1-.4 4.9 0 4.9 0a5.4 5.4 0 0 0-.2 3A5.8 5.8 0 0 0 3.2 7c0 5.8 3.5 7 6.8 7.4A4.8 4.8 0 0 0 9 18v4"/></symbol>
+</svg>
 
 <script>
-  const STORAGE='travel-log-v2';
+(() => {
+  const STORAGE='travel-log-v3';
   const state=JSON.parse(localStorage.getItem(STORAGE)||'{}');
-  const $=(s)=>document.querySelector(s); const $$=(s)=>[...document.querySelectorAll(s)];
-  function persist(){localStorage.setItem(STORAGE,JSON.stringify(state))}
-  function toast(msg){const t=$('#toast');t.textContent=msg;t.classList.add('show');clearTimeout(window.__toast);window.__toast=setTimeout(()=>t.classList.remove('show'),1600)}
-  function money(n){return new Intl.NumberFormat('vi-VN').format(Number(n)||0)+' đ'}
+  const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
+  const save=()=>localStorage.setItem(STORAGE,JSON.stringify(state));
+  const money=n=>new Intl.NumberFormat('vi-VN').format(Number(n)||0)+' đ';
 
-  const departure=new Date('2026-10-19T20:00:00+07:00'), end=new Date('2026-10-26T23:59:59+07:00'), now=new Date(), dayMs=86400000;
-  const days=Math.ceil((departure-now)/dayMs); $('#daysLeft').textContent=days>0?days:days===0?'0':'✓'; $('#countUnit').textContent=days>1?'days to go':days===1?'day to go':days===0?'departure day':'trip started'; $('#todayLabel').textContent=new Intl.DateTimeFormat('vi-VN',{day:'2-digit',month:'2-digit',year:'numeric'}).format(now); $('#tripDays').textContent=Math.floor((end-departure)/dayMs)+1; $('#year').textContent=now.getFullYear();
+  const dep=new Date('2026-10-19T20:00:00+07:00'), now=new Date();
+  const days=Math.ceil((dep-now)/86400000);
+  $('#daysLeft').textContent=days>0?days:days===0?'0':'✓';
+  $('#daysUnit').textContent=days>1?'ngày':days===1?'ngày':'đã khởi hành';
 
-  function updateChecklist(){const checks=$$('.check-item input');const done=checks.filter(x=>x.checked).length;const pct=Math.round(done/checks.length*100);$('#checkProgressText').textContent=`${done} / ${checks.length}`;$('#checkProgressBar').style.width=pct+'%';$('#prepPercent').textContent=pct+'%'}
-  $$('.check-item input').forEach(c=>{c.checked=!!state[c.id];c.addEventListener('change',()=>{state[c.id]=c.checked;persist();updateChecklist()})}); updateChecklist();
-  window.toggleCheck=(id)=>{const c=document.getElementById(id);c.checked=true;state[id]=true;persist();updateChecklist();toast('Marked as prepared')};
+  const checkboxes=$$('.check-item input');
+  checkboxes.forEach(c=>{c.checked=!!state[c.id];c.addEventListener('change',()=>{state[c.id]=c.checked;save();renderChecklist()})});
+  function renderChecklist(){const done=checkboxes.filter(c=>c.checked).length,pct=Math.round(done/checkboxes.length*100);$('#checkProgress').style.width=pct+'%';$('#checkText').textContent=`${done} / ${checkboxes.length} hoàn thành`;$('#checkPercent').textContent=pct+'%';$('#taskStatus').textContent=`Hoàn thành ${done}/${checkboxes.length}`;$('#taskCount').textContent=checkboxes.length-done}
+  renderChecklist();
 
-  function budgetTotals(){let planned=0,actual=0;$$('[data-budget]').forEach(i=>{const val=Number((i.value||'').replace(/[^0-9]/g,''))||0;if(i.dataset.budget.endsWith('-plan'))planned+=val;else actual+=val});$('#plannedTotal').textContent=money(planned);$('#actualTotal').textContent=money(actual);$('#remainingTotal').textContent=money(planned-actual)}
-  $$('[data-budget]').forEach(i=>{i.value=state.budget?.[i.dataset.budget]||'';i.addEventListener('input',()=>{state.budget=state.budget||{};state.budget[i.dataset.budget]=i.value.replace(/[^0-9]/g,'');i.value=state.budget[i.dataset.budget];persist();budgetTotals()})}); budgetTotals();
+  const budgetInputs=$$('[data-budget]');
+  budgetInputs.forEach(i=>{i.value=state.budget?.[i.dataset.budget]||'';i.addEventListener('input',()=>{state.budget=state.budget||{};state.budget[i.dataset.budget]=i.value.replace(/[^0-9]/g,'');i.value=state.budget[i.dataset.budget];save();renderBudget()})});
+  function renderBudget(){const total=budgetInputs.reduce((n,i)=>n+(Number(i.value)||0),0);$('#budgetTotal').textContent=money(total);$('#summaryBudget').textContent=money(total);$('#budgetPerPerson').textContent=total?`≈ ${money(total/7)} / người`:'Chưa nhập ngân sách';$('#budgetProgress').style.width=total?'40%':'0'}
+  renderBudget();
 
-  const notes=$('#tripNotes');notes.value=state.notes||'';notes.addEventListener('input',()=>{state.notes=notes.value;persist()});
-  $('#copyNotesBtn').addEventListener('click',async()=>{try{await navigator.clipboard.writeText(notes.value);toast('Notes copied')}catch{toast('Copy unavailable')}});
-  $('#shareBtn').addEventListener('click',async()=>{const data={title:"David's Travel Log",text:'China · 19–26 October 2026',url:location.href};try{if(navigator.share)await navigator.share(data);else{await navigator.clipboard.writeText(location.href);toast('Link copied')}}catch{}});
+  const notes=$('#tripNotes');notes.value=state.notes||'';notes.addEventListener('input',()=>{state.notes=notes.value;save();$('#saveState').textContent='Đã lưu'});
+  $('#copyNotes').addEventListener('click',async()=>{try{await navigator.clipboard.writeText(notes.value);$('#saveState').textContent='Đã sao chép'}catch{$('#saveState').textContent='Không thể sao chép'}});
+  $('#exportData').addEventListener('click',()=>{const blob=new Blob([JSON.stringify({version:3,exportedAt:new Date().toISOString(),state},null,2)],{type:'application/json'}),a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='travellog-backup.json';a.click();URL.revokeObjectURL(a.href)});
+  $('#importData').addEventListener('change',e=>{const f=e.target.files[0];if(!f)return;const r=new FileReader();r.onload=()=>{try{const d=JSON.parse(r.result);localStorage.setItem(STORAGE,JSON.stringify(d.state||d));location.reload()}catch{$('#saveState').textContent='File không hợp lệ'}};r.readAsText(f)});
 
-  $('#exportBtn').addEventListener('click',()=>{const blob=new Blob([JSON.stringify({version:2,exportedAt:new Date().toISOString(),state},null,2)],{type:'application/json'});const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='travel-log-backup.json';a.click();URL.revokeObjectURL(a.href);toast('Backup exported')});
-  $('#importFile').addEventListener('change',(e)=>{const f=e.target.files[0];if(!f)return;const r=new FileReader();r.onload=()=>{try{const d=JSON.parse(r.result);localStorage.setItem(STORAGE,JSON.stringify(d.state||d));toast('Data imported');setTimeout(()=>location.reload(),700)}catch{toast('Invalid backup file')}};r.readAsText(f)});
-
+  const themeButtons=['#themeBtn','#themeBtnTop','#themeBtnMobile'].map($).filter(Boolean);
   const savedTheme=localStorage.getItem('travel-theme');if(savedTheme)document.documentElement.dataset.theme=savedTheme;
-  $('#themeBtn').addEventListener('click',()=>{const dark=document.documentElement.dataset.theme==='dark';document.documentElement.dataset.theme=dark?'light':'dark';localStorage.setItem('travel-theme',dark?'light':'dark')});
+  themeButtons.forEach(b=>b.addEventListener('click',()=>{const dark=document.documentElement.dataset.theme==='dark';document.documentElement.dataset.theme=dark?'light':'dark';localStorage.setItem('travel-theme',dark?'light':'dark')}));
 
+  $('#pageSearch')?.addEventListener('keydown',e=>{if(e.key!=='Enter')return;const q=e.currentTarget.value.trim().toLowerCase();if(!q)return;const candidates=$$('main h1,main h2,main h3,.timeline-info strong,.check-item');const hit=candidates.find(el=>el.textContent.toLowerCase().includes(q));if(hit)hit.scrollIntoView({behavior:'smooth',block:'center'})});
   if('serviceWorker' in navigator)window.addEventListener('load',()=>navigator.serviceWorker.register('./sw.js').catch(()=>{}));
+})();
 </script>
-<script src="./i18n.js"></script>
-<script src="./site-standard.js"></script>
 </body>
 </html>
