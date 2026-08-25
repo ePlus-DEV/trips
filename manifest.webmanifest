@@ -1,7 +1,8 @@
 {
-  "name": "David's Travel Log",
+  "name": "Nhật ký du lịch · David",
   "short_name": "Travel Log",
-  "description": "Personal travel dashboard for upcoming journeys, itinerary, budget and notes.",
+  "description": "Nhật ký du lịch cá nhân cho lịch trình, ngân sách, ghi chú và chuẩn bị chuyến đi.",
+  "lang": "vi",
   "start_url": "./",
   "scope": "./",
   "display": "standalone",
