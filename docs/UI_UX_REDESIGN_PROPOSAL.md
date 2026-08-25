@@ -2,7 +2,7 @@
 
 Status: **Implemented on PR branch for review**
 
-This branch contains the approved TravelLog visual direction based on the reviewed mockup.
+This branch contains the approved TravelLog visual direction based on the reviewed mockup. PR Preview is enabled and updates automatically on every commit.
 
 ## Implemented
 
