@@ -10,6 +10,7 @@ if (!API_KEY) {
 const API = 'https://serpapi.com/search.json';
 const OUT = path.resolve('data/flights.json');
 const HISTORY = path.resolve('data/flight-history.json');
+const SEARCH_MODE = 'direct';
 
 const SEARCH = {
   passengers: {
@@ -19,8 +20,8 @@ const SEARCH = {
   },
   travelClass: 1,
   cabinClass: 'economy',
-  stops: 2,
-  maxConnections: 1,
+  stops: 1, // SerpApi Google Flights: 1 = non-stop only
+  maxConnections: 0,
   currency: 'VND',
   scenarios: [
     {
@@ -47,15 +48,12 @@ const SEARCH = {
 async function serpapi(params) {
   const url = new URL(API);
   Object.entries(params).forEach(([key, value]) => {
-    if (value !== undefined && value !== null && value !== '') {
-      url.searchParams.set(key, String(value));
-    }
+    if (value !== undefined && value !== null && value !== '') url.searchParams.set(key, String(value));
   });
   url.searchParams.set('api_key', API_KEY);
 
   const response = await fetch(url, { headers: { Accept: 'application/json' } });
   const text = await response.text();
-
   let body;
   try { body = text ? JSON.parse(text) : {}; }
   catch { body = { raw: text }; }
@@ -63,11 +61,9 @@ async function serpapi(params) {
   if (!response.ok || body?.error) {
     throw new Error(`SerpApi request failed: ${body?.error || `HTTP ${response.status}`}`);
   }
-
   if (body?.search_metadata?.status && body.search_metadata.status !== 'Success') {
     throw new Error(`SerpApi search did not complete successfully: ${body.search_metadata.status}`);
   }
-
   return body;
 }
 
@@ -94,6 +90,10 @@ function allResults(body) {
   ].filter(x => Number.isFinite(Number(x?.price)));
 }
 
+function rawIsDirect(raw) {
+  return Array.isArray(raw?.flights) && raw.flights.length === 1;
+}
+
 function minutesToIso(minutes) {
   const n = Number(minutes);
   if (!Number.isFinite(n) || n < 0) return null;
@@ -112,8 +112,7 @@ function timeToIso(value) {
 }
 
 function localHour(value) {
-  if (!value) return null;
-  const match = String(value).match(/[T\s](\d{1,2}):/);
+  const match = String(value || '').match(/[T\s](\d{1,2}):/);
   if (!match) return null;
   const hour = Number(match[1]);
   return Number.isFinite(hour) ? hour : null;
@@ -143,13 +142,12 @@ function compactSegment(flight) {
 
 function compactLeg(raw, fallback) {
   const flights = Array.isArray(raw?.flights) ? raw.flights : [];
-  if (!flights.length) return null;
-
+  if (flights.length !== 1) return null;
   return {
     origin: flights[0]?.departure_airport?.id || fallback?.departure_id || null,
-    destination: flights.at(-1)?.arrival_airport?.id || fallback?.arrival_id || null,
-    duration: minutesToIso(raw.total_duration || flights.reduce((sum, f) => sum + (Number(f.duration) || 0), 0)),
-    segments: flights.map(compactSegment)
+    destination: flights[0]?.arrival_airport?.id || fallback?.arrival_id || null,
+    duration: minutesToIso(raw.total_duration || Number(flights[0]?.duration) || 0),
+    segments: [compactSegment(flights[0])]
   };
 }
 
@@ -168,14 +166,15 @@ function ownerFor(outbound, returning) {
 }
 
 function compactOffer(outbound, returning, scenario, body, index) {
+  if (!rawIsDirect(outbound) || !rawIsDirect(returning)) return null;
   const outboundSlice = compactLeg(outbound, scenario.legs[0]);
   const returnSlice = compactLeg(returning, scenario.legs[1]);
   if (!outboundSlice || !returnSlice) return null;
-
   return {
     id: returning.booking_token || `${scenario.id}-${index}-${returning.price}`,
     source: 'Google Flights via SerpApi',
     live_mode: true,
+    search_mode: SEARCH_MODE,
     expires_at: null,
     total_amount: String(returning.price),
     total_currency: SEARCH.currency,
@@ -201,13 +200,7 @@ function preferredReturn(offer, scenario) {
 function dedupeOffers(items) {
   const seen = new Set();
   return items.filter(offer => {
-    const key = [
-      offer.total_amount,
-      ...offer.slices.flatMap(slice =>
-        slice.segments.map(seg => `${seg.flight_number || ''}:${seg.departing_at || ''}`)
-      )
-    ].join('|');
-
+    const key = [offer.total_amount, ...offer.slices.flatMap(slice => slice.segments.map(seg => `${seg.flight_number || ''}:${seg.departing_at || ''}`))].join('|');
     if (seen.has(key)) return false;
     seen.add(key);
     return true;
@@ -215,14 +208,11 @@ function dedupeOffers(items) {
 }
 
 async function searchScenario(scenario) {
-  console.log(`Searching ${scenario.label}...`);
+  console.log(`Searching direct flights: ${scenario.label}...`);
 
-  // Google Flights multi-city selection is sequential in SerpApi.
-  // First request returns the first-leg choices + departure_token.
-  // Second request selects that first leg and returns the next leg + total itinerary prices.
   const initial = await serpapi(baseParams(scenario));
   const outboundCandidates = allResults(initial)
-    .filter(x => x.departure_token)
+    .filter(x => x.departure_token && rawIsDirect(x))
     .sort((a, b) => Number(a.price) - Number(b.price));
 
   const outbound = outboundCandidates[0];
@@ -236,21 +226,19 @@ async function searchScenario(scenario) {
       preferred_window_matched: false,
       offers: [],
       offer_count_seen: 0,
-      warning: 'Google Flights returned no selectable outbound flight.'
+      warning: 'Google Flights returned no selectable non-stop outbound flight.'
     };
   }
 
-  const next = await serpapi({
-    ...baseParams(scenario),
-    departure_token: outbound.departure_token
-  });
+  const next = await serpapi({ ...baseParams(scenario), departure_token: outbound.departure_token });
+  const selectedOutbound = Array.isArray(next.selected_flights) && next.selected_flights.length ? next.selected_flights[0] : outbound;
 
-  const selectedOutbound = Array.isArray(next.selected_flights) && next.selected_flights.length
-    ? next.selected_flights[0]
-    : outbound;
+  if (!rawIsDirect(selectedOutbound)) {
+    throw new Error(`SerpApi returned a connecting outbound despite stops=1 for ${scenario.label}.`);
+  }
 
   const returningCandidates = allResults(next)
-    .filter(x => x.booking_token || Number.isFinite(Number(x.price)))
+    .filter(x => rawIsDirect(x) && (x.booking_token || Number.isFinite(Number(x.price))))
     .sort((a, b) => Number(a.price) - Number(b.price));
 
   const normalized = dedupeOffers(
@@ -268,16 +256,13 @@ async function searchScenario(scenario) {
     label: scenario.label,
     search_ids: [initial?.search_metadata?.id, next?.search_metadata?.id].filter(Boolean),
     google_flights_url: next?.search_metadata?.google_flights_url || initial?.search_metadata?.google_flights_url || null,
-    slices: scenario.legs.map(leg => ({
-      origin: leg.departure_id,
-      destination: leg.arrival_id,
-      departure_date: leg.date
-    })),
+    slices: scenario.legs.map(leg => ({ origin: leg.departure_id, destination: leg.arrival_id, departure_date: leg.date })),
     selected_outbound: {
       airline: selectedOutbound?.flights?.[0]?.airline || null,
       departure: selectedOutbound?.flights?.[0]?.departure_airport?.time || null,
-      arrival: selectedOutbound?.flights?.at(-1)?.arrival_airport?.time || null,
-      price_hint: selectedOutbound?.price ?? null
+      arrival: selectedOutbound?.flights?.[0]?.arrival_airport?.time || null,
+      price_hint: selectedOutbound?.price ?? null,
+      direct: true
     },
     preferred_window_matched: preferred.length > 0,
     offers: selected,
@@ -292,22 +277,21 @@ async function readJson(file, fallback) {
 }
 
 const previous = await readJson(OUT, null);
+const previousIsDirect = previous?.search?.mode === SEARCH_MODE;
 const oldHistory = await readJson(HISTORY, []);
 const generatedAt = new Date().toISOString();
 
 const scenarios = [];
-for (const scenario of SEARCH.scenarios) {
-  scenarios.push(await searchScenario(scenario));
-}
+for (const scenario of SEARCH.scenarios) scenarios.push(await searchScenario(scenario));
 
-for (const scenario of scenarios) {
-  const current = scenario.offers[0];
-  const previousScenario = previous?.scenarios?.find?.(s => s.id === scenario.id);
-  const old = previousScenario?.offers?.[0];
-
-  if (current && old && current.total_currency === old.total_currency) {
-    current.previous_total_amount = old.total_amount;
-    current.price_delta = (Number(current.total_amount) - Number(old.total_amount)).toFixed(0);
+if (previousIsDirect) {
+  for (const scenario of scenarios) {
+    const current = scenario.offers[0];
+    const old = previous?.scenarios?.find?.(s => s.id === scenario.id)?.offers?.[0];
+    if (current && old && current.total_currency === old.total_currency) {
+      current.previous_total_amount = old.total_amount;
+      current.price_delta = (Number(current.total_amount) - Number(old.total_amount)).toFixed(0);
+    }
   }
 }
 
@@ -323,15 +307,17 @@ const result = {
   generated_at: generatedAt,
   live_mode: true,
   disclaimer: allCheapest.length
-    ? 'Google Flights multi-city search snapshot for the selected 7 travellers. Fares can change and baggage/payment fees may apply.'
-    : 'SerpApi completed successfully but Google Flights returned no comparable itinerary for the configured routes.',
+    ? 'Google Flights multi-city non-stop snapshot for the selected 7 travellers. Fares can change and baggage/payment fees may apply.'
+    : 'SerpApi completed successfully but Google Flights returned no fully non-stop itinerary for the configured routes and dates.',
   search: {
+    mode: SEARCH_MODE,
     passengers: SEARCH.passengers,
     cabin_class: SEARCH.cabinClass,
+    stops: SEARCH.stops,
     max_connections: SEARCH.maxConnections,
     currency: SEARCH.currency,
     searches_per_refresh: SEARCH.scenarios.length * 2,
-    route_label: 'SGN → Shanghai · Beijing → SGN'
+    route_label: 'SGN → Shanghai · Beijing → SGN · direct only'
   },
   scenarios,
   cheapest: allCheapest[0] || null
@@ -342,6 +328,7 @@ const historyRows = scenarios.flatMap(s => {
   return o ? [{
     checked_at: generatedAt,
     scenario_id: s.id,
+    mode: SEARCH_MODE,
     total_amount: o.total_amount,
     total_currency: o.total_currency,
     airline: o.owner?.name || null,
@@ -351,7 +338,6 @@ const historyRows = scenarios.flatMap(s => {
 });
 
 const history = [...(Array.isArray(oldHistory) ? oldHistory : []), ...historyRows].slice(-360);
-
 await fs.mkdir(path.dirname(OUT), { recursive: true });
 await fs.writeFile(OUT, JSON.stringify(result, null, 2) + '\n');
 await fs.writeFile(HISTORY, JSON.stringify(history, null, 2) + '\n');
@@ -359,5 +345,5 @@ await fs.writeFile(HISTORY, JSON.stringify(history, null, 2) + '\n');
 console.log(`Saved ${OUT}`);
 for (const s of scenarios) {
   const o = s.offers[0];
-  console.log(`${s.label}: ${o ? `${o.total_amount} ${o.total_currency} · ${o.owner?.name || 'airline'}` : 'no offers'}`);
+  console.log(`${s.label}: ${o ? `${o.total_amount} ${o.total_currency} · ${o.owner?.name || 'airline'} · direct` : 'no direct offers'}`);
 }
