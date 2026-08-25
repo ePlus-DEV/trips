@@ -12,6 +12,7 @@ const OUT = path.resolve('data/flights.json');
 const HISTORY = path.resolve('data/flight-history.json');
 const SEARCH_MODE = 'direct-priority';
 const TRIP_KEY = 'sgn-shanghai-2026-10-19__beijing-sgn-2026-10-26';
+const BAGGAGE_RE = /\b(bag|bags|baggage|carry[- ]?on|checked|luggage)\b/i;
 
 const SEARCH = {
   passengers: {
@@ -21,7 +22,7 @@ const SEARCH = {
   },
   travelClass: 1,
   cabinClass: 'economy',
-  stops: 2, // SerpApi: non-stop + up to 1 stop
+  stops: 2,
   maxConnections: 1,
   currency: 'VND',
   routes: [
@@ -92,6 +93,21 @@ function allResults(body) {
   ].filter(x => Number.isFinite(Number(x?.price)));
 }
 
+function cleanStrings(value) {
+  return [...new Set((Array.isArray(value) ? value : []).filter(v => typeof v === 'string').map(v => v.trim()).filter(Boolean))];
+}
+
+function baggageFor(raw) {
+  const fareExtensions = cleanStrings(raw?.extensions);
+  const segmentExtensions = (Array.isArray(raw?.flights) ? raw.flights : []).flatMap(f => cleanStrings(f?.extensions));
+  const items = [...new Set([...fareExtensions, ...segmentExtensions].filter(text => BAGGAGE_RE.test(text)))];
+  return {
+    available: items.length > 0,
+    source: 'google_flights_search',
+    items
+  };
+}
+
 function minutesToIso(minutes) {
   const n = Number(minutes);
   if (!Number.isFinite(n) || n < 0) return null;
@@ -120,6 +136,7 @@ function compactSegment(flight) {
     flight_number: flight.flight_number || null,
     airplane: flight.airplane || null,
     travel_class: flight.travel_class || null,
+    extensions: cleanStrings(flight.extensions),
     marketing_carrier: {
       name: airline,
       iata_code: String(flight.flight_number || '').replace(/\s+/g, '').match(/^([A-Z0-9]{2})/)?.[1] || null
@@ -171,6 +188,8 @@ function compactOffer(raw, route, body, index) {
     booking_token: raw.booking_token || null,
     departure_token: raw.departure_token || null,
     google_flights_url: body?.search_metadata?.google_flights_url || null,
+    fare_extensions: cleanStrings(raw.extensions),
+    baggage: baggageFor(raw),
     owner: ownerFor(raw),
     slices: [slice]
   };
@@ -218,6 +237,7 @@ async function searchRoute(route) {
     offer_count_seen: offers.length,
     direct_count: offers.filter(o => o.is_direct).length,
     one_stop_count: offers.filter(o => o.stops === 1).length,
+    baggage_info_count: offers.filter(o => o.baggage?.available).length,
     price_insights: body?.price_insights || null
   };
 }
@@ -282,7 +302,7 @@ const result = {
   generated_at: generatedAt,
   live_mode: true,
   disclaimer: cheapest
-    ? 'Each direction is searched separately on Google Flights. Non-stop options are ranked first, followed by 1-stop options. The pair total is an estimate from the two selected one-way fares and should be verified before booking.'
+    ? 'Each direction is searched separately on Google Flights. Non-stop options are ranked first, followed by 1-stop options. Baggage details are shown only when Google Flights returns them for the specific fare; verify fare conditions before booking.'
     : 'SerpApi completed, but one or both configured directions did not return a comparable fare.',
   search: {
     mode: SEARCH_MODE,
@@ -320,6 +340,6 @@ await fs.writeFile(HISTORY, JSON.stringify(history, null, 2) + '\n');
 console.log(`Saved ${OUT}`);
 for (const route of routes) {
   const best = route.offers[0];
-  console.log(`${route.label}: ${route.direct_count} direct · ${route.one_stop_count} one-stop · ${best ? `${best.total_amount} ${best.total_currency} · ${best.owner?.name || 'airline'} · ${best.is_direct ? 'direct' : '1 stop'}` : 'no offers'}`);
+  console.log(`${route.label}: ${route.direct_count} direct · ${route.one_stop_count} one-stop · ${route.baggage_info_count} with baggage info · ${best ? `${best.total_amount} ${best.total_currency} · ${best.owner?.name || 'airline'} · ${best.is_direct ? 'direct' : '1 stop'}` : 'no offers'}`);
 }
 if (cheapest) console.log(`Estimated best pair: ${cheapest.offer.total_amount} ${cheapest.offer.total_currency}`);
