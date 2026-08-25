@@ -6,22 +6,12 @@
   const supported = new Set(['vi', 'en', 'zh', 'ja']);
   const needsVietnameseMigration = !localStorage.getItem(MIGRATION_KEY);
 
-  // Move existing visitors to the new Vietnamese-first default once.
-  // After this migration, an explicit language choice is preserved normally.
   if (needsVietnameseMigration) {
     localStorage.setItem(LANGUAGE_KEY, 'vi');
     localStorage.setItem(MIGRATION_KEY, '1');
   } else if (!localStorage.getItem(LANGUAGE_KEY)) {
     localStorage.setItem(LANGUAGE_KEY, 'vi');
   }
-
-  const style = document.createElement('style');
-  style.id = 'travel-shared-typography';
-  style.textContent = `
-    html,body,button,input,textarea,select{font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans","Helvetica Neue",Arial,sans-serif}
-    .language-select{font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans","Helvetica Neue",Arial,sans-serif!important;font-weight:700!important}
-  `;
-  document.head.appendChild(style);
 
   const COPY = {
     vi: {
@@ -31,6 +21,7 @@
       returnText: 'Bay về TP.HCM ngày 26/10. Ưu tiên chuyến bay thẳng.',
       flightLabel: 'Giá vé',
       heroFlight: '✈ Theo dõi giá vé →',
+      passportTitle: 'Trung Quốc · mùa thu 2026',
       dateLocale: 'vi-VN'
     },
     en: {
@@ -40,6 +31,7 @@
       returnText: 'Return to Ho Chi Minh City on 26 Oct. Direct flights are preferred.',
       flightLabel: 'Flight prices',
       heroFlight: '✈ Watch flight prices →',
+      passportTitle: 'China · autumn 2026',
       dateLocale: 'en-GB'
     },
     zh: {
@@ -49,6 +41,7 @@
       returnText: '10月26日返回胡志明市，优先直飞航班。',
       flightLabel: '机票价格',
       heroFlight: '✈ 查看机票价格 →',
+      passportTitle: '中国 · 2026年秋季',
       dateLocale: 'zh-CN'
     },
     ja: {
@@ -58,6 +51,7 @@
       returnText: '10月26日にホーチミンへ帰国。直行便を優先します。',
       flightLabel: '航空券価格',
       heroFlight: '✈ 航空券価格を見る →',
+      passportTitle: '中国 · 2026年秋',
       dateLocale: 'ja-JP'
     }
   };
@@ -74,6 +68,9 @@
 
     const tripDate = document.querySelector('.trip-date');
     if (tripDate) tripDate.textContent = copy.tripDate;
+
+    const passportTitle = document.querySelector('.passport-title');
+    if (passportTitle) passportTitle.textContent = copy.passportTitle;
 
     const today = document.getElementById('todayLabel');
     if (today) today.textContent = new Intl.DateTimeFormat(copy.dateLocale, { day: '2-digit', month: '2-digit', year: 'numeric' }).format(new Date());
