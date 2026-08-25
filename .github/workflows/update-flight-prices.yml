@@ -2,6 +2,11 @@ name: Update live flight prices
 
 on:
   workflow_dispatch:
+  push:
+    branches:
+      - main
+    paths:
+      - 'scripts/fetch-flights.mjs'
   schedule:
     # 07:17 in Vietnam (UTC+7). One refresh uses 4 SerpApi searches.
     # Daily schedule keeps the project comfortably inside the configured provider quota.
