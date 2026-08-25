@@ -1,4 +1,4 @@
-const CACHE='travel-log-ui-pr-v9';
+const CACHE='travel-log-ui-pr-v11';
 const ASSETS=['./','./index.html','./flights.html','./flights/','./app.css','./base.css','./motion.css','./loading.css','./theme-icon.css','./flight-booking.css','./flight-booking.js','./flight-details.css','./flight-details.js','./assets/china-hero.svg','./manifest.webmanifest','./icon.svg'];
 self.addEventListener('install',event=>{event.waitUntil(caches.open(CACHE).then(cache=>cache.addAll(ASSETS)));self.skipWaiting()});
 self.addEventListener('activate',event=>{event.waitUntil(caches.keys().then(keys=>Promise.all(keys.filter(key=>key!==CACHE).map(key=>caches.delete(key)))));self.clients.claim()});
