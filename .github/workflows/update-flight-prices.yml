@@ -8,9 +8,10 @@ on:
     paths:
       - 'scripts/fetch-flights.mjs'
       - 'scripts/enrich-booking-options.mjs'
+      - '.github/workflows/update-flight-prices.yml'
   schedule:
     # 07:17 in Vietnam (UTC+7).
-    # Main route search and Booking Options use separate SerpApi credentials/quotas.
+    # Booking Options only runs when the repository variable BOOKING_OPTIONS_ENABLED is explicitly enabled.
     - cron: '17 0 * * *'
 
 permissions:
@@ -37,13 +38,15 @@ jobs:
         with:
           node-version: '20'
 
-      - name: Check SerpApi secrets
+      - name: Check SerpApi configuration
         id: config
         env:
           SERPAPI_API_KEY: ${{ secrets.SERPAPI_API_KEY }}
           SERPAPI_API_KEY_2: ${{ secrets.SERPAPI_API_KEY_2 }}
           SERPAPI_API_KEY_3: ${{ secrets.SERPAPI_API_KEY_3 }}
           SERPAPI_BOOKING_API_KEY: ${{ secrets.SERPAPI_BOOKING_API_KEY }}
+          BOOKING_OPTIONS_ENABLED: ${{ vars.BOOKING_OPTIONS_ENABLED }}
+        shell: bash
         run: |
           if [ -z "$SERPAPI_API_KEY" ] && [ -z "$SERPAPI_API_KEY_2" ] && [ -z "$SERPAPI_API_KEY_3" ]; then
             echo "enabled=false" >> "$GITHUB_OUTPUT"
@@ -52,13 +55,22 @@ jobs:
             echo "enabled=true" >> "$GITHUB_OUTPUT"
           fi
 
-          if [ -n "$SERPAPI_BOOKING_API_KEY" ]; then
-            echo "booking_enabled=true" >> "$GITHUB_OUTPUT"
-            echo "Dedicated Booking Options credential is configured."
-          else
-            echo "booking_enabled=false" >> "$GITHUB_OUTPUT"
-            echo "::warning::SERPAPI_BOOKING_API_KEY is not configured. Price search will run normally, but Booking Options baggage enrichment will be skipped."
-          fi
+          booking_flag=$(printf '%s' "${BOOKING_OPTIONS_ENABLED:-}" | tr '[:upper:]' '[:lower:]')
+          case "$booking_flag" in
+            1|true|yes|on)
+              if [ -n "$SERPAPI_BOOKING_API_KEY" ]; then
+                echo "booking_enabled=true" >> "$GITHUB_OUTPUT"
+                echo "Booking Options enrichment is enabled."
+              else
+                echo "booking_enabled=false" >> "$GITHUB_OUTPUT"
+                echo "::warning::BOOKING_OPTIONS_ENABLED is enabled, but SERPAPI_BOOKING_API_KEY is missing. Booking Options enrichment will be skipped."
+              fi
+              ;;
+            *)
+              echo "booking_enabled=false" >> "$GITHUB_OUTPUT"
+              echo "Booking Options enrichment is disabled. Set repository variable BOOKING_OPTIONS_ENABLED=true to enable it."
+              ;;
+          esac
 
       - name: Fetch Google Flights prices via SerpApi
         if: steps.config.outputs.enabled == 'true'
