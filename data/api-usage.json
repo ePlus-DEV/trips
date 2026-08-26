@@ -1,0 +1,8 @@
+{
+  "generated_at": null,
+  "source": "SerpApi Account API",
+  "reset_policy": "SerpApi monthly billing cycle / plan renewal",
+  "note": "This file is updated automatically by the flight-price workflow. Current-cycle usage is backfilled from SerpApi Account API, and completed cycles are archived in history. Account API checks do not consume search credits.",
+  "accounts": [],
+  "history": []
+}
