@@ -12,6 +12,7 @@ A lightweight personal travel dashboard for GitHub Pages with itinerary, budget,
 - **Google Flights price snapshots through SerpApi + GitHub Actions**
 - Fare-specific baggage details from Google Flights search and Booking Options
 - Direct-flight priority, stops/airline filters, price history and price alerts
+- SerpApi credit/usage snapshot written automatically to this README
 - No separate backend server
 
 ## Current China trip
@@ -32,9 +33,34 @@ The current fetcher searches each direction separately so the dashboard can keep
 1. Ho Chi Minh City → Shanghai on 19 October 2026,
 2. Beijing → Ho Chi Minh City on 26 October 2026.
 
-Each route keeps non-stop and 1-stop results, then ranks **non-stop first** by default. One refresh uses **2 SerpApi search requests**.
+Each route keeps non-stop and 1-stop results, then ranks **non-stop first** by default. One successful refresh normally uses **2 Google Flights search requests**.
 
-After the main search succeeds, an optional Booking Options enrichment step can use a **separate SerpApi credential** to fetch richer fare/baggage information for selected offers. The search key is never reused as a fallback for Booking Options.
+After the main search succeeds, an optional Booking Options enrichment step can use a **separate SerpApi credential** to fetch richer fare/baggage information for selected offers. Booking Options enrichment only runs when `BOOKING_OPTIONS_ENABLED=true` and a booking credential exists.
+
+If all dedicated flight-tracking/search credentials are exhausted or fail, the workflow can use `SERPAPI_BOOKING_API_KEY` as the **last-resort Google Flights search credential**. When that fallback is used, Booking Options enrichment is skipped for that run so the same credential is not immediately consumed by extra enrichment requests.
+
+### SerpApi usage / credits
+
+The workflow checks SerpApi's free Account API after each refresh and updates both `data/api-usage.json` and the table below. The Account API reports current monthly usage, monthly allowance and remaining searches for the account behind each configured credential.
+
+<!-- API_USAGE_START -->
+> Chưa có snapshot usage trên branch này. Bảng sẽ được cập nhật tự động sau lần chạy workflow tiếp theo.
+
+| API / credential | Vai trò | Đã dùng / Tổng tháng | Còn lại | Plan |
+|---|---|---:|---:|---|
+| — | Chờ workflow cập nhật | — | — | — |
+
+> Account API không tiêu tốn search credit. Nếu một credential còn được dùng ở project khác, số liệu trên bao gồm cả usage đó.
+<!-- API_USAGE_END -->
+
+### Request cost per refresh
+
+| API | Bình thường | Tối đa theo cấu hình hiện tại | Ghi chú |
+|---|---:|---:|---|
+| Google Flights Search | 2 requests | 2 requests | 1 request cho mỗi chiều |
+| Booking Options | 0 requests khi tắt | 8 requests khi bật mặc định | 4 offer/route × 2 routes |
+| Booking credential used as search fallback | 0 | 2 requests | Chỉ dùng khi các search credential không còn dùng được; enrichment bị skip trong run đó |
+| SerpApi Account API | 1 request / credential | Không tính credit | Dùng để cập nhật bảng usage |
 
 ### SerpApi secrets
 
@@ -47,7 +73,7 @@ Name: SERPAPI_API_KEY
 Value: <your SerpApi search API key>
 ```
 
-Optional backup credentials for the main search only:
+Optional backup credentials for the main search:
 
 ```text
 SERPAPI_API_KEY_2
@@ -61,13 +87,25 @@ Name: SERPAPI_BOOKING_API_KEY
 Value: <your separate SerpApi API key for Booking Options>
 ```
 
-`SERPAPI_BOOKING_API_KEY` is used only by `scripts/enrich-booking-options.mjs`. If it is missing, the main price search still runs normally and Booking Options enrichment is skipped.
+`SERPAPI_BOOKING_API_KEY` normally belongs to `scripts/enrich-booking-options.mjs`, but it can also be used as an emergency Google Flights search fallback when all dedicated search credentials are unavailable.
 
 Do not add API keys to source code, repository variables, `flights.json`, issues or PR comments.
 
-### Booking Options request limit
+### Booking Options enable flag and request limit
 
-By default, Booking Options enriches the first **4 offers per route** after the direct-first sort, so a refresh can use up to **8 Booking Options requests** in addition to the 2 main search requests.
+Booking Options enrichment is **disabled by default** even when `SERPAPI_BOOKING_API_KEY` exists. Enable it explicitly with an Actions repository variable:
+
+```text
+BOOKING_OPTIONS_ENABLED=true
+```
+
+Disable it with:
+
+```text
+BOOKING_OPTIONS_ENABLED=false
+```
+
+By default, when enabled, Booking Options enriches the first **4 offers per route** after the direct-first sort, so a refresh can use up to **8 Booking Options requests** in addition to the 2 main search requests.
 
 You can override the limit with an Actions repository variable:
 
@@ -76,6 +114,19 @@ BOOKING_OPTIONS_LIMIT_PER_ROUTE=4
 ```
 
 Valid values are capped at 24. Reducing this value saves Booking Options quota. If the dedicated key hits a quota/rate limit, enrichment stops without discarding the successful main flight-search snapshot.
+
+### Search credential fallback order
+
+The workflow uses this order for live flight tracking:
+
+```text
+SERPAPI_API_KEY
+→ SERPAPI_API_KEY_2
+→ SERPAPI_API_KEY_3
+→ SERPAPI_BOOKING_API_KEY (last-resort search fallback)
+```
+
+The booking credential is only used for live search after the dedicated search credentials fail. If it is used for search fallback, the Booking Options enrichment step is skipped for that workflow run.
 
 ### Run a manual check
 
@@ -90,6 +141,7 @@ The workflow writes:
 ```text
 data/flights.json
 data/flight-history.json
+data/api-usage.json
 ```
 
 and commits refreshed snapshots back to `main`.
@@ -102,7 +154,7 @@ The default schedule is:
 07:17 Asia/Ho_Chi_Minh
 ```
 
-At 2 main search requests per refresh, a 30-day month is roughly **60 search requests**, plus manual checks. Booking Options requests use the separate `SERPAPI_BOOKING_API_KEY` quota and depend on `BOOKING_OPTIONS_LIMIT_PER_ROUTE`.
+At 2 main search requests per refresh, a 30-day month is roughly **60 Google Flights search requests**, plus manual checks. Booking Options can add up to **240 requests/month** at the default 8 requests/day if it is enabled every day. Actual account usage is shown in the live SerpApi usage table above.
 
 ### Price dashboard
 
@@ -164,11 +216,13 @@ trips/
 │   ├── pr-preview.yml
 │   └── update-flight-prices.yml
 ├── data/
+│   ├── api-usage.json
 │   ├── flights.json
 │   └── flight-history.json
 ├── scripts/
 │   ├── fetch-flights.mjs
-│   └── enrich-booking-options.mjs
+│   ├── enrich-booking-options.mjs
+│   └── update-api-usage.mjs
 ├── flights/
 │   └── index.html
 ├── flights.html
