@@ -41,17 +41,21 @@ If all dedicated flight-tracking/search credentials are exhausted or fail, the w
 
 ### SerpApi usage / credits
 
-The workflow checks SerpApi's free Account API after each refresh and updates both `data/api-usage.json` and the table below. The Account API reports current monthly usage, monthly allowance and remaining searches for the account behind each configured credential.
+The workflow checks SerpApi's free Account API after each refresh and updates both `data/api-usage.json` and the table below. The Account API returns `this_month_usage`, monthly allowance, remaining searches and the next plan renewal date for the account behind each configured credential.
+
+The first usage refresh does **not** start counting from zero: `this_month_usage` already includes successful searches consumed earlier in the current SerpApi billing cycle, so credits used before this tracker was added are counted again automatically.
 
 <!-- API_USAGE_START -->
-> Chưa có snapshot usage trên branch này. Bảng sẽ được cập nhật tự động sau lần chạy workflow tiếp theo.
+> Chưa có snapshot usage trên branch này. Bảng sẽ được cập nhật tự động sau lần chạy workflow tiếp theo và sẽ lấy luôn credit đã dùng trước đó trong kỳ hiện tại.
 
-| API / credential | Vai trò | Đã dùng / Tổng tháng | Còn lại | Plan |
-|---|---|---:|---:|---|
-| — | Chờ workflow cập nhật | — | — | — |
+| API / credential | Vai trò | Đã dùng / Tổng kỳ | Còn lại | Reset / gia hạn | Plan |
+|---|---|---:|---:|---|---|
+| — | Chờ workflow cập nhật | — | — | — | — |
 
-> Account API không tiêu tốn search credit. Nếu một credential còn được dùng ở project khác, số liệu trên bao gồm cả usage đó.
+> Credit reset theo **kỳ monthly/billing cycle của SerpApi**. Khi phát hiện kỳ mới, bộ đếm hiện tại dùng số mới từ Account API và snapshot kỳ trước được lưu vào `data/api-usage.json.history`. Account API không tiêu tốn search credit.
 <!-- API_USAGE_END -->
+
+SerpApi resets monthly searches at the start of a new billing cycle. The reset date is the provider's `plan_renewal_date`, so it may not be the first calendar day of the month. The tracker detects a new cycle when the renewal date advances or the provider's current-cycle usage drops, then archives the previous counter before showing the new cycle.
 
 ### Request cost per refresh
 
@@ -156,7 +160,7 @@ The default schedule is:
 07:17 Asia/Ho_Chi_Minh
 ```
 
-At 2 main search requests per refresh, a 30-day month is roughly **60 Google Flights search requests**, plus manual checks. Booking Options can add up to **240 requests/month** at the default 8 requests/day if it is enabled every day. Actual account usage is shown in the live SerpApi usage table above.
+At 2 main search requests per refresh, a 30-day month is roughly **60 Google Flights search requests**, plus manual checks. Booking Options can add up to **240 requests/month** at the default 8 requests/day if it is enabled every day. Actual provider usage is shown in the live SerpApi usage table above and resets when SerpApi starts the next billing cycle.
 
 ### Price dashboard
 
