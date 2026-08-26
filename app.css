@@ -2,6 +2,7 @@
 @import url('./motion.css');
 @import url('./loading.css');
 @import url('./theme-icon.css');
+@import url('./dashboard.css');
 
 /* Keep the timeline connector centered under the timeline dots. */
 .timeline-item:not(:last-child)::after{left:61px}
