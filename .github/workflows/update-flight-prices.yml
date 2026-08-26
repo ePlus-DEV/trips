@@ -8,10 +8,10 @@ on:
     paths:
       - 'scripts/fetch-flights.mjs'
       - 'scripts/enrich-booking-options.mjs'
+      - 'scripts/update-api-usage.mjs'
       - '.github/workflows/update-flight-prices.yml'
   schedule:
     # 07:17 in Vietnam (UTC+7).
-    # Booking Options only runs when the repository variable BOOKING_OPTIONS_ENABLED is explicitly enabled.
     - cron: '17 0 * * *'
 
 permissions:
@@ -48,11 +48,17 @@ jobs:
           BOOKING_OPTIONS_ENABLED: ${{ vars.BOOKING_OPTIONS_ENABLED }}
         shell: bash
         run: |
-          if [ -z "$SERPAPI_API_KEY" ] && [ -z "$SERPAPI_API_KEY_2" ] && [ -z "$SERPAPI_API_KEY_3" ]; then
+          if [ -z "$SERPAPI_API_KEY" ] && [ -z "$SERPAPI_API_KEY_2" ] && [ -z "$SERPAPI_API_KEY_3" ] && [ -z "$SERPAPI_BOOKING_API_KEY" ]; then
             echo "enabled=false" >> "$GITHUB_OUTPUT"
-            echo "::warning::No SerpApi search key is configured. Add SERPAPI_API_KEY and optional backup keys SERPAPI_API_KEY_2 / SERPAPI_API_KEY_3 in Settings → Secrets and variables → Actions."
-          else
-            echo "enabled=true" >> "$GITHUB_OUTPUT"
+            echo "booking_enabled=false" >> "$GITHUB_OUTPUT"
+            echo "::warning::No SerpApi credential is configured."
+            exit 0
+          fi
+
+          echo "enabled=true" >> "$GITHUB_OUTPUT"
+
+          if [ -z "$SERPAPI_API_KEY" ] && [ -z "$SERPAPI_API_KEY_2" ] && [ -z "$SERPAPI_API_KEY_3" ]; then
+            echo "::warning::No dedicated flight-search credential is configured. The Booking Options credential will be used as the search fallback if available."
           fi
 
           booking_flag=$(printf '%s' "${BOOKING_OPTIONS_ENABLED:-}" | tr '[:upper:]' '[:lower:]')
@@ -73,11 +79,13 @@ jobs:
           esac
 
       - name: Fetch Google Flights prices via SerpApi
+        id: search
         if: steps.config.outputs.enabled == 'true'
         env:
           SERPAPI_API_KEY: ${{ secrets.SERPAPI_API_KEY }}
           SERPAPI_API_KEY_2: ${{ secrets.SERPAPI_API_KEY_2 }}
           SERPAPI_API_KEY_3: ${{ secrets.SERPAPI_API_KEY_3 }}
+          SERPAPI_BOOKING_API_KEY: ${{ secrets.SERPAPI_BOOKING_API_KEY }}
         shell: bash
         run: |
           set -euo pipefail
@@ -93,7 +101,7 @@ jobs:
 
             attempted=$((attempted + 1))
             slot=$((index + 1))
-            echo "Trying configured SerpApi search key slot #${slot}..."
+            echo "Trying dedicated SerpApi flight-search credential #${slot}..."
 
             set +e
             output=$(SERPAPI_API_KEY="$key" node scripts/fetch-flights.mjs 2>&1)
@@ -104,29 +112,47 @@ jobs:
 
             if [ "$status" -eq 0 ]; then
               search_ok=1
-              echo "SerpApi search key slot #${slot} completed successfully."
+              echo "booking_fallback_used=false" >> "$GITHUB_OUTPUT"
+              echo "search_credential=search_${slot}" >> "$GITHUB_OUTPUT"
+              echo "Dedicated search credential #${slot} completed successfully."
               break
             fi
 
             last_status=$status
-
-            # Backups are only for invalid/revoked credentials or transient service failures.
-            # Never rotate credentials to bypass provider quota/rate limits.
             if printf '%s' "$output" | grep -Eqi '(^|[^0-9])429([^0-9]|$)|quota|rate[ -]?limit|monthly[[:space:]]+search|search(es)?[[:space:]]+limit|credit(s)?[[:space:]]+(exhausted|limit)'; then
-              echo "::error::SerpApi search quota/rate limit detected. Backup keys will not be used to bypass provider limits."
-              exit "$status"
+              echo "::warning::Dedicated search credential #${slot} has no usable quota/rate capacity. Trying the next configured search credential."
+            else
+              echo "::warning::Dedicated search credential #${slot} failed. Trying the next configured search credential."
             fi
-
-            echo "::warning::SerpApi search key slot #${slot} failed for a non-quota reason. Trying the next configured backup key, if any."
           done
 
-          if [ "$attempted" -eq 0 ]; then
-            echo "::error::No non-empty SerpApi search key was available."
-            exit 2
+          if [ "$search_ok" -ne 1 ] && [ -n "$SERPAPI_BOOKING_API_KEY" ]; then
+            echo "All dedicated search credentials are unavailable. Trying SERPAPI_BOOKING_API_KEY as the last-resort Google Flights search credential..."
+
+            set +e
+            output=$(SERPAPI_API_KEY="$SERPAPI_BOOKING_API_KEY" node scripts/fetch-flights.mjs 2>&1)
+            status=$?
+            set -e
+
+            printf '%s\n' "$output"
+            last_status=$status
+
+            if [ "$status" -eq 0 ]; then
+              search_ok=1
+              echo "booking_fallback_used=true" >> "$GITHUB_OUTPUT"
+              echo "search_credential=booking_fallback" >> "$GITHUB_OUTPUT"
+              echo "Booking credential completed the Google Flights search fallback successfully."
+            else
+              echo "::error::Booking credential fallback also failed."
+            fi
           fi
 
           if [ "$search_ok" -ne 1 ]; then
-            echo "::error::All configured SerpApi search keys failed. Booking Options enrichment will not run against stale data."
+            if [ "$attempted" -eq 0 ] && [ -z "$SERPAPI_BOOKING_API_KEY" ]; then
+              echo "::error::No usable SerpApi credential was available."
+              exit 2
+            fi
+            echo "::error::No SerpApi credential could complete the live flight search."
             exit "$last_status"
           fi
 
@@ -136,14 +162,18 @@ jobs:
           fi
 
       - name: Enrich Booking Options and baggage
-        if: steps.config.outputs.enabled == 'true' && steps.config.outputs.booking_enabled == 'true'
+        if: steps.config.outputs.enabled == 'true' && steps.config.outputs.booking_enabled == 'true' && steps.search.outputs.booking_fallback_used != 'true'
         env:
           SERPAPI_BOOKING_API_KEY: ${{ secrets.SERPAPI_BOOKING_API_KEY }}
           BOOKING_OPTIONS_LIMIT_PER_ROUTE: ${{ vars.BOOKING_OPTIONS_LIMIT_PER_ROUTE }}
         run: node scripts/enrich-booking-options.mjs
 
+      - name: Explain skipped Booking Options after search fallback
+        if: steps.search.outputs.booking_fallback_used == 'true'
+        run: echo "Booking Options enrichment was skipped because SERPAPI_BOOKING_API_KEY was already used for the live flight search fallback."
+
       - name: Evaluate price alert
-        if: steps.config.outputs.enabled == 'true' && github.ref_name == 'main'
+        if: steps.config.outputs.enabled == 'true' && github.ref_name == 'main' && steps.search.outcome == 'success'
         env:
           GH_TOKEN: ${{ github.token }}
           ALERT_AMOUNT: ${{ vars.FLIGHT_ALERT_AMOUNT }}
@@ -210,20 +240,29 @@ jobs:
             fi
           fi
 
-      - name: Commit refreshed price snapshot
-        if: steps.config.outputs.enabled == 'true'
+      - name: Update SerpApi credit usage snapshot
+        if: always() && steps.config.outputs.enabled == 'true'
+        env:
+          SERPAPI_API_KEY: ${{ secrets.SERPAPI_API_KEY }}
+          SERPAPI_API_KEY_2: ${{ secrets.SERPAPI_API_KEY_2 }}
+          SERPAPI_API_KEY_3: ${{ secrets.SERPAPI_API_KEY_3 }}
+          SERPAPI_BOOKING_API_KEY: ${{ secrets.SERPAPI_BOOKING_API_KEY }}
+        run: node scripts/update-api-usage.mjs
+
+      - name: Commit refreshed snapshots
+        if: always() && steps.config.outputs.enabled == 'true'
         id: commit
         run: |
-          if git diff --quiet -- data/flights.json data/flight-history.json; then
+          if git diff --quiet -- data/flights.json data/flight-history.json data/api-usage.json README.md; then
             echo "changed=false" >> "$GITHUB_OUTPUT"
-            echo "No flight price changes to commit."
+            echo "No flight/API usage changes to commit."
             exit 0
           fi
 
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/flights.json data/flight-history.json
-          git commit -m "chore: refresh Google Flights prices [skip ci]"
+          git add data/flights.json data/flight-history.json data/api-usage.json README.md
+          git commit -m "chore: refresh Google Flights and API usage [skip ci]"
           git push origin "HEAD:${GITHUB_REF_NAME}"
           echo "changed=true" >> "$GITHUB_OUTPUT"
 
