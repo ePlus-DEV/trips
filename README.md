@@ -46,13 +46,14 @@ The workflow checks SerpApi's free Account API after each refresh and updates bo
 The first usage refresh does **not** start counting from zero: `this_month_usage` already includes successful searches consumed earlier in the current SerpApi billing cycle, so credits used before this tracker was added are counted again automatically.
 
 <!-- API_USAGE_START -->
-> Chưa có snapshot usage trên branch này. Bảng sẽ được cập nhật tự động sau lần chạy workflow tiếp theo và sẽ lấy luôn credit đã dùng trước đó trong kỳ hiện tại.
+> Cập nhật tự động: **2026-08-26T17:33:51.488Z**. Số **Đã dùng** lấy trực tiếp từ `this_month_usage`, nên lần chạy đầu tiên cũng tính luôn credit đã sử dụng trước khi tính năng thống kê được thêm vào.
 
 | API / credential | Vai trò | Đã dùng / Tổng kỳ | Còn lại | Reset / gia hạn | Plan |
 |---|---|---:|---:|---|---|
-| — | Chờ workflow cập nhật | — | — | — | — |
+| Flight Search #1 | Theo dõi giá vé | 36 / 250 | 214 | 2026-09-20 | Free Plan |
+| Booking Options | Booking/baggage + search fallback | 0 / 250 | 250 | 2026-09-25 | Free Plan |
 
-> Credit reset theo **kỳ monthly/billing cycle của SerpApi**. Khi phát hiện kỳ mới, bộ đếm hiện tại dùng số mới từ Account API và snapshot kỳ trước được lưu vào `data/api-usage.json.history`. Account API không tiêu tốn search credit.
+> Credit reset theo **kỳ monthly/billing cycle của SerpApi** tại ngày gia hạn, không phải bộ đếm cộng dồn của repo. Khi phát hiện kỳ mới, snapshot kỳ trước được lưu vào `data/api-usage.json.history`. Account API không tiêu tốn search credit.
 <!-- API_USAGE_END -->
 
 SerpApi resets monthly searches at the start of a new billing cycle. The reset date is the provider's `plan_renewal_date`, so it may not be the first calendar day of the month. The tracker detects a new cycle when the renewal date advances or the provider's current-cycle usage drops, then archives the previous counter before showing the new cycle.

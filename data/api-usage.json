@@ -1,8 +1,33 @@
 {
-  "generated_at": null,
+  "generated_at": "2026-08-26T17:33:51.488Z",
   "source": "SerpApi Account API",
   "reset_policy": "SerpApi monthly billing cycle / plan renewal",
-  "note": "This file is updated automatically by the flight-price workflow. Current-cycle usage is backfilled from SerpApi Account API, and completed cycles are archived in history. Account API checks do not consume search credits.",
-  "accounts": [],
+  "note": "this_month_usage includes searches already used earlier in the current billing cycle. When SerpApi starts a new monthly cycle, current counters reset and the previous snapshot is archived in history. Account API checks do not consume search credits.",
+  "accounts": [
+    {
+      "id": "search_1",
+      "label": "Flight Search #1",
+      "role": "Theo dõi giá vé",
+      "status": "ok",
+      "plan_name": "Free Plan",
+      "used": 36,
+      "total": 250,
+      "left": 214,
+      "renewal_date": "2026-09-20",
+      "cycle_reset_detected": false
+    },
+    {
+      "id": "booking",
+      "label": "Booking Options",
+      "role": "Booking/baggage + search fallback",
+      "status": "ok",
+      "plan_name": "Free Plan",
+      "used": 0,
+      "total": 250,
+      "left": 250,
+      "renewal_date": "2026-09-25",
+      "cycle_reset_detected": false
+    }
+  ],
   "history": []
 }
