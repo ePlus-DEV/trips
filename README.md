@@ -10,6 +10,7 @@ A lightweight personal travel dashboard for GitHub Pages with itinerary, budget,
 - Export/import local travel data
 - Light/dark mode and PWA/offline support
 - **Google Flights price snapshots through SerpApi + GitHub Actions**
+- Fare-specific baggage details from Google Flights search and Booking Options
 - Direct-flight priority, stops/airline filters, price history and price alerts
 - No separate backend server
 
@@ -24,25 +25,57 @@ A lightweight personal travel dashboard for GitHub Pages with itinerary, budget,
 
 ## Live flight prices
 
-The workflow `.github/workflows/update-flight-prices.yml` calls SerpApi's Google Flights engine. The API key remains in GitHub Actions Secrets and is never exposed in the browser.
+The workflow `.github/workflows/update-flight-prices.yml` calls SerpApi's Google Flights engine. API keys remain in GitHub Actions Secrets and are never exposed in the browser.
 
 The current fetcher searches each direction separately so the dashboard can keep a broader list of flight options:
 
 1. Ho Chi Minh City → Shanghai on 19 October 2026,
 2. Beijing → Ho Chi Minh City on 26 October 2026.
 
-Each route keeps non-stop and 1-stop results, then ranks **non-stop first** by default. One refresh currently uses **2 SerpApi searches**.
+Each route keeps non-stop and 1-stop results, then ranks **non-stop first** by default. One refresh uses **2 SerpApi search requests**.
 
-### SerpApi secret
+After the main search succeeds, an optional Booking Options enrichment step can use a **separate SerpApi credential** to fetch richer fare/baggage information for selected offers. The search key is never reused as a fallback for Booking Options.
+
+### SerpApi secrets
 
 Repository → **Settings → Secrets and variables → Actions → New repository secret**
 
+Main Google Flights search:
+
 ```text
 Name: SERPAPI_API_KEY
-Value: <your SerpApi API key>
+Value: <your SerpApi search API key>
 ```
 
-Do not add the key to source code, repository variables, `flights.json`, issues or PR comments.
+Optional backup credentials for the main search only:
+
+```text
+SERPAPI_API_KEY_2
+SERPAPI_API_KEY_3
+```
+
+Dedicated Booking Options credential:
+
+```text
+Name: SERPAPI_BOOKING_API_KEY
+Value: <your separate SerpApi API key for Booking Options>
+```
+
+`SERPAPI_BOOKING_API_KEY` is used only by `scripts/enrich-booking-options.mjs`. If it is missing, the main price search still runs normally and Booking Options enrichment is skipped.
+
+Do not add API keys to source code, repository variables, `flights.json`, issues or PR comments.
+
+### Booking Options request limit
+
+By default, Booking Options enriches the first **4 offers per route** after the direct-first sort, so a refresh can use up to **8 Booking Options requests** in addition to the 2 main search requests.
+
+You can override the limit with an Actions repository variable:
+
+```text
+BOOKING_OPTIONS_LIMIT_PER_ROUTE=4
+```
+
+Valid values are capped at 24. Reducing this value saves Booking Options quota. If the dedicated key hits a quota/rate limit, enrichment stops without discarding the successful main flight-search snapshot.
 
 ### Run a manual check
 
@@ -69,7 +102,7 @@ The default schedule is:
 07:17 Asia/Ho_Chi_Minh
 ```
 
-At 2 API searches per refresh, a 30-day month is roughly **60 searches**, plus any manual checks.
+At 2 main search requests per refresh, a 30-day month is roughly **60 search requests**, plus manual checks. Booking Options requests use the separate `SERPAPI_BOOKING_API_KEY` quota and depend on `BOOKING_OPTIONS_LIMIT_PER_ROUTE`.
 
 ### Price dashboard
 
@@ -81,6 +114,8 @@ At 2 API searches per refresh, a 30-day month is roughly **60 searches**, plus a
 - All / Direct only / 1 stop only filters
 - airline filter
 - one-way fare for the selected travellers
+- expandable flight details
+- fare-specific baggage details when Google Flights provides them
 - estimated best outbound + return total
 - price history for the current trip dates
 - freshness indicator
@@ -132,7 +167,8 @@ trips/
 │   ├── flights.json
 │   └── flight-history.json
 ├── scripts/
-│   └── fetch-flights.mjs
+│   ├── fetch-flights.mjs
+│   └── enrich-booking-options.mjs
 ├── flights/
 │   └── index.html
 ├── flights.html
