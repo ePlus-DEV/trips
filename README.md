@@ -62,6 +62,8 @@ The workflow checks SerpApi's free Account API after each refresh and updates bo
 | Booking credential used as search fallback | 0 | 2 requests | Chỉ dùng khi các search credential không còn dùng được; enrichment bị skip trong run đó |
 | SerpApi Account API | 1 request / credential | Không tính credit | Dùng để cập nhật bảng usage |
 
+SerpApi counts successful, non-cached searches toward monthly search credits; failed/error responses and cached responses do not consume a monthly search credit. The README usage table therefore uses SerpApi Account API totals as the source of truth rather than estimating credits only from workflow runs.
+
 ### SerpApi secrets
 
 Repository → **Settings → Secrets and variables → Actions → New repository secret**
