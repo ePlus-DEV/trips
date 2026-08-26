@@ -93,10 +93,13 @@ const tableRows = rows.length
 const block = `${START}\n> Cập nhật tự động: **${generatedAt}**. Số liệu lấy từ SerpApi Account API và là usage của account gắn với từng credential.\n\n| API / credential | Vai trò | Đã dùng / Tổng tháng | Còn lại | Plan |\n|---|---|---:|---:|---|\n${tableRows}\n\n> Account API không tiêu tốn search credit. Nếu một credential còn được dùng ở project khác, số liệu trên bao gồm cả usage đó.\n${END}`;
 
 let readme = await fs.readFile(README, 'utf8');
-if (!readme.includes(START) || !readme.includes(END)) {
-  throw new Error('README API usage markers are missing.');
+const startIndex = readme.indexOf(START);
+const endIndex = readme.indexOf(END);
+if (startIndex === -1 || endIndex === -1 || endIndex < startIndex) {
+  throw new Error('README API usage markers are missing or invalid.');
 }
-readme = readme.replace(new RegExp(`${START}[\\s\\S]*?${END}`), block);
+const afterEnd = endIndex + END.length;
+readme = readme.slice(0, startIndex) + block + readme.slice(afterEnd);
 await fs.writeFile(README, readme);
 
 console.log(`Saved ${OUT}`);
