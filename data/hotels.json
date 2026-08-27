@@ -1,0 +1,25 @@
+{
+  "status": "waiting_for_refresh",
+  "provider": "SerpApi",
+  "source": "Google Hotels",
+  "generated_at": null,
+  "live_mode": false,
+  "disclaimer": "Run the hotel price workflow to fetch the first live Google Hotels snapshot.",
+  "search": {
+    "trip_key": "shanghai-jinling-2026-10-19__2026-10-20",
+    "query": "Jinling East Road Shanghai hotels",
+    "location_label": "Jinling East Road · Dashijie · The Bund · Yu Garden, Shanghai",
+    "check_in_date": "2026-10-19",
+    "check_out_date": "2026-10-20",
+    "nights": 1,
+    "adults_per_room": 2,
+    "children": 0,
+    "currency": "VND",
+    "group_rooms_estimate": 3,
+    "searches_per_refresh": 1,
+    "google_hotels_url": null
+  },
+  "properties": [],
+  "cheapest_property_id": null,
+  "cheapest_shortlisted_property_id": null
+}

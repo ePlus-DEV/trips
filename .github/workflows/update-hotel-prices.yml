@@ -1,0 +1,205 @@
+name: Update live hotel prices
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+    paths:
+      - 'scripts/fetch-hotels.mjs'
+      - '.github/workflows/update-hotel-prices.yml'
+  schedule:
+    # 07:27 in Vietnam (UTC+7), after the flight tracker.
+    - cron: '27 0 * * *'
+
+permissions:
+  contents: write
+  pages: write
+  issues: write
+
+concurrency:
+  group: live-hotel-prices-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.ref_name }}
+          fetch-depth: 0
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Check SerpApi configuration
+        id: config
+        env:
+          SERPAPI_API_KEY: ${{ secrets.SERPAPI_API_KEY }}
+          SERPAPI_API_KEY_2: ${{ secrets.SERPAPI_API_KEY_2 }}
+          SERPAPI_API_KEY_3: ${{ secrets.SERPAPI_API_KEY_3 }}
+          SERPAPI_BOOKING_API_KEY: ${{ secrets.SERPAPI_BOOKING_API_KEY }}
+        shell: bash
+        run: |
+          if [ -z "$SERPAPI_API_KEY" ] && [ -z "$SERPAPI_API_KEY_2" ] && [ -z "$SERPAPI_API_KEY_3" ] && [ -z "$SERPAPI_BOOKING_API_KEY" ]; then
+            echo "enabled=false" >> "$GITHUB_OUTPUT"
+            echo "::warning::No SerpApi credential is configured."
+            exit 0
+          fi
+          echo "enabled=true" >> "$GITHUB_OUTPUT"
+
+      - name: Fetch Google Hotels prices via SerpApi
+        id: search
+        if: steps.config.outputs.enabled == 'true'
+        env:
+          SERPAPI_API_KEY: ${{ secrets.SERPAPI_API_KEY }}
+          SERPAPI_API_KEY_2: ${{ secrets.SERPAPI_API_KEY_2 }}
+          SERPAPI_API_KEY_3: ${{ secrets.SERPAPI_API_KEY_3 }}
+          SERPAPI_BOOKING_API_KEY: ${{ secrets.SERPAPI_BOOKING_API_KEY }}
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          keys=("$SERPAPI_API_KEY" "$SERPAPI_API_KEY_2" "$SERPAPI_API_KEY_3" "$SERPAPI_BOOKING_API_KEY")
+          labels=("search_1" "search_2" "search_3" "booking_fallback")
+          search_ok=0
+          last_status=1
+
+          for index in "${!keys[@]}"; do
+            key="${keys[$index]}"
+            [ -z "$key" ] && continue
+
+            echo "Trying SerpApi credential ${labels[$index]} for Google Hotels..."
+            set +e
+            output=$(SERPAPI_API_KEY="$key" node scripts/fetch-hotels.mjs 2>&1)
+            status=$?
+            set -e
+            printf '%s\n' "$output"
+            last_status=$status
+
+            if [ "$status" -eq 0 ]; then
+              search_ok=1
+              echo "search_credential=${labels[$index]}" >> "$GITHUB_OUTPUT"
+              break
+            fi
+
+            if printf '%s' "$output" | grep -Eqi '(^|[^0-9])429([^0-9]|$)|quota|rate[ -]?limit|monthly[[:space:]]+search|search(es)?[[:space:]]+limit|credit(s)?[[:space:]]+(exhausted|limit)'; then
+              echo "::warning::Credential ${labels[$index]} has no usable quota/rate capacity. Trying the next credential."
+            else
+              echo "::warning::Credential ${labels[$index]} failed. Trying the next configured credential."
+            fi
+          done
+
+          if [ "$search_ok" -ne 1 ]; then
+            echo "::error::No SerpApi credential could complete the Google Hotels search."
+            exit "$last_status"
+          fi
+
+          test -f data/hotels.json || { echo "::error::Missing data/hotels.json after search."; exit 3; }
+          test -f data/hotel-history.json || { echo "::error::Missing data/hotel-history.json after search."; exit 3; }
+
+      - name: Evaluate hotel price alert
+        if: steps.config.outputs.enabled == 'true' && github.ref_name == 'main' && steps.search.outcome == 'success'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          ALERT_AMOUNT: ${{ vars.HOTEL_ALERT_AMOUNT }}
+          ALERT_CURRENCY: ${{ vars.HOTEL_ALERT_CURRENCY }}
+        shell: bash
+        run: |
+          if [ -z "$ALERT_AMOUNT" ]; then
+            echo "No HOTEL_ALERT_AMOUNT repository variable configured; skipping GitHub Issue alert."
+            exit 0
+          fi
+
+          CURRENT_AMOUNT=$(node -e "const d=require('./data/hotels.json');const id=d.cheapest_shortlisted_property_id||d.cheapest_property_id;const p=(d.properties||[]).find(x=>x.id===id);process.stdout.write(p?.rate_per_night?.amount?String(p.rate_per_night.amount):'')")
+          CURRENT_HOTEL=$(node -e "const d=require('./data/hotels.json');const id=d.cheapest_shortlisted_property_id||d.cheapest_property_id;const p=(d.properties||[]).find(x=>x.id===id);process.stdout.write(p?.name||'Unknown hotel')")
+          CHECKED_AT=$(node -p "require('./data/hotels.json').generated_at || new Date().toISOString()")
+          CURRENT_CURRENCY=$(node -p "require('./data/hotels.json').search?.currency || 'VND'")
+          ALERT_CURRENCY=${ALERT_CURRENCY:-$CURRENT_CURRENCY}
+
+          if [ -z "$CURRENT_AMOUNT" ]; then
+            echo "No current hotel price found; skipping alert."
+            exit 0
+          fi
+          if [ "$CURRENT_CURRENCY" != "$ALERT_CURRENCY" ]; then
+            echo "::warning::Hotel alert currency is $ALERT_CURRENCY but tracker returned $CURRENT_CURRENCY. Comparison skipped."
+            exit 0
+          fi
+
+          TITLE="🏨 Hotel price alert · Shanghai 19–20 Oct 2026"
+          ISSUE=$(gh issue list --state open --json number,title --jq '.[] | select(.title == "🏨 Hotel price alert · Shanghai 19–20 Oct 2026") | .number' | head -n 1)
+
+          if node -e "process.exit(Number(process.argv[1]) <= Number(process.argv[2]) ? 0 : 1)" "$CURRENT_AMOUNT" "$ALERT_AMOUNT"; then
+            BODY=$(cat <<EOF
+          ## Hotel target reached 🎯
+
+          | | |
+          |---|---|
+          | **Current price** | ${CURRENT_AMOUNT} ${CURRENT_CURRENCY} / room / night |
+          | **Target** | ${ALERT_AMOUNT} ${ALERT_CURRENCY} |
+          | **Hotel** | ${CURRENT_HOTEL} |
+          | **Stay** | 19 Oct → 20 Oct 2026 |
+          | **Search occupancy** | 2 adults / room |
+          | **Checked** | ${CHECKED_AT} |
+
+          Dashboard: https://trips.eplus.dev/hotels.html
+
+          > Google Hotels is a price snapshot. Verify taxes, fees, cancellation policy, room type and final checkout total before paying.
+          EOF
+          )
+            if [ -n "$ISSUE" ]; then
+              gh issue edit "$ISSUE" --body "$BODY"
+              echo "Updated hotel price alert issue #$ISSUE."
+            else
+              gh issue create --title "$TITLE" --body "$BODY"
+              echo "Created hotel price alert issue."
+            fi
+          else
+            echo "Current hotel price ${CURRENT_AMOUNT} ${CURRENT_CURRENCY} is above target ${ALERT_AMOUNT} ${ALERT_CURRENCY}."
+            if [ -n "$ISSUE" ]; then
+              gh issue close "$ISSUE" --comment "Latest hotel price moved back above target: ${CURRENT_AMOUNT} ${CURRENT_CURRENCY} (target ${ALERT_AMOUNT} ${ALERT_CURRENCY})."
+            fi
+          fi
+
+      - name: Update SerpApi credit usage snapshot
+        if: always() && steps.config.outputs.enabled == 'true'
+        env:
+          SERPAPI_API_KEY: ${{ secrets.SERPAPI_API_KEY }}
+          SERPAPI_API_KEY_2: ${{ secrets.SERPAPI_API_KEY_2 }}
+          SERPAPI_API_KEY_3: ${{ secrets.SERPAPI_API_KEY_3 }}
+          SERPAPI_BOOKING_API_KEY: ${{ secrets.SERPAPI_BOOKING_API_KEY }}
+        run: node scripts/update-api-usage.mjs
+
+      - name: Commit refreshed snapshots
+        if: always() && steps.config.outputs.enabled == 'true'
+        id: commit
+        shell: bash
+        run: |
+          if git diff --quiet -- data/hotels.json data/hotel-history.json data/api-usage.json README.md; then
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+            echo "No hotel/API usage changes to commit."
+            exit 0
+          fi
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/hotels.json data/hotel-history.json data/api-usage.json README.md
+          git commit -m "chore: refresh Google Hotels and API usage [skip ci]"
+          git push origin "HEAD:${GITHUB_REF_NAME}"
+          echo "changed=true" >> "$GITHUB_OUTPUT"
+
+      - name: Request GitHub Pages rebuild
+        if: steps.config.outputs.enabled == 'true' && steps.commit.outputs.changed == 'true' && github.ref_name == 'main'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          curl --fail-with-body -L \
+            -X POST \
+            -H "Accept: application/vnd.github+json" \
+            -H "Authorization: Bearer $GH_TOKEN" \
+            -H "X-GitHub-Api-Version: 2022-11-28" \
+            "https://api.github.com/repos/${GITHUB_REPOSITORY}/pages/builds"
