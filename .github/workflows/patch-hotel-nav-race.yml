@@ -1,4 +1,4 @@
-name: Apply hotel nav and workflow race fix
+name: Apply hotel navigation fix
 
 on:
   push:
@@ -19,7 +19,7 @@ jobs:
           ref: fix/hotel-nav-and-workflow-race
           fetch-depth: 0
 
-      - name: Patch navigation and shared concurrency
+      - name: Patch hotel navigation
         shell: bash
         run: |
           python - <<'PY'
@@ -32,7 +32,6 @@ jobs:
                   raise SystemExit(f'Expected text not found in {path}: {old[:120]!r}')
               p.write_text(text.replace(old, new, 1))
 
-          # Dashboard: sidebar, header action, hero action and mobile nav.
           replace_once(
               'index.html',
               '      <a href="./flights/"><span class="nav-icon"><svg><use href="#i-plane"/></svg></span>Giá vé</a>\n      <a href="#budget">',
@@ -53,8 +52,6 @@ jobs:
               '  <a href="#checklist"><span class="nav-icon"><svg><use href="#i-check"/></svg></span>Chuẩn bị</a>\n</nav>',
               '  <a href="./hotels/"><span class="nav-icon"><svg><use href="#i-pin"/></svg></span>Giá phòng</a>\n</nav>'
           )
-
-          # Flight tracker: expose Hotel Prices alongside Flight Prices.
           replace_once(
               'flights.html',
               '      <a class="active" href="./flights.html"><span class="nav-icon"><svg><use href="#i-plane"/></svg></span>Giá vé</a>\n      <a href="./index.html#budget">',
@@ -70,28 +67,13 @@ jobs:
               '<a href="./index.html#checklist"><svg><use href="#i-check"/></svg>Chuẩn bị</a></nav>',
               '<a href="./hotels.html"><svg><use href="#i-pin"/></svg>Giá phòng</a></nav>'
           )
-
-          # Flight and hotel snapshot writers must serialize against each other.
-          expr = '$' + '{{ github.ref }}'
-          replace_once(
-              '.github/workflows/update-flight-prices.yml',
-              '  group: live-flight-prices-' + expr,
-              '  group: price-tracker-writes-' + expr
-          )
-          replace_once(
-              '.github/workflows/update-hotel-prices.yml',
-              '  group: live-hotel-prices-' + expr,
-              '  group: price-tracker-writes-' + expr
-          )
           PY
 
-          rm .github/workflows/patch-hotel-nav-race.yml
-
-      - name: Commit patch
+      - name: Commit navigation patch
         shell: bash
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add index.html flights.html .github/workflows/update-flight-prices.yml .github/workflows/update-hotel-prices.yml .github/workflows/patch-hotel-nav-race.yml
-          git commit -m "fix: link hotel tracker and serialize price writers"
+          git add index.html flights.html
+          git commit -m "fix: expose hotel price tracker navigation"
           git push origin HEAD:fix/hotel-nav-and-workflow-race
