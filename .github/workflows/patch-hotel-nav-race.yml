@@ -72,15 +72,16 @@ jobs:
           )
 
           # Flight and hotel snapshot writers must serialize against each other.
+          expr = '$' + '{{ github.ref }}'
           replace_once(
               '.github/workflows/update-flight-prices.yml',
-              '  group: live-flight-prices-${{ github.ref }}',
-              '  group: price-tracker-writes-${{ github.ref }}'
+              '  group: live-flight-prices-' + expr,
+              '  group: price-tracker-writes-' + expr
           )
           replace_once(
               '.github/workflows/update-hotel-prices.yml',
-              '  group: live-hotel-prices-${{ github.ref }}',
-              '  group: price-tracker-writes-${{ github.ref }}'
+              '  group: live-hotel-prices-' + expr,
+              '  group: price-tracker-writes-' + expr
           )
           PY
 
