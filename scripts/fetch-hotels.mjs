@@ -10,40 +10,29 @@ if (!API_KEY) {
 const API = 'https://serpapi.com/search.json';
 const OUT = path.resolve('data/hotels.json');
 const HISTORY = path.resolve('data/hotel-history.json');
-const TRIP_KEY = 'shanghai-jinling-2026-10-19__2026-10-20';
+const TRIP_KEY = 'shanghai-2026-10-19__2026-10-20';
 
 const SEARCH = {
-  q: 'Hotels near Dashijie Station Shanghai',
+  q: 'Shanghai hotels',
   checkIn: '2026-10-19',
   checkOut: '2026-10-20',
   adults: 2,
   children: 0,
   currency: 'VND',
   groupRoomsEstimate: 3,
-  locationLabel: 'Jinling East Road · Dashijie · The Bund · Yu Garden, Shanghai',
-  shortlist: [
-    ['home inn plus', 'jinling east road'],
-    ['jianguo', 'jinling east road'],
-    ['campanile', 'bund'],
-    ['crystal', 'jinling east road'],
-    ['crystal orange', 'bund'],
-    ['seventh heaven'],
-    ['magnificent international'],
-    ['autoongo', 'bund'],
-    ['atour', 'dashijie'],
-    ['ji hotel', 'jinling east road']
-  ],
-  fallbackHotels: [
-    'Jianguo Puyin Hotel Shanghai Bund Jinling East Road',
-    'Home Inn Plus Shanghai The Bund Jinling East Road',
-    'Campanile Shanghai Bund Hotel',
-    'JI Hotel Shanghai The Bund Jinling East Road',
-    'Crystal Shanghai Bund Jinling East Road Hotel',
-    'Crystal Orange Shanghai The Bund Yu Garden Hotel',
-    'Seventh Heaven Hotel',
-    'Magnificent International Hotel',
-    'Shanghai Autoongo Bund Hotel',
-    'Atour Light Hotel Shanghai Bund Dashijie Metro Station'
+  maxPages: 3,
+  locationLabel: 'Shanghai · lọc theo khoảng cách từ 531 Jinling East Road',
+  anchor: {
+    name: '531 Jinling East Road',
+    latitude: 31.2285,
+    longitude: 121.4808
+  },
+  areas: [
+    { name: 'Dashijie / Jinling East Road', latitude: 31.2288, longitude: 121.4799 },
+    { name: "People's Square", latitude: 31.2304, longitude: 121.4737 },
+    { name: 'Yu Garden', latitude: 31.2270, longitude: 121.4920 },
+    { name: 'The Bund', latitude: 31.2397, longitude: 121.4908 },
+    { name: 'Nanjing Road', latitude: 31.2354, longitude: 121.4757 }
   ]
 };
 
@@ -54,11 +43,6 @@ function normalize(value = '') {
     .toLowerCase()
     .replace(/[^a-z0-9\u4e00-\u9fff]+/g, ' ')
     .trim();
-}
-
-function isShortlisted(name) {
-  const normalized = normalize(name);
-  return SEARCH.shortlist.some(parts => parts.every(part => normalized.includes(normalize(part))));
 }
 
 function finiteNumber(value) {
@@ -72,6 +56,35 @@ function priceAmount(property) {
   return amount === null ? Number.POSITIVE_INFINITY : amount;
 }
 
+function toRad(degrees) {
+  return degrees * Math.PI / 180;
+}
+
+function distanceKm(aLat, aLon, bLat, bLon) {
+  const lat1 = finiteNumber(aLat);
+  const lon1 = finiteNumber(aLon);
+  const lat2 = finiteNumber(bLat);
+  const lon2 = finiteNumber(bLon);
+  if ([lat1, lon1, lat2, lon2].some(value => value === null)) return null;
+  const radius = 6371;
+  const dLat = toRad(lat2 - lat1);
+  const dLon = toRad(lon2 - lon1);
+  const x = Math.sin(dLat / 2) ** 2 + Math.cos(toRad(lat1)) * Math.cos(toRad(lat2)) * Math.sin(dLon / 2) ** 2;
+  return radius * 2 * Math.atan2(Math.sqrt(x), Math.sqrt(1 - x));
+}
+
+function nearestArea(coordinates) {
+  const lat = finiteNumber(coordinates?.latitude);
+  const lon = finiteNumber(coordinates?.longitude);
+  if (lat === null || lon === null) return { name: 'Không rõ khu vực', distance_km: null };
+  const ranked = SEARCH.areas
+    .map(area => ({ ...area, distance_km: distanceKm(lat, lon, area.latitude, area.longitude) }))
+    .filter(area => area.distance_km !== null)
+    .sort((a, b) => a.distance_km - b.distance_km);
+  if (!ranked.length || ranked[0].distance_km > 4) return { name: 'Khu vực khác ở Shanghai', distance_km: ranked[0]?.distance_km ?? null };
+  return { name: ranked[0].name, distance_km: ranked[0].distance_km };
+}
+
 async function readJson(file, fallback) {
   try { return JSON.parse(await fs.readFile(file, 'utf8')); }
   catch { return fallback; }
@@ -83,16 +96,12 @@ async function serpapi(params) {
     if (value !== undefined && value !== null && value !== '') url.searchParams.set(key, String(value));
   });
   url.searchParams.set('api_key', API_KEY);
-
   const response = await fetch(url, { headers: { Accept: 'application/json' } });
   const text = await response.text();
   let body;
   try { body = text ? JSON.parse(text) : {}; }
   catch { body = { raw: text }; }
-
-  if (!response.ok || body?.error) {
-    throw new Error(`SerpApi request failed: ${body?.error || `HTTP ${response.status}`}`);
-  }
+  if (!response.ok || body?.error) throw new Error(`SerpApi request failed: ${body?.error || `HTTP ${response.status}`}`);
   if (body?.search_metadata?.status && body.search_metadata.status !== 'Success') {
     throw new Error(`SerpApi search did not complete successfully: ${body.search_metadata.status}`);
   }
@@ -134,25 +143,31 @@ function propertyId(raw) {
 function compactProperty(raw) {
   let rate = compactPrice(raw?.rate_per_night);
   const totalRate = compactPrice(raw?.total_rate);
-  if (!rate && totalRate) rate = totalRate;
-
-  const image = Array.isArray(raw?.images)
-    ? raw.images.find(item => item?.thumbnail || item?.original_image)
-    : null;
-  const id = propertyId(raw);
   const priceSources = compactSources(raw?.prices);
   if (!rate && priceSources[0]?.rate_per_night) rate = priceSources[0].rate_per_night;
+  if (!rate && totalRate) rate = totalRate;
   const amount = finiteNumber(rate?.amount);
+  const image = Array.isArray(raw?.images) ? raw.images.find(item => item?.thumbnail || item?.original_image) : null;
+  const coordinates = raw?.gps_coordinates || null;
+  const distance = distanceKm(
+    coordinates?.latitude,
+    coordinates?.longitude,
+    SEARCH.anchor.latitude,
+    SEARCH.anchor.longitude
+  );
+  const area = nearestArea(coordinates);
 
   return {
-    id,
+    id: propertyId(raw),
     property_token: raw?.property_token || null,
     name: raw?.name || 'Hotel',
     description: raw?.description || null,
-    shortlisted: isShortlisted(raw?.name),
+    address: raw?.address || null,
     website_url: raw?.link || null,
     image_url: image?.thumbnail || image?.original_image || raw?.thumbnail || null,
-    coordinates: raw?.gps_coordinates || null,
+    coordinates,
+    distance_from_anchor_km: distance === null ? null : Number(distance.toFixed(2)),
+    area: area.name,
     check_in_time: raw?.check_in_time || null,
     check_out_time: raw?.check_out_time || null,
     hotel_class: raw?.hotel_class || null,
@@ -160,129 +175,92 @@ function compactProperty(raw) {
     overall_rating: finiteNumber(raw?.overall_rating),
     reviews: finiteNumber(raw?.reviews),
     location_rating: finiteNumber(raw?.location_rating),
-    amenities: (Array.isArray(raw?.amenities) ? raw.amenities : []).slice(0, 10),
+    amenities: (Array.isArray(raw?.amenities) ? raw.amenities : []).slice(0, 20),
     rate_per_night: amount === null ? null : { ...rate, amount, currency: SEARCH.currency },
     total_rate: totalRate ? { ...totalRate, currency: SEARCH.currency } : null,
     estimated_three_rooms_amount: amount === null ? null : amount * SEARCH.groupRoomsEstimate,
     price_sources: priceSources,
-    price_status: amount === null ? 'unavailable' : 'priced',
-    catalogue_fallback: false
+    price_status: amount === null ? 'unavailable' : 'priced'
   };
-}
-
-function fallbackProperty(name) {
-  return {
-    id: `fallback:${normalize(name)}`,
-    property_token: null,
-    name,
-    description: 'Khách sạn trong danh sách theo dõi quanh Jinling East Road / Dashijie.',
-    shortlisted: true,
-    website_url: null,
-    image_url: null,
-    coordinates: null,
-    check_in_time: null,
-    check_out_time: null,
-    hotel_class: null,
-    stars: null,
-    overall_rating: null,
-    reviews: null,
-    location_rating: null,
-    amenities: [],
-    rate_per_night: null,
-    total_rate: null,
-    estimated_three_rooms_amount: null,
-    price_sources: [],
-    price_status: 'unavailable',
-    catalogue_fallback: true
-  };
-}
-
-function namesLikelyMatch(a, b) {
-  const left = normalize(a);
-  const right = normalize(b);
-  return left === right || left.includes(right) || right.includes(left);
 }
 
 function compareRecommended(a, b) {
-  if (a.shortlisted !== b.shortlisted) return a.shortlisted ? -1 : 1;
-  const priceDiff = priceAmount(a) - priceAmount(b);
-  if (Number.isFinite(priceDiff) && priceDiff !== 0) return priceDiff;
-  if (a.catalogue_fallback !== b.catalogue_fallback) return a.catalogue_fallback ? 1 : -1;
-  return a.name.localeCompare(b.name, 'en');
+  const pricedA = priceAmount(a) !== Number.POSITIVE_INFINITY;
+  const pricedB = priceAmount(b) !== Number.POSITIVE_INFINITY;
+  if (pricedA !== pricedB) return pricedA ? -1 : 1;
+  const distanceA = finiteNumber(a.distance_from_anchor_km) ?? Number.POSITIVE_INFINITY;
+  const distanceB = finiteNumber(b.distance_from_anchor_km) ?? Number.POSITIVE_INFINITY;
+  if (distanceA !== distanceB) return distanceA - distanceB;
+  const ratingDiff = (finiteNumber(b.overall_rating) ?? 0) - (finiteNumber(a.overall_rating) ?? 0);
+  if (ratingDiff) return ratingDiff;
+  return priceAmount(a) - priceAmount(b) || a.name.localeCompare(b.name, 'en');
 }
 
 const previous = await readJson(OUT, null);
 const oldHistory = await readJson(HISTORY, []);
 const generatedAt = new Date().toISOString();
 
-console.log(`Searching Google Hotels: ${SEARCH.locationLabel} · ${SEARCH.checkIn} → ${SEARCH.checkOut}...`);
-const body = await serpapi({
-  engine: 'google_hotels',
-  q: SEARCH.q,
-  check_in_date: SEARCH.checkIn,
-  check_out_date: SEARCH.checkOut,
-  adults: SEARCH.adults,
-  children: SEARCH.children,
-  currency: SEARCH.currency,
-  hl: 'en',
-  gl: 'vn'
-});
+console.log(`Discovering Google Hotels for Shanghai · ${SEARCH.checkIn} → ${SEARCH.checkOut}...`);
+const rawProperties = [];
+let nextPageToken = null;
+let pagesFetched = 0;
+let googleHotelsUrl = null;
 
-const rawProperties = [
-  ...(Array.isArray(body?.properties) ? body.properties : []),
-  ...(Array.isArray(body?.non_matching_properties) ? body.non_matching_properties : [])
-];
-
-console.log(`SerpApi returned ${rawProperties.length} hotel properties before price filtering.`);
+for (let page = 1; page <= SEARCH.maxPages; page += 1) {
+  const body = await serpapi({
+    engine: 'google_hotels',
+    q: SEARCH.q,
+    check_in_date: SEARCH.checkIn,
+    check_out_date: SEARCH.checkOut,
+    adults: SEARCH.adults,
+    children: SEARCH.children,
+    currency: SEARCH.currency,
+    hl: 'en',
+    gl: 'vn',
+    next_page_token: nextPageToken || undefined
+  });
+  pagesFetched += 1;
+  if (!googleHotelsUrl) googleHotelsUrl = body?.search_metadata?.google_hotels_url || null;
+  const pageProperties = [
+    ...(Array.isArray(body?.properties) ? body.properties : []),
+    ...(Array.isArray(body?.non_matching_properties) ? body.non_matching_properties : [])
+  ];
+  rawProperties.push(...pageProperties);
+  console.log(`Page ${page}: ${pageProperties.length} properties.`);
+  nextPageToken = body?.serpapi_pagination?.next_page_token || null;
+  if (!nextPageToken) break;
+}
 
 const seen = new Set();
 const properties = rawProperties
   .map(compactProperty)
   .filter(property => {
-    const key = property.id || normalize(property.name);
+    const key = property.property_token || normalize(property.name);
     if (seen.has(key)) return false;
     seen.add(key);
     return true;
-  });
+  })
+  .sort(compareRecommended);
 
-for (const name of SEARCH.fallbackHotels) {
-  if (!properties.some(property => namesLikelyMatch(property.name, name))) {
-    properties.push(fallbackProperty(name));
-  }
-}
-
-properties.sort(compareRecommended);
-const limitedProperties = properties.slice(0, 30);
 const previousProperties = Array.isArray(previous?.properties) ? previous.properties : [];
-
-for (const property of limitedProperties) {
+for (const property of properties) {
   const currentAmount = finiteNumber(property?.rate_per_night?.amount);
-  const old = previousProperties.find(item =>
-    item?.id === property.id || normalize(item?.name) === normalize(property.name)
-  );
+  const old = previousProperties.find(item => item?.id === property.id || normalize(item?.name) === normalize(property.name));
   const previousAmount = finiteNumber(old?.rate_per_night?.amount);
-  if (currentAmount !== null && previousAmount !== null) {
-    property.previous_rate_per_night_amount = previousAmount;
-    property.price_delta = currentAmount - previousAmount;
-  } else {
-    property.previous_rate_per_night_amount = previousAmount;
-    property.price_delta = null;
-  }
+  property.previous_rate_per_night_amount = previousAmount;
+  property.price_delta = currentAmount !== null && previousAmount !== null ? currentAmount - previousAmount : null;
 }
 
-const pricedProperties = limitedProperties.filter(item => finiteNumber(item?.rate_per_night?.amount) !== null);
+const pricedProperties = properties.filter(item => finiteNumber(item?.rate_per_night?.amount) !== null);
 const cheapest = [...pricedProperties].sort((a, b) => priceAmount(a) - priceAmount(b))[0] || null;
-const cheapestShortlisted = [...pricedProperties]
-  .filter(item => item.shortlisted)
-  .sort((a, b) => priceAmount(a) - priceAmount(b))[0] || null;
 
 const result = {
-  status: pricedProperties.length ? 'ok' : limitedProperties.length ? 'partial' : 'no_results',
+  status: pricedProperties.length ? 'ok' : properties.length ? 'partial' : 'no_results',
   provider: 'SerpApi',
   source: 'Google Hotels',
   generated_at: generatedAt,
   live_mode: true,
-  disclaimer: 'Rates are Google Hotels snapshots for one room with 2 adults. Hotels may remain visible even when Google Hotels does not return a live rate. Taxes, fees, room type and final checkout price can differ. The 3-room figure is only a simple estimate for the 6-adult group and does not confirm availability of three identical rooms.',
+  disclaimer: 'Discovery starts from a broad Shanghai Hotels search. Filtering by distance, price, rating, reviews, stars, area and amenities happens in the browser. Rates are Google Hotels snapshots for one room with 2 adults; taxes, fees, room type and final checkout price can differ.',
   search: {
     trip_key: TRIP_KEY,
     query: SEARCH.q,
@@ -294,15 +272,18 @@ const result = {
     children: SEARCH.children,
     currency: SEARCH.currency,
     group_rooms_estimate: SEARCH.groupRoomsEstimate,
-    searches_per_refresh: 1,
-    google_hotels_url: body?.search_metadata?.google_hotels_url || null,
+    anchor: SEARCH.anchor,
+    max_pages: SEARCH.maxPages,
+    pages_fetched: pagesFetched,
+    searches_per_refresh: pagesFetched,
+    google_hotels_url: googleHotelsUrl,
     raw_property_count: rawProperties.length,
-    displayed_property_count: limitedProperties.length,
+    displayed_property_count: properties.length,
     priced_property_count: pricedProperties.length
   },
-  properties: limitedProperties,
+  properties,
   cheapest_property_id: cheapest?.id || null,
-  cheapest_shortlisted_property_id: cheapestShortlisted?.id || null
+  cheapest_shortlisted_property_id: null
 };
 
 const newHistory = pricedProperties.map(property => ({
@@ -310,7 +291,6 @@ const newHistory = pricedProperties.map(property => ({
   trip_key: TRIP_KEY,
   property_id: property.id,
   name: property.name,
-  shortlisted: property.shortlisted,
   rate_per_night_amount: property.rate_per_night.amount,
   currency: SEARCH.currency,
   lowest_source: property.price_sources?.[0]?.source || null,
@@ -318,16 +298,10 @@ const newHistory = pricedProperties.map(property => ({
   source: 'Google Hotels'
 }));
 
-const history = [...(Array.isArray(oldHistory) ? oldHistory : []), ...newHistory].slice(-2400);
-
+const history = [...(Array.isArray(oldHistory) ? oldHistory : []), ...newHistory].slice(-4000);
 await fs.mkdir(path.dirname(OUT), { recursive: true });
 await fs.writeFile(OUT, JSON.stringify(result, null, 2) + '\n');
 await fs.writeFile(HISTORY, JSON.stringify(history, null, 2) + '\n');
 
-console.log(`Saved ${OUT} with ${limitedProperties.length} displayed properties; ${pricedProperties.length} currently have live prices.`);
-if (cheapest) {
-  console.log(`Cheapest: ${cheapest.name} · ${cheapest.rate_per_night.amount} ${SEARCH.currency}/room/night`);
-}
-if (cheapestShortlisted) {
-  console.log(`Cheapest shortlist: ${cheapestShortlisted.name} · ${cheapestShortlisted.rate_per_night.amount} ${SEARCH.currency}/room/night`);
-}
+console.log(`Saved ${OUT}: ${properties.length} unique Shanghai hotels from ${pagesFetched} page(s); ${pricedProperties.length} have live prices.`);
+if (cheapest) console.log(`Cheapest: ${cheapest.name} · ${cheapest.rate_per_night.amount} ${SEARCH.currency}/room/night`);
