@@ -71,6 +71,9 @@ jobs:
           if [ "${GITHUB_EVENT_NAME}" = "workflow_dispatch" ]; then
             PAGES="${MANUAL_MAX_PAGES:-5}"
             MODE="manual-deep-discovery"
+          elif [ "${GITHUB_EVENT_NAME}" = "push" ]; then
+            PAGES="5"
+            MODE="bootstrap-deep-discovery"
           else
             PAGES="3"
             MODE="daily-light-refresh"
