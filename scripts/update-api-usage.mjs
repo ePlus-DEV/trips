@@ -8,9 +8,9 @@ const START = '<!-- API_USAGE_START -->';
 const END = '<!-- API_USAGE_END -->';
 
 const credentials = [
-  { id: 'search_1', label: 'Flight Search #1', role: 'Theo dõi giá vé', key: process.env.SERPAPI_API_KEY },
-  { id: 'search_2', label: 'Flight Search #2', role: 'Theo dõi giá vé dự phòng', key: process.env.SERPAPI_API_KEY_2 },
-  { id: 'search_3', label: 'Flight Search #3', role: 'Theo dõi giá vé dự phòng', key: process.env.SERPAPI_API_KEY_3 },
+  { id: 'search_1', label: 'Flight + Hotel Search #1', role: 'Theo dõi giá vé + phòng', key: process.env.SERPAPI_API_KEY },
+  { id: 'search_2', label: 'Flight + Hotel Search #2', role: 'Search dự phòng', key: process.env.SERPAPI_API_KEY_2 },
+  { id: 'search_3', label: 'Flight + Hotel Search #3', role: 'Search dự phòng', key: process.env.SERPAPI_API_KEY_3 },
   { id: 'booking', label: 'Booking Options', role: 'Booking/baggage + search fallback', key: process.env.SERPAPI_BOOKING_API_KEY }
 ].filter(item => item.key);
 
