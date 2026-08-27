@@ -1,10 +1,10 @@
 {
-  "status": "waiting_for_refresh",
+  "status": "no_results",
   "provider": "SerpApi",
   "source": "Google Hotels",
-  "generated_at": null,
-  "live_mode": false,
-  "disclaimer": "Run the hotel price workflow to fetch the first live Google Hotels snapshot.",
+  "generated_at": "2026-08-27T09:28:42.009Z",
+  "live_mode": true,
+  "disclaimer": "Rates are Google Hotels snapshots for one room with 2 adults. Taxes, fees, room type and final checkout price can differ. The 3-room figure is only a simple estimate for the 6-adult group and does not confirm availability of three identical rooms.",
   "search": {
     "trip_key": "shanghai-jinling-2026-10-19__2026-10-20",
     "query": "Jinling East Road Shanghai hotels",
@@ -17,7 +17,7 @@
     "currency": "VND",
     "group_rooms_estimate": 3,
     "searches_per_refresh": 1,
-    "google_hotels_url": null
+    "google_hotels_url": "https://www.google.com/travel/search?q=Jinling+East+Road+Shanghai+hotels&hl=en&gl=vn"
   },
   "properties": [],
   "cheapest_property_id": null,

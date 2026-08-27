@@ -1,13 +1,13 @@
 {
-  "generated_at": "2026-08-26T17:33:51.488Z",
+  "generated_at": "2026-08-27T09:28:44.127Z",
   "source": "SerpApi Account API",
   "reset_policy": "SerpApi monthly billing cycle / plan renewal",
   "note": "this_month_usage includes searches already used earlier in the current billing cycle. When SerpApi starts a new monthly cycle, current counters reset and the previous snapshot is archived in history. Account API checks do not consume search credits.",
   "accounts": [
     {
       "id": "search_1",
-      "label": "Flight Search #1",
-      "role": "Theo dõi giá vé",
+      "label": "Flight + Hotel Search #1",
+      "role": "Theo dõi giá vé + phòng",
       "status": "ok",
       "plan_name": "Free Plan",
       "used": 36,
