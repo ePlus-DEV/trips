@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#f6f8fc">
+  <meta name="description" content="Theo dõi giá khách sạn khu Jinling East Road, Dashijie, The Bund và Yu Garden cho đêm 19–20/10/2026.">
+  <link rel="icon" href="./icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="./app.css">
+  <link rel="stylesheet" href="./hotel-booking.css">
+  <title>Giá khách sạn · TravelLog</title>
+</head>
+<body>
+<div class="app">
+  <aside class="sidebar">
+    <a class="brand" href="./index.html"><span class="brand-mark"><svg><use href="#i-plane"/></svg></span>TravelLog</a>
+    <nav class="side-nav">
+      <a href="./index.html"><span class="nav-icon"><svg><use href="#i-home"/></svg></span>Tổng quan</a>
+      <a href="./index.html#itinerary"><span class="nav-icon"><svg><use href="#i-calendar"/></svg></span>Lịch trình</a>
+      <a href="./flights.html"><span class="nav-icon"><svg><use href="#i-plane"/></svg></span>Giá vé</a>
+      <a class="active" href="./hotels.html"><span class="nav-icon"><svg><use href="#i-hotel"/></svg></span>Giá phòng</a>
+      <a href="./index.html#budget"><span class="nav-icon"><svg><use href="#i-wallet"/></svg></span>Ngân sách</a>
+      <a href="./index.html#checklist"><span class="nav-icon"><svg><use href="#i-check"/></svg></span>Chuẩn bị</a>
+      <a href="./index.html#notes"><span class="nav-icon"><svg><use href="#i-note"/></svg></span>Ghi chú</a>
+    </nav>
+    <div class="sidebar-foot"><button class="sidebar-action" data-theme-toggle><span class="nav-icon"><svg><use href="#i-moon"/></svg></span>Đổi giao diện</button></div>
+  </aside>
+  <div class="main">
+    <header class="topbar"><div class="crumb"><strong>Giá phòng</strong><span>Thượng Hải · 19–20/10/2026</span></div><div class="top-actions"><a class="btn sm" href="./flights.html">Giá vé máy bay</a><a class="btn sm" href="./index.html">Về tổng quan</a><button class="icon-btn" data-theme-toggle aria-label="Chuyển sang giao diện tối"><svg class="ui-icon"><use href="#i-moon"/></svg></button></div></header>
+    <header class="mobile-header"><a class="brand" href="./index.html"><span class="brand-mark"><svg><use href="#i-plane"/></svg></span>TravelLog</a><div class="right"><button class="icon-btn" data-theme-toggle aria-label="Chuyển sang giao diện tối"><svg class="ui-icon"><use href="#i-moon"/></svg></button></div></header>
+    <main class="content hotel-content">
+      <section class="hotel-heading"><div><span class="hotel-kicker">Theo dõi giá khách sạn</span><h1>Jinling East Road · Dashijie · The Bund</h1><p>So sánh snapshot giá Google Hotels cho đúng đêm 19 → 20/10/2026. Giá chuẩn trên trang là một phòng cho 2 người lớn; hệ thống chỉ nhân ×3 để tham khảo nhanh cho nhóm 6 người.</p></div><a class="btn primary" href="https://github.com/ePlus-DEV/trips/actions/workflows/update-hotel-prices.yml" target="_blank" rel="noopener"><svg class="ui-icon"><use href="#i-refresh"/></svg>Cập nhật giá</a></section>
+      <section class="card hotel-search-card"><div class="hotel-search-top"><div class="hotel-stay"><strong id="stayDates">19/10/2026 → 20/10/2026</strong><span id="occupancyNote">2 người lớn / phòng · 3 phòng ước tính</span></div><span class="hotel-live-source" id="sourceLabel">Google Hotels</span></div><div class="hotel-controls"><input class="hotel-search-input" id="hotelSearch" type="search" placeholder="Tìm tên khách sạn, tiện nghi…"><select class="hotel-sort" id="sortHotels"><option value="recommended">Đề xuất · shortlist trước</option><option value="price">Giá thấp nhất</option><option value="rating">Điểm đánh giá cao nhất</option><option value="reviews">Nhiều đánh giá nhất</option></select><label class="shortlist-toggle"><input id="shortlistOnly" type="checkbox"> Chỉ khách sạn đang quan tâm</label></div></section>
+      <section class="hotel-stats"><article class="card hotel-stat"><span>Rẻ nhất trong shortlist</span><strong id="cheapestPrice">—</strong><small id="cheapestName">Đang tải dữ liệu…</small></article><article class="card hotel-stat"><span>Ước tính 3 phòng</span><strong id="groupEstimate">—</strong><small>6 người lớn · chỉ để so nhanh</small></article><article class="card hotel-stat"><span>Đang theo dõi</span><strong id="trackedCount">—</strong><small id="trackedMeta">khách sạn</small></article><article class="card hotel-stat"><span>Cập nhật gần nhất</span><strong id="updatedAgo">—</strong><small id="updatedAt">Chưa có thời gian cập nhật</small></article></section>
+      <section><div class="hotel-results-head"><div><span class="hotel-kicker">Kết quả</span><h2>Khách sạn quanh khu trung tâm</h2></div><span id="resultCount">Đang tải…</span></div><div class="hotel-grid" id="hotelResults" aria-live="polite"><div class="card empty-state">Đang tải snapshot Google Hotels…</div></div><div class="hotel-note">Giá hiển thị lấy từ Google Hotels qua SerpApi và có thể khác khi bấm sang OTA/website do thuế, phí, hạng phòng, chính sách hủy hoặc tồn phòng thay đổi. Luôn kiểm tra tổng tiền cuối cùng trước khi thanh toán.</div></section>
+      <section class="hotel-history" id="historySection"><div class="hotel-history-head"><div><span class="hotel-kicker">Lịch sử giá</span><h2>Biến động giá đã ghi nhận</h2></div><select id="historyHotel" aria-label="Chọn khách sạn xem lịch sử"></select></div><div class="hotel-history-grid"><article class="card hotel-chart-card"><h3>Giá một phòng / đêm</h3><p id="historyMeta">Mỗi điểm là một lần workflow cập nhật giá.</p><svg class="hotel-chart" id="hotelPriceChart" viewBox="0 0 760 150" preserveAspectRatio="none" aria-label="Biểu đồ lịch sử giá khách sạn"></svg></article><article class="card hotel-target-card"><h3>Khoảng giá đã ghi nhận</h3><p>Chỉ so với đúng khách sạn và ngày ở hiện tại.</p><div class="hotel-range" id="observedRange">—</div><div class="hotel-target-row"><input id="targetPrice" inputmode="numeric" placeholder="Mục tiêu / phòng / đêm"><button class="btn sm primary" id="saveTarget">Lưu</button></div><div class="alert" id="targetAlert">Đặt mục tiêu giá để so nhanh với lần cập nhật mới nhất.</div></article></div></section>
+    </main>
+  </div>
+</div>
+<nav class="mobile-bottom"><a href="./index.html"><svg><use href="#i-home"/></svg>Tổng quan</a><a href="./flights.html"><svg><use href="#i-plane"/></svg>Giá vé</a><a class="active" href="./hotels.html"><svg><use href="#i-hotel"/></svg>Giá phòng</a><a href="./index.html#checklist"><svg><use href="#i-check"/></svg>Chuẩn bị</a></nav>
+<svg width="0" height="0" style="position:absolute;overflow:hidden" aria-hidden="true"><symbol id="i-plane" viewBox="0 0 24 24"><path d="M10.5 4h3l2.2 6H20a2 2 0 1 1 0 4h-4.3l-2.2 6h-3l1.2-6H7l-2 2H3l1.2-4L3 8h2l2 2h4.7l-1.2-6Z"/></symbol><symbol id="i-home" viewBox="0 0 24 24"><path d="m3 11 9-8 9 8v9a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1Z"/></symbol><symbol id="i-calendar" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2.5"/><path d="M16 3v4M8 3v4M3 10h18"/></symbol><symbol id="i-wallet" viewBox="0 0 24 24"><path d="M4 6h14a2 2 0 0 1 2 2v11H4a2 2 0 0 1-2-2V6a3 3 0 0 1 3-3h12"/><path d="M16 11h5v5h-5a2.5 2.5 0 0 1 0-5Z"/></symbol><symbol id="i-note" viewBox="0 0 24 24"><rect x="4" y="3" width="16" height="18" rx="2.5"/><path d="M8 8h8M8 12h8M8 16h5"/></symbol><symbol id="i-check" viewBox="0 0 24 24"><rect x="3.5" y="3.5" width="17" height="17" rx="4"/><path d="m8 12 2.5 2.5L16.5 9"/></symbol><symbol id="i-hotel" viewBox="0 0 24 24"><path d="M4 21V4a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v17M16 9h3a1 1 0 0 1 1 1v11M2 21h20"/><path d="M8 7h2M8 11h2M8 15h2"/></symbol><symbol id="i-moon" viewBox="0 0 24 24"><path d="M21 12.8A9 9 0 1 1 11.2 3 7 7 0 0 0 21 12.8Z"/></symbol><symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.42 1.42M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.42-1.42M17.66 6.34l1.41-1.41"/></symbol><symbol id="i-refresh" viewBox="0 0 24 24"><path d="M20 11a8 8 0 1 0 1 4"/><path d="M20 4v7h-7"/></symbol></svg>
+<script src="./hotel-booking.js"></script>
+</body>
+</html>
