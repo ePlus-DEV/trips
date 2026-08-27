@@ -46,7 +46,7 @@ The workflow checks SerpApi's free Account API after each refresh and updates bo
 The first usage refresh does **not** start counting from zero: `this_month_usage` already includes successful searches consumed earlier in the current SerpApi billing cycle, so credits used before this tracker was added are counted again automatically.
 
 <!-- API_USAGE_START -->
-> Cập nhật tự động: **2026-08-27T10:27:51.012Z**. Số **Đã dùng** lấy trực tiếp từ `this_month_usage`, nên lần chạy đầu tiên cũng tính luôn credit đã sử dụng trước khi tính năng thống kê được thêm vào.
+> Cập nhật tự động: **2026-08-27T10:28:07.362Z**. Số **Đã dùng** lấy trực tiếp từ `this_month_usage`, nên lần chạy đầu tiên cũng tính luôn credit đã sử dụng trước khi tính năng thống kê được thêm vào.
 
 | API / credential | Vai trò | Đã dùng / Tổng kỳ | Còn lại | Reset / gia hạn | Plan |
 |---|---|---:|---:|---|---|

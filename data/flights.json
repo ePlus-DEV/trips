@@ -2,7 +2,7 @@
   "status": "ok",
   "provider": "SerpApi",
   "source": "Google Flights",
-  "generated_at": "2026-08-27T09:47:07.075Z",
+  "generated_at": "2026-08-27T10:28:06.959Z",
   "live_mode": true,
   "disclaimer": "Each direction is searched separately on Google Flights. Non-stop options are ranked first, followed by 1-stop options. Baggage details are shown only when Google Flights returns them for the specific fare; verify fare conditions before booking.",
   "search": {
@@ -1903,8 +1903,8 @@
               ]
             }
           ],
-          "previous_total_amount": "35767118",
-          "price_delta": "-37018"
+          "previous_total_amount": "35730100",
+          "price_delta": "0"
         },
         {
           "id": "WyJDalJJUVVOMGFrbHJNMk5tYUd0QlExWlRRMUZDUnkwdExTMHRMWFowZDJNeE9DMXVNa0ZCUVVGQlIzRlJRVEZyUVUxbGJGbEJFZzFOVlRVeE1EQjhUVlUyTURJekdnd0krS2p1Q2hBQUdnTldUa1E0SEhDMXFnVT0iLFtbIlBFSyIsIjIwMjYtMTAtMjYiLCJQVkciLG51bGwsIk1VIiwiNTEwMCJdLFsiUFZHIiwiMjAyNi0xMC0yNiIsIlNHTiIsbnVsbCwiTVUiLCI2MDIzIl1dXQ==",
