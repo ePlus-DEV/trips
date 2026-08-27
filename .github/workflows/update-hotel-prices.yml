@@ -2,6 +2,16 @@ name: Update live hotel prices
 
 on:
   workflow_dispatch:
+    inputs:
+      max_pages:
+        description: 'Discovery depth (manual runs only)'
+        required: false
+        default: '5'
+        type: choice
+        options:
+          - '3'
+          - '5'
+          - '8'
   push:
     branches:
       - main
@@ -18,7 +28,7 @@ permissions:
   issues: write
 
 concurrency:
-  group: live-hotel-prices-${{ github.ref }}
+  group: price-tracker-writes-${{ github.ref }}
   cancel-in-progress: false
 
 jobs:
@@ -52,6 +62,26 @@ jobs:
           fi
           echo "enabled=true" >> "$GITHUB_OUTPUT"
 
+      - name: Resolve discovery depth
+        id: depth
+        shell: bash
+        env:
+          MANUAL_MAX_PAGES: ${{ inputs.max_pages }}
+        run: |
+          if [ "${GITHUB_EVENT_NAME}" = "workflow_dispatch" ]; then
+            PAGES="${MANUAL_MAX_PAGES:-5}"
+            MODE="manual-deep-discovery"
+          elif [ "${GITHUB_EVENT_NAME}" = "push" ]; then
+            PAGES="5"
+            MODE="bootstrap-deep-discovery"
+          else
+            PAGES="3"
+            MODE="daily-light-refresh"
+          fi
+          echo "max_pages=$PAGES" >> "$GITHUB_OUTPUT"
+          echo "mode=$MODE" >> "$GITHUB_OUTPUT"
+          echo "Hotel search mode: $MODE · max pages: $PAGES"
+
       - name: Fetch Google Hotels prices via SerpApi
         id: search
         if: steps.config.outputs.enabled == 'true'
@@ -60,6 +90,7 @@ jobs:
           SERPAPI_API_KEY_2: ${{ secrets.SERPAPI_API_KEY_2 }}
           SERPAPI_API_KEY_3: ${{ secrets.SERPAPI_API_KEY_3 }}
           SERPAPI_BOOKING_API_KEY: ${{ secrets.SERPAPI_BOOKING_API_KEY }}
+          HOTEL_MAX_PAGES: ${{ steps.depth.outputs.max_pages }}
         shell: bash
         run: |
           set -euo pipefail
@@ -75,7 +106,7 @@ jobs:
 
             echo "Trying SerpApi credential ${labels[$index]} for Google Hotels..."
             set +e
-            output=$(SERPAPI_API_KEY="$key" node scripts/fetch-hotels.mjs 2>&1)
+            output=$(SERPAPI_API_KEY="$key" HOTEL_MAX_PAGES="$HOTEL_MAX_PAGES" node scripts/fetch-hotels.mjs 2>&1)
             status=$?
             set -e
             printf '%s\n' "$output"
@@ -85,6 +116,11 @@ jobs:
               search_ok=1
               echo "search_credential=${labels[$index]}" >> "$GITHUB_OUTPUT"
               break
+            fi
+
+            if printf '%s' "$output" | grep -q 'ZERO_RESULTS:'; then
+              echo "::error::Google Hotels returned zero properties; keeping the previous good snapshot unchanged."
+              exit "$status"
             fi
 
             if printf '%s' "$output" | grep -Eqi '(^|[^0-9])429([^0-9]|$)|quota|rate[ -]?limit|monthly[[:space:]]+search|search(es)?[[:space:]]+limit|credit(s)?[[:space:]]+(exhausted|limit)'; then
@@ -102,6 +138,19 @@ jobs:
           test -f data/hotels.json || { echo "::error::Missing data/hotels.json after search."; exit 3; }
           test -f data/hotel-history.json || { echo "::error::Missing data/hotel-history.json after search."; exit 3; }
 
+          node - <<'NODE'
+          const data = require('./data/hotels.json');
+          const raw = Number(data?.search?.raw_property_count || 0);
+          const unique = Number(data?.search?.latest_unique_property_count || 0);
+          const priced = Number(data?.search?.priced_property_count || 0);
+          const pages = Number(data?.search?.pages_fetched || 0);
+          if (!raw || !unique || !pages) {
+            console.error('Invalid hotel snapshot after fetch:', { raw, unique, priced, pages });
+            process.exit(4);
+          }
+          console.log(`Validated hotel snapshot: ${pages} page(s), ${raw} raw, ${unique} latest unique, ${priced} priced.`);
+          NODE
+
       - name: Evaluate hotel price alert
         if: steps.config.outputs.enabled == 'true' && github.ref_name == 'main' && steps.search.outcome == 'success'
         env:
@@ -115,8 +164,8 @@ jobs:
             exit 0
           fi
 
-          CURRENT_AMOUNT=$(node -e "const d=require('./data/hotels.json');const id=d.cheapest_shortlisted_property_id||d.cheapest_property_id;const p=(d.properties||[]).find(x=>x.id===id);process.stdout.write(p?.rate_per_night?.amount?String(p.rate_per_night.amount):'')")
-          CURRENT_HOTEL=$(node -e "const d=require('./data/hotels.json');const id=d.cheapest_shortlisted_property_id||d.cheapest_property_id;const p=(d.properties||[]).find(x=>x.id===id);process.stdout.write(p?.name||'Unknown hotel')")
+          CURRENT_AMOUNT=$(node -e "const d=require('./data/hotels.json');const id=d.cheapest_property_id;const p=(d.properties||[]).find(x=>x.id===id);process.stdout.write(p?.rate_per_night?.amount?String(p.rate_per_night.amount):'')")
+          CURRENT_HOTEL=$(node -e "const d=require('./data/hotels.json');const id=d.cheapest_property_id;const p=(d.properties||[]).find(x=>x.id===id);process.stdout.write(p?.name||'Unknown hotel')")
           CHECKED_AT=$(node -p "require('./data/hotels.json').generated_at || new Date().toISOString()")
           CURRENT_CURRENCY=$(node -p "require('./data/hotels.json').search?.currency || 'VND'")
           ALERT_CURRENCY=${ALERT_CURRENCY:-$CURRENT_CURRENCY}
@@ -134,7 +183,7 @@ jobs:
           ISSUE=$(gh issue list --state open --json number,title --jq '.[] | select(.title == "🏨 Hotel price alert · Shanghai 19–20 Oct 2026") | .number' | head -n 1)
 
           if node -e "process.exit(Number(process.argv[1]) <= Number(process.argv[2]) ? 0 : 1)" "$CURRENT_AMOUNT" "$ALERT_AMOUNT"; then
-            BODY=$(cat <<EOF
+            BODY=$(cat <<EOF2
           ## Hotel target reached 🎯
 
           | | |
@@ -149,7 +198,7 @@ jobs:
           Dashboard: https://trips.eplus.dev/hotels.html
 
           > Google Hotels is a price snapshot. Verify taxes, fees, cancellation policy, room type and final checkout total before paying.
-          EOF
+          EOF2
           )
             if [ -n "$ISSUE" ]; then
               gh issue edit "$ISSUE" --body "$BODY"
@@ -175,7 +224,7 @@ jobs:
         run: node scripts/update-api-usage.mjs
 
       - name: Commit refreshed snapshots
-        if: always() && steps.config.outputs.enabled == 'true'
+        if: steps.search.outcome == 'success'
         id: commit
         shell: bash
         run: |
@@ -189,11 +238,14 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add data/hotels.json data/hotel-history.json data/api-usage.json README.md
           git commit -m "chore: refresh Google Hotels and API usage [skip ci]"
+
+          git fetch origin "${GITHUB_REF_NAME}"
+          git rebase "origin/${GITHUB_REF_NAME}"
           git push origin "HEAD:${GITHUB_REF_NAME}"
           echo "changed=true" >> "$GITHUB_OUTPUT"
 
       - name: Request GitHub Pages rebuild
-        if: steps.config.outputs.enabled == 'true' && steps.commit.outputs.changed == 'true' && github.ref_name == 'main'
+        if: steps.commit.outputs.changed == 'true' && github.ref_name == 'main'
         env:
           GH_TOKEN: ${{ github.token }}
         run: |

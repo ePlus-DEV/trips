@@ -20,7 +20,7 @@ permissions:
   issues: write
 
 concurrency:
-  group: live-flight-prices-${{ github.ref }}
+  group: price-tracker-writes-${{ github.ref }}
   cancel-in-progress: false
 
 jobs:
