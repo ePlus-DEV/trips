@@ -17,6 +17,7 @@ on:
       - main
     paths:
       - 'scripts/fetch-hotels.mjs'
+      - 'scripts/fetch-hotels-with-gallery.mjs'
       - '.github/workflows/update-hotel-prices.yml'
   schedule:
     # 07:27 in Vietnam (UTC+7), after the flight tracker.
@@ -106,7 +107,7 @@ jobs:
 
             echo "Trying SerpApi credential ${labels[$index]} for Google Hotels..."
             set +e
-            output=$(SERPAPI_API_KEY="$key" HOTEL_MAX_PAGES="$HOTEL_MAX_PAGES" node scripts/fetch-hotels.mjs 2>&1)
+            output=$(SERPAPI_API_KEY="$key" HOTEL_MAX_PAGES="$HOTEL_MAX_PAGES" node scripts/fetch-hotels-with-gallery.mjs 2>&1)
             status=$?
             set -e
             printf '%s\n' "$output"
@@ -144,11 +145,13 @@ jobs:
           const unique = Number(data?.search?.latest_unique_property_count || 0);
           const priced = Number(data?.search?.priced_property_count || 0);
           const pages = Number(data?.search?.pages_fetched || 0);
+          const galleries = Number(data?.search?.gallery_hotel_count || 0);
+          const images = Number(data?.search?.gallery_image_count || 0);
           if (!raw || !unique || !pages) {
-            console.error('Invalid hotel snapshot after fetch:', { raw, unique, priced, pages });
+            console.error('Invalid hotel snapshot after fetch:', { raw, unique, priced, pages, galleries, images });
             process.exit(4);
           }
-          console.log(`Validated hotel snapshot: ${pages} page(s), ${raw} raw, ${unique} latest unique, ${priced} priced.`);
+          console.log(`Validated hotel snapshot: ${pages} page(s), ${raw} raw, ${unique} latest unique, ${priced} priced, ${galleries} galleries / ${images} images.`);
           NODE
 
       - name: Evaluate hotel price alert
