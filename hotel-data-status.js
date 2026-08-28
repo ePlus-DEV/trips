@@ -18,23 +18,16 @@
 
   function applyPendingState(data) {
     const box = ensureStatusBox();
-    if (box) {
-      box.innerHTML = '⚠️ <strong>Chưa có snapshot live cho flow mới.</strong> Preview không dùng danh sách fallback giả. Sau khi merge, workflow Hotel sẽ tự discovery Google Hotels và ghi dữ liệu thật.';
-    }
+    if (box) box.innerHTML = '<strong>Dữ liệu khách sạn đang được cập nhật.</strong> Vui lòng quay lại sau ít phút.';
 
-    if ($('discoveryMeta')) {
-      const maxPages = Number(data?.search?.max_pages || 0);
-      $('discoveryMeta').textContent = `0/${maxPages || '—'} trang API · chưa chạy live refresh`;
-    }
-    if ($('hotelResults')) {
-      $('hotelResults').innerHTML = '<div class="card empty-state">Chưa có dữ liệu Google Hotels live.<br>Danh sách khách sạn sẽ xuất hiện sau lần workflow cập nhật đầu tiên.</div>';
-    }
-    if ($('resultCount')) $('resultCount').textContent = '0 khách sạn · chờ refresh';
+    if ($('discoveryMeta')) $('discoveryMeta').textContent = 'Đang cập nhật danh sách khách sạn';
+    if ($('hotelResults')) $('hotelResults').innerHTML = '<div class="card empty-state">Danh sách khách sạn đang được cập nhật.</div>';
+    if ($('resultCount')) $('resultCount').textContent = 'Đang cập nhật';
     if ($('cheapestPrice')) $('cheapestPrice').textContent = '—';
-    if ($('cheapestName')) $('cheapestName').textContent = 'Chưa có snapshot live';
+    if ($('cheapestName')) $('cheapestName').textContent = 'Chưa có dữ liệu giá';
     if ($('groupEstimate')) $('groupEstimate').textContent = '—';
-    if ($('updatedAgo')) $('updatedAgo').textContent = 'Chưa chạy';
-    if ($('updatedAt')) $('updatedAt').textContent = 'Workflow sẽ chạy sau khi merge';
+    if ($('updatedAgo')) $('updatedAgo').textContent = 'Đang cập nhật';
+    if ($('updatedAt')) $('updatedAt').textContent = '';
   }
 
   function applyLegacyWarning(data) {
@@ -42,9 +35,7 @@
     const legacy = properties.some(item => item?.catalogue_fallback || String(item?.id || '').startsWith('fallback:'));
     if (!legacy && data?.search?.query === 'Shanghai hotels') return false;
     const box = ensureStatusBox();
-    if (box) {
-      box.innerHTML = '⚠️ <strong>Snapshot cũ.</strong> Dữ liệu này chưa được tạo từ discovery “Shanghai hotels”; không nên dùng để đánh giá giá hoặc khoảng cách.';
-    }
+    if (box) box.innerHTML = '<strong>Dữ liệu đang được làm mới.</strong> Một số giá hoặc thông tin có thể chưa cập nhật.';
     return true;
   }
 
@@ -90,4 +81,8 @@
   }
 
   init();
+
+  const copyScript = document.createElement('script');
+  copyScript.src = './hotel-ui-copy.js';
+  document.head.appendChild(copyScript);
 })();
