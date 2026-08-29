@@ -1,0 +1,106 @@
+{
+  "generated_at": "2026-08-29T08:42:00.000Z",
+  "provider": "TravelLog schedule baseline",
+  "live_mode": false,
+  "message": "Live operational status is usually published closer to departure. The tracker will start automatic live checks 7 days before each flight and can also be run manually.",
+  "flights": [
+    {
+      "id": "VJ3900-2026-10-19",
+      "flight_number": "VJ3900",
+      "display_flight_number": "VJ 3900",
+      "date": "2026-10-19",
+      "airline": "Vietjet",
+      "airline_iata_code": "VJ",
+      "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/VJ.png",
+      "aircraft": "Airbus A321",
+      "route": {
+        "origin": "SGN",
+        "origin_name": "TP. Hồ Chí Minh",
+        "destination": "PVG",
+        "destination_name": "Thượng Hải Pudong"
+      },
+      "status": {
+        "code": "scheduled",
+        "label": "Theo lịch",
+        "raw": "Scheduled",
+        "live": false
+      },
+      "departure": {
+        "scheduled": "2026-10-19T20:00:00+07:00",
+        "estimated": null,
+        "actual": null,
+        "time_zone": "Asia/Ho_Chi_Minh",
+        "terminal": null,
+        "gate": null,
+        "delay_minutes": 0
+      },
+      "arrival": {
+        "scheduled": "2026-10-20T01:00:00+08:00",
+        "estimated": null,
+        "actual": null,
+        "time_zone": "Asia/Shanghai",
+        "terminal": null,
+        "gate": null,
+        "delay_minutes": 0
+      },
+      "schedule_source": "Google Flights snapshot in TravelLog",
+      "checked_at": null,
+      "latest_update": null,
+      "next_live_check_at": "2026-10-12T00:00:00.000Z",
+      "provider_sources": [],
+      "external_links": {
+        "google": "https://www.google.com/search?q=VJ3900+flight+status",
+        "airline": "https://www.vietjetair.com/"
+      }
+    },
+    {
+      "id": "CZ3106-2026-10-26",
+      "flight_number": "CZ3106",
+      "display_flight_number": "CZ 3106",
+      "date": "2026-10-26",
+      "airline": "China Southern Airlines",
+      "airline_iata_code": "CZ",
+      "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/CZ.png",
+      "aircraft": "Airbus A350",
+      "route": {
+        "origin": "PKX",
+        "origin_name": "Bắc Kinh Daxing",
+        "destination": "CAN",
+        "destination_name": "Quảng Châu Baiyun"
+      },
+      "status": {
+        "code": "scheduled",
+        "label": "Theo lịch",
+        "raw": "Scheduled",
+        "live": false
+      },
+      "departure": {
+        "scheduled": "2026-10-26T13:30:00+08:00",
+        "estimated": null,
+        "actual": null,
+        "time_zone": "Asia/Shanghai",
+        "terminal": null,
+        "gate": null,
+        "delay_minutes": 0
+      },
+      "arrival": {
+        "scheduled": "2026-10-26T16:45:00+08:00",
+        "estimated": null,
+        "actual": null,
+        "time_zone": "Asia/Shanghai",
+        "terminal": "2",
+        "gate": null,
+        "delay_minutes": 0
+      },
+      "schedule_source": "Booked itinerary",
+      "checked_at": null,
+      "latest_update": null,
+      "next_live_check_at": "2026-10-19T00:00:00.000Z",
+      "provider_sources": [],
+      "external_links": {
+        "google": "https://www.google.com/search?q=CZ3106+flight+status",
+        "airline": "https://www.csair.com/cn/status/"
+      }
+    }
+  ]
+}
