@@ -22,7 +22,7 @@ jobs:
             const pr = context.payload.pull_request;
             const sha = pr.head.sha;
             const root = `https://rawcdn.githack.com/${owner}/${repo}/${sha}`;
-            const body = `${marker}\n## 🌍 Web preview\n\n- [Open travel dashboard](${root}/index.html)\n- [Open live flight prices](${root}/flights.html)\n- [Open live hotel prices](${root}/hotels.html)\n\nPreview is pinned to commit \`${sha.slice(0, 7)}\` and updates automatically when the PR changes.`;
+            const body = `${marker}\n## 🌍 Web preview\n\n- [Open travel dashboard](${root}/index.html)\n- [Open live flight prices](${root}/flights.html)\n- [Open flight status tracker](${root}/flight-status.html)\n- [Open live hotel prices](${root}/hotels.html)\n\nPreview is pinned to commit \`${sha.slice(0, 7)}\` and updates automatically when the PR changes.`;
 
             const comments = await github.paginate(github.rest.issues.listComments, {
               owner,
