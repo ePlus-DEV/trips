@@ -2,7 +2,7 @@
   "status": "ok",
   "provider": "SerpApi",
   "source": "Google Flights",
-  "generated_at": "2026-09-14T04:55:01.808Z",
+  "generated_at": "2026-09-15T04:53:24.304Z",
   "live_mode": true,
   "disclaimer": "Each direction is searched separately on Google Flights. Non-stop options are ranked first, followed by 1-stop options. Baggage details are shown only when Google Flights returns them for the specific fare; verify fare conditions before booking.",
   "search": {
@@ -28,11 +28,11 @@
       "departure_id": "SGN",
       "arrival_id": "SHA,PVG",
       "departure_date": "2026-10-19",
-      "search_id": "6aa77e25822c5fd05e02d6fe",
+      "search_id": "6aa8cf4452acc678541efc9a",
       "google_flights_url": "https://www.google.com/travel/flights?hl=en&gl=vn&curr=VND&tfs=CBwQAhopEgoyMDI2LTEwLTE5KAFqBwgBEgNTR05yBwgBEgNTSEFyBwgBEgNQVkdAAUABQAFAAUABQAFAA0gBcAGYAQI&tfu=EgQIAhAB",
       "offers": [
         {
-          "id": "WyJDalJJUW1GU1NITmxkelJoWm5OQlYyTkRPV2RDUnkwdExTMHRMUzB0TFc5cllteGtOMEZCUVVGQlIzRnVabWxqUVZCdmNTMUJFZ1pXU2pNNU1EQWFEQWpBaEo4S0VBQWFBMVpPUkRnY2NQS0dCUT09IixbWyJTR04iLCIyMDI2LTEwLTE5IiwiUFZHIixudWxsLCJWSiIsIjM5MDAiXV1d",
+          "id": "WyJDalJJZUdNeVZWZDVTVGMyUkc5QlExRm5lR2RDUnkwdExTMHRMUzB0TFMxNWJHSmhNMEZCUVVGQlIzRnZlakJaUXpCME5uZEJFZ1pXU2pNNU1EQWFEQWpBaEo4S0VBQWFBMVpPUkRnY2NKV0ZCUT09IixbWyJTR04iLCIyMDI2LTEwLTE5IiwiUFZHIixudWxsLCJWSiIsIjM5MDAiXV1d",
           "source": "Google Flights via SerpApi",
           "live_mode": true,
           "search_mode": "direct-priority",
@@ -42,7 +42,7 @@
           "total_amount": "21480000",
           "total_currency": "VND",
           "total_duration_minutes": 240,
-          "booking_token": "WyJDalJJUW1GU1NITmxkelJoWm5OQlYyTkRPV2RDUnkwdExTMHRMUzB0TFc5cllteGtOMEZCUVVGQlIzRnVabWxqUVZCdmNTMUJFZ1pXU2pNNU1EQWFEQWpBaEo4S0VBQWFBMVpPUkRnY2NQS0dCUT09IixbWyJTR04iLCIyMDI2LTEwLTE5IiwiUFZHIixudWxsLCJWSiIsIjM5MDAiXV1d",
+          "booking_token": "WyJDalJJZUdNeVZWZDVTVGMyUkc5QlExRm5lR2RDUnkwdExTMHRMUzB0TFMxNWJHSmhNMEZCUVVGQlIzRnZlakJaUXpCME5uZEJFZ1pXU2pNNU1EQWFEQWpBaEo4S0VBQWFBMVpPUkRnY2NKV0ZCUT09IixbWyJTR04iLCIyMDI2LTEwLTE5IiwiUFZHIixudWxsLCJWSiIsIjM5MDAiXV1d",
           "departure_token": null,
           "google_flights_url": "https://www.google.com/travel/flights?hl=en&gl=vn&curr=VND&tfs=CBwQAhopEgoyMDI2LTEwLTE5KAFqBwgBEgNTR05yBwgBEgNTSEFyBwgBEgNQVkdAAUABQAFAAUABQAFAA0gBcAGYAQI&tfu=EgQIAhAB",
           "fare_extensions": [],
@@ -91,17 +91,17 @@
           "price_delta": "0"
         },
         {
-          "id": "WyJDalJJUW1GU1NITmxkelJoWm5OQlYyTkRPV2RDUnkwdExTMHRMUzB0TFc5cllteGtOMEZCUVVGQlIzRnVabWxqUVZCdmNTMUJFZ1pJVHpFek1qZ2FEQWovMjRVTUVBQWFBMVpPUkRnY2NOdjRCUT09IixbWyJTR04iLCIyMDI2LTEwLTE5IiwiUFZHIixudWxsLCJITyIsIjEzMjgiXV1d",
+          "id": "WyJDalJJZUdNeVZWZDVTVGMyUkc5QlExRm5lR2RDUnkwdExTMHRMUzB0TFMxNWJHSmhNMEZCUVVGQlIzRnZlakJaUXpCME5uZEJFZ1pJVHpFek1qZ2FEQWpFNVlnTUVBQWFBMVpPUkRnY2NKbjRCUT09IixbWyJTR04iLCIyMDI2LTEwLTE5IiwiUFZHIixudWxsLCJITyIsIjEzMjgiXV1d",
           "source": "Google Flights via SerpApi",
           "live_mode": true,
           "search_mode": "direct-priority",
           "route_id": "outbound",
           "is_direct": true,
           "stops": 0,
-          "total_amount": "25259519",
+          "total_amount": "25309892",
           "total_currency": "VND",
           "total_duration_minutes": 250,
-          "booking_token": "WyJDalJJUW1GU1NITmxkelJoWm5OQlYyTkRPV2RDUnkwdExTMHRMUzB0TFc5cllteGtOMEZCUVVGQlIzRnVabWxqUVZCdmNTMUJFZ1pJVHpFek1qZ2FEQWovMjRVTUVBQWFBMVpPUkRnY2NOdjRCUT09IixbWyJTR04iLCIyMDI2LTEwLTE5IiwiUFZHIixudWxsLCJITyIsIjEzMjgiXV1d",
+          "booking_token": "WyJDalJJZUdNeVZWZDVTVGMyUkc5QlExRm5lR2RDUnkwdExTMHRMUzB0TFMxNWJHSmhNMEZCUVVGQlIzRnZlakJaUXpCME5uZEJFZ1pJVHpFek1qZ2FEQWpFNVlnTUVBQWFBMVpPUkRnY2NKbjRCUT09IixbWyJTR04iLCIyMDI2LTEwLTE5IiwiUFZHIixudWxsLCJITyIsIjEzMjgiXV1d",
           "departure_token": null,
           "google_flights_url": "https://www.google.com/travel/flights?hl=en&gl=vn&curr=VND&tfs=CBwQAhopEgoyMDI2LTEwLTE5KAFqBwgBEgNTR05yBwgBEgNTSEFyBwgBEgNQVkdAAUABQAFAAUABQAFAA0gBcAGYAQI&tfu=EgQIAhAB",
           "fare_extensions": [],
@@ -148,17 +148,17 @@
           ]
         },
         {
-          "id": "WyJDalJJUW1GU1NITmxkelJoWm5OQlYyTkRPV2RDUnkwdExTMHRMUzB0TFc5cllteGtOMEZCUVVGQlIzRnVabWxqUVZCdmNTMUJFZ1ZOVlRJNE1ob01DS09HM3cwUUFCb0RWazVFT0J4dytlTUciLFtbIlNHTiIsIjIwMjYtMTAtMTkiLCJQVkciLG51bGwsIk1VIiwiMjgyIl1dXQ==",
+          "id": "WyJDalJJZUdNeVZWZDVTVGMyUkc5QlExRm5lR2RDUnkwdExTMHRMUzB0TFMxNWJHSmhNMEZCUVVGQlIzRnZlakJaUXpCME5uZEJFZ1ZOVlRJNE1ob01DTGJiNHcwUUFCb0RWazVFT0J4dzl1TUciLFtbIlNHTiIsIjIwMjYtMTAtMTkiLCJQVkciLG51bGwsIk1VIiwiMjgyIl1dXQ==",
           "source": "Google Flights via SerpApi",
           "live_mode": true,
           "search_mode": "direct-priority",
           "route_id": "outbound",
           "is_direct": true,
           "stops": 0,
-          "total_amount": "28820259",
+          "total_amount": "28896694",
           "total_currency": "VND",
           "total_duration_minutes": 260,
-          "booking_token": "WyJDalJJUW1GU1NITmxkelJoWm5OQlYyTkRPV2RDUnkwdExTMHRMUzB0TFc5cllteGtOMEZCUVVGQlIzRnVabWxqUVZCdmNTMUJFZ1ZOVlRJNE1ob01DS09HM3cwUUFCb0RWazVFT0J4dytlTUciLFtbIlNHTiIsIjIwMjYtMTAtMTkiLCJQVkciLG51bGwsIk1VIiwiMjgyIl1dXQ==",
+          "booking_token": "WyJDalJJZUdNeVZWZDVTVGMyUkc5QlExRm5lR2RDUnkwdExTMHRMUzB0TFMxNWJHSmhNMEZCUVVGQlIzRnZlakJaUXpCME5uZEJFZ1ZOVlRJNE1ob01DTGJiNHcwUUFCb0RWazVFT0J4dzl1TUciLFtbIlNHTiIsIjIwMjYtMTAtMTkiLCJQVkciLG51bGwsIk1VIiwiMjgyIl1dXQ==",
           "departure_token": null,
           "google_flights_url": "https://www.google.com/travel/flights?hl=en&gl=vn&curr=VND&tfs=CBwQAhopEgoyMDI2LTEwLTE5KAFqBwgBEgNTR05yBwgBEgNTSEFyBwgBEgNQVkdAAUABQAFAAUABQAFAA0gBcAGYAQI&tfu=EgQIAhAB",
           "fare_extensions": [],
@@ -206,17 +206,17 @@
           ]
         },
         {
-          "id": "WyJDalJJUW1GU1NITmxkelJoWm5OQlYyTkRPV2RDUnkwdExTMHRMUzB0TFc5cllteGtOMEZCUVVGQlIzRnVabWxqUVZCdmNTMUJFZ1pEV2pZd056Z2FEQWpvMDRjUkVBQWFBMVpPUkRnY2NMcTFDQT09IixbWyJTR04iLCIyMDI2LTEwLTE5IiwiUFZHIixudWxsLCJDWiIsIjYwNzgiXV1d",
+          "id": "WyJDalJJZUdNeVZWZDVTVGMyUkc5QlExRm5lR2RDUnkwdExTMHRMUzB0TFMxNWJHSmhNMEZCUVVGQlIzRnZlakJaUXpCME5uZEJFZ1pEV2pZd056Z2FEQWpJc1lnUkVBQWFBMVpPUkRnY2NQaXlDQT09IixbWyJTR04iLCIyMDI2LTEwLTE5IiwiUFZHIixudWxsLCJDWiIsIjYwNzgiXV1d",
           "source": "Google Flights via SerpApi",
           "live_mode": true,
           "search_mode": "direct-priority",
           "route_id": "outbound",
           "is_direct": true,
           "stops": 0,
-          "total_amount": "35777000",
+          "total_amount": "35789000",
           "total_currency": "VND",
           "total_duration_minutes": 265,
-          "booking_token": "WyJDalJJUW1GU1NITmxkelJoWm5OQlYyTkRPV2RDUnkwdExTMHRMUzB0TFc5cllteGtOMEZCUVVGQlIzRnVabWxqUVZCdmNTMUJFZ1pEV2pZd056Z2FEQWpvMDRjUkVBQWFBMVpPUkRnY2NMcTFDQT09IixbWyJTR04iLCIyMDI2LTEwLTE5IiwiUFZHIixudWxsLCJDWiIsIjYwNzgiXV1d",
+          "booking_token": "WyJDalJJZUdNeVZWZDVTVGMyUkc5QlExRm5lR2RDUnkwdExTMHRMUzB0TFMxNWJHSmhNMEZCUVVGQlIzRnZlakJaUXpCME5uZEJFZ1pEV2pZd056Z2FEQWpJc1lnUkVBQWFBMVpPUkRnY2NQaXlDQT09IixbWyJTR04iLCIyMDI2LTEwLTE5IiwiUFZHIixudWxsLCJDWiIsIjYwNzgiXV1d",
           "departure_token": null,
           "google_flights_url": "https://www.google.com/travel/flights?hl=en&gl=vn&curr=VND&tfs=CBwQAhopEgoyMDI2LTEwLTE5KAFqBwgBEgNTR05yBwgBEgNTSEFyBwgBEgNQVkdAAUABQAFAAUABQAFAA0gBcAGYAQI&tfu=EgQIAhAB",
           "fare_extensions": [],
@@ -264,17 +264,17 @@
           ]
         },
         {
-          "id": "WyJDalJJUW1GU1NITmxkelJoWm5OQlYyTkRPV2RDUnkwdExTMHRMUzB0TFc5cllteGtOMEZCUVVGQlIzRnVabWxqUVZCdmNTMUJFZ1ZXVGpVeU5Cb01DSkRxM2lNUUFCb0RWazVFT0J4d3A5RVIiLFtbIlNHTiIsIjIwMjYtMTAtMTkiLCJQVkciLG51bGwsIlZOIiwiNTI0Il1dXQ==",
+          "id": "WyJDalJJZUdNeVZWZDVTVGMyUkc5QlExRm5lR2RDUnkwdExTMHRMUzB0TFMxNWJHSmhNMEZCUVVGQlIzRnZlakJaUXpCME5uZEJFZ1ZXVGpVeU5Cb01DS0NWNnhVUUFCb0RWazVFT0J4d3dOOEsiLFtbIlNHTiIsIjIwMjYtMTAtMTkiLCJQVkciLG51bGwsIlZOIiwiNTI0Il1dXQ==",
           "source": "Google Flights via SerpApi",
           "live_mode": true,
           "search_mode": "direct-priority",
           "route_id": "outbound",
           "is_direct": true,
           "stops": 0,
-          "total_amount": "74954000",
+          "total_amount": "45796000",
           "total_currency": "VND",
           "total_duration_minutes": 260,
-          "booking_token": "WyJDalJJUW1GU1NITmxkelJoWm5OQlYyTkRPV2RDUnkwdExTMHRMUzB0TFc5cllteGtOMEZCUVVGQlIzRnVabWxqUVZCdmNTMUJFZ1ZXVGpVeU5Cb01DSkRxM2lNUUFCb0RWazVFT0J4d3A5RVIiLFtbIlNHTiIsIjIwMjYtMTAtMTkiLCJQVkciLG51bGwsIlZOIiwiNTI0Il1dXQ==",
+          "booking_token": "WyJDalJJZUdNeVZWZDVTVGMyUkc5QlExRm5lR2RDUnkwdExTMHRMUzB0TFMxNWJHSmhNMEZCUVVGQlIzRnZlakJaUXpCME5uZEJFZ1ZXVGpVeU5Cb01DS0NWNnhVUUFCb0RWazVFT0J4d3dOOEsiLFtbIlNHTiIsIjIwMjYtMTAtMTkiLCJQVkciLG51bGwsIlZOIiwiNTI0Il1dXQ==",
           "departure_token": null,
           "google_flights_url": "https://www.google.com/travel/flights?hl=en&gl=vn&curr=VND&tfs=CBwQAhopEgoyMDI2LTEwLTE5KAFqBwgBEgNTR05yBwgBEgNTSEFyBwgBEgNQVkdAAUABQAFAAUABQAFAA0gBcAGYAQI&tfu=EgQIAhAB",
           "fare_extensions": [],
@@ -324,17 +324,17 @@
           ]
         },
         {
-          "id": "WyJDalJJUW1GU1NITmxkelJoWm5OQlYyTkRPV2RDUnkwdExTMHRMUzB0TFc5cllteGtOMEZCUVVGQlIzRnVabWxqUVZCdmNTMUJFZzFOVlRrMk16UjhUVlUxT0RFMUdnd0ltZTJ2Q2hBQUdnTldUa1E0SEhDWWp3VT0iLFtbIlNHTiIsIjIwMjYtMTAtMTkiLCJLTUciLG51bGwsIk1VIiwiOTYzNCJdLFsiS01HIiwiMjAyNi0xMC0yMCIsIlBWRyIsbnVsbCwiTVUiLCI1ODE1Il1dXQ==",
+          "id": "WyJDalJJZUdNeVZWZDVTVGMyUkc5QlExRm5lR2RDUnkwdExTMHRMUzB0TFMxNWJHSmhNMEZCUVVGQlIzRnZlakJaUXpCME5uZEJFZzFOVlRrMk16UjhUVlUxT0RFMUdnd0lsOEN5Q2hBQUdnTldUa1E0SEhEZmpnVT0iLFtbIlNHTiIsIjIwMjYtMTAtMTkiLCJLTUciLG51bGwsIk1VIiwiOTYzNCJdLFsiS01HIiwiMjAyNi0xMC0yMCIsIlBWRyIsbnVsbCwiTVUiLCI1ODE1Il1dXQ==",
           "source": "Google Flights via SerpApi",
           "live_mode": true,
           "search_mode": "direct-priority",
           "route_id": "outbound",
           "is_direct": false,
           "stops": 1,
-          "total_amount": "21755545",
+          "total_amount": "21798935",
           "total_currency": "VND",
           "total_duration_minutes": 820,
-          "booking_token": "WyJDalJJUW1GU1NITmxkelJoWm5OQlYyTkRPV2RDUnkwdExTMHRMUzB0TFc5cllteGtOMEZCUVVGQlIzRnVabWxqUVZCdmNTMUJFZzFOVlRrMk16UjhUVlUxT0RFMUdnd0ltZTJ2Q2hBQUdnTldUa1E0SEhDWWp3VT0iLFtbIlNHTiIsIjIwMjYtMTAtMTkiLCJLTUciLG51bGwsIk1VIiwiOTYzNCJdLFsiS01HIiwiMjAyNi0xMC0yMCIsIlBWRyIsbnVsbCwiTVUiLCI1ODE1Il1dXQ==",
+          "booking_token": "WyJDalJJZUdNeVZWZDVTVGMyUkc5QlExRm5lR2RDUnkwdExTMHRMUzB0TFMxNWJHSmhNMEZCUVVGQlIzRnZlakJaUXpCME5uZEJFZzFOVlRrMk16UjhUVlUxT0RFMUdnd0lsOEN5Q2hBQUdnTldUa1E0SEhEZmpnVT0iLFtbIlNHTiIsIjIwMjYtMTAtMTkiLCJLTUciLG51bGwsIk1VIiwiOTYzNCJdLFsiS01HIiwiMjAyNi0xMC0yMCIsIlBWRyIsbnVsbCwiTVUiLCI1ODE1Il1dXQ==",
           "departure_token": null,
           "google_flights_url": "https://www.google.com/travel/flights?hl=en&gl=vn&curr=VND&tfs=CBwQAhopEgoyMDI2LTEwLTE5KAFqBwgBEgNTR05yBwgBEgNTSEFyBwgBEgNQVkdAAUABQAFAAUABQAFAA0gBcAGYAQI&tfu=EgQIAhAB",
           "fare_extensions": [],
@@ -404,86 +404,7 @@
           ]
         },
         {
-          "id": "WyJDalJJUW1GU1NITmxkelJoWm5OQlYyTkRPV2RDUnkwdExTMHRMUzB0TFc5cllteGtOMEZCUVVGQlIzRnVabWxqUVZCdmNTMUJFZ3hOUmpnNU5IeE5SamcxTURFYURBaklwN0VLRUFBYUExWk9SRGdjY1BTUEJRPT0iLFtbIlNHTiIsIjIwMjYtMTAtMTkiLCJYTU4iLG51bGwsIk1GIiwiODk0Il0sWyJYTU4iLCIyMDI2LTEwLTIwIiwiU0hBIixudWxsLCJNRiIsIjg1MDEiXV1d",
-          "source": "Google Flights via SerpApi",
-          "live_mode": true,
-          "search_mode": "direct-priority",
-          "route_id": "outbound",
-          "is_direct": false,
-          "stops": 1,
-          "total_amount": "21779400",
-          "total_currency": "VND",
-          "total_duration_minutes": 1165,
-          "booking_token": "WyJDalJJUW1GU1NITmxkelJoWm5OQlYyTkRPV2RDUnkwdExTMHRMUzB0TFc5cllteGtOMEZCUVVGQlIzRnVabWxqUVZCdmNTMUJFZ3hOUmpnNU5IeE5SamcxTURFYURBaklwN0VLRUFBYUExWk9SRGdjY1BTUEJRPT0iLFtbIlNHTiIsIjIwMjYtMTAtMTkiLCJYTU4iLG51bGwsIk1GIiwiODk0Il0sWyJYTU4iLCIyMDI2LTEwLTIwIiwiU0hBIixudWxsLCJNRiIsIjg1MDEiXV1d",
-          "departure_token": null,
-          "google_flights_url": "https://www.google.com/travel/flights?hl=en&gl=vn&curr=VND&tfs=CBwQAhopEgoyMDI2LTEwLTE5KAFqBwgBEgNTR05yBwgBEgNTSEFyBwgBEgNQVkdAAUABQAFAAUABQAFAA0gBcAGYAQI&tfu=EgQIAhAB",
-          "fare_extensions": [],
-          "baggage": {
-            "available": false,
-            "source": "google_flights_search",
-            "items": []
-          },
-          "owner": {
-            "name": "XiamenAir",
-            "iata_code": "MF",
-            "logo_symbol_url": "https://www.gstatic.com/flights/airline_logos/70px/MF.png"
-          },
-          "slices": [
-            {
-              "origin": "SGN",
-              "destination": "SHA",
-              "duration": "PT19H25M",
-              "segments": [
-                {
-                  "origin": "SGN",
-                  "destination": "XMN",
-                  "departing_at": "2026-10-19T12:25:00",
-                  "arriving_at": "2026-10-19T16:40:00",
-                  "duration": "PT3H15M",
-                  "flight_number": "MF 894",
-                  "airplane": "Boeing 737",
-                  "travel_class": "Economy",
-                  "extensions": [
-                    "Average legroom (31 in)",
-                    "Carbon emissions estimate: 1059 kg"
-                  ],
-                  "marketing_carrier": {
-                    "name": "XiamenAir",
-                    "iata_code": "MF"
-                  },
-                  "operating_carrier": {
-                    "name": "XiamenAir",
-                    "iata_code": null
-                  }
-                },
-                {
-                  "origin": "XMN",
-                  "destination": "SHA",
-                  "departing_at": "2026-10-20T07:00:00",
-                  "arriving_at": "2026-10-20T08:50:00",
-                  "duration": "PT1H50M",
-                  "flight_number": "MF 8501",
-                  "airplane": "Boeing 737",
-                  "travel_class": "Economy",
-                  "extensions": [
-                    "Average legroom (31 in)",
-                    "Carbon emissions estimate: 544 kg"
-                  ],
-                  "marketing_carrier": {
-                    "name": "XiamenAir",
-                    "iata_code": "MF"
-                  },
-                  "operating_carrier": {
-                    "name": "XiamenAir",
-                    "iata_code": null
-                  }
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "id": "WyJDalJJUW1GU1NITmxkelJoWm5OQlYyTkRPV2RDUnkwdExTMHRMUzB0TFc5cllteGtOMEZCUVVGQlIzRnVabWxqUVZCdmNTMUJFZzFUUXpnd056UjhVME14TVRZekdnd0lrTnJZQ3hBQUdnTldUa1E0SEhEQTRnVT0iLFtbIlNHTiIsIjIwMjYtMTAtMTkiLCJUTkEiLG51bGwsIlNDIiwiODA3NCJdLFsiVE5BIiwiMjAyNi0xMC0xOSIsIlBWRyIsbnVsbCwiU0MiLCIxMTYzIl1dXQ==",
+          "id": "WyJDalJJZUdNeVZWZDVTVGMyUkc5QlExRm5lR2RDUnkwdExTMHRMUzB0TFMxNWJHSmhNMEZCUVVGQlIzRnZlakJaUXpCME5uZEJFZzFUUXpnd056UjhVME14TVRZekdnd0lrTnJZQ3hBQUdnTldUa1E0SEhERTRBVT0iLFtbIlNHTiIsIjIwMjYtMTAtMTkiLCJUTkEiLG51bGwsIlNDIiwiODA3NCJdLFsiVE5BIiwiMjAyNi0xMC0xOSIsIlBWRyIsbnVsbCwiU0MiLCIxMTYzIl1dXQ==",
           "source": "Google Flights via SerpApi",
           "live_mode": true,
           "search_mode": "direct-priority",
@@ -493,7 +414,7 @@
           "total_amount": "24522000",
           "total_currency": "VND",
           "total_duration_minutes": 1005,
-          "booking_token": "WyJDalJJUW1GU1NITmxkelJoWm5OQlYyTkRPV2RDUnkwdExTMHRMUzB0TFc5cllteGtOMEZCUVVGQlIzRnVabWxqUVZCdmNTMUJFZzFUUXpnd056UjhVME14TVRZekdnd0lrTnJZQ3hBQUdnTldUa1E0SEhEQTRnVT0iLFtbIlNHTiIsIjIwMjYtMTAtMTkiLCJUTkEiLG51bGwsIlNDIiwiODA3NCJdLFsiVE5BIiwiMjAyNi0xMC0xOSIsIlBWRyIsbnVsbCwiU0MiLCIxMTYzIl1dXQ==",
+          "booking_token": "WyJDalJJZUdNeVZWZDVTVGMyUkc5QlExRm5lR2RDUnkwdExTMHRMUzB0TFMxNWJHSmhNMEZCUVVGQlIzRnZlakJaUXpCME5uZEJFZzFUUXpnd056UjhVME14TVRZekdnd0lrTnJZQ3hBQUdnTldUa1E0SEhERTRBVT0iLFtbIlNHTiIsIjIwMjYtMTAtMTkiLCJUTkEiLG51bGwsIlNDIiwiODA3NCJdLFsiVE5BIiwiMjAyNi0xMC0xOSIsIlBWRyIsbnVsbCwiU0MiLCIxMTYzIl1dXQ==",
           "departure_token": null,
           "google_flights_url": "https://www.google.com/travel/flights?hl=en&gl=vn&curr=VND&tfs=CBwQAhopEgoyMDI2LTEwLTE5KAFqBwgBEgNTR05yBwgBEgNTSEFyBwgBEgNQVkdAAUABQAFAAUABQAFAA0gBcAGYAQI&tfu=EgQIAhAB",
           "fare_extensions": [],
@@ -562,17 +483,17 @@
           ]
         },
         {
-          "id": "WyJDalJJUW1GU1NITmxkelJoWm5OQlYyTkRPV2RDUnkwdExTMHRMUzB0TFc5cllteGtOMEZCUVVGQlIzRnVabWxqUVZCdmNTMUJFZzFOVlRJNE5EQjhUVlUxTlRRMkdnd0kwT3FyREJBQUdnTldUa1E0SEhEQ2l3WT0iLFtbIlNHTiIsIjIwMjYtMTAtMTkiLCJOS0ciLG51bGwsIk1VIiwiMjg0MCJdLFsiTktHIiwiMjAyNi0xMC0xOSIsIlBWRyIsbnVsbCwiTVUiLCI1NTQ2Il1dXQ==",
+          "id": "WyJDalJJZUdNeVZWZDVTVGMyUkc5QlExRm5lR2RDUnkwdExTMHRMUzB0TFMxNWJHSmhNMEZCUVVGQlIzRnZlakJaUXpCME5uZEJFZzFOVlRJNE5EQjhUVlUxTlRRMkdnd0k5LzJ1REJBQUdnTldUa1E0SEhEK2lnWT0iLFtbIlNHTiIsIjIwMjYtMTAtMTkiLCJOS0ciLG51bGwsIk1VIiwiMjg0MCJdLFsiTktHIiwiMjAyNi0xMC0xOSIsIlBWRyIsbnVsbCwiTVUiLCI1NTQ2Il1dXQ==",
           "source": "Google Flights via SerpApi",
           "live_mode": true,
           "search_mode": "direct-priority",
           "route_id": "outbound",
           "is_direct": false,
           "stops": 1,
-          "total_amount": "25883984",
+          "total_amount": "25935607",
           "total_currency": "VND",
           "total_duration_minutes": 790,
-          "booking_token": "WyJDalJJUW1GU1NITmxkelJoWm5OQlYyTkRPV2RDUnkwdExTMHRMUzB0TFc5cllteGtOMEZCUVVGQlIzRnVabWxqUVZCdmNTMUJFZzFOVlRJNE5EQjhUVlUxTlRRMkdnd0kwT3FyREJBQUdnTldUa1E0SEhEQ2l3WT0iLFtbIlNHTiIsIjIwMjYtMTAtMTkiLCJOS0ciLG51bGwsIk1VIiwiMjg0MCJdLFsiTktHIiwiMjAyNi0xMC0xOSIsIlBWRyIsbnVsbCwiTVUiLCI1NTQ2Il1dXQ==",
+          "booking_token": "WyJDalJJZUdNeVZWZDVTVGMyUkc5QlExRm5lR2RDUnkwdExTMHRMUzB0TFMxNWJHSmhNMEZCUVVGQlIzRnZlakJaUXpCME5uZEJFZzFOVlRJNE5EQjhUVlUxTlRRMkdnd0k5LzJ1REJBQUdnTldUa1E0SEhEK2lnWT0iLFtbIlNHTiIsIjIwMjYtMTAtMTkiLCJOS0ciLG51bGwsIk1VIiwiMjg0MCJdLFsiTktHIiwiMjAyNi0xMC0xOSIsIlBWRyIsbnVsbCwiTVUiLCI1NTQ2Il1dXQ==",
           "departure_token": null,
           "google_flights_url": "https://www.google.com/travel/flights?hl=en&gl=vn&curr=VND&tfs=CBwQAhopEgoyMDI2LTEwLTE5KAFqBwgBEgNTR05yBwgBEgNTSEFyBwgBEgNQVkdAAUABQAFAAUABQAFAA0gBcAGYAQI&tfu=EgQIAhAB",
           "fare_extensions": [],
@@ -642,17 +563,17 @@
           ]
         },
         {
-          "id": "WyJDalJJUW1GU1NITmxkelJoWm5OQlYyTkRPV2RDUnkwdExTMHRMUzB0TFc5cllteGtOMEZCUVVGQlIzRnVabWxqUVZCdmNTMUJFZzFOVlRJNE5EQjhUVlV5T0RneEdnd0kwT3FyREJBQUdnTldUa1E0SEhEQ2l3WT0iLFtbIlNHTiIsIjIwMjYtMTAtMTkiLCJOS0ciLG51bGwsIk1VIiwiMjg0MCJdLFsiTktHIiwiMjAyNi0xMC0yMCIsIlBWRyIsbnVsbCwiTVUiLCIyODgxIl1dXQ==",
+          "id": "WyJDalJJZUdNeVZWZDVTVGMyUkc5QlExRm5lR2RDUnkwdExTMHRMUzB0TFMxNWJHSmhNMEZCUVVGQlIzRnZlakJaUXpCME5uZEJFZzFOVlRJNE5EQjhUVlV5T0RneEdnd0k5LzJ1REJBQUdnTldUa1E0SEhEK2lnWT0iLFtbIlNHTiIsIjIwMjYtMTAtMTkiLCJOS0ciLG51bGwsIk1VIiwiMjg0MCJdLFsiTktHIiwiMjAyNi0xMC0yMCIsIlBWRyIsbnVsbCwiTVUiLCIyODgxIl1dXQ==",
           "source": "Google Flights via SerpApi",
           "live_mode": true,
           "search_mode": "direct-priority",
           "route_id": "outbound",
           "is_direct": false,
           "stops": 1,
-          "total_amount": "25883984",
+          "total_amount": "25935607",
           "total_currency": "VND",
           "total_duration_minutes": 1505,
-          "booking_token": "WyJDalJJUW1GU1NITmxkelJoWm5OQlYyTkRPV2RDUnkwdExTMHRMUzB0TFc5cllteGtOMEZCUVVGQlIzRnVabWxqUVZCdmNTMUJFZzFOVlRJNE5EQjhUVlV5T0RneEdnd0kwT3FyREJBQUdnTldUa1E0SEhEQ2l3WT0iLFtbIlNHTiIsIjIwMjYtMTAtMTkiLCJOS0ciLG51bGwsIk1VIiwiMjg0MCJdLFsiTktHIiwiMjAyNi0xMC0yMCIsIlBWRyIsbnVsbCwiTVUiLCIyODgxIl1dXQ==",
+          "booking_token": "WyJDalJJZUdNeVZWZDVTVGMyUkc5QlExRm5lR2RDUnkwdExTMHRMUzB0TFMxNWJHSmhNMEZCUVVGQlIzRnZlakJaUXpCME5uZEJFZzFOVlRJNE5EQjhUVlV5T0RneEdnd0k5LzJ1REJBQUdnTldUa1E0SEhEK2lnWT0iLFtbIlNHTiIsIjIwMjYtMTAtMTkiLCJOS0ciLG51bGwsIk1VIiwiMjg0MCJdLFsiTktHIiwiMjAyNi0xMC0yMCIsIlBWRyIsbnVsbCwiTVUiLCIyODgxIl1dXQ==",
           "departure_token": null,
           "google_flights_url": "https://www.google.com/travel/flights?hl=en&gl=vn&curr=VND&tfs=CBwQAhopEgoyMDI2LTEwLTE5KAFqBwgBEgNTR05yBwgBEgNTSEFyBwgBEgNQVkdAAUABQAFAAUABQAFAA0gBcAGYAQI&tfu=EgQIAhAB",
           "fare_extensions": [],
@@ -722,17 +643,17 @@
           ]
         },
         {
-          "id": "WyJDalJJUW1GU1NITmxkelJoWm5OQlYyTkRPV2RDUnkwdExTMHRMUzB0TFc5cllteGtOMEZCUVVGQlIzRnVabWxqUVZCdmNTMUJFZ3hOUmpnME1ueE5SamcxTkRVYURBamV6L1FNRUFBYUExWk9SRGdjY0xpdkJnPT0iLFtbIlNHTiIsIjIwMjYtMTAtMTkiLCJYTU4iLG51bGwsIk1GIiwiODQyIl0sWyJYTU4iLCIyMDI2LTEwLTE5IiwiU0hBIixudWxsLCJNRiIsIjg1NDUiXV1d",
+          "id": "WyJDalJJZUdNeVZWZDVTVGMyUkc5QlExRm5lR2RDUnkwdExTMHRMUzB0TFMxNWJHSmhNMEZCUVVGQlIzRnZlakJaUXpCME5uZEJFZ3hOUmpnME1ueE5SamcxTURrYURBaUsyZlFNRUFBYUExWk9SRGdjY0tXdEJnPT0iLFtbIlNHTiIsIjIwMjYtMTAtMTkiLCJYTU4iLG51bGwsIk1GIiwiODQyIl0sWyJYTU4iLCIyMDI2LTEwLTE5IiwiU0hBIixudWxsLCJNRiIsIjg1MDkiXV1d",
           "source": "Google Flights via SerpApi",
           "live_mode": true,
           "search_mode": "direct-priority",
           "route_id": "outbound",
           "is_direct": false,
           "stops": 1,
-          "total_amount": "27076574",
+          "total_amount": "27077770",
           "total_currency": "VND",
-          "total_duration_minutes": 705,
-          "booking_token": "WyJDalJJUW1GU1NITmxkelJoWm5OQlYyTkRPV2RDUnkwdExTMHRMUzB0TFc5cllteGtOMEZCUVVGQlIzRnVabWxqUVZCdmNTMUJFZ3hOUmpnME1ueE5SamcxTkRVYURBamV6L1FNRUFBYUExWk9SRGdjY0xpdkJnPT0iLFtbIlNHTiIsIjIwMjYtMTAtMTkiLCJYTU4iLG51bGwsIk1GIiwiODQyIl0sWyJYTU4iLCIyMDI2LTEwLTE5IiwiU0hBIixudWxsLCJNRiIsIjg1NDUiXV1d",
+          "total_duration_minutes": 480,
+          "booking_token": "WyJDalJJZUdNeVZWZDVTVGMyUkc5QlExRm5lR2RDUnkwdExTMHRMUzB0TFMxNWJHSmhNMEZCUVVGQlIzRnZlakJaUXpCME5uZEJFZ3hOUmpnME1ueE5SamcxTURrYURBaUsyZlFNRUFBYUExWk9SRGdjY0tXdEJnPT0iLFtbIlNHTiIsIjIwMjYtMTAtMTkiLCJYTU4iLG51bGwsIk1GIiwiODQyIl0sWyJYTU4iLCIyMDI2LTEwLTE5IiwiU0hBIixudWxsLCJNRiIsIjg1MDkiXV1d",
           "departure_token": null,
           "google_flights_url": "https://www.google.com/travel/flights?hl=en&gl=vn&curr=VND&tfs=CBwQAhopEgoyMDI2LTEwLTE5KAFqBwgBEgNTR05yBwgBEgNTSEFyBwgBEgNQVkdAAUABQAFAAUABQAFAA0gBcAGYAQI&tfu=EgQIAhAB",
           "fare_extensions": [],
@@ -750,7 +671,7 @@
             {
               "origin": "SGN",
               "destination": "SHA",
-              "duration": "PT11H45M",
+              "duration": "PT8H",
               "segments": [
                 {
                   "origin": "SGN",
@@ -759,6 +680,85 @@
                   "arriving_at": "2026-10-19T12:00:00",
                   "duration": "PT3H",
                   "flight_number": "MF 842",
+                  "airplane": "Boeing 737",
+                  "travel_class": "Economy",
+                  "extensions": [
+                    "Average legroom (31 in)",
+                    "Carbon emissions estimate: 1059 kg"
+                  ],
+                  "marketing_carrier": {
+                    "name": "XiamenAir",
+                    "iata_code": "MF"
+                  },
+                  "operating_carrier": {
+                    "name": "XiamenAir",
+                    "iata_code": null
+                  }
+                },
+                {
+                  "origin": "XMN",
+                  "destination": "SHA",
+                  "departing_at": "2026-10-19T15:00:00",
+                  "arriving_at": "2026-10-19T17:00:00",
+                  "duration": "PT2H",
+                  "flight_number": "MF 8509",
+                  "airplane": "Boeing 737",
+                  "travel_class": "Economy",
+                  "extensions": [
+                    "Average legroom (31 in)",
+                    "Carbon emissions estimate: 544 kg"
+                  ],
+                  "marketing_carrier": {
+                    "name": "XiamenAir",
+                    "iata_code": "MF"
+                  },
+                  "operating_carrier": {
+                    "name": "XiamenAir",
+                    "iata_code": null
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "WyJDalJJZUdNeVZWZDVTVGMyUkc5QlExRm5lR2RDUnkwdExTMHRMUzB0TFMxNWJHSmhNMEZCUVVGQlIzRnZlakJaUXpCME5uZEJFZ3hOUmpnNU5IeE5SamcxTkRVYURBaUsyZlFNRUFBYUExWk9SRGdjY0tXdEJnPT0iLFtbIlNHTiIsIjIwMjYtMTAtMTkiLCJYTU4iLG51bGwsIk1GIiwiODk0Il0sWyJYTU4iLCIyMDI2LTEwLTE5IiwiU0hBIixudWxsLCJNRiIsIjg1NDUiXV1d",
+          "source": "Google Flights via SerpApi",
+          "live_mode": true,
+          "search_mode": "direct-priority",
+          "route_id": "outbound",
+          "is_direct": false,
+          "stops": 1,
+          "total_amount": "27077770",
+          "total_currency": "VND",
+          "total_duration_minutes": 440,
+          "booking_token": "WyJDalJJZUdNeVZWZDVTVGMyUkc5QlExRm5lR2RDUnkwdExTMHRMUzB0TFMxNWJHSmhNMEZCUVVGQlIzRnZlakJaUXpCME5uZEJFZ3hOUmpnNU5IeE5SamcxTkRVYURBaUsyZlFNRUFBYUExWk9SRGdjY0tXdEJnPT0iLFtbIlNHTiIsIjIwMjYtMTAtMTkiLCJYTU4iLG51bGwsIk1GIiwiODk0Il0sWyJYTU4iLCIyMDI2LTEwLTE5IiwiU0hBIixudWxsLCJNRiIsIjg1NDUiXV1d",
+          "departure_token": null,
+          "google_flights_url": "https://www.google.com/travel/flights?hl=en&gl=vn&curr=VND&tfs=CBwQAhopEgoyMDI2LTEwLTE5KAFqBwgBEgNTR05yBwgBEgNTSEFyBwgBEgNQVkdAAUABQAFAAUABQAFAA0gBcAGYAQI&tfu=EgQIAhAB",
+          "fare_extensions": [],
+          "baggage": {
+            "available": false,
+            "source": "google_flights_search",
+            "items": []
+          },
+          "owner": {
+            "name": "XiamenAir",
+            "iata_code": "MF",
+            "logo_symbol_url": "https://www.gstatic.com/flights/airline_logos/70px/MF.png"
+          },
+          "slices": [
+            {
+              "origin": "SGN",
+              "destination": "SHA",
+              "duration": "PT7H20M",
+              "segments": [
+                {
+                  "origin": "SGN",
+                  "destination": "XMN",
+                  "departing_at": "2026-10-19T12:25:00",
+                  "arriving_at": "2026-10-19T16:40:00",
+                  "duration": "PT3H15M",
+                  "flight_number": "MF 894",
                   "airplane": "Boeing 737",
                   "travel_class": "Economy",
                   "extensions": [
@@ -801,97 +801,17 @@
           ]
         },
         {
-          "id": "WyJDalJJUW1GU1NITmxkelJoWm5OQlYyTkRPV2RDUnkwdExTMHRMUzB0TFc5cllteGtOMEZCUVVGQlIzRnVabWxqUVZCdmNTMUJFZ3hOUmpnME1ueE5SamcxTVRjYURBamV6L1FNRUFBYUExWk9SRGdjY0xpdkJnPT0iLFtbIlNHTiIsIjIwMjYtMTAtMTkiLCJYTU4iLG51bGwsIk1GIiwiODQyIl0sWyJYTU4iLCIyMDI2LTEwLTE5IiwiU0hBIixudWxsLCJNRiIsIjg1MTciXV1d",
+          "id": "WyJDalJJZUdNeVZWZDVTVGMyUkc5QlExRm5lR2RDUnkwdExTMHRMUzB0TFMxNWJHSmhNMEZCUVVGQlIzRnZlakJaUXpCME5uZEJFZ3REV0RjNE5ueERXRE00TUJvTUNOQ2QwUTBRQUJvRFZrNUVPQnh3NnRvRyIsW1siU0dOIiwiMjAyNi0xMC0xOSIsIkhLRyIsbnVsbCwiQ1giLCI3ODYiXSxbIkhLRyIsIjIwMjYtMTAtMTkiLCJQVkciLG51bGwsIkNYIiwiMzgwIl1dXQ==",
           "source": "Google Flights via SerpApi",
           "live_mode": true,
           "search_mode": "direct-priority",
           "route_id": "outbound",
           "is_direct": false,
           "stops": 1,
-          "total_amount": "27076574",
-          "total_currency": "VND",
-          "total_duration_minutes": 820,
-          "booking_token": "WyJDalJJUW1GU1NITmxkelJoWm5OQlYyTkRPV2RDUnkwdExTMHRMUzB0TFc5cllteGtOMEZCUVVGQlIzRnVabWxqUVZCdmNTMUJFZ3hOUmpnME1ueE5SamcxTVRjYURBamV6L1FNRUFBYUExWk9SRGdjY0xpdkJnPT0iLFtbIlNHTiIsIjIwMjYtMTAtMTkiLCJYTU4iLG51bGwsIk1GIiwiODQyIl0sWyJYTU4iLCIyMDI2LTEwLTE5IiwiU0hBIixudWxsLCJNRiIsIjg1MTciXV1d",
-          "departure_token": null,
-          "google_flights_url": "https://www.google.com/travel/flights?hl=en&gl=vn&curr=VND&tfs=CBwQAhopEgoyMDI2LTEwLTE5KAFqBwgBEgNTR05yBwgBEgNTSEFyBwgBEgNQVkdAAUABQAFAAUABQAFAA0gBcAGYAQI&tfu=EgQIAhAB",
-          "fare_extensions": [],
-          "baggage": {
-            "available": false,
-            "source": "google_flights_search",
-            "items": []
-          },
-          "owner": {
-            "name": "XiamenAir",
-            "iata_code": "MF",
-            "logo_symbol_url": "https://www.gstatic.com/flights/airline_logos/70px/MF.png"
-          },
-          "slices": [
-            {
-              "origin": "SGN",
-              "destination": "SHA",
-              "duration": "PT13H40M",
-              "segments": [
-                {
-                  "origin": "SGN",
-                  "destination": "XMN",
-                  "departing_at": "2026-10-19T08:00:00",
-                  "arriving_at": "2026-10-19T12:00:00",
-                  "duration": "PT3H",
-                  "flight_number": "MF 842",
-                  "airplane": "Boeing 737",
-                  "travel_class": "Economy",
-                  "extensions": [
-                    "Average legroom (31 in)",
-                    "Carbon emissions estimate: 1059 kg"
-                  ],
-                  "marketing_carrier": {
-                    "name": "XiamenAir",
-                    "iata_code": "MF"
-                  },
-                  "operating_carrier": {
-                    "name": "XiamenAir",
-                    "iata_code": null
-                  }
-                },
-                {
-                  "origin": "XMN",
-                  "destination": "SHA",
-                  "departing_at": "2026-10-19T21:00:00",
-                  "arriving_at": "2026-10-19T22:40:00",
-                  "duration": "PT1H40M",
-                  "flight_number": "MF 8517",
-                  "airplane": "Boeing 737MAX 8 Passenger",
-                  "travel_class": "Economy",
-                  "extensions": [
-                    "Average legroom (30 in)",
-                    "In-seat USB outlet",
-                    "Carbon emissions estimate: 457 kg"
-                  ],
-                  "marketing_carrier": {
-                    "name": "XiamenAir",
-                    "iata_code": "MF"
-                  },
-                  "operating_carrier": {
-                    "name": "XiamenAir",
-                    "iata_code": null
-                  }
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "id": "WyJDalJJUW1GU1NITmxkelJoWm5OQlYyTkRPV2RDUnkwdExTMHRMUzB0TFc5cllteGtOMEZCUVVGQlIzRnVabWxqUVZCdmNTMUJFZ3REV0RjNE5ueERXRE00TUJvTUNNM1d6UTBRQUJvRFZrNUVPQnh3c05zRyIsW1siU0dOIiwiMjAyNi0xMC0xOSIsIkhLRyIsbnVsbCwiQ1giLCI3ODYiXSxbIkhLRyIsIjIwMjYtMTAtMTkiLCJQVkciLG51bGwsIkNYIiwiMzgwIl1dXQ==",
-          "source": "Google Flights via SerpApi",
-          "live_mode": true,
-          "search_mode": "direct-priority",
-          "route_id": "outbound",
-          "is_direct": false,
-          "stops": 1,
-          "total_amount": "28535629",
+          "total_amount": "28593872",
           "total_currency": "VND",
           "total_duration_minutes": 580,
-          "booking_token": "WyJDalJJUW1GU1NITmxkelJoWm5OQlYyTkRPV2RDUnkwdExTMHRMUzB0TFc5cllteGtOMEZCUVVGQlIzRnVabWxqUVZCdmNTMUJFZ3REV0RjNE5ueERXRE00TUJvTUNNM1d6UTBRQUJvRFZrNUVPQnh3c05zRyIsW1siU0dOIiwiMjAyNi0xMC0xOSIsIkhLRyIsbnVsbCwiQ1giLCI3ODYiXSxbIkhLRyIsIjIwMjYtMTAtMTkiLCJQVkciLG51bGwsIkNYIiwiMzgwIl1dXQ==",
+          "booking_token": "WyJDalJJZUdNeVZWZDVTVGMyUkc5QlExRm5lR2RDUnkwdExTMHRMUzB0TFMxNWJHSmhNMEZCUVVGQlIzRnZlakJaUXpCME5uZEJFZ3REV0RjNE5ueERXRE00TUJvTUNOQ2QwUTBRQUJvRFZrNUVPQnh3NnRvRyIsW1siU0dOIiwiMjAyNi0xMC0xOSIsIkhLRyIsbnVsbCwiQ1giLCI3ODYiXSxbIkhLRyIsIjIwMjYtMTAtMTkiLCJQVkciLG51bGwsIkNYIiwiMzgwIl1dXQ==",
           "departure_token": null,
           "google_flights_url": "https://www.google.com/travel/flights?hl=en&gl=vn&curr=VND&tfs=CBwQAhopEgoyMDI2LTEwLTE5KAFqBwgBEgNTR05yBwgBEgNTSEFyBwgBEgNQVkdAAUABQAFAAUABQAFAA0gBcAGYAQI&tfu=EgQIAhAB",
           "fare_extensions": [],
@@ -966,17 +886,17 @@
           ]
         },
         {
-          "id": "WyJDalJJUW1GU1NITmxkelJoWm5OQlYyTkRPV2RDUnkwdExTMHRMUzB0TFc5cllteGtOMEZCUVVGQlIzRnVabWxqUVZCdmNTMUJFZ3REV0RjNE5ueERXRE0yTkJvTUNNM1d6UTBRQUJvRFZrNUVPQnh3c05zRyIsW1siU0dOIiwiMjAyNi0xMC0xOSIsIkhLRyIsbnVsbCwiQ1giLCI3ODYiXSxbIkhLRyIsIjIwMjYtMTAtMTkiLCJQVkciLG51bGwsIkNYIiwiMzY0Il1dXQ==",
+          "id": "WyJDalJJZUdNeVZWZDVTVGMyUkc5QlExRm5lR2RDUnkwdExTMHRMUzB0TFMxNWJHSmhNMEZCUVVGQlIzRnZlakJaUXpCME5uZEJFZ3REV0RjNE5ueERXRE0yTkJvTUNOQ2QwUTBRQUJvRFZrNUVPQnh3NnRvRyIsW1siU0dOIiwiMjAyNi0xMC0xOSIsIkhLRyIsbnVsbCwiQ1giLCI3ODYiXSxbIkhLRyIsIjIwMjYtMTAtMTkiLCJQVkciLG51bGwsIkNYIiwiMzY0Il1dXQ==",
           "source": "Google Flights via SerpApi",
           "live_mode": true,
           "search_mode": "direct-priority",
           "route_id": "outbound",
           "is_direct": false,
           "stops": 1,
-          "total_amount": "28535629",
+          "total_amount": "28593872",
           "total_currency": "VND",
           "total_duration_minutes": 725,
-          "booking_token": "WyJDalJJUW1GU1NITmxkelJoWm5OQlYyTkRPV2RDUnkwdExTMHRMUzB0TFc5cllteGtOMEZCUVVGQlIzRnVabWxqUVZCdmNTMUJFZ3REV0RjNE5ueERXRE0yTkJvTUNNM1d6UTBRQUJvRFZrNUVPQnh3c05zRyIsW1siU0dOIiwiMjAyNi0xMC0xOSIsIkhLRyIsbnVsbCwiQ1giLCI3ODYiXSxbIkhLRyIsIjIwMjYtMTAtMTkiLCJQVkciLG51bGwsIkNYIiwiMzY0Il1dXQ==",
+          "booking_token": "WyJDalJJZUdNeVZWZDVTVGMyUkc5QlExRm5lR2RDUnkwdExTMHRMUzB0TFMxNWJHSmhNMEZCUVVGQlIzRnZlakJaUXpCME5uZEJFZ3REV0RjNE5ueERXRE0yTkJvTUNOQ2QwUTBRQUJvRFZrNUVPQnh3NnRvRyIsW1siU0dOIiwiMjAyNi0xMC0xOSIsIkhLRyIsbnVsbCwiQ1giLCI3ODYiXSxbIkhLRyIsIjIwMjYtMTAtMTkiLCJQVkciLG51bGwsIkNYIiwiMzY0Il1dXQ==",
           "departure_token": null,
           "google_flights_url": "https://www.google.com/travel/flights?hl=en&gl=vn&curr=VND&tfs=CBwQAhopEgoyMDI2LTEwLTE5KAFqBwgBEgNTR05yBwgBEgNTSEFyBwgBEgNQVkdAAUABQAFAAUABQAFAA0gBcAGYAQI&tfu=EgQIAhAB",
           "fare_extensions": [],
@@ -1051,17 +971,17 @@
           ]
         },
         {
-          "id": "WyJDalJJUW1GU1NITmxkelJoWm5OQlYyTkRPV2RDUnkwdExTMHRMUzB0TFc5cllteGtOMEZCUVVGQlIzRnVabWxqUVZCdmNTMUJFZ3REV0RjNE5ueERXRE15T0JvTUNNM1d6UTBRQUJvRFZrNUVPQnh3c05zRyIsW1siU0dOIiwiMjAyNi0xMC0xOSIsIkhLRyIsbnVsbCwiQ1giLCI3ODYiXSxbIkhLRyIsIjIwMjYtMTAtMTkiLCJTSEEiLG51bGwsIkNYIiwiMzI4Il1dXQ==",
+          "id": "WyJDalJJZUdNeVZWZDVTVGMyUkc5QlExRm5lR2RDUnkwdExTMHRMUzB0TFMxNWJHSmhNMEZCUVVGQlIzRnZlakJaUXpCME5uZEJFZ3REV0RjNE5ueERXRE15T0JvTUNOQ2QwUTBRQUJvRFZrNUVPQnh3NnRvRyIsW1siU0dOIiwiMjAyNi0xMC0xOSIsIkhLRyIsbnVsbCwiQ1giLCI3ODYiXSxbIkhLRyIsIjIwMjYtMTAtMTkiLCJTSEEiLG51bGwsIkNYIiwiMzI4Il1dXQ==",
           "source": "Google Flights via SerpApi",
           "live_mode": true,
           "search_mode": "direct-priority",
           "route_id": "outbound",
           "is_direct": false,
           "stops": 1,
-          "total_amount": "28535629",
+          "total_amount": "28593872",
           "total_currency": "VND",
           "total_duration_minutes": 765,
-          "booking_token": "WyJDalJJUW1GU1NITmxkelJoWm5OQlYyTkRPV2RDUnkwdExTMHRMUzB0TFc5cllteGtOMEZCUVVGQlIzRnVabWxqUVZCdmNTMUJFZ3REV0RjNE5ueERXRE15T0JvTUNNM1d6UTBRQUJvRFZrNUVPQnh3c05zRyIsW1siU0dOIiwiMjAyNi0xMC0xOSIsIkhLRyIsbnVsbCwiQ1giLCI3ODYiXSxbIkhLRyIsIjIwMjYtMTAtMTkiLCJTSEEiLG51bGwsIkNYIiwiMzI4Il1dXQ==",
+          "booking_token": "WyJDalJJZUdNeVZWZDVTVGMyUkc5QlExRm5lR2RDUnkwdExTMHRMUzB0TFMxNWJHSmhNMEZCUVVGQlIzRnZlakJaUXpCME5uZEJFZ3REV0RjNE5ueERXRE15T0JvTUNOQ2QwUTBRQUJvRFZrNUVPQnh3NnRvRyIsW1siU0dOIiwiMjAyNi0xMC0xOSIsIkhLRyIsbnVsbCwiQ1giLCI3ODYiXSxbIkhLRyIsIjIwMjYtMTAtMTkiLCJTSEEiLG51bGwsIkNYIiwiMzI4Il1dXQ==",
           "departure_token": null,
           "google_flights_url": "https://www.google.com/travel/flights?hl=en&gl=vn&curr=VND&tfs=CBwQAhopEgoyMDI2LTEwLTE5KAFqBwgBEgNTR05yBwgBEgNTSEFyBwgBEgNQVkdAAUABQAFAAUABQAFAA0gBcAGYAQI&tfu=EgQIAhAB",
           "fare_extensions": [],
@@ -1136,17 +1056,17 @@
           ]
         },
         {
-          "id": "WyJDalJJUW1GU1NITmxkelJoWm5OQlYyTkRPV2RDUnkwdExTMHRMUzB0TFc5cllteGtOMEZCUVVGQlIzRnVabWxqUVZCdmNTMUJFZ3REV0RjNE5ueERXRE0yTWhvTUNNM1d6UTBRQUJvRFZrNUVPQnh3c05zRyIsW1siU0dOIiwiMjAyNi0xMC0xOSIsIkhLRyIsbnVsbCwiQ1giLCI3ODYiXSxbIkhLRyIsIjIwMjYtMTAtMTkiLCJQVkciLG51bGwsIkNYIiwiMzYyIl1dXQ==",
+          "id": "WyJDalJJZUdNeVZWZDVTVGMyUkc5QlExRm5lR2RDUnkwdExTMHRMUzB0TFMxNWJHSmhNMEZCUVVGQlIzRnZlakJaUXpCME5uZEJFZ3REV0RjNE5ueERXRE0yTWhvTUNOQ2QwUTBRQUJvRFZrNUVPQnh3NnRvRyIsW1siU0dOIiwiMjAyNi0xMC0xOSIsIkhLRyIsbnVsbCwiQ1giLCI3ODYiXSxbIkhLRyIsIjIwMjYtMTAtMTkiLCJQVkciLG51bGwsIkNYIiwiMzYyIl1dXQ==",
           "source": "Google Flights via SerpApi",
           "live_mode": true,
           "search_mode": "direct-priority",
           "route_id": "outbound",
           "is_direct": false,
           "stops": 1,
-          "total_amount": "28535629",
+          "total_amount": "28593872",
           "total_currency": "VND",
           "total_duration_minutes": 840,
-          "booking_token": "WyJDalJJUW1GU1NITmxkelJoWm5OQlYyTkRPV2RDUnkwdExTMHRMUzB0TFc5cllteGtOMEZCUVVGQlIzRnVabWxqUVZCdmNTMUJFZ3REV0RjNE5ueERXRE0yTWhvTUNNM1d6UTBRQUJvRFZrNUVPQnh3c05zRyIsW1siU0dOIiwiMjAyNi0xMC0xOSIsIkhLRyIsbnVsbCwiQ1giLCI3ODYiXSxbIkhLRyIsIjIwMjYtMTAtMTkiLCJQVkciLG51bGwsIkNYIiwiMzYyIl1dXQ==",
+          "booking_token": "WyJDalJJZUdNeVZWZDVTVGMyUkc5QlExRm5lR2RDUnkwdExTMHRMUzB0TFMxNWJHSmhNMEZCUVVGQlIzRnZlakJaUXpCME5uZEJFZ3REV0RjNE5ueERXRE0yTWhvTUNOQ2QwUTBRQUJvRFZrNUVPQnh3NnRvRyIsW1siU0dOIiwiMjAyNi0xMC0xOSIsIkhLRyIsbnVsbCwiQ1giLCI3ODYiXSxbIkhLRyIsIjIwMjYtMTAtMTkiLCJQVkciLG51bGwsIkNYIiwiMzYyIl1dXQ==",
           "departure_token": null,
           "google_flights_url": "https://www.google.com/travel/flights?hl=en&gl=vn&curr=VND&tfs=CBwQAhopEgoyMDI2LTEwLTE5KAFqBwgBEgNTR05yBwgBEgNTSEFyBwgBEgNQVkdAAUABQAFAAUABQAFAA0gBcAGYAQI&tfu=EgQIAhAB",
           "fare_extensions": [],
@@ -1221,17 +1141,17 @@
           ]
         },
         {
-          "id": "WyJDalJJUW1GU1NITmxkelJoWm5OQlYyTkRPV2RDUnkwdExTMHRMUzB0TFc5cllteGtOMEZCUVVGQlIzRnVabWxqUVZCdmNTMUJFZ3REV0RjNE5ueERXRE13TWhvTUNNM1d6UTBRQUJvRFZrNUVPQnh3c05zRyIsW1siU0dOIiwiMjAyNi0xMC0xOSIsIkhLRyIsbnVsbCwiQ1giLCI3ODYiXSxbIkhLRyIsIjIwMjYtMTAtMTkiLCJQVkciLG51bGwsIkNYIiwiMzAyIl1dXQ==",
+          "id": "WyJDalJJZUdNeVZWZDVTVGMyUkc5QlExRm5lR2RDUnkwdExTMHRMUzB0TFMxNWJHSmhNMEZCUVVGQlIzRnZlakJaUXpCME5uZEJFZ3REV0RjNE5ueERXRE13TWhvTUNOQ2QwUTBRQUJvRFZrNUVPQnh3NnRvRyIsW1siU0dOIiwiMjAyNi0xMC0xOSIsIkhLRyIsbnVsbCwiQ1giLCI3ODYiXSxbIkhLRyIsIjIwMjYtMTAtMTkiLCJQVkciLG51bGwsIkNYIiwiMzAyIl1dXQ==",
           "source": "Google Flights via SerpApi",
           "live_mode": true,
           "search_mode": "direct-priority",
           "route_id": "outbound",
           "is_direct": false,
           "stops": 1,
-          "total_amount": "28535629",
+          "total_amount": "28593872",
           "total_currency": "VND",
           "total_duration_minutes": 945,
-          "booking_token": "WyJDalJJUW1GU1NITmxkelJoWm5OQlYyTkRPV2RDUnkwdExTMHRMUzB0TFc5cllteGtOMEZCUVVGQlIzRnVabWxqUVZCdmNTMUJFZ3REV0RjNE5ueERXRE13TWhvTUNNM1d6UTBRQUJvRFZrNUVPQnh3c05zRyIsW1siU0dOIiwiMjAyNi0xMC0xOSIsIkhLRyIsbnVsbCwiQ1giLCI3ODYiXSxbIkhLRyIsIjIwMjYtMTAtMTkiLCJQVkciLG51bGwsIkNYIiwiMzAyIl1dXQ==",
+          "booking_token": "WyJDalJJZUdNeVZWZDVTVGMyUkc5QlExRm5lR2RDUnkwdExTMHRMUzB0TFMxNWJHSmhNMEZCUVVGQlIzRnZlakJaUXpCME5uZEJFZ3REV0RjNE5ueERXRE13TWhvTUNOQ2QwUTBRQUJvRFZrNUVPQnh3NnRvRyIsW1siU0dOIiwiMjAyNi0xMC0xOSIsIkhLRyIsbnVsbCwiQ1giLCI3ODYiXSxbIkhLRyIsIjIwMjYtMTAtMTkiLCJQVkciLG51bGwsIkNYIiwiMzAyIl1dXQ==",
           "departure_token": null,
           "google_flights_url": "https://www.google.com/travel/flights?hl=en&gl=vn&curr=VND&tfs=CBwQAhopEgoyMDI2LTEwLTE5KAFqBwgBEgNTR05yBwgBEgNTSEFyBwgBEgNQVkdAAUABQAFAAUABQAFAA0gBcAGYAQI&tfu=EgQIAhAB",
           "fare_extensions": [],
@@ -1306,17 +1226,17 @@
           ]
         },
         {
-          "id": "WyJDalJJUW1GU1NITmxkelJoWm5OQlYyTkRPV2RDUnkwdExTMHRMUzB0TFc5cllteGtOMEZCUVVGQlIzRnVabWxqUVZCdmNTMUJFZ3REV0RjMk5ueERXRE0yTkJvTUNNM1d6UTBRQUJvRFZrNUVPQnh3c05zRyIsW1siU0dOIiwiMjAyNi0xMC0xOSIsIkhLRyIsbnVsbCwiQ1giLCI3NjYiXSxbIkhLRyIsIjIwMjYtMTAtMTkiLCJQVkciLG51bGwsIkNYIiwiMzY0Il1dXQ==",
+          "id": "WyJDalJJZUdNeVZWZDVTVGMyUkc5QlExRm5lR2RDUnkwdExTMHRMUzB0TFMxNWJHSmhNMEZCUVVGQlIzRnZlakJaUXpCME5uZEJFZ3REV0RjMk5ueERXRE0yTkJvTUNOQ2QwUTBRQUJvRFZrNUVPQnh3NnRvRyIsW1siU0dOIiwiMjAyNi0xMC0xOSIsIkhLRyIsbnVsbCwiQ1giLCI3NjYiXSxbIkhLRyIsIjIwMjYtMTAtMTkiLCJQVkciLG51bGwsIkNYIiwiMzY0Il1dXQ==",
           "source": "Google Flights via SerpApi",
           "live_mode": true,
           "search_mode": "direct-priority",
           "route_id": "outbound",
           "is_direct": false,
           "stops": 1,
-          "total_amount": "28535629",
+          "total_amount": "28593872",
           "total_currency": "VND",
           "total_duration_minutes": 490,
-          "booking_token": "WyJDalJJUW1GU1NITmxkelJoWm5OQlYyTkRPV2RDUnkwdExTMHRMUzB0TFc5cllteGtOMEZCUVVGQlIzRnVabWxqUVZCdmNTMUJFZ3REV0RjMk5ueERXRE0yTkJvTUNNM1d6UTBRQUJvRFZrNUVPQnh3c05zRyIsW1siU0dOIiwiMjAyNi0xMC0xOSIsIkhLRyIsbnVsbCwiQ1giLCI3NjYiXSxbIkhLRyIsIjIwMjYtMTAtMTkiLCJQVkciLG51bGwsIkNYIiwiMzY0Il1dXQ==",
+          "booking_token": "WyJDalJJZUdNeVZWZDVTVGMyUkc5QlExRm5lR2RDUnkwdExTMHRMUzB0TFMxNWJHSmhNMEZCUVVGQlIzRnZlakJaUXpCME5uZEJFZ3REV0RjMk5ueERXRE0yTkJvTUNOQ2QwUTBRQUJvRFZrNUVPQnh3NnRvRyIsW1siU0dOIiwiMjAyNi0xMC0xOSIsIkhLRyIsbnVsbCwiQ1giLCI3NjYiXSxbIkhLRyIsIjIwMjYtMTAtMTkiLCJQVkciLG51bGwsIkNYIiwiMzY0Il1dXQ==",
           "departure_token": null,
           "google_flights_url": "https://www.google.com/travel/flights?hl=en&gl=vn&curr=VND&tfs=CBwQAhopEgoyMDI2LTEwLTE5KAFqBwgBEgNTR05yBwgBEgNTSEFyBwgBEgNQVkdAAUABQAFAAUABQAFAA0gBcAGYAQI&tfu=EgQIAhAB",
           "fare_extensions": [],
@@ -1391,17 +1311,17 @@
           ]
         },
         {
-          "id": "WyJDalJJUW1GU1NITmxkelJoWm5OQlYyTkRPV2RDUnkwdExTMHRMUzB0TFc5cllteGtOMEZCUVVGQlIzRnVabWxqUVZCdmNTMUJFZ3REV0RjMk5ueERXRE15T0JvTUNNM1d6UTBRQUJvRFZrNUVPQnh3c05zRyIsW1siU0dOIiwiMjAyNi0xMC0xOSIsIkhLRyIsbnVsbCwiQ1giLCI3NjYiXSxbIkhLRyIsIjIwMjYtMTAtMTkiLCJTSEEiLG51bGwsIkNYIiwiMzI4Il1dXQ==",
+          "id": "WyJDalJJZUdNeVZWZDVTVGMyUkc5QlExRm5lR2RDUnkwdExTMHRMUzB0TFMxNWJHSmhNMEZCUVVGQlIzRnZlakJaUXpCME5uZEJFZ3REV0RjMk5ueERXRE15T0JvTUNOQ2QwUTBRQUJvRFZrNUVPQnh3NnRvRyIsW1siU0dOIiwiMjAyNi0xMC0xOSIsIkhLRyIsbnVsbCwiQ1giLCI3NjYiXSxbIkhLRyIsIjIwMjYtMTAtMTkiLCJTSEEiLG51bGwsIkNYIiwiMzI4Il1dXQ==",
           "source": "Google Flights via SerpApi",
           "live_mode": true,
           "search_mode": "direct-priority",
           "route_id": "outbound",
           "is_direct": false,
           "stops": 1,
-          "total_amount": "28535629",
+          "total_amount": "28593872",
           "total_currency": "VND",
           "total_duration_minutes": 530,
-          "booking_token": "WyJDalJJUW1GU1NITmxkelJoWm5OQlYyTkRPV2RDUnkwdExTMHRMUzB0TFc5cllteGtOMEZCUVVGQlIzRnVabWxqUVZCdmNTMUJFZ3REV0RjMk5ueERXRE15T0JvTUNNM1d6UTBRQUJvRFZrNUVPQnh3c05zRyIsW1siU0dOIiwiMjAyNi0xMC0xOSIsIkhLRyIsbnVsbCwiQ1giLCI3NjYiXSxbIkhLRyIsIjIwMjYtMTAtMTkiLCJTSEEiLG51bGwsIkNYIiwiMzI4Il1dXQ==",
+          "booking_token": "WyJDalJJZUdNeVZWZDVTVGMyUkc5QlExRm5lR2RDUnkwdExTMHRMUzB0TFMxNWJHSmhNMEZCUVVGQlIzRnZlakJaUXpCME5uZEJFZ3REV0RjMk5ueERXRE15T0JvTUNOQ2QwUTBRQUJvRFZrNUVPQnh3NnRvRyIsW1siU0dOIiwiMjAyNi0xMC0xOSIsIkhLRyIsbnVsbCwiQ1giLCI3NjYiXSxbIkhLRyIsIjIwMjYtMTAtMTkiLCJTSEEiLG51bGwsIkNYIiwiMzI4Il1dXQ==",
           "departure_token": null,
           "google_flights_url": "https://www.google.com/travel/flights?hl=en&gl=vn&curr=VND&tfs=CBwQAhopEgoyMDI2LTEwLTE5KAFqBwgBEgNTR05yBwgBEgNTSEFyBwgBEgNQVkdAAUABQAFAAUABQAFAA0gBcAGYAQI&tfu=EgQIAhAB",
           "fare_extensions": [],
@@ -1476,17 +1396,17 @@
           ]
         },
         {
-          "id": "WyJDalJJUW1GU1NITmxkelJoWm5OQlYyTkRPV2RDUnkwdExTMHRMUzB0TFc5cllteGtOMEZCUVVGQlIzRnVabWxqUVZCdmNTMUJFZ3REV0RjMk5ueERXRE0yTWhvTUNNM1d6UTBRQUJvRFZrNUVPQnh3c05zRyIsW1siU0dOIiwiMjAyNi0xMC0xOSIsIkhLRyIsbnVsbCwiQ1giLCI3NjYiXSxbIkhLRyIsIjIwMjYtMTAtMTkiLCJQVkciLG51bGwsIkNYIiwiMzYyIl1dXQ==",
+          "id": "WyJDalJJZUdNeVZWZDVTVGMyUkc5QlExRm5lR2RDUnkwdExTMHRMUzB0TFMxNWJHSmhNMEZCUVVGQlIzRnZlakJaUXpCME5uZEJFZ3REV0RjMk5ueERXRE0yTWhvTUNOQ2QwUTBRQUJvRFZrNUVPQnh3NnRvRyIsW1siU0dOIiwiMjAyNi0xMC0xOSIsIkhLRyIsbnVsbCwiQ1giLCI3NjYiXSxbIkhLRyIsIjIwMjYtMTAtMTkiLCJQVkciLG51bGwsIkNYIiwiMzYyIl1dXQ==",
           "source": "Google Flights via SerpApi",
           "live_mode": true,
           "search_mode": "direct-priority",
           "route_id": "outbound",
           "is_direct": false,
           "stops": 1,
-          "total_amount": "28535629",
+          "total_amount": "28593872",
           "total_currency": "VND",
           "total_duration_minutes": 605,
-          "booking_token": "WyJDalJJUW1GU1NITmxkelJoWm5OQlYyTkRPV2RDUnkwdExTMHRMUzB0TFc5cllteGtOMEZCUVVGQlIzRnVabWxqUVZCdmNTMUJFZ3REV0RjMk5ueERXRE0yTWhvTUNNM1d6UTBRQUJvRFZrNUVPQnh3c05zRyIsW1siU0dOIiwiMjAyNi0xMC0xOSIsIkhLRyIsbnVsbCwiQ1giLCI3NjYiXSxbIkhLRyIsIjIwMjYtMTAtMTkiLCJQVkciLG51bGwsIkNYIiwiMzYyIl1dXQ==",
+          "booking_token": "WyJDalJJZUdNeVZWZDVTVGMyUkc5QlExRm5lR2RDUnkwdExTMHRMUzB0TFMxNWJHSmhNMEZCUVVGQlIzRnZlakJaUXpCME5uZEJFZ3REV0RjMk5ueERXRE0yTWhvTUNOQ2QwUTBRQUJvRFZrNUVPQnh3NnRvRyIsW1siU0dOIiwiMjAyNi0xMC0xOSIsIkhLRyIsbnVsbCwiQ1giLCI3NjYiXSxbIkhLRyIsIjIwMjYtMTAtMTkiLCJQVkciLG51bGwsIkNYIiwiMzYyIl1dXQ==",
           "departure_token": null,
           "google_flights_url": "https://www.google.com/travel/flights?hl=en&gl=vn&curr=VND&tfs=CBwQAhopEgoyMDI2LTEwLTE5KAFqBwgBEgNTR05yBwgBEgNTSEFyBwgBEgNQVkdAAUABQAFAAUABQAFAA0gBcAGYAQI&tfu=EgQIAhAB",
           "fare_extensions": [],
@@ -1561,17 +1481,17 @@
           ]
         },
         {
-          "id": "WyJDalJJUW1GU1NITmxkelJoWm5OQlYyTkRPV2RDUnkwdExTMHRMUzB0TFc5cllteGtOMEZCUVVGQlIzRnVabWxqUVZCdmNTMUJFZ3REV0RjMk5ueERXRE13TWhvTUNNM1d6UTBRQUJvRFZrNUVPQnh3c05zRyIsW1siU0dOIiwiMjAyNi0xMC0xOSIsIkhLRyIsbnVsbCwiQ1giLCI3NjYiXSxbIkhLRyIsIjIwMjYtMTAtMTkiLCJQVkciLG51bGwsIkNYIiwiMzAyIl1dXQ==",
+          "id": "WyJDalJJZUdNeVZWZDVTVGMyUkc5QlExRm5lR2RDUnkwdExTMHRMUzB0TFMxNWJHSmhNMEZCUVVGQlIzRnZlakJaUXpCME5uZEJFZ3REV0RjMk5ueERXRE13TWhvTUNOQ2QwUTBRQUJvRFZrNUVPQnh3NnRvRyIsW1siU0dOIiwiMjAyNi0xMC0xOSIsIkhLRyIsbnVsbCwiQ1giLCI3NjYiXSxbIkhLRyIsIjIwMjYtMTAtMTkiLCJQVkciLG51bGwsIkNYIiwiMzAyIl1dXQ==",
           "source": "Google Flights via SerpApi",
           "live_mode": true,
           "search_mode": "direct-priority",
           "route_id": "outbound",
           "is_direct": false,
           "stops": 1,
-          "total_amount": "28535629",
+          "total_amount": "28593872",
           "total_currency": "VND",
           "total_duration_minutes": 710,
-          "booking_token": "WyJDalJJUW1GU1NITmxkelJoWm5OQlYyTkRPV2RDUnkwdExTMHRMUzB0TFc5cllteGtOMEZCUVVGQlIzRnVabWxqUVZCdmNTMUJFZ3REV0RjMk5ueERXRE13TWhvTUNNM1d6UTBRQUJvRFZrNUVPQnh3c05zRyIsW1siU0dOIiwiMjAyNi0xMC0xOSIsIkhLRyIsbnVsbCwiQ1giLCI3NjYiXSxbIkhLRyIsIjIwMjYtMTAtMTkiLCJQVkciLG51bGwsIkNYIiwiMzAyIl1dXQ==",
+          "booking_token": "WyJDalJJZUdNeVZWZDVTVGMyUkc5QlExRm5lR2RDUnkwdExTMHRMUzB0TFMxNWJHSmhNMEZCUVVGQlIzRnZlakJaUXpCME5uZEJFZ3REV0RjMk5ueERXRE13TWhvTUNOQ2QwUTBRQUJvRFZrNUVPQnh3NnRvRyIsW1siU0dOIiwiMjAyNi0xMC0xOSIsIkhLRyIsbnVsbCwiQ1giLCI3NjYiXSxbIkhLRyIsIjIwMjYtMTAtMTkiLCJQVkciLG51bGwsIkNYIiwiMzAyIl1dXQ==",
           "departure_token": null,
           "google_flights_url": "https://www.google.com/travel/flights?hl=en&gl=vn&curr=VND&tfs=CBwQAhopEgoyMDI2LTEwLTE5KAFqBwgBEgNTR05yBwgBEgNTSEFyBwgBEgNQVkdAAUABQAFAAUABQAFAA0gBcAGYAQI&tfu=EgQIAhAB",
           "fare_extensions": [],
@@ -1646,17 +1566,17 @@
           ]
         },
         {
-          "id": "WyJDalJJUW1GU1NITmxkelJoWm5OQlYyTkRPV2RDUnkwdExTMHRMUzB0TFc5cllteGtOMEZCUVVGQlIzRnVabWxqUVZCdmNTMUJFZ3hOUmpnME1ueE5SamcxTURrYURBaWlqOWdORUFBYUExWk9SRGdjY01UZ0JnPT0iLFtbIlNHTiIsIjIwMjYtMTAtMTkiLCJYTU4iLG51bGwsIk1GIiwiODQyIl0sWyJYTU4iLCIyMDI2LTEwLTE5IiwiU0hBIixudWxsLCJNRiIsIjg1MDkiXV1d",
+          "id": "WyJDalJJZUdNeVZWZDVTVGMyUkc5QlExRm5lR2RDUnkwdExTMHRMUzB0TFMxNWJHSmhNMEZCUVVGQlIzRnZlakJaUXpCME5uZEJFZzFEV2pnME56UjhRMW96TlRVekdnd0l5T3lrRHhBQUdnTldUa1E0SEhEN3dnYz0iLFtbIlNHTiIsIjIwMjYtMTAtMTkiLCJTWlgiLG51bGwsIkNaIiwiODQ3NCJdLFsiU1pYIiwiMjAyNi0xMC0xOSIsIlNIQSIsbnVsbCwiQ1oiLCIzNTUzIl1dXQ==",
           "source": "Google Flights via SerpApi",
           "live_mode": true,
           "search_mode": "direct-priority",
           "route_id": "outbound",
           "is_direct": false,
           "stops": 1,
-          "total_amount": "28706722",
+          "total_amount": "32061000",
           "total_currency": "VND",
           "total_duration_minutes": 480,
-          "booking_token": "WyJDalJJUW1GU1NITmxkelJoWm5OQlYyTkRPV2RDUnkwdExTMHRMUzB0TFc5cllteGtOMEZCUVVGQlIzRnVabWxqUVZCdmNTMUJFZ3hOUmpnME1ueE5SamcxTURrYURBaWlqOWdORUFBYUExWk9SRGdjY01UZ0JnPT0iLFtbIlNHTiIsIjIwMjYtMTAtMTkiLCJYTU4iLG51bGwsIk1GIiwiODQyIl0sWyJYTU4iLCIyMDI2LTEwLTE5IiwiU0hBIixudWxsLCJNRiIsIjg1MDkiXV1d",
+          "booking_token": "WyJDalJJZUdNeVZWZDVTVGMyUkc5QlExRm5lR2RDUnkwdExTMHRMUzB0TFMxNWJHSmhNMEZCUVVGQlIzRnZlakJaUXpCME5uZEJFZzFEV2pnME56UjhRMW96TlRVekdnd0l5T3lrRHhBQUdnTldUa1E0SEhEN3dnYz0iLFtbIlNHTiIsIjIwMjYtMTAtMTkiLCJTWlgiLG51bGwsIkNaIiwiODQ3NCJdLFsiU1pYIiwiMjAyNi0xMC0xOSIsIlNIQSIsbnVsbCwiQ1oiLCIzNTUzIl1dXQ==",
           "departure_token": null,
           "google_flights_url": "https://www.google.com/travel/flights?hl=en&gl=vn&curr=VND&tfs=CBwQAhopEgoyMDI2LTEwLTE5KAFqBwgBEgNTR05yBwgBEgNTSEFyBwgBEgNQVkdAAUABQAFAAUABQAFAA0gBcAGYAQI&tfu=EgQIAhAB",
           "fare_extensions": [],
@@ -1666,9 +1586,9 @@
             "items": []
           },
           "owner": {
-            "name": "XiamenAir",
-            "iata_code": "MF",
-            "logo_symbol_url": "https://www.gstatic.com/flights/airline_logos/70px/MF.png"
+            "name": "China Southern",
+            "iata_code": "CZ",
+            "logo_symbol_url": "https://www.gstatic.com/flights/airline_logos/70px/CZ.png"
           },
           "slices": [
             {
@@ -1678,204 +1598,293 @@
               "segments": [
                 {
                   "origin": "SGN",
-                  "destination": "XMN",
-                  "departing_at": "2026-10-19T08:00:00",
-                  "arriving_at": "2026-10-19T12:00:00",
-                  "duration": "PT3H",
-                  "flight_number": "MF 842",
-                  "airplane": "Boeing 737",
-                  "travel_class": "Economy",
-                  "extensions": [
-                    "Average legroom (31 in)",
-                    "Carbon emissions estimate: 1059 kg"
-                  ],
-                  "marketing_carrier": {
-                    "name": "XiamenAir",
-                    "iata_code": "MF"
-                  },
-                  "operating_carrier": {
-                    "name": "XiamenAir",
-                    "iata_code": null
-                  }
-                },
-                {
-                  "origin": "XMN",
-                  "destination": "SHA",
-                  "departing_at": "2026-10-19T15:00:00",
-                  "arriving_at": "2026-10-19T17:00:00",
-                  "duration": "PT2H",
-                  "flight_number": "MF 8509",
-                  "airplane": "Boeing 737",
-                  "travel_class": "Economy",
-                  "extensions": [
-                    "Average legroom (31 in)",
-                    "Carbon emissions estimate: 544 kg"
-                  ],
-                  "marketing_carrier": {
-                    "name": "XiamenAir",
-                    "iata_code": "MF"
-                  },
-                  "operating_carrier": {
-                    "name": "XiamenAir",
-                    "iata_code": null
-                  }
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "id": "WyJDalJJUW1GU1NITmxkelJoWm5OQlYyTkRPV2RDUnkwdExTMHRMUzB0TFc5cllteGtOMEZCUVVGQlIzRnVabWxqUVZCdmNTMUJFZ3hOUmpnNU5IeE5SamcxTkRVYURBaWlqOWdORUFBYUExWk9SRGdjY01UZ0JnPT0iLFtbIlNHTiIsIjIwMjYtMTAtMTkiLCJYTU4iLG51bGwsIk1GIiwiODk0Il0sWyJYTU4iLCIyMDI2LTEwLTE5IiwiU0hBIixudWxsLCJNRiIsIjg1NDUiXV1d",
-          "source": "Google Flights via SerpApi",
-          "live_mode": true,
-          "search_mode": "direct-priority",
-          "route_id": "outbound",
-          "is_direct": false,
-          "stops": 1,
-          "total_amount": "28706722",
-          "total_currency": "VND",
-          "total_duration_minutes": 440,
-          "booking_token": "WyJDalJJUW1GU1NITmxkelJoWm5OQlYyTkRPV2RDUnkwdExTMHRMUzB0TFc5cllteGtOMEZCUVVGQlIzRnVabWxqUVZCdmNTMUJFZ3hOUmpnNU5IeE5SamcxTkRVYURBaWlqOWdORUFBYUExWk9SRGdjY01UZ0JnPT0iLFtbIlNHTiIsIjIwMjYtMTAtMTkiLCJYTU4iLG51bGwsIk1GIiwiODk0Il0sWyJYTU4iLCIyMDI2LTEwLTE5IiwiU0hBIixudWxsLCJNRiIsIjg1NDUiXV1d",
-          "departure_token": null,
-          "google_flights_url": "https://www.google.com/travel/flights?hl=en&gl=vn&curr=VND&tfs=CBwQAhopEgoyMDI2LTEwLTE5KAFqBwgBEgNTR05yBwgBEgNTSEFyBwgBEgNQVkdAAUABQAFAAUABQAFAA0gBcAGYAQI&tfu=EgQIAhAB",
-          "fare_extensions": [],
-          "baggage": {
-            "available": false,
-            "source": "google_flights_search",
-            "items": []
-          },
-          "owner": {
-            "name": "XiamenAir",
-            "iata_code": "MF",
-            "logo_symbol_url": "https://www.gstatic.com/flights/airline_logos/70px/MF.png"
-          },
-          "slices": [
-            {
-              "origin": "SGN",
-              "destination": "SHA",
-              "duration": "PT7H20M",
-              "segments": [
-                {
-                  "origin": "SGN",
-                  "destination": "XMN",
-                  "departing_at": "2026-10-19T12:25:00",
-                  "arriving_at": "2026-10-19T16:40:00",
-                  "duration": "PT3H15M",
-                  "flight_number": "MF 894",
-                  "airplane": "Boeing 737",
-                  "travel_class": "Economy",
-                  "extensions": [
-                    "Average legroom (31 in)",
-                    "Carbon emissions estimate: 1059 kg"
-                  ],
-                  "marketing_carrier": {
-                    "name": "XiamenAir",
-                    "iata_code": "MF"
-                  },
-                  "operating_carrier": {
-                    "name": "XiamenAir",
-                    "iata_code": null
-                  }
-                },
-                {
-                  "origin": "XMN",
-                  "destination": "SHA",
-                  "departing_at": "2026-10-19T19:00:00",
-                  "arriving_at": "2026-10-19T20:45:00",
-                  "duration": "PT1H45M",
-                  "flight_number": "MF 8545",
-                  "airplane": "Boeing 737",
-                  "travel_class": "Economy",
-                  "extensions": [
-                    "Average legroom (31 in)",
-                    "Carbon emissions estimate: 544 kg"
-                  ],
-                  "marketing_carrier": {
-                    "name": "XiamenAir",
-                    "iata_code": "MF"
-                  },
-                  "operating_carrier": {
-                    "name": "XiamenAir",
-                    "iata_code": null
-                  }
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "id": "WyJDalJJUW1GU1NITmxkelJoWm5OQlYyTkRPV2RDUnkwdExTMHRMUzB0TFc5cllteGtOMEZCUVVGQlIzRnVabWxqUVZCdmNTMUJFZ3hOUmpnNU5IeE5SamcxTVRjYURBaWlqOWdORUFBYUExWk9SRGdjY01UZ0JnPT0iLFtbIlNHTiIsIjIwMjYtMTAtMTkiLCJYTU4iLG51bGwsIk1GIiwiODk0Il0sWyJYTU4iLCIyMDI2LTEwLTE5IiwiU0hBIixudWxsLCJNRiIsIjg1MTciXV1d",
-          "source": "Google Flights via SerpApi",
-          "live_mode": true,
-          "search_mode": "direct-priority",
-          "route_id": "outbound",
-          "is_direct": false,
-          "stops": 1,
-          "total_amount": "28706722",
-          "total_currency": "VND",
-          "total_duration_minutes": 555,
-          "booking_token": "WyJDalJJUW1GU1NITmxkelJoWm5OQlYyTkRPV2RDUnkwdExTMHRMUzB0TFc5cllteGtOMEZCUVVGQlIzRnVabWxqUVZCdmNTMUJFZ3hOUmpnNU5IeE5SamcxTVRjYURBaWlqOWdORUFBYUExWk9SRGdjY01UZ0JnPT0iLFtbIlNHTiIsIjIwMjYtMTAtMTkiLCJYTU4iLG51bGwsIk1GIiwiODk0Il0sWyJYTU4iLCIyMDI2LTEwLTE5IiwiU0hBIixudWxsLCJNRiIsIjg1MTciXV1d",
-          "departure_token": null,
-          "google_flights_url": "https://www.google.com/travel/flights?hl=en&gl=vn&curr=VND&tfs=CBwQAhopEgoyMDI2LTEwLTE5KAFqBwgBEgNTR05yBwgBEgNTSEFyBwgBEgNQVkdAAUABQAFAAUABQAFAA0gBcAGYAQI&tfu=EgQIAhAB",
-          "fare_extensions": [],
-          "baggage": {
-            "available": false,
-            "source": "google_flights_search",
-            "items": []
-          },
-          "owner": {
-            "name": "XiamenAir",
-            "iata_code": "MF",
-            "logo_symbol_url": "https://www.gstatic.com/flights/airline_logos/70px/MF.png"
-          },
-          "slices": [
-            {
-              "origin": "SGN",
-              "destination": "SHA",
-              "duration": "PT9H15M",
-              "segments": [
-                {
-                  "origin": "SGN",
-                  "destination": "XMN",
-                  "departing_at": "2026-10-19T12:25:00",
-                  "arriving_at": "2026-10-19T16:40:00",
-                  "duration": "PT3H15M",
-                  "flight_number": "MF 894",
-                  "airplane": "Boeing 737",
-                  "travel_class": "Economy",
-                  "extensions": [
-                    "Average legroom (31 in)",
-                    "Carbon emissions estimate: 1059 kg"
-                  ],
-                  "marketing_carrier": {
-                    "name": "XiamenAir",
-                    "iata_code": "MF"
-                  },
-                  "operating_carrier": {
-                    "name": "XiamenAir",
-                    "iata_code": null
-                  }
-                },
-                {
-                  "origin": "XMN",
-                  "destination": "SHA",
-                  "departing_at": "2026-10-19T21:00:00",
-                  "arriving_at": "2026-10-19T22:40:00",
-                  "duration": "PT1H40M",
-                  "flight_number": "MF 8517",
-                  "airplane": "Boeing 737MAX 8 Passenger",
+                  "destination": "SZX",
+                  "departing_at": "2026-10-19T02:25:00",
+                  "arriving_at": "2026-10-19T06:10:00",
+                  "duration": "PT2H45M",
+                  "flight_number": "CZ 8474",
+                  "airplane": "Airbus A320neo",
                   "travel_class": "Economy",
                   "extensions": [
                     "Average legroom (30 in)",
                     "In-seat USB outlet",
-                    "Carbon emissions estimate: 457 kg"
+                    "Carbon emissions estimate: 761 kg"
                   ],
                   "marketing_carrier": {
-                    "name": "XiamenAir",
-                    "iata_code": "MF"
+                    "name": "China Southern",
+                    "iata_code": "CZ"
                   },
                   "operating_carrier": {
-                    "name": "XiamenAir",
+                    "name": "China Southern",
+                    "iata_code": null
+                  }
+                },
+                {
+                  "origin": "SZX",
+                  "destination": "SHA",
+                  "departing_at": "2026-10-19T09:00:00",
+                  "arriving_at": "2026-10-19T11:25:00",
+                  "duration": "PT2H25M",
+                  "flight_number": "CZ 3553",
+                  "airplane": "Boeing 777",
+                  "travel_class": "Economy",
+                  "extensions": [
+                    "Average legroom (31 in)",
+                    "In-seat power & USB outlets",
+                    "On-demand video",
+                    "Carbon emissions estimate: 758 kg"
+                  ],
+                  "marketing_carrier": {
+                    "name": "China Southern",
+                    "iata_code": "CZ"
+                  },
+                  "operating_carrier": {
+                    "name": "China Southern",
+                    "iata_code": null
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "WyJDalJJZUdNeVZWZDVTVGMyUkc5QlExRm5lR2RDUnkwdExTMHRMUzB0TFMxNWJHSmhNMEZCUVVGQlIzRnZlakJaUXpCME5uZEJFZzFEV2pnME56UjhRMW8yTnpVMUdnd0l5T3lrRHhBQUdnTldUa1E0SEhEN3dnYz0iLFtbIlNHTiIsIjIwMjYtMTAtMTkiLCJTWlgiLG51bGwsIkNaIiwiODQ3NCJdLFsiU1pYIiwiMjAyNi0xMC0xOSIsIlBWRyIsbnVsbCwiQ1oiLCI2NzU1Il1dXQ==",
+          "source": "Google Flights via SerpApi",
+          "live_mode": true,
+          "search_mode": "direct-priority",
+          "route_id": "outbound",
+          "is_direct": false,
+          "stops": 1,
+          "total_amount": "32061000",
+          "total_currency": "VND",
+          "total_duration_minutes": 525,
+          "booking_token": "WyJDalJJZUdNeVZWZDVTVGMyUkc5QlExRm5lR2RDUnkwdExTMHRMUzB0TFMxNWJHSmhNMEZCUVVGQlIzRnZlakJaUXpCME5uZEJFZzFEV2pnME56UjhRMW8yTnpVMUdnd0l5T3lrRHhBQUdnTldUa1E0SEhEN3dnYz0iLFtbIlNHTiIsIjIwMjYtMTAtMTkiLCJTWlgiLG51bGwsIkNaIiwiODQ3NCJdLFsiU1pYIiwiMjAyNi0xMC0xOSIsIlBWRyIsbnVsbCwiQ1oiLCI2NzU1Il1dXQ==",
+          "departure_token": null,
+          "google_flights_url": "https://www.google.com/travel/flights?hl=en&gl=vn&curr=VND&tfs=CBwQAhopEgoyMDI2LTEwLTE5KAFqBwgBEgNTR05yBwgBEgNTSEFyBwgBEgNQVkdAAUABQAFAAUABQAFAA0gBcAGYAQI&tfu=EgQIAhAB",
+          "fare_extensions": [],
+          "baggage": {
+            "available": false,
+            "source": "google_flights_search",
+            "items": []
+          },
+          "owner": {
+            "name": "China Southern",
+            "iata_code": "CZ",
+            "logo_symbol_url": "https://www.gstatic.com/flights/airline_logos/70px/CZ.png"
+          },
+          "slices": [
+            {
+              "origin": "SGN",
+              "destination": "PVG",
+              "duration": "PT8H45M",
+              "segments": [
+                {
+                  "origin": "SGN",
+                  "destination": "SZX",
+                  "departing_at": "2026-10-19T02:25:00",
+                  "arriving_at": "2026-10-19T06:10:00",
+                  "duration": "PT2H45M",
+                  "flight_number": "CZ 8474",
+                  "airplane": "Airbus A320neo",
+                  "travel_class": "Economy",
+                  "extensions": [
+                    "Average legroom (30 in)",
+                    "In-seat USB outlet",
+                    "Carbon emissions estimate: 761 kg"
+                  ],
+                  "marketing_carrier": {
+                    "name": "China Southern",
+                    "iata_code": "CZ"
+                  },
+                  "operating_carrier": {
+                    "name": "China Southern",
+                    "iata_code": null
+                  }
+                },
+                {
+                  "origin": "SZX",
+                  "destination": "PVG",
+                  "departing_at": "2026-10-19T09:30:00",
+                  "arriving_at": "2026-10-19T12:10:00",
+                  "duration": "PT2H40M",
+                  "flight_number": "CZ 6755",
+                  "airplane": "Airbus A321",
+                  "travel_class": "Economy",
+                  "extensions": [
+                    "Average legroom (31 in)",
+                    "Carbon emissions estimate: 874 kg"
+                  ],
+                  "marketing_carrier": {
+                    "name": "China Southern",
+                    "iata_code": "CZ"
+                  },
+                  "operating_carrier": {
+                    "name": "China Southern",
+                    "iata_code": null
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "WyJDalJJZUdNeVZWZDVTVGMyUkc5QlExRm5lR2RDUnkwdExTMHRMUzB0TFMxNWJHSmhNMEZCUVVGQlIzRnZlakJaUXpCME5uZEJFZzFEV2pZd09UQjhRMW96TlRJekdnd0l5T3lrRHhBQUdnTldUa1E0SEhEN3dnYz0iLFtbIlNHTiIsIjIwMjYtMTAtMTkiLCJDQU4iLG51bGwsIkNaIiwiNjA5MCJdLFsiQ0FOIiwiMjAyNi0xMC0xOSIsIlNIQSIsbnVsbCwiQ1oiLCIzNTIzIl1dXQ==",
+          "source": "Google Flights via SerpApi",
+          "live_mode": true,
+          "search_mode": "direct-priority",
+          "route_id": "outbound",
+          "is_direct": false,
+          "stops": 1,
+          "total_amount": "32061000",
+          "total_currency": "VND",
+          "total_duration_minutes": 405,
+          "booking_token": "WyJDalJJZUdNeVZWZDVTVGMyUkc5QlExRm5lR2RDUnkwdExTMHRMUzB0TFMxNWJHSmhNMEZCUVVGQlIzRnZlakJaUXpCME5uZEJFZzFEV2pZd09UQjhRMW96TlRJekdnd0l5T3lrRHhBQUdnTldUa1E0SEhEN3dnYz0iLFtbIlNHTiIsIjIwMjYtMTAtMTkiLCJDQU4iLG51bGwsIkNaIiwiNjA5MCJdLFsiQ0FOIiwiMjAyNi0xMC0xOSIsIlNIQSIsbnVsbCwiQ1oiLCIzNTIzIl1dXQ==",
+          "departure_token": null,
+          "google_flights_url": "https://www.google.com/travel/flights?hl=en&gl=vn&curr=VND&tfs=CBwQAhopEgoyMDI2LTEwLTE5KAFqBwgBEgNTR05yBwgBEgNTSEFyBwgBEgNQVkdAAUABQAFAAUABQAFAA0gBcAGYAQI&tfu=EgQIAhAB",
+          "fare_extensions": [],
+          "baggage": {
+            "available": false,
+            "source": "google_flights_search",
+            "items": []
+          },
+          "owner": {
+            "name": "China Southern",
+            "iata_code": "CZ",
+            "logo_symbol_url": "https://www.gstatic.com/flights/airline_logos/70px/CZ.png"
+          },
+          "slices": [
+            {
+              "origin": "SGN",
+              "destination": "SHA",
+              "duration": "PT6H45M",
+              "segments": [
+                {
+                  "origin": "SGN",
+                  "destination": "CAN",
+                  "departing_at": "2026-10-19T02:35:00",
+                  "arriving_at": "2026-10-19T06:30:00",
+                  "duration": "PT2H55M",
+                  "flight_number": "CZ 6090",
+                  "airplane": "Airbus A320neo",
+                  "travel_class": "Economy",
+                  "extensions": [
+                    "Below average legroom (28 in)",
+                    "In-seat USB outlet",
+                    "Carbon emissions estimate: 768 kg"
+                  ],
+                  "marketing_carrier": {
+                    "name": "China Southern",
+                    "iata_code": "CZ"
+                  },
+                  "operating_carrier": {
+                    "name": "China Southern",
+                    "iata_code": null
+                  }
+                },
+                {
+                  "origin": "CAN",
+                  "destination": "SHA",
+                  "departing_at": "2026-10-19T08:00:00",
+                  "arriving_at": "2026-10-19T10:20:00",
+                  "duration": "PT2H20M",
+                  "flight_number": "CZ 3523",
+                  "airplane": "Airbus A350",
+                  "travel_class": "Economy",
+                  "extensions": [
+                    "Above average legroom (32 in)",
+                    "In-seat USB outlet",
+                    "On-demand video",
+                    "Carbon emissions estimate: 631 kg"
+                  ],
+                  "marketing_carrier": {
+                    "name": "China Southern",
+                    "iata_code": "CZ"
+                  },
+                  "operating_carrier": {
+                    "name": "China Southern",
+                    "iata_code": null
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "WyJDalJJZUdNeVZWZDVTVGMyUkc5QlExRm5lR2RDUnkwdExTMHRMUzB0TFMxNWJHSmhNMEZCUVVGQlIzRnZlakJaUXpCME5uZEJFZzFEV2pZd09UQjhRMW96TlRJNUdnd0l5T3lrRHhBQUdnTldUa1E0SEhEN3dnYz0iLFtbIlNHTiIsIjIwMjYtMTAtMTkiLCJDQU4iLG51bGwsIkNaIiwiNjA5MCJdLFsiQ0FOIiwiMjAyNi0xMC0xOSIsIlNIQSIsbnVsbCwiQ1oiLCIzNTI5Il1dXQ==",
+          "source": "Google Flights via SerpApi",
+          "live_mode": true,
+          "search_mode": "direct-priority",
+          "route_id": "outbound",
+          "is_direct": false,
+          "stops": 1,
+          "total_amount": "32061000",
+          "total_currency": "VND",
+          "total_duration_minutes": 465,
+          "booking_token": "WyJDalJJZUdNeVZWZDVTVGMyUkc5QlExRm5lR2RDUnkwdExTMHRMUzB0TFMxNWJHSmhNMEZCUVVGQlIzRnZlakJaUXpCME5uZEJFZzFEV2pZd09UQjhRMW96TlRJNUdnd0l5T3lrRHhBQUdnTldUa1E0SEhEN3dnYz0iLFtbIlNHTiIsIjIwMjYtMTAtMTkiLCJDQU4iLG51bGwsIkNaIiwiNjA5MCJdLFsiQ0FOIiwiMjAyNi0xMC0xOSIsIlNIQSIsbnVsbCwiQ1oiLCIzNTI5Il1dXQ==",
+          "departure_token": null,
+          "google_flights_url": "https://www.google.com/travel/flights?hl=en&gl=vn&curr=VND&tfs=CBwQAhopEgoyMDI2LTEwLTE5KAFqBwgBEgNTR05yBwgBEgNTSEFyBwgBEgNQVkdAAUABQAFAAUABQAFAA0gBcAGYAQI&tfu=EgQIAhAB",
+          "fare_extensions": [],
+          "baggage": {
+            "available": false,
+            "source": "google_flights_search",
+            "items": []
+          },
+          "owner": {
+            "name": "China Southern",
+            "iata_code": "CZ",
+            "logo_symbol_url": "https://www.gstatic.com/flights/airline_logos/70px/CZ.png"
+          },
+          "slices": [
+            {
+              "origin": "SGN",
+              "destination": "SHA",
+              "duration": "PT7H45M",
+              "segments": [
+                {
+                  "origin": "SGN",
+                  "destination": "CAN",
+                  "departing_at": "2026-10-19T02:35:00",
+                  "arriving_at": "2026-10-19T06:30:00",
+                  "duration": "PT2H55M",
+                  "flight_number": "CZ 6090",
+                  "airplane": "Airbus A320neo",
+                  "travel_class": "Economy",
+                  "extensions": [
+                    "Below average legroom (28 in)",
+                    "In-seat USB outlet",
+                    "Carbon emissions estimate: 768 kg"
+                  ],
+                  "marketing_carrier": {
+                    "name": "China Southern",
+                    "iata_code": "CZ"
+                  },
+                  "operating_carrier": {
+                    "name": "China Southern",
+                    "iata_code": null
+                  }
+                },
+                {
+                  "origin": "CAN",
+                  "destination": "SHA",
+                  "departing_at": "2026-10-19T09:00:00",
+                  "arriving_at": "2026-10-19T11:20:00",
+                  "duration": "PT2H20M",
+                  "flight_number": "CZ 3529",
+                  "airplane": "Airbus A330",
+                  "travel_class": "Economy",
+                  "extensions": [
+                    "Above average legroom (32 in)",
+                    "Wi-Fi for a fee",
+                    "In-seat power & USB outlets",
+                    "On-demand video",
+                    "Carbon emissions estimate: 657 kg"
+                  ],
+                  "marketing_carrier": {
+                    "name": "China Southern",
+                    "iata_code": "CZ"
+                  },
+                  "operating_carrier": {
+                    "name": "China Southern",
                     "iata_code": null
                   }
                 }
@@ -1897,21 +1906,21 @@
       "departure_id": "PEK,PKX",
       "arrival_id": "SGN",
       "departure_date": "2026-10-26",
-      "search_id": "6aa77e2ead9ecf059edf0ab1",
+      "search_id": "6aa8cf4a231ffe9e01fd4e60",
       "google_flights_url": "https://www.google.com/travel/flights?hl=en&gl=vn&curr=VND&tfs=CBwQAhopEgoyMDI2LTEwLTI2KAFqBwgBEgNQRUtqBwgBEgNQS1hyBwgBEgNTR05AAUABQAFAAUABQAFAA0gBcAGYAQI&tfu=EgQIAhAB",
       "offers": [
         {
-          "id": "WyJDalJJTFc0ek1tdGljR3RXWW5kQlUySlJlSGRDUnkwdExTMHRMUzB0TFMxNWJHOW9PRUZCUVVGQlIzRnVabXBSU0dGYVFtVkJFZ1ZXVGpVeE54b01DT3FtM0NjUUFCb0RWazVFT0J4dzJNd1QiLFtbIlBLWCIsIjIwMjYtMTAtMjYiLCJTR04iLG51bGwsIlZOIiwiNTE3Il1dXQ==",
+          "id": "WyJDalJJWjNvd2VHRmZlREJLVXpoQlEyaHZaV2RDUnkwdExTMHRMUzEyZEhkb05pMXVNa0ZCUVVGQlIzRnZlakJ2VFhKQ2J6aEJFZ1ZXVGpVeE54b01DT3pGdVM0UUFCb0RWazVFT0J4dzUrMFciLFtbIlBLWCIsIjIwMjYtMTAtMjYiLCJTR04iLG51bGwsIlZOIiwiNTE3Il1dXQ==",
           "source": "Google Flights via SerpApi",
           "live_mode": true,
           "search_mode": "direct-priority",
           "route_id": "return",
           "is_direct": true,
           "stops": 0,
-          "total_amount": "83301226",
+          "total_amount": "97411820",
           "total_currency": "VND",
           "total_duration_minutes": 310,
-          "booking_token": "WyJDalJJTFc0ek1tdGljR3RXWW5kQlUySlJlSGRDUnkwdExTMHRMUzB0TFMxNWJHOW9PRUZCUVVGQlIzRnVabXBSU0dGYVFtVkJFZ1ZXVGpVeE54b01DT3FtM0NjUUFCb0RWazVFT0J4dzJNd1QiLFtbIlBLWCIsIjIwMjYtMTAtMjYiLCJTR04iLG51bGwsIlZOIiwiNTE3Il1dXQ==",
+          "booking_token": "WyJDalJJWjNvd2VHRmZlREJLVXpoQlEyaHZaV2RDUnkwdExTMHRMUzEyZEhkb05pMXVNa0ZCUVVGQlIzRnZlakJ2VFhKQ2J6aEJFZ1ZXVGpVeE54b01DT3pGdVM0UUFCb0RWazVFT0J4dzUrMFciLFtbIlBLWCIsIjIwMjYtMTAtMjYiLCJTR04iLG51bGwsIlZOIiwiNTE3Il1dXQ==",
           "departure_token": null,
           "google_flights_url": "https://www.google.com/travel/flights?hl=en&gl=vn&curr=VND&tfs=CBwQAhopEgoyMDI2LTEwLTI2KAFqBwgBEgNQRUtqBwgBEgNQS1hyBwgBEgNTR05AAUABQAFAAUABQAFAA0gBcAGYAQI&tfu=EgQIAhAB",
           "fare_extensions": [],
@@ -1957,21 +1966,21 @@
               ]
             }
           ],
-          "previous_total_amount": "83240345",
-          "price_delta": "60881"
+          "previous_total_amount": "83301226",
+          "price_delta": "14110594"
         },
         {
-          "id": "WyJDalJJTFc0ek1tdGljR3RXWW5kQlUySlJlSGRDUnkwdExTMHRMUzB0TFMxNWJHOW9PRUZCUVVGQlIzRnVabXBSU0dGYVFtVkJFZzFEV2pNeE1EWjhRMW8yTURnNUdnd0kwb0NaQ2hBQUdnTldUa1E0SEhEMWd3VT0iLFtbIlBLWCIsIjIwMjYtMTAtMjYiLCJDQU4iLG51bGwsIkNaIiwiMzEwNiJdLFsiQ0FOIiwiMjAyNi0xMC0yNiIsIlNHTiIsbnVsbCwiQ1oiLCI2MDg5Il1dXQ==",
+          "id": "WyJDalJJWjNvd2VHRmZlREJLVXpoQlEyaHZaV2RDUnkwdExTMHRMUzEyZEhkb05pMXVNa0ZCUVVGQlIzRnZlakJ2VFhKQ2J6aEJFZzFEV2pNeE1EWjhRMW8yTURnNUdnd0lnb2ljQ2hBQUdnTldUa1E0SEhEWmd3VT0iLFtbIlBLWCIsIjIwMjYtMTAtMjYiLCJDQU4iLG51bGwsIkNaIiwiMzEwNiJdLFsiQ0FOIiwiMjAyNi0xMC0yNiIsIlNHTiIsbnVsbCwiQ1oiLCI2MDg5Il1dXQ==",
           "source": "Google Flights via SerpApi",
           "live_mode": true,
           "search_mode": "direct-priority",
           "route_id": "return",
           "is_direct": false,
           "stops": 1,
-          "total_amount": "21381202",
+          "total_amount": "21431298",
           "total_currency": "VND",
           "total_duration_minutes": 770,
-          "booking_token": "WyJDalJJTFc0ek1tdGljR3RXWW5kQlUySlJlSGRDUnkwdExTMHRMUzB0TFMxNWJHOW9PRUZCUVVGQlIzRnVabXBSU0dGYVFtVkJFZzFEV2pNeE1EWjhRMW8yTURnNUdnd0kwb0NaQ2hBQUdnTldUa1E0SEhEMWd3VT0iLFtbIlBLWCIsIjIwMjYtMTAtMjYiLCJDQU4iLG51bGwsIkNaIiwiMzEwNiJdLFsiQ0FOIiwiMjAyNi0xMC0yNiIsIlNHTiIsbnVsbCwiQ1oiLCI2MDg5Il1dXQ==",
+          "booking_token": "WyJDalJJWjNvd2VHRmZlREJLVXpoQlEyaHZaV2RDUnkwdExTMHRMUzEyZEhkb05pMXVNa0ZCUVVGQlIzRnZlakJ2VFhKQ2J6aEJFZzFEV2pNeE1EWjhRMW8yTURnNUdnd0lnb2ljQ2hBQUdnTldUa1E0SEhEWmd3VT0iLFtbIlBLWCIsIjIwMjYtMTAtMjYiLCJDQU4iLG51bGwsIkNaIiwiMzEwNiJdLFsiQ0FOIiwiMjAyNi0xMC0yNiIsIlNHTiIsbnVsbCwiQ1oiLCI2MDg5Il1dXQ==",
           "departure_token": null,
           "google_flights_url": "https://www.google.com/travel/flights?hl=en&gl=vn&curr=VND&tfs=CBwQAhopEgoyMDI2LTEwLTI2KAFqBwgBEgNQRUtqBwgBEgNQS1hyBwgBEgNTR05AAUABQAFAAUABQAFAA0gBcAGYAQI&tfu=EgQIAhAB",
           "fare_extensions": [],
@@ -2043,17 +2052,17 @@
           ]
         },
         {
-          "id": "WyJDalJJTFc0ek1tdGljR3RXWW5kQlUySlJlSGRDUnkwdExTMHRMUzB0TFMxNWJHOW9PRUZCUVVGQlIzRnVabXBSU0dGYVFtVkJFZzFEV2pNeE5qSjhRMW8yTURnNUdnd0kwb0NaQ2hBQUdnTldUa1E0SEhEMWd3VT0iLFtbIlBLWCIsIjIwMjYtMTAtMjYiLCJDQU4iLG51bGwsIkNaIiwiMzE2MiJdLFsiQ0FOIiwiMjAyNi0xMC0yNiIsIlNHTiIsbnVsbCwiQ1oiLCI2MDg5Il1dXQ==",
+          "id": "WyJDalJJWjNvd2VHRmZlREJLVXpoQlEyaHZaV2RDUnkwdExTMHRMUzEyZEhkb05pMXVNa0ZCUVVGQlIzRnZlakJ2VFhKQ2J6aEJFZzFEV2pNeE5qSjhRMW8yTURnNUdnd0lnb2ljQ2hBQUdnTldUa1E0SEhEWmd3VT0iLFtbIlBLWCIsIjIwMjYtMTAtMjYiLCJDQU4iLG51bGwsIkNaIiwiMzE2MiJdLFsiQ0FOIiwiMjAyNi0xMC0yNiIsIlNHTiIsbnVsbCwiQ1oiLCI2MDg5Il1dXQ==",
           "source": "Google Flights via SerpApi",
           "live_mode": true,
           "search_mode": "direct-priority",
           "route_id": "return",
           "is_direct": false,
           "stops": 1,
-          "total_amount": "21381202",
+          "total_amount": "21431298",
           "total_currency": "VND",
           "total_duration_minutes": 710,
-          "booking_token": "WyJDalJJTFc0ek1tdGljR3RXWW5kQlUySlJlSGRDUnkwdExTMHRMUzB0TFMxNWJHOW9PRUZCUVVGQlIzRnVabXBSU0dGYVFtVkJFZzFEV2pNeE5qSjhRMW8yTURnNUdnd0kwb0NaQ2hBQUdnTldUa1E0SEhEMWd3VT0iLFtbIlBLWCIsIjIwMjYtMTAtMjYiLCJDQU4iLG51bGwsIkNaIiwiMzE2MiJdLFsiQ0FOIiwiMjAyNi0xMC0yNiIsIlNHTiIsbnVsbCwiQ1oiLCI2MDg5Il1dXQ==",
+          "booking_token": "WyJDalJJWjNvd2VHRmZlREJLVXpoQlEyaHZaV2RDUnkwdExTMHRMUzEyZEhkb05pMXVNa0ZCUVVGQlIzRnZlakJ2VFhKQ2J6aEJFZzFEV2pNeE5qSjhRMW8yTURnNUdnd0lnb2ljQ2hBQUdnTldUa1E0SEhEWmd3VT0iLFtbIlBLWCIsIjIwMjYtMTAtMjYiLCJDQU4iLG51bGwsIkNaIiwiMzE2MiJdLFsiQ0FOIiwiMjAyNi0xMC0yNiIsIlNHTiIsbnVsbCwiQ1oiLCI2MDg5Il1dXQ==",
           "departure_token": null,
           "google_flights_url": "https://www.google.com/travel/flights?hl=en&gl=vn&curr=VND&tfs=CBwQAhopEgoyMDI2LTEwLTI2KAFqBwgBEgNQRUtqBwgBEgNQS1hyBwgBEgNTR05AAUABQAFAAUABQAFAA0gBcAGYAQI&tfu=EgQIAhAB",
           "fare_extensions": [],
@@ -2083,7 +2092,7 @@
                   "airplane": "Airbus A321neo",
                   "travel_class": "Economy",
                   "extensions": [
-                    "Average legroom (30 in)",
+                    "Below average legroom (29 in)",
                     "In-seat USB outlet",
                     "Carbon emissions estimate: 852 kg"
                   ],
@@ -2124,17 +2133,17 @@
           ]
         },
         {
-          "id": "WyJDalJJTFc0ek1tdGljR3RXWW5kQlUySlJlSGRDUnkwdExTMHRMUzB0TFMxNWJHOW9PRUZCUVVGQlIzRnVabXBSU0dGYVFtVkJFZzFEV2pNeE1EUjhRMW8yTURnNUdnd0kwb0NaQ2hBQUdnTldUa1E0SEhEMWd3VT0iLFtbIlBLWCIsIjIwMjYtMTAtMjYiLCJDQU4iLG51bGwsIkNaIiwiMzEwNCJdLFsiQ0FOIiwiMjAyNi0xMC0yNiIsIlNHTiIsbnVsbCwiQ1oiLCI2MDg5Il1dXQ==",
+          "id": "WyJDalJJWjNvd2VHRmZlREJLVXpoQlEyaHZaV2RDUnkwdExTMHRMUzEyZEhkb05pMXVNa0ZCUVVGQlIzRnZlakJ2VFhKQ2J6aEJFZzFEV2pNeE1EUjhRMW8yTURnNUdnd0lnb2ljQ2hBQUdnTldUa1E0SEhEWmd3VT0iLFtbIlBLWCIsIjIwMjYtMTAtMjYiLCJDQU4iLG51bGwsIkNaIiwiMzEwNCJdLFsiQ0FOIiwiMjAyNi0xMC0yNiIsIlNHTiIsbnVsbCwiQ1oiLCI2MDg5Il1dXQ==",
           "source": "Google Flights via SerpApi",
           "live_mode": true,
           "search_mode": "direct-priority",
           "route_id": "return",
           "is_direct": false,
           "stops": 1,
-          "total_amount": "21381202",
+          "total_amount": "21431298",
           "total_currency": "VND",
           "total_duration_minutes": 650,
-          "booking_token": "WyJDalJJTFc0ek1tdGljR3RXWW5kQlUySlJlSGRDUnkwdExTMHRMUzB0TFMxNWJHOW9PRUZCUVVGQlIzRnVabXBSU0dGYVFtVkJFZzFEV2pNeE1EUjhRMW8yTURnNUdnd0kwb0NaQ2hBQUdnTldUa1E0SEhEMWd3VT0iLFtbIlBLWCIsIjIwMjYtMTAtMjYiLCJDQU4iLG51bGwsIkNaIiwiMzEwNCJdLFsiQ0FOIiwiMjAyNi0xMC0yNiIsIlNHTiIsbnVsbCwiQ1oiLCI2MDg5Il1dXQ==",
+          "booking_token": "WyJDalJJWjNvd2VHRmZlREJLVXpoQlEyaHZaV2RDUnkwdExTMHRMUzEyZEhkb05pMXVNa0ZCUVVGQlIzRnZlakJ2VFhKQ2J6aEJFZzFEV2pNeE1EUjhRMW8yTURnNUdnd0lnb2ljQ2hBQUdnTldUa1E0SEhEWmd3VT0iLFtbIlBLWCIsIjIwMjYtMTAtMjYiLCJDQU4iLG51bGwsIkNaIiwiMzEwNCJdLFsiQ0FOIiwiMjAyNi0xMC0yNiIsIlNHTiIsbnVsbCwiQ1oiLCI2MDg5Il1dXQ==",
           "departure_token": null,
           "google_flights_url": "https://www.google.com/travel/flights?hl=en&gl=vn&curr=VND&tfs=CBwQAhopEgoyMDI2LTEwLTI2KAFqBwgBEgNQRUtqBwgBEgNQS1hyBwgBEgNTR05AAUABQAFAAUABQAFAA0gBcAGYAQI&tfu=EgQIAhAB",
           "fare_extensions": [],
@@ -2205,17 +2214,17 @@
           ]
         },
         {
-          "id": "WyJDalJJTFc0ek1tdGljR3RXWW5kQlUySlJlSGRDUnkwdExTMHRMUzB0TFMxNWJHOW9PRUZCUVVGQlIzRnVabXBSU0dGYVFtVkJFZzFEV2pNeE9EQjhRMW8yTURnNUdnd0kwb0NaQ2hBQUdnTldUa1E0SEhEMWd3VT0iLFtbIlBLWCIsIjIwMjYtMTAtMjYiLCJDQU4iLG51bGwsIkNaIiwiMzE4MCJdLFsiQ0FOIiwiMjAyNi0xMC0yNiIsIlNHTiIsbnVsbCwiQ1oiLCI2MDg5Il1dXQ==",
+          "id": "WyJDalJJWjNvd2VHRmZlREJLVXpoQlEyaHZaV2RDUnkwdExTMHRMUzEyZEhkb05pMXVNa0ZCUVVGQlIzRnZlakJ2VFhKQ2J6aEJFZzFEV2pNeE9EQjhRMW8yTURnNUdnd0lnb2ljQ2hBQUdnTldUa1E0SEhEWmd3VT0iLFtbIlBLWCIsIjIwMjYtMTAtMjYiLCJDQU4iLG51bGwsIkNaIiwiMzE4MCJdLFsiQ0FOIiwiMjAyNi0xMC0yNiIsIlNHTiIsbnVsbCwiQ1oiLCI2MDg5Il1dXQ==",
           "source": "Google Flights via SerpApi",
           "live_mode": true,
           "search_mode": "direct-priority",
           "route_id": "return",
           "is_direct": false,
           "stops": 1,
-          "total_amount": "21381202",
+          "total_amount": "21431298",
           "total_currency": "VND",
           "total_duration_minutes": 590,
-          "booking_token": "WyJDalJJTFc0ek1tdGljR3RXWW5kQlUySlJlSGRDUnkwdExTMHRMUzB0TFMxNWJHOW9PRUZCUVVGQlIzRnVabXBSU0dGYVFtVkJFZzFEV2pNeE9EQjhRMW8yTURnNUdnd0kwb0NaQ2hBQUdnTldUa1E0SEhEMWd3VT0iLFtbIlBLWCIsIjIwMjYtMTAtMjYiLCJDQU4iLG51bGwsIkNaIiwiMzE4MCJdLFsiQ0FOIiwiMjAyNi0xMC0yNiIsIlNHTiIsbnVsbCwiQ1oiLCI2MDg5Il1dXQ==",
+          "booking_token": "WyJDalJJWjNvd2VHRmZlREJLVXpoQlEyaHZaV2RDUnkwdExTMHRMUzEyZEhkb05pMXVNa0ZCUVVGQlIzRnZlakJ2VFhKQ2J6aEJFZzFEV2pNeE9EQjhRMW8yTURnNUdnd0lnb2ljQ2hBQUdnTldUa1E0SEhEWmd3VT0iLFtbIlBLWCIsIjIwMjYtMTAtMjYiLCJDQU4iLG51bGwsIkNaIiwiMzE4MCJdLFsiQ0FOIiwiMjAyNi0xMC0yNiIsIlNHTiIsbnVsbCwiQ1oiLCI2MDg5Il1dXQ==",
           "departure_token": null,
           "google_flights_url": "https://www.google.com/travel/flights?hl=en&gl=vn&curr=VND&tfs=CBwQAhopEgoyMDI2LTEwLTI2KAFqBwgBEgNQRUtqBwgBEgNQS1hyBwgBEgNTR05AAUABQAFAAUABQAFAA0gBcAGYAQI&tfu=EgQIAhAB",
           "fare_extensions": [],
@@ -2286,17 +2295,17 @@
           ]
         },
         {
-          "id": "WyJDalJJTFc0ek1tdGljR3RXWW5kQlUySlJlSGRDUnkwdExTMHRMUzB0TFMxNWJHOW9PRUZCUVVGQlIzRnVabXBSU0dGYVFtVkJFZzFEV2pNeE1qSjhRMW8yTURnNUdnd0kwb0NaQ2hBQUdnTldUa1E0SEhEMWd3VT0iLFtbIlBLWCIsIjIwMjYtMTAtMjYiLCJDQU4iLG51bGwsIkNaIiwiMzEyMiJdLFsiQ0FOIiwiMjAyNi0xMC0yNiIsIlNHTiIsbnVsbCwiQ1oiLCI2MDg5Il1dXQ==",
+          "id": "WyJDalJJWjNvd2VHRmZlREJLVXpoQlEyaHZaV2RDUnkwdExTMHRMUzEyZEhkb05pMXVNa0ZCUVVGQlIzRnZlakJ2VFhKQ2J6aEJFZzFEV2pNeE1qSjhRMW8yTURnNUdnd0lnb2ljQ2hBQUdnTldUa1E0SEhEWmd3VT0iLFtbIlBLWCIsIjIwMjYtMTAtMjYiLCJDQU4iLG51bGwsIkNaIiwiMzEyMiJdLFsiQ0FOIiwiMjAyNi0xMC0yNiIsIlNHTiIsbnVsbCwiQ1oiLCI2MDg5Il1dXQ==",
           "source": "Google Flights via SerpApi",
           "live_mode": true,
           "search_mode": "direct-priority",
           "route_id": "return",
           "is_direct": false,
           "stops": 1,
-          "total_amount": "21381202",
+          "total_amount": "21431298",
           "total_currency": "VND",
           "total_duration_minutes": 530,
-          "booking_token": "WyJDalJJTFc0ek1tdGljR3RXWW5kQlUySlJlSGRDUnkwdExTMHRMUzB0TFMxNWJHOW9PRUZCUVVGQlIzRnVabXBSU0dGYVFtVkJFZzFEV2pNeE1qSjhRMW8yTURnNUdnd0kwb0NaQ2hBQUdnTldUa1E0SEhEMWd3VT0iLFtbIlBLWCIsIjIwMjYtMTAtMjYiLCJDQU4iLG51bGwsIkNaIiwiMzEyMiJdLFsiQ0FOIiwiMjAyNi0xMC0yNiIsIlNHTiIsbnVsbCwiQ1oiLCI2MDg5Il1dXQ==",
+          "booking_token": "WyJDalJJWjNvd2VHRmZlREJLVXpoQlEyaHZaV2RDUnkwdExTMHRMUzEyZEhkb05pMXVNa0ZCUVVGQlIzRnZlakJ2VFhKQ2J6aEJFZzFEV2pNeE1qSjhRMW8yTURnNUdnd0lnb2ljQ2hBQUdnTldUa1E0SEhEWmd3VT0iLFtbIlBLWCIsIjIwMjYtMTAtMjYiLCJDQU4iLG51bGwsIkNaIiwiMzEyMiJdLFsiQ0FOIiwiMjAyNi0xMC0yNiIsIlNHTiIsbnVsbCwiQ1oiLCI2MDg5Il1dXQ==",
           "departure_token": null,
           "google_flights_url": "https://www.google.com/travel/flights?hl=en&gl=vn&curr=VND&tfs=CBwQAhopEgoyMDI2LTEwLTI2KAFqBwgBEgNQRUtqBwgBEgNQS1hyBwgBEgNTR05AAUABQAFAAUABQAFAA0gBcAGYAQI&tfu=EgQIAhAB",
           "fare_extensions": [],
@@ -2369,17 +2378,17 @@
           ]
         },
         {
-          "id": "WyJDalJJTFc0ek1tdGljR3RXWW5kQlUySlJlSGRDUnkwdExTMHRMUzB0TFMxNWJHOW9PRUZCUVVGQlIzRnVabXBSU0dGYVFtVkJFZzFEV2pNeE1EQjhRMW8yTURnNUdnd0kwb0NaQ2hBQUdnTldUa1E0SEhEMWd3VT0iLFtbIlBLWCIsIjIwMjYtMTAtMjYiLCJDQU4iLG51bGwsIkNaIiwiMzEwMCJdLFsiQ0FOIiwiMjAyNi0xMC0yNiIsIlNHTiIsbnVsbCwiQ1oiLCI2MDg5Il1dXQ==",
+          "id": "WyJDalJJWjNvd2VHRmZlREJLVXpoQlEyaHZaV2RDUnkwdExTMHRMUzEyZEhkb05pMXVNa0ZCUVVGQlIzRnZlakJ2VFhKQ2J6aEJFZzFEV2pNeE1EQjhRMW8yTURnNUdnd0lnb2ljQ2hBQUdnTldUa1E0SEhEWmd3VT0iLFtbIlBLWCIsIjIwMjYtMTAtMjYiLCJDQU4iLG51bGwsIkNaIiwiMzEwMCJdLFsiQ0FOIiwiMjAyNi0xMC0yNiIsIlNHTiIsbnVsbCwiQ1oiLCI2MDg5Il1dXQ==",
           "source": "Google Flights via SerpApi",
           "live_mode": true,
           "search_mode": "direct-priority",
           "route_id": "return",
           "is_direct": false,
           "stops": 1,
-          "total_amount": "21381202",
+          "total_amount": "21431298",
           "total_currency": "VND",
           "total_duration_minutes": 470,
-          "booking_token": "WyJDalJJTFc0ek1tdGljR3RXWW5kQlUySlJlSGRDUnkwdExTMHRMUzB0TFMxNWJHOW9PRUZCUVVGQlIzRnVabXBSU0dGYVFtVkJFZzFEV2pNeE1EQjhRMW8yTURnNUdnd0kwb0NaQ2hBQUdnTldUa1E0SEhEMWd3VT0iLFtbIlBLWCIsIjIwMjYtMTAtMjYiLCJDQU4iLG51bGwsIkNaIiwiMzEwMCJdLFsiQ0FOIiwiMjAyNi0xMC0yNiIsIlNHTiIsbnVsbCwiQ1oiLCI2MDg5Il1dXQ==",
+          "booking_token": "WyJDalJJWjNvd2VHRmZlREJLVXpoQlEyaHZaV2RDUnkwdExTMHRMUzEyZEhkb05pMXVNa0ZCUVVGQlIzRnZlakJ2VFhKQ2J6aEJFZzFEV2pNeE1EQjhRMW8yTURnNUdnd0lnb2ljQ2hBQUdnTldUa1E0SEhEWmd3VT0iLFtbIlBLWCIsIjIwMjYtMTAtMjYiLCJDQU4iLG51bGwsIkNaIiwiMzEwMCJdLFsiQ0FOIiwiMjAyNi0xMC0yNiIsIlNHTiIsbnVsbCwiQ1oiLCI2MDg5Il1dXQ==",
           "departure_token": null,
           "google_flights_url": "https://www.google.com/travel/flights?hl=en&gl=vn&curr=VND&tfs=CBwQAhopEgoyMDI2LTEwLTI2KAFqBwgBEgNQRUtqBwgBEgNQS1hyBwgBEgNTR05AAUABQAFAAUABQAFAA0gBcAGYAQI&tfu=EgQIAhAB",
           "fare_extensions": [],
@@ -2450,17 +2459,17 @@
           ]
         },
         {
-          "id": "WyJDalJJTFc0ek1tdGljR3RXWW5kQlUySlJlSGRDUnkwdExTMHRMUzB0TFMxNWJHOW9PRUZCUVVGQlIzRnVabXBSU0dGYVFtVkJFZzFEV2pNeE9UQjhRMW80TkRZMUdnd0kwb0NaQ2hBQUdnTldUa1E0SEhEMWd3VT0iLFtbIlBLWCIsIjIwMjYtMTAtMjYiLCJTWlgiLG51bGwsIkNaIiwiMzE5MCJdLFsiU1pYIiwiMjAyNi0xMC0yNyIsIlNHTiIsbnVsbCwiQ1oiLCI4NDY1Il1dXQ==",
+          "id": "WyJDalJJWjNvd2VHRmZlREJLVXpoQlEyaHZaV2RDUnkwdExTMHRMUzEyZEhkb05pMXVNa0ZCUVVGQlIzRnZlakJ2VFhKQ2J6aEJFZzFEV2pNeE9UQjhRMW80TkRZMUdnd0lnb2ljQ2hBQUdnTldUa1E0SEhEWmd3VT0iLFtbIlBLWCIsIjIwMjYtMTAtMjYiLCJTWlgiLG51bGwsIkNaIiwiMzE5MCJdLFsiU1pYIiwiMjAyNi0xMC0yNyIsIlNHTiIsbnVsbCwiQ1oiLCI4NDY1Il1dXQ==",
           "source": "Google Flights via SerpApi",
           "live_mode": true,
           "search_mode": "direct-priority",
           "route_id": "return",
           "is_direct": false,
           "stops": 1,
-          "total_amount": "21381202",
+          "total_amount": "21431298",
           "total_currency": "VND",
           "total_duration_minutes": 1110,
-          "booking_token": "WyJDalJJTFc0ek1tdGljR3RXWW5kQlUySlJlSGRDUnkwdExTMHRMUzB0TFMxNWJHOW9PRUZCUVVGQlIzRnVabXBSU0dGYVFtVkJFZzFEV2pNeE9UQjhRMW80TkRZMUdnd0kwb0NaQ2hBQUdnTldUa1E0SEhEMWd3VT0iLFtbIlBLWCIsIjIwMjYtMTAtMjYiLCJTWlgiLG51bGwsIkNaIiwiMzE5MCJdLFsiU1pYIiwiMjAyNi0xMC0yNyIsIlNHTiIsbnVsbCwiQ1oiLCI4NDY1Il1dXQ==",
+          "booking_token": "WyJDalJJWjNvd2VHRmZlREJLVXpoQlEyaHZaV2RDUnkwdExTMHRMUzEyZEhkb05pMXVNa0ZCUVVGQlIzRnZlakJ2VFhKQ2J6aEJFZzFEV2pNeE9UQjhRMW80TkRZMUdnd0lnb2ljQ2hBQUdnTldUa1E0SEhEWmd3VT0iLFtbIlBLWCIsIjIwMjYtMTAtMjYiLCJTWlgiLG51bGwsIkNaIiwiMzE5MCJdLFsiU1pYIiwiMjAyNi0xMC0yNyIsIlNHTiIsbnVsbCwiQ1oiLCI4NDY1Il1dXQ==",
           "departure_token": null,
           "google_flights_url": "https://www.google.com/travel/flights?hl=en&gl=vn&curr=VND&tfs=CBwQAhopEgoyMDI2LTEwLTI2KAFqBwgBEgNQRUtqBwgBEgNQS1hyBwgBEgNTR05AAUABQAFAAUABQAFAA0gBcAGYAQI&tfu=EgQIAhAB",
           "fare_extensions": [],
@@ -2532,17 +2541,17 @@
           ]
         },
         {
-          "id": "WyJDalJJTFc0ek1tdGljR3RXWW5kQlUySlJlSGRDUnkwdExTMHRMUzB0TFMxNWJHOW9PRUZCUVVGQlIzRnVabXBSU0dGYVFtVkJFZ3hEV2pNeE1UWjhRMW96TnpNYURBamd2c01LRUFBYUExWk9SRGdjY1BDWUJRPT0iLFtbIlBLWCIsIjIwMjYtMTAtMjYiLCJDQU4iLG51bGwsIkNaIiwiMzExNiJdLFsiQ0FOIiwiMjAyNi0xMC0yNiIsIlNHTiIsbnVsbCwiQ1oiLCIzNzMiXV1d",
+          "id": "WyJDalJJWjNvd2VHRmZlREJLVXpoQlEyaHZaV2RDUnkwdExTMHRMUzEyZEhkb05pMXVNa0ZCUVVGQlIzRnZlakJ2VFhKQ2J6aEJFZ3hEV2pNeE1UWjhRMW96TnpNYURBanYwc1lLRUFBYUExWk9SRGdjY05TWUJRPT0iLFtbIlBLWCIsIjIwMjYtMTAtMjYiLCJDQU4iLG51bGwsIkNaIiwiMzExNiJdLFsiQ0FOIiwiMjAyNi0xMC0yNiIsIlNHTiIsbnVsbCwiQ1oiLCIzNzMiXV1d",
           "source": "Google Flights via SerpApi",
           "live_mode": true,
           "search_mode": "direct-priority",
           "route_id": "return",
           "is_direct": false,
           "stops": 1,
-          "total_amount": "22077280",
+          "total_amount": "22129007",
           "total_currency": "VND",
           "total_duration_minutes": 515,
-          "booking_token": "WyJDalJJTFc0ek1tdGljR3RXWW5kQlUySlJlSGRDUnkwdExTMHRMUzB0TFMxNWJHOW9PRUZCUVVGQlIzRnVabXBSU0dGYVFtVkJFZ3hEV2pNeE1UWjhRMW96TnpNYURBamd2c01LRUFBYUExWk9SRGdjY1BDWUJRPT0iLFtbIlBLWCIsIjIwMjYtMTAtMjYiLCJDQU4iLG51bGwsIkNaIiwiMzExNiJdLFsiQ0FOIiwiMjAyNi0xMC0yNiIsIlNHTiIsbnVsbCwiQ1oiLCIzNzMiXV1d",
+          "booking_token": "WyJDalJJWjNvd2VHRmZlREJLVXpoQlEyaHZaV2RDUnkwdExTMHRMUzEyZEhkb05pMXVNa0ZCUVVGQlIzRnZlakJ2VFhKQ2J6aEJFZ3hEV2pNeE1UWjhRMW96TnpNYURBanYwc1lLRUFBYUExWk9SRGdjY05TWUJRPT0iLFtbIlBLWCIsIjIwMjYtMTAtMjYiLCJDQU4iLG51bGwsIkNaIiwiMzExNiJdLFsiQ0FOIiwiMjAyNi0xMC0yNiIsIlNHTiIsbnVsbCwiQ1oiLCIzNzMiXV1d",
           "departure_token": null,
           "google_flights_url": "https://www.google.com/travel/flights?hl=en&gl=vn&curr=VND&tfs=CBwQAhopEgoyMDI2LTEwLTI2KAFqBwgBEgNQRUtqBwgBEgNQS1hyBwgBEgNTR05AAUABQAFAAUABQAFAA0gBcAGYAQI&tfu=EgQIAhAB",
           "fare_extensions": [],
@@ -2613,17 +2622,17 @@
           ]
         },
         {
-          "id": "WyJDalJJTFc0ek1tdGljR3RXWW5kQlUySlJlSGRDUnkwdExTMHRMUzB0TFMxNWJHOW9PRUZCUVVGQlIzRnVabXBSU0dGYVFtVkJFZ3hEV2pNeE1USjhRMW96TmpjYURBamd2c01LRUFBYUExWk9SRGdjY1BDWUJRPT0iLFtbIlBLWCIsIjIwMjYtMTAtMjYiLCJDQU4iLG51bGwsIkNaIiwiMzExMiJdLFsiQ0FOIiwiMjAyNi0xMC0yNiIsIlNHTiIsbnVsbCwiQ1oiLCIzNjciXV1d",
+          "id": "WyJDalJJWjNvd2VHRmZlREJLVXpoQlEyaHZaV2RDUnkwdExTMHRMUzEyZEhkb05pMXVNa0ZCUVVGQlIzRnZlakJ2VFhKQ2J6aEJFZ3hEV2pNeE1USjhRMW96TmpjYURBanYwc1lLRUFBYUExWk9SRGdjY05TWUJRPT0iLFtbIlBLWCIsIjIwMjYtMTAtMjYiLCJDQU4iLG51bGwsIkNaIiwiMzExMiJdLFsiQ0FOIiwiMjAyNi0xMC0yNiIsIlNHTiIsbnVsbCwiQ1oiLCIzNjciXV1d",
           "source": "Google Flights via SerpApi",
           "live_mode": true,
           "search_mode": "direct-priority",
           "route_id": "return",
           "is_direct": false,
           "stops": 1,
-          "total_amount": "22077280",
+          "total_amount": "22129007",
           "total_currency": "VND",
           "total_duration_minutes": 700,
-          "booking_token": "WyJDalJJTFc0ek1tdGljR3RXWW5kQlUySlJlSGRDUnkwdExTMHRMUzB0TFMxNWJHOW9PRUZCUVVGQlIzRnVabXBSU0dGYVFtVkJFZ3hEV2pNeE1USjhRMW96TmpjYURBamd2c01LRUFBYUExWk9SRGdjY1BDWUJRPT0iLFtbIlBLWCIsIjIwMjYtMTAtMjYiLCJDQU4iLG51bGwsIkNaIiwiMzExMiJdLFsiQ0FOIiwiMjAyNi0xMC0yNiIsIlNHTiIsbnVsbCwiQ1oiLCIzNjciXV1d",
+          "booking_token": "WyJDalJJWjNvd2VHRmZlREJLVXpoQlEyaHZaV2RDUnkwdExTMHRMUzEyZEhkb05pMXVNa0ZCUVVGQlIzRnZlakJ2VFhKQ2J6aEJFZ3hEV2pNeE1USjhRMW96TmpjYURBanYwc1lLRUFBYUExWk9SRGdjY05TWUJRPT0iLFtbIlBLWCIsIjIwMjYtMTAtMjYiLCJDQU4iLG51bGwsIkNaIiwiMzExMiJdLFsiQ0FOIiwiMjAyNi0xMC0yNiIsIlNHTiIsbnVsbCwiQ1oiLCIzNjciXV1d",
           "departure_token": null,
           "google_flights_url": "https://www.google.com/travel/flights?hl=en&gl=vn&curr=VND&tfs=CBwQAhopEgoyMDI2LTEwLTI2KAFqBwgBEgNQRUtqBwgBEgNQS1hyBwgBEgNTR05AAUABQAFAAUABQAFAA0gBcAGYAQI&tfu=EgQIAhAB",
           "fare_extensions": [],
@@ -2694,17 +2703,17 @@
           ]
         },
         {
-          "id": "WyJDalJJTFc0ek1tdGljR3RXWW5kQlUySlJlSGRDUnkwdExTMHRMUzB0TFMxNWJHOW9PRUZCUVVGQlIzRnVabXBSU0dGYVFtVkJFZ3hEV2pNeE1ESjhRMW96TmpjYURBamd2c01LRUFBYUExWk9SRGdjY1BDWUJRPT0iLFtbIlBLWCIsIjIwMjYtMTAtMjYiLCJDQU4iLG51bGwsIkNaIiwiMzEwMiJdLFsiQ0FOIiwiMjAyNi0xMC0yNiIsIlNHTiIsbnVsbCwiQ1oiLCIzNjciXV1d",
+          "id": "WyJDalJJWjNvd2VHRmZlREJLVXpoQlEyaHZaV2RDUnkwdExTMHRMUzEyZEhkb05pMXVNa0ZCUVVGQlIzRnZlakJ2VFhKQ2J6aEJFZ3hEV2pNeE1ESjhRMW96TmpjYURBanYwc1lLRUFBYUExWk9SRGdjY05TWUJRPT0iLFtbIlBLWCIsIjIwMjYtMTAtMjYiLCJDQU4iLG51bGwsIkNaIiwiMzEwMiJdLFsiQ0FOIiwiMjAyNi0xMC0yNiIsIlNHTiIsbnVsbCwiQ1oiLCIzNjciXV1d",
           "source": "Google Flights via SerpApi",
           "live_mode": true,
           "search_mode": "direct-priority",
           "route_id": "return",
           "is_direct": false,
           "stops": 1,
-          "total_amount": "22077280",
+          "total_amount": "22129007",
           "total_currency": "VND",
           "total_duration_minutes": 640,
-          "booking_token": "WyJDalJJTFc0ek1tdGljR3RXWW5kQlUySlJlSGRDUnkwdExTMHRMUzB0TFMxNWJHOW9PRUZCUVVGQlIzRnVabXBSU0dGYVFtVkJFZ3hEV2pNeE1ESjhRMW96TmpjYURBamd2c01LRUFBYUExWk9SRGdjY1BDWUJRPT0iLFtbIlBLWCIsIjIwMjYtMTAtMjYiLCJDQU4iLG51bGwsIkNaIiwiMzEwMiJdLFsiQ0FOIiwiMjAyNi0xMC0yNiIsIlNHTiIsbnVsbCwiQ1oiLCIzNjciXV1d",
+          "booking_token": "WyJDalJJWjNvd2VHRmZlREJLVXpoQlEyaHZaV2RDUnkwdExTMHRMUzEyZEhkb05pMXVNa0ZCUVVGQlIzRnZlakJ2VFhKQ2J6aEJFZ3hEV2pNeE1ESjhRMW96TmpjYURBanYwc1lLRUFBYUExWk9SRGdjY05TWUJRPT0iLFtbIlBLWCIsIjIwMjYtMTAtMjYiLCJDQU4iLG51bGwsIkNaIiwiMzEwMiJdLFsiQ0FOIiwiMjAyNi0xMC0yNiIsIlNHTiIsbnVsbCwiQ1oiLCIzNjciXV1d",
           "departure_token": null,
           "google_flights_url": "https://www.google.com/travel/flights?hl=en&gl=vn&curr=VND&tfs=CBwQAhopEgoyMDI2LTEwLTI2KAFqBwgBEgNQRUtqBwgBEgNQS1hyBwgBEgNTR05AAUABQAFAAUABQAFAA0gBcAGYAQI&tfu=EgQIAhAB",
           "fare_extensions": [],
@@ -2776,17 +2785,17 @@
           ]
         },
         {
-          "id": "WyJDalJJTFc0ek1tdGljR3RXWW5kQlUySlJlSGRDUnkwdExTMHRMUzB0TFMxNWJHOW9PRUZCUVVGQlIzRnVabXBSU0dGYVFtVkJFZ3hEV2pNeE1EWjhRMW96TmpjYURBamd2c01LRUFBYUExWk9SRGdjY1BDWUJRPT0iLFtbIlBLWCIsIjIwMjYtMTAtMjYiLCJDQU4iLG51bGwsIkNaIiwiMzEwNiJdLFsiQ0FOIiwiMjAyNi0xMC0yNiIsIlNHTiIsbnVsbCwiQ1oiLCIzNjciXV1d",
+          "id": "WyJDalJJWjNvd2VHRmZlREJLVXpoQlEyaHZaV2RDUnkwdExTMHRMUzEyZEhkb05pMXVNa0ZCUVVGQlIzRnZlakJ2VFhKQ2J6aEJFZ3hEV2pNeE1EWjhRMW96TmpjYURBanYwc1lLRUFBYUExWk9SRGdjY05TWUJRPT0iLFtbIlBLWCIsIjIwMjYtMTAtMjYiLCJDQU4iLG51bGwsIkNaIiwiMzEwNiJdLFsiQ0FOIiwiMjAyNi0xMC0yNiIsIlNHTiIsbnVsbCwiQ1oiLCIzNjciXV1d",
           "source": "Google Flights via SerpApi",
           "live_mode": true,
           "search_mode": "direct-priority",
           "route_id": "return",
           "is_direct": false,
           "stops": 1,
-          "total_amount": "22077280",
+          "total_amount": "22129007",
           "total_currency": "VND",
           "total_duration_minutes": 580,
-          "booking_token": "WyJDalJJTFc0ek1tdGljR3RXWW5kQlUySlJlSGRDUnkwdExTMHRMUzB0TFMxNWJHOW9PRUZCUVVGQlIzRnVabXBSU0dGYVFtVkJFZ3hEV2pNeE1EWjhRMW96TmpjYURBamd2c01LRUFBYUExWk9SRGdjY1BDWUJRPT0iLFtbIlBLWCIsIjIwMjYtMTAtMjYiLCJDQU4iLG51bGwsIkNaIiwiMzEwNiJdLFsiQ0FOIiwiMjAyNi0xMC0yNiIsIlNHTiIsbnVsbCwiQ1oiLCIzNjciXV1d",
+          "booking_token": "WyJDalJJWjNvd2VHRmZlREJLVXpoQlEyaHZaV2RDUnkwdExTMHRMUzEyZEhkb05pMXVNa0ZCUVVGQlIzRnZlakJ2VFhKQ2J6aEJFZ3hEV2pNeE1EWjhRMW96TmpjYURBanYwc1lLRUFBYUExWk9SRGdjY05TWUJRPT0iLFtbIlBLWCIsIjIwMjYtMTAtMjYiLCJDQU4iLG51bGwsIkNaIiwiMzEwNiJdLFsiQ0FOIiwiMjAyNi0xMC0yNiIsIlNHTiIsbnVsbCwiQ1oiLCIzNjciXV1d",
           "departure_token": null,
           "google_flights_url": "https://www.google.com/travel/flights?hl=en&gl=vn&curr=VND&tfs=CBwQAhopEgoyMDI2LTEwLTI2KAFqBwgBEgNQRUtqBwgBEgNQS1hyBwgBEgNTR05AAUABQAFAAUABQAFAA0gBcAGYAQI&tfu=EgQIAhAB",
           "fare_extensions": [],
@@ -2858,17 +2867,17 @@
           ]
         },
         {
-          "id": "WyJDalJJTFc0ek1tdGljR3RXWW5kQlUySlJlSGRDUnkwdExTMHRMUzB0TFMxNWJHOW9PRUZCUVVGQlIzRnVabXBSU0dGYVFtVkJFZ3hEV2pNeE5qSjhRMW96TmpjYURBamd2c01LRUFBYUExWk9SRGdjY1BDWUJRPT0iLFtbIlBLWCIsIjIwMjYtMTAtMjYiLCJDQU4iLG51bGwsIkNaIiwiMzE2MiJdLFsiQ0FOIiwiMjAyNi0xMC0yNiIsIlNHTiIsbnVsbCwiQ1oiLCIzNjciXV1d",
+          "id": "WyJDalJJWjNvd2VHRmZlREJLVXpoQlEyaHZaV2RDUnkwdExTMHRMUzEyZEhkb05pMXVNa0ZCUVVGQlIzRnZlakJ2VFhKQ2J6aEJFZ3hEV2pNeE5qSjhRMW96TmpjYURBanYwc1lLRUFBYUExWk9SRGdjY05TWUJRPT0iLFtbIlBLWCIsIjIwMjYtMTAtMjYiLCJDQU4iLG51bGwsIkNaIiwiMzE2MiJdLFsiQ0FOIiwiMjAyNi0xMC0yNiIsIlNHTiIsbnVsbCwiQ1oiLCIzNjciXV1d",
           "source": "Google Flights via SerpApi",
           "live_mode": true,
           "search_mode": "direct-priority",
           "route_id": "return",
           "is_direct": false,
           "stops": 1,
-          "total_amount": "22077280",
+          "total_amount": "22129007",
           "total_currency": "VND",
           "total_duration_minutes": 520,
-          "booking_token": "WyJDalJJTFc0ek1tdGljR3RXWW5kQlUySlJlSGRDUnkwdExTMHRMUzB0TFMxNWJHOW9PRUZCUVVGQlIzRnVabXBSU0dGYVFtVkJFZ3hEV2pNeE5qSjhRMW96TmpjYURBamd2c01LRUFBYUExWk9SRGdjY1BDWUJRPT0iLFtbIlBLWCIsIjIwMjYtMTAtMjYiLCJDQU4iLG51bGwsIkNaIiwiMzE2MiJdLFsiQ0FOIiwiMjAyNi0xMC0yNiIsIlNHTiIsbnVsbCwiQ1oiLCIzNjciXV1d",
+          "booking_token": "WyJDalJJWjNvd2VHRmZlREJLVXpoQlEyaHZaV2RDUnkwdExTMHRMUzEyZEhkb05pMXVNa0ZCUVVGQlIzRnZlakJ2VFhKQ2J6aEJFZ3hEV2pNeE5qSjhRMW96TmpjYURBanYwc1lLRUFBYUExWk9SRGdjY05TWUJRPT0iLFtbIlBLWCIsIjIwMjYtMTAtMjYiLCJDQU4iLG51bGwsIkNaIiwiMzE2MiJdLFsiQ0FOIiwiMjAyNi0xMC0yNiIsIlNHTiIsbnVsbCwiQ1oiLCIzNjciXV1d",
           "departure_token": null,
           "google_flights_url": "https://www.google.com/travel/flights?hl=en&gl=vn&curr=VND&tfs=CBwQAhopEgoyMDI2LTEwLTI2KAFqBwgBEgNQRUtqBwgBEgNQS1hyBwgBEgNTR05AAUABQAFAAUABQAFAA0gBcAGYAQI&tfu=EgQIAhAB",
           "fare_extensions": [],
@@ -2898,7 +2907,7 @@
                   "airplane": "Airbus A321neo",
                   "travel_class": "Economy",
                   "extensions": [
-                    "Average legroom (30 in)",
+                    "Below average legroom (29 in)",
                     "In-seat USB outlet",
                     "Carbon emissions estimate: 852 kg"
                   ],
@@ -2939,17 +2948,17 @@
           ]
         },
         {
-          "id": "WyJDalJJTFc0ek1tdGljR3RXWW5kQlUySlJlSGRDUnkwdExTMHRMUzB0TFMxNWJHOW9PRUZCUVVGQlIzRnVabXBSU0dGYVFtVkJFZzFEV2pNeE1UUjhRMW80TVRVNUdnd0k0TDdEQ2hBQUdnTldUa1E0SEhEd21BVT0iLFtbIlBLWCIsIjIwMjYtMTAtMjYiLCJDQU4iLG51bGwsIkNaIiwiMzExNCJdLFsiQ0FOIiwiMjAyNi0xMC0yNyIsIlNHTiIsbnVsbCwiQ1oiLCI4MTU5Il1dXQ==",
+          "id": "WyJDalJJWjNvd2VHRmZlREJLVXpoQlEyaHZaV2RDUnkwdExTMHRMUzEyZEhkb05pMXVNa0ZCUVVGQlIzRnZlakJ2VFhKQ2J6aEJFZzFEV2pNeE1UUjhRMW80TVRVNUdnd0k3OUxHQ2hBQUdnTldUa1E0SEhEVW1BVT0iLFtbIlBLWCIsIjIwMjYtMTAtMjYiLCJDQU4iLG51bGwsIkNaIiwiMzExNCJdLFsiQ0FOIiwiMjAyNi0xMC0yNyIsIlNHTiIsbnVsbCwiQ1oiLCI4MTU5Il1dXQ==",
           "source": "Google Flights via SerpApi",
           "live_mode": true,
           "search_mode": "direct-priority",
           "route_id": "return",
           "is_direct": false,
           "stops": 1,
-          "total_amount": "22077280",
+          "total_amount": "22129007",
           "total_currency": "VND",
           "total_duration_minutes": 850,
-          "booking_token": "WyJDalJJTFc0ek1tdGljR3RXWW5kQlUySlJlSGRDUnkwdExTMHRMUzB0TFMxNWJHOW9PRUZCUVVGQlIzRnVabXBSU0dGYVFtVkJFZzFEV2pNeE1UUjhRMW80TVRVNUdnd0k0TDdEQ2hBQUdnTldUa1E0SEhEd21BVT0iLFtbIlBLWCIsIjIwMjYtMTAtMjYiLCJDQU4iLG51bGwsIkNaIiwiMzExNCJdLFsiQ0FOIiwiMjAyNi0xMC0yNyIsIlNHTiIsbnVsbCwiQ1oiLCI4MTU5Il1dXQ==",
+          "booking_token": "WyJDalJJWjNvd2VHRmZlREJLVXpoQlEyaHZaV2RDUnkwdExTMHRMUzEyZEhkb05pMXVNa0ZCUVVGQlIzRnZlakJ2VFhKQ2J6aEJFZzFEV2pNeE1UUjhRMW80TVRVNUdnd0k3OUxHQ2hBQUdnTldUa1E0SEhEVW1BVT0iLFtbIlBLWCIsIjIwMjYtMTAtMjYiLCJDQU4iLG51bGwsIkNaIiwiMzExNCJdLFsiQ0FOIiwiMjAyNi0xMC0yNyIsIlNHTiIsbnVsbCwiQ1oiLCI4MTU5Il1dXQ==",
           "departure_token": null,
           "google_flights_url": "https://www.google.com/travel/flights?hl=en&gl=vn&curr=VND&tfs=CBwQAhopEgoyMDI2LTEwLTI2KAFqBwgBEgNQRUtqBwgBEgNQS1hyBwgBEgNTR05AAUABQAFAAUABQAFAA0gBcAGYAQI&tfu=EgQIAhAB",
           "fare_extensions": [],
@@ -3020,17 +3029,17 @@
           ]
         },
         {
-          "id": "WyJDalJJTFc0ek1tdGljR3RXWW5kQlUySlJlSGRDUnkwdExTMHRMUzB0TFMxNWJHOW9PRUZCUVVGQlIzRnVabXBSU0dGYVFtVkJFZzFUUXpRMk5UWjhVME0wTmpRMUdnd0lvcmF5Q3hBQUdnTldUa1E0SEhET3p3VT0iLFtbIlBFSyIsIjIwMjYtMTAtMjYiLCJUQU8iLG51bGwsIlNDIiwiNDY1NiJdLFsiVEFPIiwiMjAyNi0xMC0yNyIsIlNHTiIsbnVsbCwiU0MiLCI0NjQ1Il1dXQ==",
+          "id": "WyJDalJJWjNvd2VHRmZlREJLVXpoQlEyaHZaV2RDUnkwdExTMHRMUzEyZEhkb05pMXVNa0ZCUVVGQlIzRnZlakJ2VFhKQ2J6aEJFZzFUUXpRMk5UWjhVME0wTmpRMUdnd0kwK3UxQ3hBQUdnTldUa1E0SEhDd3p3VT0iLFtbIlBFSyIsIjIwMjYtMTAtMjYiLCJUQU8iLG51bGwsIlNDIiwiNDY1NiJdLFsiVEFPIiwiMjAyNi0xMC0yNyIsIlNHTiIsbnVsbCwiU0MiLCI0NjQ1Il1dXQ==",
           "source": "Google Flights via SerpApi",
           "live_mode": true,
           "search_mode": "direct-priority",
           "route_id": "return",
           "is_direct": false,
           "stops": 1,
-          "total_amount": "23894818",
+          "total_amount": "23950803",
           "total_currency": "VND",
           "total_duration_minutes": 1700,
-          "booking_token": "WyJDalJJTFc0ek1tdGljR3RXWW5kQlUySlJlSGRDUnkwdExTMHRMUzB0TFMxNWJHOW9PRUZCUVVGQlIzRnVabXBSU0dGYVFtVkJFZzFUUXpRMk5UWjhVME0wTmpRMUdnd0lvcmF5Q3hBQUdnTldUa1E0SEhET3p3VT0iLFtbIlBFSyIsIjIwMjYtMTAtMjYiLCJUQU8iLG51bGwsIlNDIiwiNDY1NiJdLFsiVEFPIiwiMjAyNi0xMC0yNyIsIlNHTiIsbnVsbCwiU0MiLCI0NjQ1Il1dXQ==",
+          "booking_token": "WyJDalJJWjNvd2VHRmZlREJLVXpoQlEyaHZaV2RDUnkwdExTMHRMUzEyZEhkb05pMXVNa0ZCUVVGQlIzRnZlakJ2VFhKQ2J6aEJFZzFUUXpRMk5UWjhVME0wTmpRMUdnd0kwK3UxQ3hBQUdnTldUa1E0SEhDd3p3VT0iLFtbIlBFSyIsIjIwMjYtMTAtMjYiLCJUQU8iLG51bGwsIlNDIiwiNDY1NiJdLFsiVEFPIiwiMjAyNi0xMC0yNyIsIlNHTiIsbnVsbCwiU0MiLCI0NjQ1Il1dXQ==",
           "departure_token": null,
           "google_flights_url": "https://www.google.com/travel/flights?hl=en&gl=vn&curr=VND&tfs=CBwQAhopEgoyMDI2LTEwLTI2KAFqBwgBEgNQRUtqBwgBEgNQS1hyBwgBEgNTR05AAUABQAFAAUABQAFAA0gBcAGYAQI&tfu=EgQIAhAB",
           "fare_extensions": [],
@@ -3100,17 +3109,17 @@
           ]
         },
         {
-          "id": "WyJDalJJTFc0ek1tdGljR3RXWW5kQlUySlJlSGRDUnkwdExTMHRMUzB0TFMxNWJHOW9PRUZCUVVGQlIzRnVabXBSU0dGYVFtVkJFZ3REV0RNME5YeERXRGM1TlJvTUNMVFY3UXNRQUJvRFZrNUVPQnh3N093RiIsW1siUEVLIiwiMjAyNi0xMC0yNiIsIkhLRyIsbnVsbCwiQ1giLCIzNDUiXSxbIkhLRyIsIjIwMjYtMTAtMjYiLCJTR04iLG51bGwsIkNYIiwiNzk1Il1dXQ==",
+          "id": "WyJDalJJWjNvd2VHRmZlREJLVXpoQlEyaHZaV2RDUnkwdExTMHRMUzEyZEhkb05pMXVNa0ZCUVVGQlIzRnZlakJ2VFhKQ2J6aEJFZ3REV0RNME5YeERXRGM1TlJvTUNNaWM4UXNRQUJvRFZrNUVPQnh3ek93RiIsW1siUEVLIiwiMjAyNi0xMC0yNiIsIkhLRyIsbnVsbCwiQ1giLCIzNDUiXSxbIkhLRyIsIjIwMjYtMTAtMjYiLCJTR04iLG51bGwsIkNYIiwiNzk1Il1dXQ==",
           "source": "Google Flights via SerpApi",
           "live_mode": true,
           "search_mode": "direct-priority",
           "route_id": "return",
           "is_direct": false,
           "stops": 1,
-          "total_amount": "24865460",
+          "total_amount": "24923720",
           "total_currency": "VND",
           "total_duration_minutes": 725,
-          "booking_token": "WyJDalJJTFc0ek1tdGljR3RXWW5kQlUySlJlSGRDUnkwdExTMHRMUzB0TFMxNWJHOW9PRUZCUVVGQlIzRnVabXBSU0dGYVFtVkJFZ3REV0RNME5YeERXRGM1TlJvTUNMVFY3UXNRQUJvRFZrNUVPQnh3N093RiIsW1siUEVLIiwiMjAyNi0xMC0yNiIsIkhLRyIsbnVsbCwiQ1giLCIzNDUiXSxbIkhLRyIsIjIwMjYtMTAtMjYiLCJTR04iLG51bGwsIkNYIiwiNzk1Il1dXQ==",
+          "booking_token": "WyJDalJJWjNvd2VHRmZlREJLVXpoQlEyaHZaV2RDUnkwdExTMHRMUzEyZEhkb05pMXVNa0ZCUVVGQlIzRnZlakJ2VFhKQ2J6aEJFZ3REV0RNME5YeERXRGM1TlJvTUNNaWM4UXNRQUJvRFZrNUVPQnh3ek93RiIsW1siUEVLIiwiMjAyNi0xMC0yNiIsIkhLRyIsbnVsbCwiQ1giLCIzNDUiXSxbIkhLRyIsIjIwMjYtMTAtMjYiLCJTR04iLG51bGwsIkNYIiwiNzk1Il1dXQ==",
           "departure_token": null,
           "google_flights_url": "https://www.google.com/travel/flights?hl=en&gl=vn&curr=VND&tfs=CBwQAhopEgoyMDI2LTEwLTI2KAFqBwgBEgNQRUtqBwgBEgNQS1hyBwgBEgNTR05AAUABQAFAAUABQAFAA0gBcAGYAQI&tfu=EgQIAhAB",
           "fare_extensions": [],
@@ -3185,17 +3194,17 @@
           ]
         },
         {
-          "id": "WyJDalJJTFc0ek1tdGljR3RXWW5kQlUySlJlSGRDUnkwdExTMHRMUzB0TFMxNWJHOW9PRUZCUVVGQlIzRnVabXBSU0dGYVFtVkJFZ3REV0RNek1YeERXRGN5TVJvTUNMVFY3UXNRQUJvRFZrNUVPQnh3N093RiIsW1siUEVLIiwiMjAyNi0xMC0yNiIsIkhLRyIsbnVsbCwiQ1giLCIzMzEiXSxbIkhLRyIsIjIwMjYtMTAtMjYiLCJTR04iLG51bGwsIkNYIiwiNzIxIl1dXQ==",
+          "id": "WyJDalJJWjNvd2VHRmZlREJLVXpoQlEyaHZaV2RDUnkwdExTMHRMUzEyZEhkb05pMXVNa0ZCUVVGQlIzRnZlakJ2VFhKQ2J6aEJFZ3REV0RNek1YeERXRGN5TVJvTUNNaWM4UXNRQUJvRFZrNUVPQnh3ek93RiIsW1siUEVLIiwiMjAyNi0xMC0yNiIsIkhLRyIsbnVsbCwiQ1giLCIzMzEiXSxbIkhLRyIsIjIwMjYtMTAtMjYiLCJTR04iLG51bGwsIkNYIiwiNzIxIl1dXQ==",
           "source": "Google Flights via SerpApi",
           "live_mode": true,
           "search_mode": "direct-priority",
           "route_id": "return",
           "is_direct": false,
           "stops": 1,
-          "total_amount": "24865460",
+          "total_amount": "24923720",
           "total_currency": "VND",
           "total_duration_minutes": 525,
-          "booking_token": "WyJDalJJTFc0ek1tdGljR3RXWW5kQlUySlJlSGRDUnkwdExTMHRMUzB0TFMxNWJHOW9PRUZCUVVGQlIzRnVabXBSU0dGYVFtVkJFZ3REV0RNek1YeERXRGN5TVJvTUNMVFY3UXNRQUJvRFZrNUVPQnh3N093RiIsW1siUEVLIiwiMjAyNi0xMC0yNiIsIkhLRyIsbnVsbCwiQ1giLCIzMzEiXSxbIkhLRyIsIjIwMjYtMTAtMjYiLCJTR04iLG51bGwsIkNYIiwiNzIxIl1dXQ==",
+          "booking_token": "WyJDalJJWjNvd2VHRmZlREJLVXpoQlEyaHZaV2RDUnkwdExTMHRMUzEyZEhkb05pMXVNa0ZCUVVGQlIzRnZlakJ2VFhKQ2J6aEJFZ3REV0RNek1YeERXRGN5TVJvTUNNaWM4UXNRQUJvRFZrNUVPQnh3ek93RiIsW1siUEVLIiwiMjAyNi0xMC0yNiIsIkhLRyIsbnVsbCwiQ1giLCIzMzEiXSxbIkhLRyIsIjIwMjYtMTAtMjYiLCJTR04iLG51bGwsIkNYIiwiNzIxIl1dXQ==",
           "departure_token": null,
           "google_flights_url": "https://www.google.com/travel/flights?hl=en&gl=vn&curr=VND&tfs=CBwQAhopEgoyMDI2LTEwLTI2KAFqBwgBEgNQRUtqBwgBEgNQS1hyBwgBEgNTR05AAUABQAFAAUABQAFAA0gBcAGYAQI&tfu=EgQIAhAB",
           "fare_extensions": [],
@@ -3269,17 +3278,17 @@
           ]
         },
         {
-          "id": "WyJDalJJTFc0ek1tdGljR3RXWW5kQlUySlJlSGRDUnkwdExTMHRMUzB0TFMxNWJHOW9PRUZCUVVGQlIzRnVabXBSU0dGYVFtVkJFZ3REV0RNek4zeERXRGMyTnhvTUNMVFY3UXNRQUJvRFZrNUVPQnh3N093RiIsW1siUEVLIiwiMjAyNi0xMC0yNiIsIkhLRyIsbnVsbCwiQ1giLCIzMzciXSxbIkhLRyIsIjIwMjYtMTAtMjciLCJTR04iLG51bGwsIkNYIiwiNzY3Il1dXQ==",
+          "id": "WyJDalJJWjNvd2VHRmZlREJLVXpoQlEyaHZaV2RDUnkwdExTMHRMUzEyZEhkb05pMXVNa0ZCUVVGQlIzRnZlakJ2VFhKQ2J6aEJFZ3REV0RNNU5YeERXRGMyTnhvTUNPVEd3aElRQUJvRFZrNUVPQnh3eG80SiIsW1siUEVLIiwiMjAyNi0xMC0yNiIsIkhLRyIsbnVsbCwiQ1giLCIzOTUiXSxbIkhLRyIsIjIwMjYtMTAtMjYiLCJTR04iLG51bGwsIkNYIiwiNzY3Il1dXQ==",
           "source": "Google Flights via SerpApi",
           "live_mode": true,
           "search_mode": "direct-priority",
           "route_id": "return",
           "is_direct": false,
           "stops": 1,
-          "total_amount": "24865460",
+          "total_amount": "38839140",
           "total_currency": "VND",
-          "total_duration_minutes": 965,
-          "booking_token": "WyJDalJJTFc0ek1tdGljR3RXWW5kQlUySlJlSGRDUnkwdExTMHRMUzB0TFMxNWJHOW9PRUZCUVVGQlIzRnVabXBSU0dGYVFtVkJFZ3REV0RNek4zeERXRGMyTnhvTUNMVFY3UXNRQUJvRFZrNUVPQnh3N093RiIsW1siUEVLIiwiMjAyNi0xMC0yNiIsIkhLRyIsbnVsbCwiQ1giLCIzMzciXSxbIkhLRyIsIjIwMjYtMTAtMjciLCJTR04iLG51bGwsIkNYIiwiNzY3Il1dXQ==",
+          "total_duration_minutes": 490,
+          "booking_token": "WyJDalJJWjNvd2VHRmZlREJLVXpoQlEyaHZaV2RDUnkwdExTMHRMUzEyZEhkb05pMXVNa0ZCUVVGQlIzRnZlakJ2VFhKQ2J6aEJFZ3REV0RNNU5YeERXRGMyTnhvTUNPVEd3aElRQUJvRFZrNUVPQnh3eG80SiIsW1siUEVLIiwiMjAyNi0xMC0yNiIsIkhLRyIsbnVsbCwiQ1giLCIzOTUiXSxbIkhLRyIsIjIwMjYtMTAtMjYiLCJTR04iLG51bGwsIkNYIiwiNzY3Il1dXQ==",
           "departure_token": null,
           "google_flights_url": "https://www.google.com/travel/flights?hl=en&gl=vn&curr=VND&tfs=CBwQAhopEgoyMDI2LTEwLTI2KAFqBwgBEgNQRUtqBwgBEgNQS1hyBwgBEgNTR05AAUABQAFAAUABQAFAA0gBcAGYAQI&tfu=EgQIAhAB",
           "fare_extensions": [],
@@ -3297,15 +3306,15 @@
             {
               "origin": "PEK",
               "destination": "SGN",
-              "duration": "PT16H5M",
+              "duration": "PT8H10M",
               "segments": [
                 {
                   "origin": "PEK",
                   "destination": "HKG",
-                  "departing_at": "2026-10-26T19:30:00",
-                  "arriving_at": "2026-10-26T23:15:00",
-                  "duration": "PT3H45M",
-                  "flight_number": "CX 337",
+                  "departing_at": "2026-10-26T03:25:00",
+                  "arriving_at": "2026-10-26T07:00:00",
+                  "duration": "PT3H35M",
+                  "flight_number": "CX 395",
                   "airplane": "Airbus A321neo",
                   "travel_class": "Economy",
                   "extensions": [
@@ -3327,8 +3336,8 @@
                 {
                   "origin": "HKG",
                   "destination": "SGN",
-                  "departing_at": "2026-10-27T08:40:00",
-                  "arriving_at": "2026-10-27T10:35:00",
+                  "departing_at": "2026-10-26T08:40:00",
+                  "arriving_at": "2026-10-26T10:35:00",
                   "duration": "PT2H55M",
                   "flight_number": "CX 767",
                   "airplane": "Airbus A330",
@@ -3354,17 +3363,17 @@
           ]
         },
         {
-          "id": "WyJDalJJTFc0ek1tdGljR3RXWW5kQlUySlJlSGRDUnkwdExTMHRMUzB0TFMxNWJHOW9PRUZCUVVGQlIzRnVabXBSU0dGYVFtVkJFZ3hOUmpneE56QjhUVVk0T1RNYURBalNncW9NRUFBYUExWk9SRGdjY05DS0JnPT0iLFtbIlBLWCIsIjIwMjYtMTAtMjYiLCJYTU4iLG51bGwsIk1GIiwiODE3MCJdLFsiWE1OIiwiMjAyNi0xMC0yNyIsIlNHTiIsbnVsbCwiTUYiLCI4OTMiXV1d",
+          "id": "WyJDalJJWjNvd2VHRmZlREJLVXpoQlEyaHZaV2RDUnkwdExTMHRMUzEyZEhkb05pMXVNa0ZCUVVGQlIzRnZlakJ2VFhKQ2J6aEJFZ3hhU0RreE1EWjhXa2d4TVRjYURBaXdsTndtRUFBYUExWk9SRGdjY1BhR0V3PT0iLFtbIlBFSyIsIjIwMjYtMTAtMjYiLCJTWlgiLG51bGwsIlpIIiwiOTEwNiJdLFsiU1pYIiwiMjAyNi0xMC0yNyIsIlNHTiIsbnVsbCwiWkgiLCIxMTciXV1d",
           "source": "Google Flights via SerpApi",
           "live_mode": true,
           "search_mode": "direct-priority",
           "route_id": "return",
           "is_direct": false,
           "stops": 1,
-          "total_amount": "25854290",
+          "total_amount": "81201712",
           "total_currency": "VND",
-          "total_duration_minutes": 910,
-          "booking_token": "WyJDalJJTFc0ek1tdGljR3RXWW5kQlUySlJlSGRDUnkwdExTMHRMUzB0TFMxNWJHOW9PRUZCUVVGQlIzRnVabXBSU0dGYVFtVkJFZ3hOUmpneE56QjhUVVk0T1RNYURBalNncW9NRUFBYUExWk9SRGdjY05DS0JnPT0iLFtbIlBLWCIsIjIwMjYtMTAtMjYiLCJYTU4iLG51bGwsIk1GIiwiODE3MCJdLFsiWE1OIiwiMjAyNi0xMC0yNyIsIlNHTiIsbnVsbCwiTUYiLCI4OTMiXV1d",
+          "total_duration_minutes": 590,
+          "booking_token": "WyJDalJJWjNvd2VHRmZlREJLVXpoQlEyaHZaV2RDUnkwdExTMHRMUzEyZEhkb05pMXVNa0ZCUVVGQlIzRnZlakJ2VFhKQ2J6aEJFZ3hhU0RreE1EWjhXa2d4TVRjYURBaXdsTndtRUFBYUExWk9SRGdjY1BhR0V3PT0iLFtbIlBFSyIsIjIwMjYtMTAtMjYiLCJTWlgiLG51bGwsIlpIIiwiOTEwNiJdLFsiU1pYIiwiMjAyNi0xMC0yNyIsIlNHTiIsbnVsbCwiWkgiLCIxMTciXV1d",
           "departure_token": null,
           "google_flights_url": "https://www.google.com/travel/flights?hl=en&gl=vn&curr=VND&tfs=CBwQAhopEgoyMDI2LTEwLTI2KAFqBwgBEgNQRUtqBwgBEgNQS1hyBwgBEgNTR05AAUABQAFAAUABQAFAA0gBcAGYAQI&tfu=EgQIAhAB",
           "fare_extensions": [],
@@ -3374,468 +3383,59 @@
             "items": []
           },
           "owner": {
-            "name": "XiamenAir",
-            "iata_code": "MF",
-            "logo_symbol_url": "https://www.gstatic.com/flights/airline_logos/70px/MF.png"
-          },
-          "slices": [
-            {
-              "origin": "PKX",
-              "destination": "SGN",
-              "duration": "PT15H10M",
-              "segments": [
-                {
-                  "origin": "PKX",
-                  "destination": "XMN",
-                  "departing_at": "2026-10-26T21:15:00",
-                  "arriving_at": "2026-10-27T00:10:00",
-                  "duration": "PT2H55M",
-                  "flight_number": "MF 8170",
-                  "airplane": "Boeing 737",
-                  "travel_class": "Economy",
-                  "extensions": [
-                    "Average legroom (31 in)",
-                    "Carbon emissions estimate: 934 kg"
-                  ],
-                  "marketing_carrier": {
-                    "name": "XiamenAir",
-                    "iata_code": "MF"
-                  },
-                  "operating_carrier": {
-                    "name": "XiamenAir",
-                    "iata_code": null
-                  }
-                },
-                {
-                  "origin": "XMN",
-                  "destination": "SGN",
-                  "departing_at": "2026-10-27T09:10:00",
-                  "arriving_at": "2026-10-27T11:25:00",
-                  "duration": "PT3H15M",
-                  "flight_number": "MF 893",
-                  "airplane": "Boeing 737",
-                  "travel_class": "Economy",
-                  "extensions": [
-                    "Average legroom (31 in)",
-                    "Carbon emissions estimate: 1076 kg"
-                  ],
-                  "marketing_carrier": {
-                    "name": "XiamenAir",
-                    "iata_code": "MF"
-                  },
-                  "operating_carrier": {
-                    "name": "XiamenAir",
-                    "iata_code": null
-                  }
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "id": "WyJDalJJTFc0ek1tdGljR3RXWW5kQlUySlJlSGRDUnkwdExTMHRMUzB0TFMxNWJHOW9PRUZCUVVGQlIzRnVabXBSU0dGYVFtVkJFZzFOVlRVeE1UQjhUVlUyTURJekdnd0lxSyt2REJBQUdnTldUa1E0SEhDaWpRWT0iLFtbIlBFSyIsIjIwMjYtMTAtMjYiLCJTSEEiLG51bGwsIk1VIiwiNTExMCJdLFsiUFZHIiwiMjAyNi0xMC0yNiIsIlNHTiIsbnVsbCwiTVUiLCI2MDIzIl1dXQ==",
-          "source": "Google Flights via SerpApi",
-          "live_mode": true,
-          "search_mode": "direct-priority",
-          "route_id": "return",
-          "is_direct": false,
-          "stops": 1,
-          "total_amount": "25941928",
-          "total_currency": "VND",
-          "total_duration_minutes": 990,
-          "booking_token": "WyJDalJJTFc0ek1tdGljR3RXWW5kQlUySlJlSGRDUnkwdExTMHRMUzB0TFMxNWJHOW9PRUZCUVVGQlIzRnVabXBSU0dGYVFtVkJFZzFOVlRVeE1UQjhUVlUyTURJekdnd0lxSyt2REJBQUdnTldUa1E0SEhDaWpRWT0iLFtbIlBFSyIsIjIwMjYtMTAtMjYiLCJTSEEiLG51bGwsIk1VIiwiNTExMCJdLFsiUFZHIiwiMjAyNi0xMC0yNiIsIlNHTiIsbnVsbCwiTVUiLCI2MDIzIl1dXQ==",
-          "departure_token": null,
-          "google_flights_url": "https://www.google.com/travel/flights?hl=en&gl=vn&curr=VND&tfs=CBwQAhopEgoyMDI2LTEwLTI2KAFqBwgBEgNQRUtqBwgBEgNQS1hyBwgBEgNTR05AAUABQAFAAUABQAFAA0gBcAGYAQI&tfu=EgQIAhAB",
-          "fare_extensions": [],
-          "baggage": {
-            "available": false,
-            "source": "google_flights_search",
-            "items": []
-          },
-          "owner": {
-            "name": "China Eastern",
-            "iata_code": "MU",
-            "logo_symbol_url": "https://www.gstatic.com/flights/airline_logos/70px/MU.png"
+            "name": "Shenzhen",
+            "iata_code": "ZH",
+            "logo_symbol_url": "https://www.gstatic.com/flights/airline_logos/70px/ZH.png"
           },
           "slices": [
             {
               "origin": "PEK",
               "destination": "SGN",
-              "duration": "PT16H30M",
+              "duration": "PT9H50M",
               "segments": [
                 {
                   "origin": "PEK",
-                  "destination": "SHA",
-                  "departing_at": "2026-10-26T12:00:00",
-                  "arriving_at": "2026-10-26T13:55:00",
-                  "duration": "PT1H55M",
-                  "flight_number": "MU 5110",
-                  "airplane": "Airbus A330",
-                  "travel_class": "Economy",
-                  "extensions": [
-                    "Average legroom (31 in)",
-                    "Free Wi-Fi",
-                    "In-seat power & USB outlets",
-                    "On-demand video",
-                    "Carbon emissions estimate: 735 kg"
-                  ],
-                  "marketing_carrier": {
-                    "name": "China Eastern",
-                    "iata_code": "MU"
-                  },
-                  "operating_carrier": {
-                    "name": "China Eastern",
-                    "iata_code": null
-                  }
-                },
-                {
-                  "origin": "PVG",
-                  "destination": "SGN",
-                  "departing_at": "2026-10-26T23:40:00",
-                  "arriving_at": "2026-10-27T03:30:00",
-                  "duration": "PT4H50M",
-                  "flight_number": "MU 6023",
-                  "airplane": "Airbus A320neo",
-                  "travel_class": "Economy",
-                  "extensions": [
-                    "Average legroom (30 in)",
-                    "In-seat power & USB outlets",
-                    "Carbon emissions estimate: 1302 kg"
-                  ],
-                  "marketing_carrier": {
-                    "name": "China Eastern",
-                    "iata_code": "MU"
-                  },
-                  "operating_carrier": {
-                    "name": "China Eastern",
-                    "iata_code": null
-                  }
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "id": "WyJDalJJTFc0ek1tdGljR3RXWW5kQlUySlJlSGRDUnkwdExTMHRMUzB0TFMxNWJHOW9PRUZCUVVGQlIzRnVabXBSU0dGYVFtVkJFZzFOVlRVeE1USjhUVlUyTURJekdnd0l4OHV2REJBQUdnTldUa1E0SEhDd2pRWT0iLFtbIlBFSyIsIjIwMjYtMTAtMjYiLCJTSEEiLG51bGwsIk1VIiwiNTExMiJdLFsiUFZHIiwiMjAyNi0xMC0yNiIsIlNHTiIsbnVsbCwiTVUiLCI2MDIzIl1dXQ==",
-          "source": "Google Flights via SerpApi",
-          "live_mode": true,
-          "search_mode": "direct-priority",
-          "route_id": "return",
-          "is_direct": false,
-          "stops": 1,
-          "total_amount": "25945543",
-          "total_currency": "VND",
-          "total_duration_minutes": 930,
-          "booking_token": "WyJDalJJTFc0ek1tdGljR3RXWW5kQlUySlJlSGRDUnkwdExTMHRMUzB0TFMxNWJHOW9PRUZCUVVGQlIzRnVabXBSU0dGYVFtVkJFZzFOVlRVeE1USjhUVlUyTURJekdnd0l4OHV2REJBQUdnTldUa1E0SEhDd2pRWT0iLFtbIlBFSyIsIjIwMjYtMTAtMjYiLCJTSEEiLG51bGwsIk1VIiwiNTExMiJdLFsiUFZHIiwiMjAyNi0xMC0yNiIsIlNHTiIsbnVsbCwiTVUiLCI2MDIzIl1dXQ==",
-          "departure_token": null,
-          "google_flights_url": "https://www.google.com/travel/flights?hl=en&gl=vn&curr=VND&tfs=CBwQAhopEgoyMDI2LTEwLTI2KAFqBwgBEgNQRUtqBwgBEgNQS1hyBwgBEgNTR05AAUABQAFAAUABQAFAA0gBcAGYAQI&tfu=EgQIAhAB",
-          "fare_extensions": [],
-          "baggage": {
-            "available": false,
-            "source": "google_flights_search",
-            "items": []
-          },
-          "owner": {
-            "name": "China Eastern",
-            "iata_code": "MU",
-            "logo_symbol_url": "https://www.gstatic.com/flights/airline_logos/70px/MU.png"
-          },
-          "slices": [
-            {
-              "origin": "PEK",
-              "destination": "SGN",
-              "duration": "PT15H30M",
-              "segments": [
-                {
-                  "origin": "PEK",
-                  "destination": "SHA",
-                  "departing_at": "2026-10-26T13:00:00",
-                  "arriving_at": "2026-10-26T15:15:00",
-                  "duration": "PT2H15M",
-                  "flight_number": "MU 5112",
-                  "airplane": "Airbus A330",
-                  "travel_class": "Economy",
-                  "extensions": [
-                    "Average legroom (31 in)",
-                    "Free Wi-Fi",
-                    "In-seat power & USB outlets",
-                    "On-demand video",
-                    "Carbon emissions estimate: 735 kg"
-                  ],
-                  "marketing_carrier": {
-                    "name": "China Eastern",
-                    "iata_code": "MU"
-                  },
-                  "operating_carrier": {
-                    "name": "China Eastern",
-                    "iata_code": null
-                  }
-                },
-                {
-                  "origin": "PVG",
-                  "destination": "SGN",
-                  "departing_at": "2026-10-26T23:40:00",
-                  "arriving_at": "2026-10-27T03:30:00",
-                  "duration": "PT4H50M",
-                  "flight_number": "MU 6023",
-                  "airplane": "Airbus A320neo",
-                  "travel_class": "Economy",
-                  "extensions": [
-                    "Average legroom (30 in)",
-                    "In-seat power & USB outlets",
-                    "Carbon emissions estimate: 1302 kg"
-                  ],
-                  "marketing_carrier": {
-                    "name": "China Eastern",
-                    "iata_code": "MU"
-                  },
-                  "operating_carrier": {
-                    "name": "China Eastern",
-                    "iata_code": null
-                  }
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "id": "WyJDalJJTFc0ek1tdGljR3RXWW5kQlUySlJlSGRDUnkwdExTMHRMUzB0TFMxNWJHOW9PRUZCUVVGQlIzRnVabXBSU0dGYVFtVkJFZzFOVlRVeE5UWjhUVlUyTURJekdnd0lzTjZ2REJBQUdnTldUa1E0SEhDNWpRWT0iLFtbIlBFSyIsIjIwMjYtMTAtMjYiLCJTSEEiLG51bGwsIk1VIiwiNTE1NiJdLFsiUFZHIiwiMjAyNi0xMC0yNiIsIlNHTiIsbnVsbCwiTVUiLCI2MDIzIl1dXQ==",
-          "source": "Google Flights via SerpApi",
-          "live_mode": true,
-          "search_mode": "direct-priority",
-          "route_id": "return",
-          "is_direct": false,
-          "stops": 1,
-          "total_amount": "25947952",
-          "total_currency": "VND",
-          "total_duration_minutes": 900,
-          "booking_token": "WyJDalJJTFc0ek1tdGljR3RXWW5kQlUySlJlSGRDUnkwdExTMHRMUzB0TFMxNWJHOW9PRUZCUVVGQlIzRnVabXBSU0dGYVFtVkJFZzFOVlRVeE5UWjhUVlUyTURJekdnd0lzTjZ2REJBQUdnTldUa1E0SEhDNWpRWT0iLFtbIlBFSyIsIjIwMjYtMTAtMjYiLCJTSEEiLG51bGwsIk1VIiwiNTE1NiJdLFsiUFZHIiwiMjAyNi0xMC0yNiIsIlNHTiIsbnVsbCwiTVUiLCI2MDIzIl1dXQ==",
-          "departure_token": null,
-          "google_flights_url": "https://www.google.com/travel/flights?hl=en&gl=vn&curr=VND&tfs=CBwQAhopEgoyMDI2LTEwLTI2KAFqBwgBEgNQRUtqBwgBEgNQS1hyBwgBEgNTR05AAUABQAFAAUABQAFAA0gBcAGYAQI&tfu=EgQIAhAB",
-          "fare_extensions": [],
-          "baggage": {
-            "available": false,
-            "source": "google_flights_search",
-            "items": []
-          },
-          "owner": {
-            "name": "China Eastern",
-            "iata_code": "MU",
-            "logo_symbol_url": "https://www.gstatic.com/flights/airline_logos/70px/MU.png"
-          },
-          "slices": [
-            {
-              "origin": "PEK",
-              "destination": "SGN",
-              "duration": "PT15H",
-              "segments": [
-                {
-                  "origin": "PEK",
-                  "destination": "SHA",
-                  "departing_at": "2026-10-26T13:30:00",
-                  "arriving_at": "2026-10-26T15:40:00",
-                  "duration": "PT2H10M",
-                  "flight_number": "MU 5156",
+                  "destination": "SZX",
+                  "departing_at": "2026-10-26T17:00:00",
+                  "arriving_at": "2026-10-26T20:35:00",
+                  "duration": "PT3H35M",
+                  "flight_number": "ZH 9106",
                   "airplane": "Airbus A321",
                   "travel_class": "Economy",
                   "extensions": [
-                    "Below average legroom (29 in)",
+                    "Average legroom (30 in)",
                     "In-seat USB outlet",
-                    "Carbon emissions estimate: 729 kg"
+                    "Stream media to your device",
+                    "Carbon emissions estimate: 1217 kg"
                   ],
                   "marketing_carrier": {
-                    "name": "China Eastern",
-                    "iata_code": "MU"
+                    "name": "Shenzhen",
+                    "iata_code": "ZH"
                   },
                   "operating_carrier": {
-                    "name": "China Eastern",
+                    "name": "Shenzhen",
                     "iata_code": null
                   }
                 },
                 {
-                  "origin": "PVG",
+                  "origin": "SZX",
                   "destination": "SGN",
-                  "departing_at": "2026-10-26T23:40:00",
-                  "arriving_at": "2026-10-27T03:30:00",
-                  "duration": "PT4H50M",
-                  "flight_number": "MU 6023",
-                  "airplane": "Airbus A320neo",
+                  "departing_at": "2026-10-27T00:10:00",
+                  "arriving_at": "2026-10-27T01:50:00",
+                  "duration": "PT2H40M",
+                  "flight_number": "ZH 117",
+                  "airplane": "Boeing 737",
                   "travel_class": "Economy",
                   "extensions": [
                     "Average legroom (30 in)",
-                    "In-seat power & USB outlets",
-                    "Carbon emissions estimate: 1302 kg"
+                    "Carbon emissions estimate: 926 kg"
                   ],
                   "marketing_carrier": {
-                    "name": "China Eastern",
-                    "iata_code": "MU"
+                    "name": "Shenzhen",
+                    "iata_code": "ZH"
                   },
                   "operating_carrier": {
-                    "name": "China Eastern",
-                    "iata_code": null
-                  }
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "id": "WyJDalJJTFc0ek1tdGljR3RXWW5kQlUySlJlSGRDUnkwdExTMHRMUzB0TFMxNWJHOW9PRUZCUVVGQlIzRnVabXBSU0dGYVFtVkJFZ3hOVlRVeE1EaDhUVlV5T0RFYURBaTQ1YThNRUFBYUExWk9SRGdjY0x5TkJnPT0iLFtbIlBFSyIsIjIwMjYtMTAtMjYiLCJTSEEiLG51bGwsIk1VIiwiNTEwOCJdLFsiUFZHIiwiMjAyNi0xMC0yNiIsIlNHTiIsbnVsbCwiTVUiLCIyODEiXV1d",
-          "source": "Google Flights via SerpApi",
-          "live_mode": true,
-          "search_mode": "direct-priority",
-          "route_id": "return",
-          "is_direct": false,
-          "stops": 1,
-          "total_amount": "25948856",
-          "total_currency": "VND",
-          "total_duration_minutes": 910,
-          "booking_token": "WyJDalJJTFc0ek1tdGljR3RXWW5kQlUySlJlSGRDUnkwdExTMHRMUzB0TFMxNWJHOW9PRUZCUVVGQlIzRnVabXBSU0dGYVFtVkJFZ3hOVlRVeE1EaDhUVlV5T0RFYURBaTQ1YThNRUFBYUExWk9SRGdjY0x5TkJnPT0iLFtbIlBFSyIsIjIwMjYtMTAtMjYiLCJTSEEiLG51bGwsIk1VIiwiNTEwOCJdLFsiUFZHIiwiMjAyNi0xMC0yNiIsIlNHTiIsbnVsbCwiTVUiLCIyODEiXV1d",
-          "departure_token": null,
-          "google_flights_url": "https://www.google.com/travel/flights?hl=en&gl=vn&curr=VND&tfs=CBwQAhopEgoyMDI2LTEwLTI2KAFqBwgBEgNQRUtqBwgBEgNQS1hyBwgBEgNTR05AAUABQAFAAUABQAFAA0gBcAGYAQI&tfu=EgQIAhAB",
-          "fare_extensions": [],
-          "baggage": {
-            "available": false,
-            "source": "google_flights_search",
-            "items": []
-          },
-          "owner": {
-            "name": "China Eastern",
-            "iata_code": "MU",
-            "logo_symbol_url": "https://www.gstatic.com/flights/airline_logos/70px/MU.png"
-          },
-          "slices": [
-            {
-              "origin": "PEK",
-              "destination": "SGN",
-              "duration": "PT15H10M",
-              "segments": [
-                {
-                  "origin": "PEK",
-                  "destination": "SHA",
-                  "departing_at": "2026-10-26T11:00:00",
-                  "arriving_at": "2026-10-26T12:55:00",
-                  "duration": "PT1H55M",
-                  "flight_number": "MU 5108",
-                  "airplane": "Airbus A330",
-                  "travel_class": "Economy",
-                  "extensions": [
-                    "Average legroom (31 in)",
-                    "Free Wi-Fi",
-                    "In-seat power & USB outlets",
-                    "On-demand video",
-                    "Carbon emissions estimate: 735 kg"
-                  ],
-                  "marketing_carrier": {
-                    "name": "China Eastern",
-                    "iata_code": "MU"
-                  },
-                  "operating_carrier": {
-                    "name": "China Eastern",
-                    "iata_code": null
-                  }
-                },
-                {
-                  "origin": "PVG",
-                  "destination": "SGN",
-                  "departing_at": "2026-10-26T21:50:00",
-                  "arriving_at": "2026-10-27T01:10:00",
-                  "duration": "PT4H20M",
-                  "flight_number": "MU 281",
-                  "airplane": "Airbus A320",
-                  "travel_class": "Economy",
-                  "extensions": [
-                    "Average legroom (30 in)",
-                    "Carbon emissions estimate: 1576 kg"
-                  ],
-                  "marketing_carrier": {
-                    "name": "China Eastern",
-                    "iata_code": "MU"
-                  },
-                  "operating_carrier": {
-                    "name": "China Eastern",
-                    "iata_code": null
-                  }
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "id": "WyJDalJJTFc0ek1tdGljR3RXWW5kQlUySlJlSGRDUnkwdExTMHRMUzB0TFMxNWJHOW9PRUZCUVVGQlIzRnVabXBSU0dGYVFtVkJFZ3hOVlRVeE1USjhUVlV5T0RFYURBamw1NjhNRUFBYUExWk9SRGdjY0w2TkJnPT0iLFtbIlBFSyIsIjIwMjYtMTAtMjYiLCJTSEEiLG51bGwsIk1VIiwiNTExMiJdLFsiUFZHIiwiMjAyNi0xMC0yNiIsIlNHTiIsbnVsbCwiTVUiLCIyODEiXV1d",
-          "source": "Google Flights via SerpApi",
-          "live_mode": true,
-          "search_mode": "direct-priority",
-          "route_id": "return",
-          "is_direct": false,
-          "stops": 1,
-          "total_amount": "25949157",
-          "total_currency": "VND",
-          "total_duration_minutes": 790,
-          "booking_token": "WyJDalJJTFc0ek1tdGljR3RXWW5kQlUySlJlSGRDUnkwdExTMHRMUzB0TFMxNWJHOW9PRUZCUVVGQlIzRnVabXBSU0dGYVFtVkJFZ3hOVlRVeE1USjhUVlV5T0RFYURBamw1NjhNRUFBYUExWk9SRGdjY0w2TkJnPT0iLFtbIlBFSyIsIjIwMjYtMTAtMjYiLCJTSEEiLG51bGwsIk1VIiwiNTExMiJdLFsiUFZHIiwiMjAyNi0xMC0yNiIsIlNHTiIsbnVsbCwiTVUiLCIyODEiXV1d",
-          "departure_token": null,
-          "google_flights_url": "https://www.google.com/travel/flights?hl=en&gl=vn&curr=VND&tfs=CBwQAhopEgoyMDI2LTEwLTI2KAFqBwgBEgNQRUtqBwgBEgNQS1hyBwgBEgNTR05AAUABQAFAAUABQAFAA0gBcAGYAQI&tfu=EgQIAhAB",
-          "fare_extensions": [],
-          "baggage": {
-            "available": false,
-            "source": "google_flights_search",
-            "items": []
-          },
-          "owner": {
-            "name": "China Eastern",
-            "iata_code": "MU",
-            "logo_symbol_url": "https://www.gstatic.com/flights/airline_logos/70px/MU.png"
-          },
-          "slices": [
-            {
-              "origin": "PEK",
-              "destination": "SGN",
-              "duration": "PT13H10M",
-              "segments": [
-                {
-                  "origin": "PEK",
-                  "destination": "SHA",
-                  "departing_at": "2026-10-26T13:00:00",
-                  "arriving_at": "2026-10-26T15:15:00",
-                  "duration": "PT2H15M",
-                  "flight_number": "MU 5112",
-                  "airplane": "Airbus A330",
-                  "travel_class": "Economy",
-                  "extensions": [
-                    "Average legroom (31 in)",
-                    "Free Wi-Fi",
-                    "In-seat power & USB outlets",
-                    "On-demand video",
-                    "Carbon emissions estimate: 735 kg"
-                  ],
-                  "marketing_carrier": {
-                    "name": "China Eastern",
-                    "iata_code": "MU"
-                  },
-                  "operating_carrier": {
-                    "name": "China Eastern",
-                    "iata_code": null
-                  }
-                },
-                {
-                  "origin": "PVG",
-                  "destination": "SGN",
-                  "departing_at": "2026-10-26T21:50:00",
-                  "arriving_at": "2026-10-27T01:10:00",
-                  "duration": "PT4H20M",
-                  "flight_number": "MU 281",
-                  "airplane": "Airbus A320",
-                  "travel_class": "Economy",
-                  "extensions": [
-                    "Average legroom (30 in)",
-                    "Carbon emissions estimate: 1576 kg"
-                  ],
-                  "marketing_carrier": {
-                    "name": "China Eastern",
-                    "iata_code": "MU"
-                  },
-                  "operating_carrier": {
-                    "name": "China Eastern",
+                    "name": "Shenzhen",
                     "iata_code": null
                   }
                 }
@@ -3844,9 +3444,9 @@
           ]
         }
       ],
-      "offer_count_seen": 24,
+      "offer_count_seen": 19,
       "direct_count": 1,
-      "one_stop_count": 23,
+      "one_stop_count": 18,
       "baggage_info_count": 0,
       "price_insights": null
     }
@@ -3855,11 +3455,11 @@
     "scenario_id": "best-pair",
     "label": "Best direct-priority pair · 19 Oct + 26 Oct",
     "offer": {
-      "id": "pair-WyJDalJJUW1GU1NITmxkelJoWm5OQlYyTkRPV2RDUnkwdExTMHRMUzB0TFc5cllteGtOMEZCUVVGQlIzRnVabWxqUVZCdmNTMUJFZ1pXU2pNNU1EQWFEQWpBaEo4S0VBQWFBMVpPUkRnY2NQS0dCUT09IixbWyJTR04iLCIyMDI2LTEwLTE5IiwiUFZHIixudWxsLCJWSiIsIjM5MDAiXV1d-WyJDalJJTFc0ek1tdGljR3RXWW5kQlUySlJlSGRDUnkwdExTMHRMUzB0TFMxNWJHOW9PRUZCUVVGQlIzRnVabXBSU0dGYVFtVkJFZ1ZXVGpVeE54b01DT3FtM0NjUUFCb0RWazVFT0J4dzJNd1QiLFtbIlBLWCIsIjIwMjYtMTAtMjYiLCJTR04iLG51bGwsIlZOIiwiNTE3Il1dXQ==",
+      "id": "pair-WyJDalJJZUdNeVZWZDVTVGMyUkc5QlExRm5lR2RDUnkwdExTMHRMUzB0TFMxNWJHSmhNMEZCUVVGQlIzRnZlakJaUXpCME5uZEJFZ1pXU2pNNU1EQWFEQWpBaEo4S0VBQWFBMVpPUkRnY2NKV0ZCUT09IixbWyJTR04iLCIyMDI2LTEwLTE5IiwiUFZHIixudWxsLCJWSiIsIjM5MDAiXV1d-WyJDalJJWjNvd2VHRmZlREJLVXpoQlEyaHZaV2RDUnkwdExTMHRMUzEyZEhkb05pMXVNa0ZCUVVGQlIzRnZlakJ2VFhKQ2J6aEJFZ1ZXVGpVeE54b01DT3pGdVM0UUFCb0RWazVFT0J4dzUrMFciLFtbIlBLWCIsIjIwMjYtMTAtMjYiLCJTR04iLG51bGwsIlZOIiwiNTE3Il1dXQ==",
       "source": "Google Flights via SerpApi · separate one-way searches",
       "live_mode": true,
       "search_mode": "direct-priority",
-      "total_amount": "104781226",
+      "total_amount": "118891820",
       "total_currency": "VND",
       "owner": {
         "name": "Mixed airlines",
@@ -3868,8 +3468,8 @@
       },
       "is_direct": true,
       "route_offer_ids": {
-        "outbound": "WyJDalJJUW1GU1NITmxkelJoWm5OQlYyTkRPV2RDUnkwdExTMHRMUzB0TFc5cllteGtOMEZCUVVGQlIzRnVabWxqUVZCdmNTMUJFZ1pXU2pNNU1EQWFEQWpBaEo4S0VBQWFBMVpPUkRnY2NQS0dCUT09IixbWyJTR04iLCIyMDI2LTEwLTE5IiwiUFZHIixudWxsLCJWSiIsIjM5MDAiXV1d",
-        "return": "WyJDalJJTFc0ek1tdGljR3RXWW5kQlUySlJlSGRDUnkwdExTMHRMUzB0TFMxNWJHOW9PRUZCUVVGQlIzRnVabXBSU0dGYVFtVkJFZ1ZXVGpVeE54b01DT3FtM0NjUUFCb0RWazVFT0J4dzJNd1QiLFtbIlBLWCIsIjIwMjYtMTAtMjYiLCJTR04iLG51bGwsIlZOIiwiNTE3Il1dXQ=="
+        "outbound": "WyJDalJJZUdNeVZWZDVTVGMyUkc5QlExRm5lR2RDUnkwdExTMHRMUzB0TFMxNWJHSmhNMEZCUVVGQlIzRnZlakJaUXpCME5uZEJFZ1pXU2pNNU1EQWFEQWpBaEo4S0VBQWFBMVpPUkRnY2NKV0ZCUT09IixbWyJTR04iLCIyMDI2LTEwLTE5IiwiUFZHIixudWxsLCJWSiIsIjM5MDAiXV1d",
+        "return": "WyJDalJJWjNvd2VHRmZlREJLVXpoQlEyaHZaV2RDUnkwdExTMHRMUzEyZEhkb05pMXVNa0ZCUVVGQlIzRnZlakJ2VFhKQ2J6aEJFZ1ZXVGpVeE54b01DT3pGdVM0UUFCb0RWazVFT0J4dzUrMFciLFtbIlBLWCIsIjIwMjYtMTAtMjYiLCJTR04iLG51bGwsIlZOIiwiNTE3Il1dXQ=="
       }
     }
   }
