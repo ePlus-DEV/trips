@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-23T04:53:34.825Z",
+  "generated_at": "2026-09-24T04:49:29.394Z",
   "source": "SerpApi Account API",
   "reset_policy": "SerpApi monthly billing cycle / plan renewal",
   "note": "this_month_usage includes searches already used earlier in the current billing cycle. When SerpApi starts a new monthly cycle, current counters reset and the previous snapshot is archived in history. Account API checks do not consume search credits.",
@@ -10,9 +10,9 @@
       "role": "Theo dõi giá vé + phòng",
       "status": "ok",
       "plan_name": "Free Plan",
-      "used": 19,
+      "used": 22,
       "total": 250,
-      "left": 231,
+      "left": 228,
       "renewal_date": "2026-10-20",
       "cycle_reset_detected": false
     },

@@ -504,5 +504,17 @@
     "direct": false,
     "provider": "SerpApi",
     "source": "Google Flights"
+  },
+  {
+    "checked_at": "2026-09-24T04:49:14.864Z",
+    "scenario_id": "best-pair",
+    "mode": "direct-priority",
+    "trip_key": "sgn-shanghai-2026-10-19__beijing-sgn-2026-10-26",
+    "total_amount": "44675494",
+    "total_currency": "VND",
+    "airline": "Mixed airlines",
+    "direct": false,
+    "provider": "SerpApi",
+    "source": "Google Flights"
   }
 ]
