@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-24T05:03:04.925Z",
+  "generated_at": "2026-09-25T04:56:50.335Z",
   "source": "SerpApi Account API",
   "reset_policy": "SerpApi monthly billing cycle / plan renewal",
   "note": "this_month_usage includes searches already used earlier in the current billing cycle. When SerpApi starts a new monthly cycle, current counters reset and the previous snapshot is archived in history. Account API checks do not consume search credits.",
@@ -10,9 +10,9 @@
       "role": "Theo dõi giá vé + phòng",
       "status": "ok",
       "plan_name": "Free Plan",
-      "used": 24,
+      "used": 25,
       "total": 250,
-      "left": 226,
+      "left": 225,
       "renewal_date": "2026-10-20",
       "cycle_reset_detected": false
     },
@@ -25,8 +25,8 @@
       "used": 0,
       "total": 250,
       "left": 250,
-      "renewal_date": "2026-09-25",
-      "cycle_reset_detected": false
+      "renewal_date": "2026-10-25",
+      "cycle_reset_detected": true
     }
   ],
   "history": [
@@ -40,6 +40,17 @@
       "left": 86,
       "plan_name": "Free Plan",
       "renewal_date": "2026-09-20"
+    },
+    {
+      "credential_id": "booking",
+      "label": "Booking Options",
+      "role": "Booking/baggage + search fallback",
+      "archived_at": "2026-09-25T04:56:50.335Z",
+      "used": 0,
+      "total": 250,
+      "left": 250,
+      "plan_name": "Free Plan",
+      "renewal_date": "2026-09-25"
     }
   ]
 }
