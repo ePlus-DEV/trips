@@ -284,5 +284,8 @@
 
   if('serviceWorker'in navigator)window.addEventListener('load',()=>navigator.serviceWorker.register('./sw.js').catch(()=>{}));
 })();
-</script>\n<script>\n(()=>{const key="travel-booking-center-v1";const fields=[...document.querySelectorAll("[data-booking]")];let saved={};try{saved=JSON.parse(localStorage.getItem(key)||"{}")}catch{}fields.forEach(el=>{el.value=saved[el.dataset.booking]||"";el.addEventListener("input",()=>{const data=Object.fromEntries(fields.map(x=>[x.dataset.booking,x.value]));localStorage.setItem(key,JSON.stringify(data))})});document.getElementById("copyBookings")?.addEventListener("click",async()=>{const lines=fields.filter(x=>x.value.trim()).map(x=>`${x.closest("label")?.childNodes[0]?.textContent?.trim()}: ${x.value.trim()}`);if(!lines.length)return;try{await navigator.clipboard.writeText(lines.join("\\n"))}catch{}})})();\n</script>\n</body>
+</script>
+<script>\n(()=>{const key="travel-booking-center-v1";const fields=[...document.querySelectorAll("[data-booking]")];let saved={};try{saved=JSON.parse(localStorage.getItem(key)||"{}")}catch{}fields.forEach(el=>{el.value=saved[el.dataset.booking]||"";el.addEventListener("input",()=>{const data=Object.fromEntries(fields.map(x=>[x.dataset.booking,x.value]));localStorage.setItem(key,JSON.stringify(data))})});document.getElementById("copyBookings")?.addEventListener("click",async()=>{const lines=fields.filter(x=>x.value.trim()).map(x=>`${x.closest("label")?.childNodes[0]?.textContent?.trim()}: ${x.value.trim()}`);if(!lines.length)return;try{await navigator.clipboard.writeText(lines.join("\\n"))}catch{}})})();
+</script>
+</body>
 </html>
