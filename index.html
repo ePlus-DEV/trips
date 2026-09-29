@@ -25,7 +25,7 @@
       <a href="./flights/"><span class="nav-icon"><svg><use href="#i-plane"/></svg></span>Chuyến bay</a>
       <a href="./flight-status.html"><span class="nav-icon"><svg><use href="#i-status"/></svg></span>Trạng thái</a>
       <a href="./hotels/"><span class="nav-icon"><svg><use href="#i-pin"/></svg></span>Lưu trú</a>
-      <a href="#budget"><span class="nav-icon"><svg><use href="#i-wallet"/></svg></span>Ngân sách</a>
+      <a href="#bookings"><span class="nav-icon"><svg><use href="#i-note"/></svg></span>Booking Center</a>\n      <a href="#budget"><span class="nav-icon"><svg><use href="#i-wallet"/></svg></span>Ngân sách</a>
       <a href="#checklist"><span class="nav-icon"><svg><use href="#i-check"/></svg></span>Chuẩn bị</a>
       <a href="#notes"><span class="nav-icon"><svg><use href="#i-note"/></svg></span>Ghi chú</a>
     </nav>
@@ -117,6 +117,22 @@
             </div>
           </article>
         </div>
+
+        <article class="card booking-center" id="bookings">
+          <div class="card-head"><div><h2>Booking Center</h2><small>Thông tin cần mở nhanh trong chuyến đi</small></div><span class="pill success">Đã đặt</span></div>
+          <div class="booking-center-grid">
+            <section class="booking-panel"><div class="booking-panel-head"><span>✈️</span><div><b>Chuyến bay</b><small>SGN → Shanghai · Beijing → SGN</small></div></div><a class="btn sm" href="./flight-status.html">Theo dõi trạng thái</a></section>
+            <section class="booking-panel"><div class="booking-panel-head"><span>🏨</span><div><b>Lưu trú</b><small>Shanghai · Beijing</small></div></div><a class="btn sm" href="./hotels/">Xem thông tin khách sạn</a></section>
+            <section class="booking-panel"><div class="booking-panel-head"><span>🚄</span><div><b>Tàu cao tốc</b><small>Shanghai → Beijing · 21/10/2026</small></div></div><div class="booking-panel-actions"><span class="booking-chip muted">Chưa mở bán</span><a class="btn sm" href="https://www.12306.cn/en/index.html" target="_blank" rel="noopener">China Railway 12306</a></div></section>
+          </div>
+          <div class="booking-fields">
+            <label>Mã đặt chỗ / PNR<input data-booking="pnr" placeholder="Nhập mã booking"></label>
+            <label>Khách sạn / mã xác nhận<input data-booking="hotel" placeholder="Tên khách sạn hoặc mã xác nhận"></label>
+            <label>Tàu / số hiệu ghế<input data-booking="train" placeholder="VD: Gxx · Coach 05 · Seat 08A"></label>
+            <label>Ghi chú quan trọng<input data-booking="important" placeholder="Ga, terminal, giờ check-in..."></label>
+          </div>
+          <div class="booking-save"><span>Dữ liệu lưu cục bộ trên thiết bị này.</span><button class="btn sm" id="copyBookings">Sao chép Booking Center</button></div>
+        </article>
 
         <article class="card notes-card" id="notes">
           <div class="card-head"><h3>Ghi chú</h3><span class="pill">Lưu trên thiết bị này</span></div>
@@ -268,6 +284,5 @@
 
   if('serviceWorker'in navigator)window.addEventListener('load',()=>navigator.serviceWorker.register('./sw.js').catch(()=>{}));
 })();
-</script>
-</body>
+</script>\n<script>\n(()=>{const key="travel-booking-center-v1";const fields=[...document.querySelectorAll("[data-booking]")];let saved={};try{saved=JSON.parse(localStorage.getItem(key)||"{}")}catch{}fields.forEach(el=>{el.value=saved[el.dataset.booking]||"";el.addEventListener("input",()=>{const data=Object.fromEntries(fields.map(x=>[x.dataset.booking,x.value]));localStorage.setItem(key,JSON.stringify(data))})});document.getElementById("copyBookings")?.addEventListener("click",async()=>{const lines=fields.filter(x=>x.value.trim()).map(x=>`${x.closest("label")?.childNodes[0]?.textContent?.trim()}: ${x.value.trim()}`);if(!lines.length)return;try{await navigator.clipboard.writeText(lines.join("\\n"))}catch{}})})();\n</script>\n</body>
 </html>
