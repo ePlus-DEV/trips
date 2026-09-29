@@ -10,3 +10,11 @@
 @media(max-width:520px){
   .timeline-item:not(:last-child)::after{left:55px}
 }
+
+/* Post-booking trip mode */
+.booking-summary{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.booking-chip{display:inline-flex;align-items:center;min-height:30px;padding:6px 10px;border:1px solid var(--line);border-radius:999px;font-size:12px;font-weight:750;background:var(--surface)}
+.booking-chip.success{border-color:rgba(34,197,94,.25);background:rgba(34,197,94,.09)}
+.booking-chip.muted{color:var(--muted)}
+.booking-dot{display:inline-block;width:8px;height:8px;border-radius:50%;background:#22c55e;box-shadow:0 0 0 4px rgba(34,197,94,.12);margin-right:6px}
+@media(max-width:640px){.booking-summary{gap:6px}.booking-chip{font-size:11px;padding:5px 8px}.hero-actions{display:grid;grid-template-columns:1fr 1fr}.hero-actions .btn:first-child{grid-column:1/-1}}
