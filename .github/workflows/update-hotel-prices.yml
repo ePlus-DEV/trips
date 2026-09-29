@@ -19,9 +19,6 @@ on:
       - 'scripts/fetch-hotels.mjs'
       - 'scripts/fetch-hotels-with-gallery.mjs'
       - '.github/workflows/update-hotel-prices.yml'
-  schedule:
-    # 07:27 in Vietnam (UTC+7), after the flight tracker.
-    - cron: '27 0 * * *'
 
 permissions:
   contents: write
