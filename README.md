@@ -1,6 +1,6 @@
 # Personal Travel Log
 
-A lightweight personal travel dashboard for GitHub Pages with itinerary, budget, notes, PWA support and automated Google Flights price tracking.
+A lightweight personal travel dashboard for GitHub Pages with itinerary, budget, notes, PWA support with itinerary, booking status, flight operations, budget, notes and optional on-demand price checks.
 
 ## Features
 
@@ -9,7 +9,7 @@ A lightweight personal travel dashboard for GitHub Pages with itinerary, budget,
 - Checklist, budget and notes saved in `localStorage`
 - Export/import local travel data
 - Light/dark mode and PWA/offline support
-- **Google Flights price snapshots through SerpApi + GitHub Actions**
+- **On-demand Google Flights price snapshots through SerpApi + GitHub Actions**
 - Fare-specific baggage details from Google Flights search and Booking Options
 - Direct-flight priority, stops/airline filters, price history and price alerts
 - SerpApi credit/usage snapshot written automatically to this README
@@ -153,15 +153,9 @@ data/api-usage.json
 
 and commits refreshed snapshots back to `main`.
 
-### Automatic refresh
+### Price refresh mode
 
-The default schedule is:
-
-```text
-07:17 Asia/Ho_Chi_Minh
-```
-
-At 2 main search requests per refresh, a 30-day month is roughly **60 Google Flights search requests**, plus manual checks. Booking Options can add up to **240 requests/month** at the default 8 requests/day if it is enabled every day. Actual provider usage is shown in the live SerpApi usage table above and resets when SerpApi starts the next billing cycle.
+Automatic flight and hotel price schedules are currently **paused because the trip has been booked**. Both workflows retain `workflow_dispatch`, so price snapshots can still be refreshed manually when needed. Flight-status tracking remains active independently.
 
 ### Price dashboard
 
