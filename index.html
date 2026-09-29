@@ -22,9 +22,9 @@
     <nav class="side-nav">
       <a class="active" href="#top"><span class="nav-icon"><svg><use href="#i-home"/></svg></span>Tổng quan</a>
       <a href="#itinerary"><span class="nav-icon"><svg><use href="#i-calendar"/></svg></span>Lịch trình</a>
-      <a href="./flights/"><span class="nav-icon"><svg><use href="#i-plane"/></svg></span>Giá vé</a>
+      <a href="./flights/"><span class="nav-icon"><svg><use href="#i-plane"/></svg></span>Chuyến bay</a>
       <a href="./flight-status.html"><span class="nav-icon"><svg><use href="#i-status"/></svg></span>Trạng thái</a>
-      <a href="./hotels/"><span class="nav-icon"><svg><use href="#i-pin"/></svg></span>Giá phòng</a>
+      <a href="./hotels/"><span class="nav-icon"><svg><use href="#i-pin"/></svg></span>Lưu trú</a>
       <a href="#budget"><span class="nav-icon"><svg><use href="#i-wallet"/></svg></span>Ngân sách</a>
       <a href="#checklist"><span class="nav-icon"><svg><use href="#i-check"/></svg></span>Chuẩn bị</a>
       <a href="#notes"><span class="nav-icon"><svg><use href="#i-note"/></svg></span>Ghi chú</a>
@@ -41,8 +41,8 @@
         <select class="language-select" data-language-select aria-label="Ngôn ngữ">
           <option value="vi">VI</option><option value="en">EN</option><option value="zh">中文</option><option value="ja">日本語</option>
         </select>
-        <a class="btn sm" href="./hotels/">Giá phòng</a>
-        <a class="btn sm" href="./flights/">Xem giá vé</a>
+        <a class="btn sm" href="./hotels/">Lưu trú</a>
+        <a class="btn sm" href="./flights/">Chuyến bay</a>
         <a class="btn sm" href="./flight-status.html">Trạng thái chuyến bay</a>
         <button class="icon-btn" data-theme-toggle aria-label="Đổi giao diện"><svg class="ui-icon"><use href="#i-moon"/></svg></button>
       </div>
@@ -61,25 +61,25 @@
     <main class="content" id="top">
       <section class="trip-hero">
         <div class="hero-copy">
-          <div class="hero-kicker">Chuyến đi sắp tới</div>
+          <div class="hero-kicker"><span class="booking-dot"></span> Chuyến đi đã được đặt</div>
           <h1>Trung Quốc · 19–26/10/2026</h1>
           <div class="hero-route">TP.HCM → Thượng Hải → Bắc Kinh → TP.HCM</div>
-          <div class="hero-meta">8 ngày 7 đêm · 6 người lớn + 1 em bé</div>
-          <div class="hero-actions"><a class="btn" href="#itinerary">Xem lịch trình</a><a class="btn secondary" href="./flights/">Theo dõi giá vé</a><a class="btn secondary" href="./flight-status.html">Trạng thái chuyến bay</a><a class="btn secondary" href="./hotels/">Theo dõi giá phòng</a></div>
+          <div class="hero-meta">8 ngày 7 đêm · 6 người lớn + 1 em bé</div><div class="booking-summary"><span class="booking-chip success">✓ Vé máy bay đã đặt</span><span class="booking-chip success">✓ Khách sạn đã đặt</span><span class="booking-chip muted">Theo dõi giá tự động đã tạm dừng</span></div>
+          <div class="hero-actions"><a class="btn" href="#itinerary">Xem lịch trình</a><a class="btn secondary" href="./flights/">Chi tiết chuyến bay</a><a class="btn secondary" href="./flight-status.html">Trạng thái chuyến bay</a><a class="btn secondary" href="./hotels/">Thông tin lưu trú</a></div>
         </div>
         <aside class="countdown"><span id="daysPrefix">Còn</span><strong id="daysLeft">—</strong><span id="daysUnit">ngày đến chuyến đi</span><b>Khởi hành 19/10/2026</b></aside>
       </section>
 
       <section class="stat-grid">
         <article class="card stat-card"><div class="stat-top"><span class="label">Ngân sách dự kiến</span><span class="stat-icon"><svg><use href="#i-wallet"/></svg></span></div><strong id="summaryBudget">Chưa thiết lập</strong><small id="budgetPerPerson">Nhập ngân sách bên dưới</small></article>
-        <article class="card stat-card"><div class="stat-top"><span class="label">Chuyến bay</span><span class="stat-icon"><svg><use href="#i-plane"/></svg></span></div><strong>2 chặng</strong><small id="flightStatNote">Đang tải dữ liệu giá vé…</small></article>
+        <article class="card stat-card"><div class="stat-top"><span class="label">Chuyến bay</span><span class="stat-icon"><svg><use href="#i-plane"/></svg></span></div><strong>2 chặng</strong><small id="flightStatNote">Đã đặt · theo dõi trạng thái chuyến bay</small></article>
         <article class="card stat-card"><div class="stat-top"><span class="label">Thành phố chính</span><span class="stat-icon"><svg><use href="#i-pin"/></svg></span></div><strong>2</strong><small>Thượng Hải · Bắc Kinh</small></article>
         <article class="card stat-card"><div class="stat-top"><span class="label">Việc còn lại</span><span class="stat-icon"><svg><use href="#i-check"/></svg></span></div><strong id="taskCount">7</strong><small id="taskStatus">0/7 đã hoàn thành</small></article>
       </section>
 
       <section class="dashboard-grid">
         <article class="card" id="itinerary">
-          <div class="card-head"><h2>Lịch trình chính</h2><a href="./flights/">Xem giá vé</a></div>
+          <div class="card-head"><h2>Lịch trình chính</h2><a href="./flights/">Chuyến bay</a></div>
           <div class="timeline">
             <div class="timeline-item"><div class="date-box"><strong>19</strong><span>TH10</span></div><span class="time-dot"></span><div class="timeline-info"><strong>TP.HCM → Thượng Hải <span class="pill success" id="outboundBadge">Đang kiểm tra</span></strong><div class="sub" id="outboundFlightText">Đang tải chuyến bay phù hợp…</div><div class="detail" id="outboundFlightMeta">SGN → PVG / SHA</div></div><div class="timeline-photo shanghai">上海</div></div>
             <div class="timeline-item"><div class="date-box"><strong>20</strong><span>TH10</span></div><span class="time-dot"></span><div class="timeline-info"><strong>Thượng Hải</strong><div class="sub">Bến Thượng Hải · Dự Viên · phố cổ</div><div class="detail">Lịch nhẹ ngày đầu, ưu tiên nghỉ ngơi</div></div><div class="timeline-photo shanghai">上海</div></div>
@@ -130,8 +130,8 @@
 <nav class="mobile-bottom">
   <a class="active" href="#top"><span class="nav-icon"><svg><use href="#i-home"/></svg></span>Tổng quan</a>
   <a href="./flight-status.html"><span class="nav-icon"><svg><use href="#i-status"/></svg></span>Trạng thái</a>
-  <a href="./flights/"><span class="nav-icon"><svg><use href="#i-plane"/></svg></span>Giá vé</a>
-  <a href="./hotels/"><span class="nav-icon"><svg><use href="#i-pin"/></svg></span>Giá phòng</a>
+  <a href="./flights/"><span class="nav-icon"><svg><use href="#i-plane"/></svg></span>Chuyến bay</a>
+  <a href="./hotels/"><span class="nav-icon"><svg><use href="#i-pin"/></svg></span>Lưu trú</a>
 </nav>
 
 <svg width="0" height="0" style="position:absolute;overflow:hidden" aria-hidden="true">
