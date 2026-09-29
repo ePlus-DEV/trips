@@ -10,9 +10,6 @@ on:
       - 'scripts/enrich-booking-options.mjs'
       - 'scripts/update-api-usage.mjs'
       - '.github/workflows/update-flight-prices.yml'
-  schedule:
-    # 07:17 in Vietnam (UTC+7).
-    - cron: '17 0 * * *'
 
 permissions:
   contents: write
