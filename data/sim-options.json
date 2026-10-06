@@ -1,0 +1,84 @@
+{
+  "updated_at": "2026-10-06",
+  "trip": {
+    "start_date": "2026-10-19",
+    "end_date": "2026-10-26",
+    "days": 8,
+    "adults": 6,
+    "infants": 1,
+    "recommended_data_gb": "8–12 GB",
+    "target_per_sim_vnd": 150000,
+    "target_group_min_vnd": 600000,
+    "target_group_max_vnd": 900000
+  },
+  "options": [
+    {
+      "id": "hico",
+      "rank": 1,
+      "name": "HICO",
+      "network": "China Telecom / China Unicom",
+      "price_from_vnd": 70000,
+      "price_display": "từ 70–85k",
+      "badge": "Ưu tiên so giá",
+      "tone": "recommended",
+      "features": [
+        "SIM vật lý, nhiều gói 1–30 ngày",
+        "Google / Facebook / Zalo không cần tự cấu hình VPN",
+        "Có các gói China Telecom và China Unicom"
+      ],
+      "caution": "TikTok / ChatGPT có thể phụ thuộc đúng biến thể và thiết bị. Xác nhận lại với shop trước khi thanh toán.",
+      "url": "https://hico.vn/sim-du-lich-trung-quoc-china-unicom"
+    },
+    {
+      "id": "simgicungco",
+      "rank": 2,
+      "name": "SimGiCungCo",
+      "network": "China Mobile / China Unicom",
+      "price_from_vnd": 95000,
+      "price_display": "từ 95k",
+      "badge": "Hợp mua theo nhóm",
+      "tone": "group",
+      "features": [
+        "Có SIM vật lý giao tại Việt Nam",
+        "China Mobile có gói theo dung lượng/ngày; Unicom có gói tổng dung lượng",
+        "Có ưu đãi khi mua nhiều SIM theo thông tin nhà bán"
+      ],
+      "caution": "Ưu tiên hỏi thẳng giá 6 SIM cùng gói 8–10 ngày và xác nhận TikTok / ChatGPT cho đúng gói.",
+      "url": "https://simgicungco.vn/sim-esim-du-lich-trung-quoc"
+    },
+    {
+      "id": "shopee",
+      "rank": 3,
+      "name": "Shopee",
+      "network": "Nhiều shop · China Mobile / Unicom",
+      "price_from_vnd": 54000,
+      "price_display": "khoảng 54–100k*",
+      "badge": "Săn giá thấp",
+      "tone": "marketplace",
+      "features": [
+        "Nhiều lựa chọn SIM vật lý giao nhanh tại Việt Nam",
+        "Có gói ngắn ngày giá rất thấp",
+        "Dễ so review và số lượng đã bán"
+      ],
+      "caution": "Giá ngoài trang tìm kiếm thường là biến thể rẻ nhất. Phải chọn đúng 8–10 ngày + dung lượng trước khi so giá cuối.",
+      "url": "https://shopee.vn/search?keyword=sim%20du%20l%E1%BB%8Bch%20trung%20qu%E1%BB%91c"
+    },
+    {
+      "id": "gohub",
+      "rank": 4,
+      "name": "Gohub",
+      "network": "China / Hong Kong / Macau",
+      "price_from_vnd": 60000,
+      "price_display": "từ khoảng 60k*",
+      "badge": "Ưu tiên hỗ trợ",
+      "tone": "support",
+      "features": [
+        "SIM vật lý nhận trước tại Việt Nam",
+        "Có lựa chọn nhiều mốc ngày và dung lượng",
+        "Thông tin sử dụng app quốc tế được mô tả khá rõ"
+      ],
+      "caution": "Thường chỉ đáng chọn nếu giá cuối của đúng gói 8–10 ngày không cao hơn nhiều so với HICO / marketplace.",
+      "url": "https://gohub.vn/sim/product/sim-trung-quoc-hong-kong-macao-1"
+    }
+  ]
+}
