@@ -23,6 +23,7 @@ A lightweight personal travel dashboard for GitHub Pages with itinerary, budget,
 - **6 adults + 1 infant under 2 on lap**
 - Economy
 - Direct flights are prioritized; maximum 1 stop remains available
+- China physical SIM shortlist: [docs/china-physical-sim-options.md](docs/china-physical-sim-options.md)
 
 ## Live flight prices
 
