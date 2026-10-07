@@ -33,21 +33,26 @@
 
       <section class="card hotel-search-card">
         <div class="hotel-search-top"><div class="hotel-stay"><strong id="stayDates">19/10/2026 → 20/10/2026</strong><span id="occupancyNote">2 người lớn / phòng · 3 phòng ước tính</span></div><span class="hotel-live-source" id="sourceLabel">Google Hotels</span></div>
-        <div class="hotel-filter-grid">
+        <div class="hotel-filter-grid hotel-filter-primary">
           <label class="filter-field filter-search"><span>Tìm kiếm</span><input id="hotelSearch" type="search" placeholder="Tên khách sạn, địa chỉ, tiện nghi…"></label>
           <label class="filter-field"><span>Sắp xếp</span><select id="sortHotels"><option value="recommended">Đề xuất</option><option value="distance">Gần Jinling East Road nhất</option><option value="price">Giá thấp nhất</option><option value="rating">Rating cao nhất</option><option value="reviews">Nhiều review nhất</option><option value="stars">Hạng sao cao nhất</option></select></label>
           <label class="filter-field"><span>Khoảng cách tối đa</span><select id="maxDistance"><option value="">Tất cả Shanghai</option><option value="0.5">≤ 0,5 km</option><option value="1">≤ 1 km</option><option value="1.5">≤ 1,5 km</option><option value="2">≤ 2 km</option><option value="3">≤ 3 km</option><option value="5">≤ 5 km</option><option value="10">≤ 10 km</option></select></label>
-          <label class="filter-field"><span>Khu vực</span><select id="areaFilter"><option value="">Tất cả khu vực</option></select></label>
-          <label class="filter-field"><span>Giá từ</span><input id="minPrice" inputmode="numeric" placeholder="0 đ"></label>
-          <label class="filter-field"><span>Giá đến</span><input id="maxPrice" inputmode="numeric" placeholder="3.000.000 đ"></label>
-          <label class="filter-field"><span>Rating tối thiểu</span><select id="minRating"><option value="">Bất kỳ</option><option value="4">≥ 4,0</option><option value="4.2">≥ 4,2</option><option value="4.5">≥ 4,5</option><option value="4.7">≥ 4,7</option></select></label>
-          <label class="filter-field"><span>Review tối thiểu</span><select id="minReviews"><option value="">Bất kỳ</option><option value="100">≥ 100</option><option value="500">≥ 500</option><option value="1000">≥ 1.000</option><option value="3000">≥ 3.000</option></select></label>
-          <label class="filter-field"><span>Hạng sao</span><select id="minStars"><option value="">Bất kỳ</option><option value="3">≥ 3 sao</option><option value="4">≥ 4 sao</option><option value="5">5 sao</option></select></label>
-          <label class="filter-field"><span>Tiện nghi</span><select id="amenityFilter"><option value="">Tất cả tiện nghi</option></select></label>
+          <label class="filter-field"><span>Giá tối đa</span><input id="maxPrice" inputmode="numeric" placeholder="3.000.000 đ"></label>
         </div>
+        <details class="hotel-advanced">
+          <summary>Bộ lọc thêm <span>khu vực · rating · sao · tiện nghi</span></summary>
+          <div class="hotel-filter-grid hotel-filter-extra">
+            <label class="filter-field"><span>Khu vực</span><select id="areaFilter"><option value="">Tất cả khu vực</option></select></label>
+            <label class="filter-field"><span>Giá từ</span><input id="minPrice" inputmode="numeric" placeholder="0 đ"></label>
+            <label class="filter-field"><span>Rating tối thiểu</span><select id="minRating"><option value="">Bất kỳ</option><option value="4">≥ 4,0</option><option value="4.2">≥ 4,2</option><option value="4.5">≥ 4,5</option><option value="4.7">≥ 4,7</option></select></label>
+            <label class="filter-field"><span>Review tối thiểu</span><select id="minReviews"><option value="">Bất kỳ</option><option value="100">≥ 100</option><option value="500">≥ 500</option><option value="1000">≥ 1.000</option><option value="3000">≥ 3.000</option></select></label>
+            <label class="filter-field"><span>Hạng sao</span><select id="minStars"><option value="">Bất kỳ</option><option value="3">≥ 3 sao</option><option value="4">≥ 4 sao</option><option value="5">5 sao</option></select></label>
+            <label class="filter-field"><span>Tiện nghi</span><select id="amenityFilter"><option value="">Tất cả tiện nghi</option></select></label>
+          </div>
+        </details>
         <div class="hotel-filter-actions">
-          <label class="shortlist-toggle"><input id="pricedOnly" type="checkbox"> Chỉ khách sạn có giá</label>
-          <label class="shortlist-toggle"><input id="shortlistOnly" type="checkbox"> Chỉ khách sạn đã đánh dấu</label>
+          <label class="shortlist-toggle"><input id="pricedOnly" type="checkbox"> Có giá</label>
+          <label class="shortlist-toggle"><input id="shortlistOnly" type="checkbox"> Đã đánh dấu</label>
           <button class="btn sm secondary" id="clearHotelFilters" type="button">Xóa bộ lọc</button>
           <span class="filter-hint" id="discoveryMeta">Đang tải dữ liệu khám phá…</span>
         </div>
