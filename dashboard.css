@@ -248,7 +248,7 @@ body:has(#itinerary) .utility-details>summary small{color:var(--muted);font-size
 body:has(#itinerary) .utility-details>summary>strong{color:var(--primary);font-size:13px}
 body:has(#itinerary) .utility-details[open]>summary{border-bottom:1px solid var(--dashboard-border)}
 body:has(#itinerary) .utility-meta{display:block;margin-top:8px;color:var(--muted);font-size:10px}
-body:has(#itinerary) .booking-center-grid{grid-template-columns:repeat(4,minmax(0,1fr))}
+body:has(#itinerary) .booking-center-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
 body:has(#itinerary) .booking-panel{min-height:128px}
 body:has(#itinerary) .top-actions .btn{display:none}
 
