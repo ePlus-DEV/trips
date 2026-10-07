@@ -53,3 +53,12 @@
 @media(max-width:820px){.booking-content{width:min(100% - 22px,720px);padding-top:13px}.booking-heading{align-items:center}.booking-heading h1{font-size:22px}.booking-heading p{font-size:11.5px}.booking-refresh{display:none}.booking-search-card{border-radius:15px}.booking-search-top{padding:0 13px}.search-note{display:none}.search-legs{grid-template-columns:1fr}.search-leg,.search-travellers{padding:14px}.search-travellers{grid-template-columns:1fr;gap:7px}.route-tabs{overflow:auto;padding:8px}.route-tab{white-space:nowrap}.booking-stats{grid-template-columns:1fr 1fr}.booking-stats .stat-pill-card:last-child{grid-column:1/-1}.filter-panel{grid-template-columns:1fr 1fr}.filter-group:first-of-type{grid-column:1/-1}.flight-offer-main{grid-template-columns:1fr;gap:12px}.offer-airline{padding-bottom:10px;border-bottom:1px solid var(--line)}.offer-fare{border-left:0;border-top:1px solid var(--line);padding:10px 0 0;display:grid;grid-template-columns:1fr auto;align-items:end;text-align:left}.offer-fare .offer-badge{grid-column:1/-1;width:max-content}.offer-fare .btn{grid-row:2/4;grid-column:2;margin:0;width:auto;min-width:130px}.offer-foot{padding-inline:13px}.flight-offer:hover{transform:none}}
 @media(max-width:560px){.booking-heading h1{font-size:19px}.booking-heading p{max-width:94%}.search-route{grid-template-columns:1fr 44px 1fr}.search-airport strong{font-size:21px}.route-tab{padding-inline:10px}.filter-panel{grid-template-columns:1fr}.filter-panel-head,.filter-group:first-of-type,.filter-tip{grid-column:auto}.booking-stats{grid-template-columns:1fr}.booking-stats .stat-pill-card:last-child{grid-column:auto}.results-toolbar{align-items:flex-end}.results-toolbar small{display:none}.sort-box{display:grid;gap:4px}.sort-box>span{display:none}.sort-box .filter-select{min-width:160px}.offer-flight{grid-template-columns:58px 1fr 58px}.offer-time strong{font-size:18px}.offer-fare{grid-template-columns:1fr auto}.offer-fare strong{font-size:17px}.offer-skeleton{grid-template-columns:40px 1fr}.offer-skeleton .sk-route,.offer-skeleton .sk-price{grid-column:1/-1}.history-heading>span{display:none}}
 @media(prefers-reduced-motion:reduce){.flight-offer{transition:none}}
+
+.heading-actions{display:flex;align-items:center;gap:8px;flex-wrap:wrap;justify-content:flex-end}
+@media(max-width:820px){
+  .heading-actions .btn:not(.booking-refresh){min-height:34px;font-size:10.5px}
+}
+@media(max-width:560px){
+  .booking-heading{display:block}
+  .heading-actions{justify-content:flex-start;margin-top:10px}
+}
