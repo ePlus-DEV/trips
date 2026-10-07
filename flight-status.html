@@ -17,25 +17,21 @@
     <nav class="side-nav">
       <a href="./index.html"><span class="nav-icon"><svg><use href="#i-home"/></svg></span>Tổng quan</a>
       <a href="./index.html#itinerary"><span class="nav-icon"><svg><use href="#i-calendar"/></svg></span>Lịch trình</a>
-      <a href="./flights.html"><span class="nav-icon"><svg><use href="#i-plane"/></svg></span>Giá vé</a>
-      <a class="active" href="./flight-status.html"><span class="nav-icon"><svg><use href="#i-status"/></svg></span>Trạng thái</a>
-      <a href="./hotels.html"><span class="nav-icon"><svg><use href="#i-pin"/></svg></span>Giá phòng</a>
-      <a href="./index.html#budget"><span class="nav-icon"><svg><use href="#i-wallet"/></svg></span>Ngân sách</a>
+      <a class="active" href="./flights/"><span class="nav-icon"><svg><use href="#i-plane"/></svg></span>Chuyến bay</a>
+      <a href="./hotels/"><span class="nav-icon"><svg><use href="#i-pin"/></svg></span>Lưu trú</a>
+      <a href="./sim/"><span class="nav-icon"><svg><use href="#i-sim"/></svg></span>SIM & Internet</a>
       <a href="./index.html#checklist"><span class="nav-icon"><svg><use href="#i-check"/></svg></span>Chuẩn bị</a>
-      <a href="./index.html#notes"><span class="nav-icon"><svg><use href="#i-note"/></svg></span>Ghi chú</a>
     </nav>
     <div class="sidebar-foot"><button class="sidebar-action" data-theme-toggle><span class="nav-icon"><svg><use href="#i-moon"/></svg></span>Đổi giao diện</button></div>
   </aside>
   <div class="main">
     <header class="topbar">
       <div class="crumb"><strong>Trạng thái chuyến bay</strong><span>Hành trình Trung Quốc 2026</span></div>
-      <div class="top-actions"><a class="btn sm" href="./flights.html">Giá vé</a><a class="btn sm" href="./index.html">Về tổng quan</a><button class="icon-btn" data-theme-toggle aria-label="Chuyển sang giao diện tối"><svg class="ui-icon"><use href="#i-moon"/></svg></button></div>
-    </header>
-    <header class="mobile-header"><a class="brand" href="./index.html"><span class="brand-mark"><svg><use href="#i-plane"/></svg></span>TravelLog</a><div class="right"><button class="icon-btn" data-theme-toggle aria-label="Chuyển sang giao diện tối"><svg class="ui-icon"><use href="#i-moon"/></svg></button></div></header>
+      <div class="top-actions"><button class="icon-btn" data-theme-toggle aria-label="Chuyển sang giao diện tối"><svg class="ui-icon"><use href="#i-moon"/></svg></button></div></header>
     <main class="content status-content">
       <section class="status-heading">
         <div><span class="status-kicker">Flight status</span><h1>Trạng thái chuyến bay đã đặt</h1><p id="statusMessage">Theo dõi lịch bay và trạng thái vận hành cho hai chuyến quan trọng trong hành trình.</p></div>
-        <div class="status-actions"><a class="btn" href="./flights.html">Xem giá vé</a><a class="btn primary" href="https://github.com/ePlus-DEV/trips/actions/workflows/update-flight-status.yml" target="_blank" rel="noopener"><svg class="ui-icon"><use href="#i-refresh"/></svg>Kiểm tra ngay</a></div>
+        <div class="status-actions"><a class="btn" href="./flights/">← Chuyến bay</a><a class="btn primary" href="https://github.com/ePlus-DEV/trips/actions/workflows/update-flight-status.yml" target="_blank" rel="noopener"><svg class="ui-icon"><use href="#i-refresh"/></svg>Kiểm tra ngay</a></div>
       </section>
 
       <section class="card status-overview">
@@ -57,7 +53,7 @@
     </main>
   </div>
 </div>
-<nav class="mobile-bottom"><a href="./index.html"><svg><use href="#i-home"/></svg>Tổng quan</a><a href="./flights.html"><svg><use href="#i-plane"/></svg>Giá vé</a><a class="active" href="./flight-status.html"><svg><use href="#i-status"/></svg>Trạng thái</a><a href="./hotels.html"><svg><use href="#i-pin"/></svg>Giá phòng</a></nav>
+<nav class="mobile-bottom"><a href="./index.html"><svg><use href="#i-home"/></svg>Tổng quan</a><a class="active" href="./flights/"><svg><use href="#i-plane"/></svg>Chuyến bay</a><a href="./hotels/"><svg><use href="#i-pin"/></svg>Lưu trú</a><a href="./sim/"><svg><use href="#i-sim"/></svg>SIM</a></nav>
 <svg width="0" height="0" style="position:absolute;overflow:hidden" aria-hidden="true">
   <symbol id="i-plane" viewBox="0 0 24 24"><path d="M10.5 4h3l2.2 6H20a2 2 0 1 1 0 4h-4.3l-2.2 6h-3l1.2-6H7l-2 2H3l1.2-4L3 8h2l2 2h4.7l-1.2-6Z"/></symbol>
   <symbol id="i-home" viewBox="0 0 24 24"><path d="m3 11 9-8 9 8v9a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1Z"/></symbol>
@@ -67,7 +63,7 @@
   <symbol id="i-check" viewBox="0 0 24 24"><rect x="3.5" y="3.5" width="17" height="17" rx="4"/><path d="m8 12 2.5 2.5L16.5 9"/></symbol>
   <symbol id="i-pin" viewBox="0 0 24 24"><path d="M20 10c0 5-8 12-8 12S4 15 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="2.5"/></symbol>
   <symbol id="i-status" viewBox="0 0 24 24"><path d="M4 17h4l2-10 4 13 2-8h4"/><path d="M3 4h18v16H3z"/></symbol>
-  <symbol id="i-moon" viewBox="0 0 24 24"><path d="M21 12.8A9 9 0 1 1 11.2 3 7 7 0 0 0 21 12.8Z"/></symbol>
+  <symbol id="i-sim" viewBox="0 0 24 24"><path d="M7 3h7l4 4v14H7z"/><path d="M14 3v5h4M10 12h5M10 16h5"/></symbol><symbol id="i-moon" viewBox="0 0 24 24"><path d="M21 12.8A9 9 0 1 1 11.2 3 7 7 0 0 0 21 12.8Z"/></symbol>
   <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.42 1.42M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.42-1.42M17.66 6.34l1.41-1.41"/></symbol>
   <symbol id="i-refresh" viewBox="0 0 24 24"><path d="M20 11a8 8 0 1 0 1 4"/><path d="M20 4v7h-7"/></symbol>
 </svg>
