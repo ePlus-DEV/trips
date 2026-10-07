@@ -147,3 +147,17 @@
   .check-grid>div,.check-grid>div:first-child,.check-grid>div:last-child{padding:11px 0;border-bottom:1px solid var(--line)}
   .check-grid>div:last-child{border-bottom:0}
 }
+
+
+/* 2026-10 simplification */
+.sim-page .top-actions .btn{display:none}
+.sim-hero{min-height:230px}
+.sim-hero-copy{padding-top:34px;padding-bottom:32px}
+.sim-hero h1{font-size:34px}
+.sim-hero .hero-actions{margin-top:18px}
+.section-head{margin-top:20px}
+.provider-grid{margin-top:2px}
+@media(max-width:820px){
+  .sim-hero{min-height:0}
+  .sim-hero-copy{padding-bottom:14px}
+}
