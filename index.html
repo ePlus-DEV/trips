@@ -23,13 +23,9 @@
       <a class="active" href="#top"><span class="nav-icon"><svg><use href="#i-home"/></svg></span>Tổng quan</a>
       <a href="#itinerary"><span class="nav-icon"><svg><use href="#i-calendar"/></svg></span>Lịch trình</a>
       <a href="./flights/"><span class="nav-icon"><svg><use href="#i-plane"/></svg></span>Chuyến bay</a>
-      <a href="./flight-status.html"><span class="nav-icon"><svg><use href="#i-status"/></svg></span>Trạng thái</a>
       <a href="./hotels/"><span class="nav-icon"><svg><use href="#i-pin"/></svg></span>Lưu trú</a>
       <a href="./sim/"><span class="nav-icon"><svg><use href="#i-sim"/></svg></span>SIM & Internet</a>
-      <a href="#bookings"><span class="nav-icon"><svg><use href="#i-note"/></svg></span>Booking Center</a>
-      <a href="#budget"><span class="nav-icon"><svg><use href="#i-wallet"/></svg></span>Ngân sách</a>
       <a href="#checklist"><span class="nav-icon"><svg><use href="#i-check"/></svg></span>Chuẩn bị</a>
-      <a href="#notes"><span class="nav-icon"><svg><use href="#i-note"/></svg></span>Ghi chú</a>
     </nav>
     <div class="sidebar-foot">
       <button class="sidebar-action" data-theme-toggle><span class="nav-icon"><svg><use href="#i-moon"/></svg></span>Đổi giao diện</button>
@@ -43,9 +39,6 @@
         <select class="language-select" data-language-select aria-label="Ngôn ngữ">
           <option value="vi">VI</option><option value="en">EN</option><option value="zh">中文</option><option value="ja">日本語</option>
         </select>
-        <a class="btn sm" href="./hotels/">Lưu trú</a>
-        <a class="btn sm" href="./flights/">Chuyến bay</a>
-        <a class="btn sm" href="./flight-status.html">Trạng thái chuyến bay</a>
         <button class="icon-btn" data-theme-toggle aria-label="Đổi giao diện"><svg class="ui-icon"><use href="#i-moon"/></svg></button>
       </div>
     </header>
@@ -66,17 +59,28 @@
           <div class="hero-kicker"><span class="booking-dot"></span> Chuyến đi đã được đặt</div>
           <h1>Trung Quốc · 19–26/10/2026</h1>
           <div class="hero-route">TP.HCM → Thượng Hải → Bắc Kinh → TP.HCM</div>
-          <div class="hero-meta">8 ngày 7 đêm · 6 người lớn + 1 em bé</div><div class="booking-summary"><span class="booking-chip success">✓ Vé máy bay đã đặt</span><span class="booking-chip success">✓ Khách sạn đã đặt</span><span class="booking-chip muted">Theo dõi giá tự động đã tạm dừng</span></div>
-          <div class="hero-actions"><a class="btn" href="#itinerary">Xem lịch trình</a><a class="btn secondary" href="./flights/">Chi tiết chuyến bay</a><a class="btn secondary" href="./flight-status.html">Trạng thái chuyến bay</a><a class="btn secondary" href="./hotels/">Thông tin lưu trú</a></div>
+          <div class="hero-meta">8 ngày 7 đêm · 6 người lớn + 1 em bé</div><div class="booking-summary"><span class="booking-chip success">✓ Vé máy bay</span><span class="booking-chip success">✓ Khách sạn</span></div>
+          <div class="hero-actions"><a class="btn" href="#itinerary">Xem lịch trình</a><a class="btn secondary" href="#priorities">Việc cần chốt</a></div>
         </div>
         <aside class="countdown"><span id="daysPrefix">Còn</span><strong id="daysLeft">—</strong><span id="daysUnit">ngày đến chuyến đi</span><b>Khởi hành 19/10/2026</b></aside>
       </section>
 
-      <section class="stat-grid">
-        <article class="card stat-card"><div class="stat-top"><span class="label">Ngân sách dự kiến</span><span class="stat-icon"><svg><use href="#i-wallet"/></svg></span></div><strong id="summaryBudget">Chưa thiết lập</strong><small id="budgetPerPerson">Nhập ngân sách bên dưới</small></article>
-        <article class="card stat-card"><div class="stat-top"><span class="label">Chuyến bay</span><span class="stat-icon"><svg><use href="#i-plane"/></svg></span></div><strong>2 chặng</strong><small id="flightStatNote">Đã đặt · theo dõi trạng thái chuyến bay</small></article>
-        <article class="card stat-card"><div class="stat-top"><span class="label">Thành phố chính</span><span class="stat-icon"><svg><use href="#i-pin"/></svg></span></div><strong>2</strong><small>Thượng Hải · Bắc Kinh</small></article>
-        <article class="card stat-card"><div class="stat-top"><span class="label">Việc còn lại</span><span class="stat-icon"><svg><use href="#i-check"/></svg></span></div><strong id="taskCount">7</strong><small id="taskStatus">0/7 đã hoàn thành</small></article>
+      <section class="priority-grid" id="priorities">
+        <article class="card priority-card">
+          <div class="priority-icon"><svg><use href="#i-passport"/></svg></div>
+          <div><span>Hộ chiếu</span><strong id="passportStatus">Cần kiểm tra</strong><small>Chỉ lưu trạng thái · không lưu số hoặc ảnh hộ chiếu</small></div>
+          <a href="#checklist">Kiểm tra</a>
+        </article>
+        <article class="card priority-card">
+          <div class="priority-icon"><svg><use href="#i-train"/></svg></div>
+          <div><span>Tàu cao tốc</span><strong>23/10 · Shanghai → Beijing</strong><small>Chưa mở bán · theo lịch trình chính</small></div>
+          <a href="https://www.12306.cn/en/index.html" target="_blank" rel="noopener">12306 ↗</a>
+        </article>
+        <article class="card priority-card">
+          <div class="priority-icon"><svg><use href="#i-sim"/></svg></div>
+          <div><span>SIM vật lý</span><strong>≤ 150k / SIM</strong><small>6 SIM · 8–10 ngày · 8–12GB</small></div>
+          <a href="./sim/">So sánh</a>
+        </article>
       </section>
 
       <section class="dashboard-grid">
@@ -94,7 +98,7 @@
           <article class="card" id="checklist">
             <div class="card-head"><h3>Chuẩn bị trước chuyến đi</h3><span class="pill primary" id="checkHeaderStatus">0%</span></div>
             <div class="checklist">
-              <label class="check-item"><input id="c1" type="checkbox">Hộ chiếu còn hạn &gt; 6 tháng</label>
+              <label class="check-item"><input id="c1" type="checkbox">Hộ chiếu mới / còn hạn &gt; 6 tháng</label>
               <label class="check-item"><input id="c2" type="checkbox">Visa Trung Quốc</label>
               <label class="check-item"><input id="c3" type="checkbox">Khách sạn</label>
               <label class="check-item"><input id="c4" type="checkbox">eSIM / SIM Trung Quốc</label>
@@ -106,18 +110,6 @@
             </div>
           </article>
 
-          <article class="card" id="budget">
-            <div class="card-head"><h3>Ngân sách</h3><span class="pill primary">VND</span></div>
-            <div class="budget">
-              <div class="budget-total"><div><span>Tổng dự kiến</span><strong id="budgetTotal">Chưa thiết lập</strong></div><span id="budgetHint">0/5 hạng mục</span></div>
-              <div class="progress"><span id="budgetProgress"></span></div>
-              <div class="budget-row"><span>Chuyến bay</span><input data-budget="flight" inputmode="numeric" placeholder="0"></div>
-              <div class="budget-row"><span>Khách sạn</span><input data-budget="hotel" inputmode="numeric" placeholder="0"></div>
-              <div class="budget-row"><span>Ăn uống</span><input data-budget="food" inputmode="numeric" placeholder="0"></div>
-              <div class="budget-row"><span>Di chuyển nội địa</span><input data-budget="transport" inputmode="numeric" placeholder="0"></div>
-              <div class="budget-row"><span>Mua sắm & khác</span><input data-budget="other" inputmode="numeric" placeholder="0"></div>
-            </div>
-          </article>
         </div>
 
         <article class="card booking-center" id="bookings">
@@ -126,21 +118,39 @@
             <section class="booking-panel"><div class="booking-panel-head"><span>✈️</span><div><b>Chuyến bay</b><small>SGN → Shanghai · Beijing → SGN</small></div></div><a class="btn sm" href="./flight-status.html">Theo dõi trạng thái</a></section>
             <section class="booking-panel"><div class="booking-panel-head"><span>🏨</span><div><b>Lưu trú</b><small>Shanghai · Beijing</small></div></div><a class="btn sm" href="./hotels/">Xem thông tin khách sạn</a></section>
             <section class="booking-panel sim-panel"><div class="booking-panel-head"><span>📶</span><div><b>SIM & Internet</b><small>6 SIM vật lý · mục tiêu ≤ 150k/SIM</small></div></div><div class="booking-panel-actions"><span class="booking-chip muted">Chưa mua</span><a class="btn sm" href="./sim/">So sánh SIM</a></div></section>
-            <section class="booking-panel"><div class="booking-panel-head"><span>🚄</span><div><b>Tàu cao tốc</b><small>Shanghai → Beijing · 21/10/2026</small></div></div><div class="booking-panel-actions"><span class="booking-chip muted">Chưa mở bán</span><a class="btn sm" href="https://www.12306.cn/en/index.html" target="_blank" rel="noopener">China Railway 12306</a></div></section>
+            <section class="booking-panel"><div class="booking-panel-head"><span>🚄</span><div><b>Tàu cao tốc</b><small>Shanghai → Beijing · 23/10/2026</small></div></div><div class="booking-panel-actions"><span class="booking-chip muted">Chưa mở bán</span><a class="btn sm" href="https://www.12306.cn/en/index.html" target="_blank" rel="noopener">China Railway 12306</a></div></section>
           </div>
-          <div class="booking-fields">
-            <label>Mã đặt chỗ / PNR<input data-booking="pnr" placeholder="Nhập mã booking"></label>
-            <label>Khách sạn / mã xác nhận<input data-booking="hotel" placeholder="Tên khách sạn hoặc mã xác nhận"></label>
-            <label>Tàu / số hiệu ghế<input data-booking="train" placeholder="VD: Gxx · Coach 05 · Seat 08A"></label>
-            <label>Ghi chú quan trọng<input data-booking="important" placeholder="Ga, terminal, giờ check-in..."></label>
-          </div>
-          <div class="booking-save"><span>Dữ liệu lưu cục bộ trên thiết bị này.</span><button class="btn sm" id="copyBookings">Sao chép Booking Center</button></div>
+          <details class="booking-details">
+            <summary>Chi tiết đặt chỗ</summary>
+            <div class="booking-fields">
+              <label>Mã đặt chỗ / PNR<input data-booking="pnr" placeholder="Nhập mã booking"></label>
+              <label>Khách sạn / mã xác nhận<input data-booking="hotel" placeholder="Tên khách sạn hoặc mã xác nhận"></label>
+              <label>Tàu / số hiệu ghế<input data-booking="train" placeholder="VD: Gxx · Coach 05 · Seat 08A"></label>
+              <label>Ghi chú quan trọng<input data-booking="important" placeholder="Ga, terminal, giờ check-in..."></label>
+            </div>
+            <div class="booking-save"><span>Dữ liệu chỉ lưu cục bộ trên thiết bị này.</span><button class="btn sm" id="copyBookings">Sao chép</button></div>
+          </details>
         </article>
 
-        <article class="card notes-card" id="notes">
-          <div class="card-head"><h3>Ghi chú</h3><span class="pill">Lưu trên thiết bị này</span></div>
-          <div class="notes-wrap"><textarea id="tripNotes" placeholder="Địa chỉ khách sạn, mã đặt chỗ, quán ăn, chi tiết tàu, điều cần nhớ..."></textarea><div class="notes-actions"><button class="btn sm" id="copyNotes">Sao chép</button><button class="btn sm" id="exportData">Xuất dữ liệu</button><label class="btn sm" for="importData">Nhập dữ liệu<input id="importData" type="file" accept="application/json" hidden></label><span class="save-state" id="saveState">Sẵn sàng</span></div></div>
-        </article>
+        <section class="utility-grid">
+          <details class="card utility-details" id="budget">
+            <summary><span><b>Ngân sách</b><small id="budgetSummaryHint">Theo dõi chi tiêu khi cần</small></span><strong id="summaryBudget">Chưa thiết lập</strong></summary>
+            <div class="budget">
+              <div class="budget-total"><div><span>Tổng dự kiến</span><strong id="budgetTotal">Chưa thiết lập</strong></div><span id="budgetHint">0/5 hạng mục</span></div>
+              <div class="progress"><span id="budgetProgress"></span></div>
+              <div class="budget-row"><span>Chuyến bay</span><input data-budget="flight" inputmode="numeric" placeholder="0"></div>
+              <div class="budget-row"><span>Khách sạn</span><input data-budget="hotel" inputmode="numeric" placeholder="0"></div>
+              <div class="budget-row"><span>Ăn uống</span><input data-budget="food" inputmode="numeric" placeholder="0"></div>
+              <div class="budget-row"><span>Di chuyển nội địa</span><input data-budget="transport" inputmode="numeric" placeholder="0"></div>
+              <div class="budget-row"><span>Mua sắm & khác</span><input data-budget="other" inputmode="numeric" placeholder="0"></div>
+              <span id="budgetPerPerson" class="utility-meta">Nhập ngân sách bên dưới</span>
+            </div>
+          </details>
+          <details class="card utility-details" id="notes">
+            <summary><span><b>Ghi chú chuyến đi</b><small>Địa chỉ, mã đặt chỗ, điều cần nhớ</small></span><span class="pill">Cục bộ</span></summary>
+            <div class="notes-wrap"><textarea id="tripNotes" placeholder="Địa chỉ khách sạn, mã đặt chỗ, quán ăn, chi tiết tàu, điều cần nhớ..."></textarea><div class="notes-actions"><button class="btn sm" id="copyNotes">Sao chép</button><button class="btn sm" id="exportData">Xuất dữ liệu</button><label class="btn sm" for="importData">Nhập dữ liệu<input id="importData" type="file" accept="application/json" hidden></label><span class="save-state" id="saveState">Sẵn sàng</span></div></div>
+          </details>
+        </section>
       </section>
     </main>
   </div>
@@ -148,9 +158,9 @@
 
 <nav class="mobile-bottom">
   <a class="active" href="#top"><span class="nav-icon"><svg><use href="#i-home"/></svg></span>Tổng quan</a>
-  <a href="./flight-status.html"><span class="nav-icon"><svg><use href="#i-status"/></svg></span>Trạng thái</a>
   <a href="./flights/"><span class="nav-icon"><svg><use href="#i-plane"/></svg></span>Chuyến bay</a>
   <a href="./hotels/"><span class="nav-icon"><svg><use href="#i-pin"/></svg></span>Lưu trú</a>
+  <a href="./sim/"><span class="nav-icon"><svg><use href="#i-sim"/></svg></span>SIM</a>
 </nav>
 
 <svg width="0" height="0" style="position:absolute;overflow:hidden" aria-hidden="true">
@@ -163,6 +173,8 @@
   <symbol id="i-pin" viewBox="0 0 24 24"><path d="M20 10c0 5-8 12-8 12S4 15 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="2.5"/></symbol>
   <symbol id="i-status" viewBox="0 0 24 24"><path d="M4 17h4l2-10 4 13 2-8h4"/><path d="M3 4h18v16H3z"/></symbol>
   <symbol id="i-sim" viewBox="0 0 24 24"><path d="M7 3h7l4 4v14H7z"/><path d="M14 3v5h4M10 12h5M10 16h5"/></symbol>
+  <symbol id="i-passport" viewBox="0 0 24 24"><rect x="4" y="3" width="16" height="18" rx="2.5"/><circle cx="12" cy="10" r="3"/><path d="M8 16h8"/></symbol>
+  <symbol id="i-train" viewBox="0 0 24 24"><rect x="5" y="3" width="14" height="15" rx="3"/><path d="M8 8h8M8 13h.01M16 13h.01M8 18l-2 3M16 18l2 3"/></symbol>
   <symbol id="i-moon" viewBox="0 0 24 24"><path d="M21 12.8A9 9 0 1 1 11.2 3 7 7 0 0 0 21 12.8Z"/></symbol>
   <symbol id="i-arrow-right" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
 </svg>
@@ -258,7 +270,7 @@
 
   const checks=$$('.check-item input');
   checks.forEach(c=>{c.checked=!!state[c.id];c.onchange=()=>{state[c.id]=c.checked;save();renderChecks()}});
-  function renderChecks(){const done=checks.filter(c=>c.checked).length,p=Math.round(done/checks.length*100);$('#taskCount').textContent=checks.length-done;const status=t('{done}/{total} đã hoàn thành',{done,total:checks.length});$('#taskStatus').textContent=status;$('#checkText').textContent=status;$('#checkPercent').textContent=p+'%';$('#checkHeaderStatus').textContent=p+'%';$('#checkProgress').style.width=p+'%'}
+  function renderChecks(){const done=checks.filter(c=>c.checked).length,p=Math.round(done/checks.length*100),status=t('{done}/{total} đã hoàn thành',{done,total:checks.length});if($('#taskCount'))$('#taskCount').textContent=checks.length-done;if($('#taskStatus'))$('#taskStatus').textContent=status;$('#checkText').textContent=status;$('#checkPercent').textContent=p+'%';$('#checkHeaderStatus').textContent=p+'%';$('#checkProgress').style.width=p+'%';const passport=$('#passportStatus');if(passport){passport.textContent=$('#c1')?.checked?'Đã kiểm tra':'Cần kiểm tra';passport.classList.toggle('ready',!!$('#c1')?.checked)}}
   renderChecks();
 
   const inputs=$$('[data-budget]');
@@ -280,9 +292,9 @@
   function paintFlight(r,text,meta,badge){const o=preferred(r);if(!o){$(text).textContent=t('Chưa có chuyến bay phù hợp');$(badge).textContent=t('Chưa có dữ liệu');$(badge).className='pill';return}const s=o.slices?.[0],seg=s?.segments?.[0],last=s?.segments?.at(-1);$(text).textContent=`${time(seg?.departing_at)} ${s?.origin||seg?.origin} → ${time(last?.arriving_at)} ${s?.destination||last?.destination}`;$(meta).textContent=`${o.owner?.name||t('Hãng bay')}${seg?.flight_number?' · '+seg.flight_number:''} · ${money(o.total_amount)}`;$(badge).textContent=isDirect(o)?t('Bay thẳng'):t('1 điểm dừng');$(badge).className='pill '+(isDirect(o)?'success':'warning')}
 
   let flightData=null;
-  function renderFlights(data){const out=data.routes?.find(r=>r.id==='outbound'),ret=data.routes?.find(r=>r.id==='return');paintFlight(out,'#outboundFlightText','#outboundFlightMeta','#outboundBadge');paintFlight(ret,'#returnFlightText','#returnFlightMeta','#returnBadge');const direct=(data.routes||[]).reduce((n,r)=>n+(r.offers||[]).filter(isDirect).length,0);$('#flightStatNote').textContent=direct?t('{count} lựa chọn bay thẳng đang được theo dõi',{count:direct}):t('Có dữ liệu chuyến bay, chưa thấy lựa chọn bay thẳng')}
+  function renderFlights(data){const out=data.routes?.find(r=>r.id==='outbound'),ret=data.routes?.find(r=>r.id==='return');paintFlight(out,'#outboundFlightText','#outboundFlightMeta','#outboundBadge');paintFlight(ret,'#returnFlightText','#returnFlightMeta','#returnBadge')}
 
-  fetch(`./data/flights.json?t=${Date.now()}`,{cache:'no-store'}).then(r=>r.json()).then(data=>{flightData=data;renderFlights(data)}).catch(()=>{$('#flightStatNote').textContent=t('Không tải được dữ liệu giá vé')});
+  fetch(`./data/flights.json?t=${Date.now()}`,{cache:'no-store'}).then(r=>r.json()).then(data=>{flightData=data;renderFlights(data)}).catch(()=>{});
 
   document.addEventListener('travel-language-change',()=>{renderCountdown();renderChecks();renderBudget();setSaveState(saveStateMessage);if(flightData)renderFlights(flightData)});
 
