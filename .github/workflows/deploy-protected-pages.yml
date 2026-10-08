@@ -1,0 +1,65 @@
+name: Deploy protected TravelLog
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: protected-pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    outputs:
+      enabled: ${{ steps.guard.outputs.enabled }}
+    steps:
+      - name: Check protection secret
+        id: guard
+        env:
+          SITE_PASSWORD: ${{ secrets.SITE_PASSWORD }}
+        shell: bash
+        run: |
+          if [ -n "$SITE_PASSWORD" ]; then
+            echo "enabled=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "enabled=false" >> "$GITHUB_OUTPUT"
+            echo "::notice::SITE_PASSWORD is not configured; protected Pages deploy skipped."
+          fi
+
+      - uses: actions/checkout@v4
+        if: steps.guard.outputs.enabled == 'true'
+
+      - uses: actions/configure-pages@v5
+        if: steps.guard.outputs.enabled == 'true'
+        with:
+          enablement: true
+
+      - name: Build encrypted site
+        if: steps.guard.outputs.enabled == 'true'
+        env:
+          SITE_PASSWORD: ${{ secrets.SITE_PASSWORD }}
+        run: node scripts/build-protected-site.mjs
+
+      - uses: actions/upload-pages-artifact@v3
+        if: steps.guard.outputs.enabled == 'true'
+        with:
+          path: _protected_site
+
+  deploy:
+    if: needs.build.outputs.enabled == 'true'
+    needs: build
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy encrypted Pages artifact
+        id: deployment
+        uses: actions/deploy-pages@v4
