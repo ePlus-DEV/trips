@@ -76,6 +76,7 @@ body{
   height:30px!important;
   border-radius:9px!important;
   background:var(--text)!important;
+  color:var(--surface)!important;
   box-shadow:none!important;
 }
 .side-nav{gap:4px!important;margin-top:28px!important}
