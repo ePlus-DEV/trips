@@ -136,15 +136,15 @@ function encryptHtml(plain, title = 'TravelLog') {
 <title>${title} · Locked</title>
 <style>
 :root{color-scheme:light dark;font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
-*{box-sizing:border-box}body{margin:0;min-height:100vh;display:grid;place-items:center;background:radial-gradient(circle at 50% 15%,#eaf2ff 0,#f7f9fc 42%,#eef2f7 100%);color:#172033;padding:22px}
-.lock{width:min(420px,100%);background:rgba(255,255,255,.92);border:1px solid #dfe6f1;border-radius:22px;padding:28px;box-shadow:0 24px 70px rgba(42,63,96,.14);backdrop-filter:blur(18px)}
-.brand{display:flex;align-items:center;gap:10px;font-size:13px;font-weight:850}.mark{width:34px;height:34px;border-radius:11px;display:grid;place-items:center;background:#2563eb;color:#fff}
-h1{font-size:24px;letter-spacing:-.035em;margin:24px 0 7px}p{margin:0;color:#64748b;font-size:12px;line-height:1.6}
-form{display:grid;gap:10px;margin-top:22px}label{font-size:10px;font-weight:800;color:#475569;text-transform:uppercase;letter-spacing:.05em}
-.row{display:flex;gap:8px}input{min-width:0;flex:1;height:44px;border:1px solid #cfd9e8;border-radius:11px;background:#fff;color:#111827;padding:0 13px;font:600 13px system-ui;outline:none}input:focus{border-color:#7aa2ef;box-shadow:0 0 0 3px rgba(37,99,235,.12)}
-button{height:44px;border:0;border-radius:11px;padding:0 16px;background:#2563eb;color:#fff;font:800 12px system-ui;cursor:pointer}
-.msg{min-height:18px;margin-top:10px;font-size:11px;color:#b91c1c}.note{margin-top:17px;padding-top:15px;border-top:1px solid #e6ebf2;font-size:10.5px;color:#7b8799}
-@media(prefers-color-scheme:dark){body{background:radial-gradient(circle at 50% 15%,#18243c 0,#0b1220 50%,#070c14 100%);color:#e5edf8}.lock{background:rgba(15,23,42,.92);border-color:#28364c}.mark{background:#3b82f6}p,.note{color:#94a3b8}label{color:#aab7c8}input{background:#0b1220;border-color:#334155;color:#f8fafc}.note{border-color:#263347}}
+*{box-sizing:border-box}body{margin:0;min-height:100vh;display:grid;place-items:center;background:#f5f6f8;color:#101828;padding:22px}
+.lock{width:min(430px,100%);background:#fff;border:1px solid #e4e7ec;border-radius:22px;padding:30px;box-shadow:0 20px 56px rgba(16,24,40,.09)}
+.brand{display:flex;align-items:center;gap:10px;font-size:13px;font-weight:850;letter-spacing:-.02em}.mark{width:32px;height:32px;border-radius:9px;display:grid;place-items:center;background:#101828;color:#fff}
+h1{font-size:26px;line-height:1.08;letter-spacing:-.045em;margin:28px 0 8px}p{margin:0;color:#667085;font-size:12px;line-height:1.65}
+form{display:grid;gap:9px;margin-top:24px}label{font-size:9.5px;font-weight:800;color:#667085;text-transform:uppercase;letter-spacing:.08em}
+.row{display:flex;gap:8px}input{min-width:0;flex:1;height:44px;border:1px solid #d0d5dd;border-radius:10px;background:#fff;color:#101828;padding:0 13px;font:600 13px system-ui;outline:none}input:focus{border-color:#8aa7df;box-shadow:0 0 0 3px #eef3fb}
+button{height:44px;border:0;border-radius:10px;padding:0 17px;background:#101828;color:#fff;font:800 11.5px system-ui;cursor:pointer}
+.msg{min-height:18px;margin-top:10px;font-size:11px;color:#b42318}.note{margin-top:18px;padding-top:16px;border-top:1px solid #e4e7ec;font-size:10.5px;line-height:1.55;color:#98a2b3}
+@media(prefers-color-scheme:dark){body{background:#0b0f16;color:#f2f4f7}.lock{background:#111722;border-color:#263141;box-shadow:0 24px 70px rgba(0,0,0,.32)}.mark{background:#f2f4f7;color:#111722}p,.note{color:#98a2b3}label{color:#98a2b3}input{background:#0b0f16;border-color:#344054;color:#f2f4f7}.note{border-color:#263141}button{background:#f2f4f7;color:#111722}}
 </style>
 </head>
 <body>
