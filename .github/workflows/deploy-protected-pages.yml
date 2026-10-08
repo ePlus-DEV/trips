@@ -38,8 +38,6 @@ jobs:
 
       - uses: actions/configure-pages@v5
         if: steps.guard.outputs.enabled == 'true'
-        with:
-          enablement: true
 
       - name: Build encrypted site
         if: steps.guard.outputs.enabled == 'true'
@@ -47,7 +45,7 @@ jobs:
           SITE_PASSWORD: ${{ secrets.SITE_PASSWORD }}
         run: node scripts/build-protected-site.mjs
 
-      - uses: actions/upload-pages-artifact@v3
+      - uses: actions/upload-pages-artifact@v4
         if: steps.guard.outputs.enabled == 'true'
         with:
           path: _protected_site
