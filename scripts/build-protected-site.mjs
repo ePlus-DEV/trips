@@ -220,9 +220,9 @@ for (const file of ['CNAME', '.nojekyll', 'icon.svg']) {
 fs.writeFileSync(path.join(out, 'sw.js'), `
 self.addEventListener('install',()=>self.skipWaiting());
 self.addEventListener('activate',event=>event.waitUntil((async()=>{
-  const keys=await caches.keys();await Promise.all(keys.map(k=>caches.delete(k)));
-  await self.registration.unregister();
-  const clientsList=await self.clients.matchAll({type:'window'});clientsList.forEach(c=>c.navigate(c.url));
+  const keys=await caches.keys();
+  await Promise.all(keys.map(k=>caches.delete(k)));
+  await self.clients.claim();
 })()));
 `);
 
