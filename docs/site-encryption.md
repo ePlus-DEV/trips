@@ -23,7 +23,13 @@ Use a long passphrase (at least 12 characters; preferably 4–5 random words plu
 
 Do **not** put the password in a file, commit message, workflow input, repository variable, issue, or README.
 
-Once the secret exists, push to `main` or manually run **Deploy protected TravelLog**. The workflow builds `_protected_site` and deploys that artifact to GitHub Pages.
+After creating the secret:
+
+1. Open **Settings → Pages** in this repository.
+2. Under **Build and deployment → Source**, choose **GitHub Actions**.
+3. Open **Actions → Deploy protected TravelLog** and run it once, or push a new commit to `main`.
+
+The workflow builds `_protected_site` and deploys only that encrypted artifact to GitHub Pages.
 
 ## Important limitation
 
