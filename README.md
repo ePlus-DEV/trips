@@ -265,3 +265,8 @@ The refresh workflow explicitly requests a Pages rebuild after committing price 
 ---
 
 Built for personal travel planning and the journeys ahead.
+
+
+## Site privacy
+
+The published site can be deployed as a whole-site client-side encrypted build. See [site encryption setup](docs/site-encryption.md). Do not commit passport scans, passport numbers, PNRs, or other sensitive records as plaintext while this repository is public.
