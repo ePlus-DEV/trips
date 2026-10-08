@@ -136,7 +136,8 @@ function encryptHtml(plain, title = 'TravelLog') {
 <title>${title} · Locked</title>
 <style>
 :root{color-scheme:light dark;font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
-*{box-sizing:border-box}body{margin:0;min-height:100vh;display:grid;place-items:center;background:#f5f6f8;color:#101828;padding:22px}
+*{box-sizing:border-box}body{margin:0;background:#f5f6f8;color:#101828;overflow:hidden}
+.lock-screen{position:fixed;inset:0;z-index:2147483647;display:grid;place-items:center;padding:22px;background:#f5f6f8;overflow:auto}
 .lock{width:min(430px,100%);background:#fff;border:1px solid #e4e7ec;border-radius:22px;padding:30px;box-shadow:0 20px 56px rgba(16,24,40,.09)}
 .brand{display:flex;align-items:center;gap:10px;font-size:13px;font-weight:850;letter-spacing:-.02em}.mark{width:32px;height:32px;border-radius:9px;display:grid;place-items:center;background:#101828;color:#fff}
 h1{font-size:26px;line-height:1.08;letter-spacing:-.045em;margin:28px 0 8px}p{margin:0;color:#667085;font-size:12px;line-height:1.65}
@@ -144,10 +145,11 @@ form{display:grid;gap:9px;margin-top:24px}label{font-size:9.5px;font-weight:800;
 .row{display:flex;gap:8px}input{min-width:0;flex:1;height:44px;border:1px solid #d0d5dd;border-radius:10px;background:#fff;color:#101828;padding:0 13px;font:600 13px system-ui;outline:none}input:focus{border-color:#8aa7df;box-shadow:0 0 0 3px #eef3fb}
 button{height:44px;border:0;border-radius:10px;padding:0 17px;background:#101828;color:#fff;font:800 11.5px system-ui;cursor:pointer}
 .msg{min-height:18px;margin-top:10px;font-size:11px;color:#b42318}.note{margin-top:18px;padding-top:16px;border-top:1px solid #e4e7ec;font-size:10.5px;line-height:1.55;color:#98a2b3}
-@media(prefers-color-scheme:dark){body{background:#0b0f16;color:#f2f4f7}.lock{background:#111722;border-color:#263141;box-shadow:0 24px 70px rgba(0,0,0,.32)}.mark{background:#f2f4f7;color:#111722}p,.note{color:#98a2b3}label{color:#98a2b3}input{background:#0b0f16;border-color:#344054;color:#f2f4f7}.note{border-color:#263141}button{background:#f2f4f7;color:#111722}}
+@media(prefers-color-scheme:dark){body{background:#0b0f16;color:#f2f4f7}.lock-screen{background:#0b0f16}.lock{background:#111722;border-color:#263141;box-shadow:0 24px 70px rgba(0,0,0,.32)}.mark{background:#f2f4f7;color:#111722}p,.note{color:#98a2b3}label{color:#98a2b3}input{background:#0b0f16;border-color:#344054;color:#f2f4f7}.note{border-color:#263141}button{background:#f2f4f7;color:#111722}}
 </style>
 </head>
 <body>
+<div class="lock-screen" id="lockScreen">
 <main class="lock">
   <div class="brand"><span class="mark">✈</span>TravelLog</div>
   <h1>Nhập password để mở</h1>
@@ -159,6 +161,7 @@ button{height:44px;border:0;border-radius:10px;padding:0 17px;background:#101828
   <div class="msg" id="message"></div>
   <div class="note">Đóng tab/browser để kết thúc phiên. Password không được lưu trong source hoặc gửi đến server.</div>
 </main>
+</div>
 <script>
 (() => {
   const SALT = '${saltB64}', IV = '${ivB64}', DATA = '${payload}', ITER = ${iterations};
@@ -173,10 +176,39 @@ button{height:44px;border:0;border-radius:10px;padding:0 17px;background:#101828
     const plain = await crypto.subtle.decrypt({name:'AES-GCM',iv:b64(IV),tagLength:128},key,b64(DATA));
     return new TextDecoder().decode(plain);
   }
+  function mountDecryptedDocument(html){
+    const parsed = new DOMParser().parseFromString(html, 'text/html');
+    const scripts = [];
+    parsed.querySelectorAll('script').forEach((node, index) => {
+      const marker = parsed.createElement('template');
+      marker.setAttribute('data-travellog-script', String(index));
+      scripts.push({
+        index,
+        attrs: Array.from(node.attributes, attr => [attr.name, attr.value]),
+        code: node.textContent || ''
+      });
+      node.replaceWith(marker);
+    });
+
+    const nextRoot = document.adoptNode(parsed.documentElement);
+    document.documentElement.replaceWith(nextRoot);
+
+    for (const item of scripts) {
+      const marker = document.querySelector('template[data-travellog-script="' + item.index + '"]');
+      if (!marker) continue;
+      const script = document.createElement('script');
+      for (const [name, value] of item.attrs) script.setAttribute(name, value);
+      script.textContent = item.code;
+      marker.replaceWith(script);
+    }
+
+    window.scrollTo(0, 0);
+    window.dispatchEvent(new Event('load'));
+  }
   async function openWithKey(key, remember=true){
     const html = await decrypt(key);
     if(remember){const raw=await crypto.subtle.exportKey('raw',key);sessionStorage.setItem(sessionKey,toB64(raw));}
-    document.open();document.write(html);document.close();
+    mountDecryptedDocument(html);
   }
   async function auto(){
     const saved=sessionStorage.getItem(sessionKey); if(!saved)return;
