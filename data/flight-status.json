@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-19T22:36:44.075Z",
+  "generated_at": "2026-10-20T01:16:15.319Z",
   "provider": "SerpApi · Google Search flight status",
   "live_mode": true,
   "message": "Operational status was checked against Google flight status data. Recheck with the airline before leaving for the airport.",
@@ -44,7 +44,7 @@
         "delay_minutes": 21
       },
       "schedule_source": "Google Flights snapshot in TravelLog",
-      "checked_at": "2026-10-19T22:36:44.075Z",
+      "checked_at": "2026-10-20T01:16:15.319Z",
       "latest_update": null,
       "next_live_check_at": "2026-10-12T00:00:00.000Z",
       "provider_sources": [],
@@ -93,7 +93,7 @@
         "delay_minutes": 0
       },
       "schedule_source": "Booked itinerary",
-      "checked_at": "2026-10-19T22:36:44.075Z",
+      "checked_at": "2026-10-20T01:16:15.319Z",
       "latest_update": "Chưa có trạng thái vận hành đúng ngày bay từ Google.",
       "next_live_check_at": "2026-10-19T00:00:00.000Z",
       "provider_sources": [],
