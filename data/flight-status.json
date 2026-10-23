@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-22T05:15:56.020Z",
+  "generated_at": "2026-10-23T05:15:03.738Z",
   "provider": "SerpApi · Google Search flight status",
   "live_mode": true,
   "message": "Operational status was checked against Google flight status data. Recheck with the airline before leaving for the airport.",
@@ -71,8 +71,8 @@
       "status": {
         "code": "scheduled",
         "label": "Theo lịch",
-        "raw": "No exact-date operational status yet",
-        "live": false
+        "raw": "SCHEDULED_STATUS",
+        "live": true
       },
       "departure": {
         "scheduled": "2026-10-26T13:30:00+08:00",
@@ -93,8 +93,8 @@
         "delay_minutes": 0
       },
       "schedule_source": "Booked itinerary",
-      "checked_at": "2026-10-22T05:15:56.020Z",
-      "latest_update": "Chưa có trạng thái vận hành đúng ngày bay từ Google.",
+      "checked_at": "2026-10-23T05:15:03.738Z",
+      "latest_update": null,
       "next_live_check_at": "2026-10-19T00:00:00.000Z",
       "provider_sources": [],
       "external_links": {
