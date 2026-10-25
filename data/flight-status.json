@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-25T14:32:50.297Z",
+  "generated_at": "2026-10-25T17:50:03.642Z",
   "provider": "SerpApi · Google Search flight status",
   "live_mode": true,
   "message": "Operational status was checked against Google flight status data. Recheck with the airline before leaving for the airport.",
@@ -69,9 +69,9 @@
         "destination_name": "Quảng Châu Baiyun"
       },
       "status": {
-        "code": "scheduled",
-        "label": "Theo lịch",
-        "raw": "SCHEDULED_STATUS",
+        "code": "departed",
+        "label": "Đã khởi hành",
+        "raw": "DEPARTING_ON_TIME",
         "live": true
       },
       "departure": {
@@ -93,7 +93,7 @@
         "delay_minutes": 0
       },
       "schedule_source": "Booked itinerary",
-      "checked_at": "2026-10-25T14:32:50.297Z",
+      "checked_at": "2026-10-25T17:50:03.642Z",
       "latest_update": null,
       "next_live_check_at": "2026-10-19T00:00:00.000Z",
       "provider_sources": [],
