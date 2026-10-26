@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-26T08:05:13.551Z",
+  "generated_at": "2026-10-26T15:26:41.831Z",
   "provider": "SerpApi · Google Search flight status",
   "live_mode": true,
   "message": "Operational status was checked against Google flight status data. Recheck with the airline before leaving for the airport.",
@@ -69,9 +69,9 @@
         "destination_name": "Quảng Châu Baiyun"
       },
       "status": {
-        "code": "in_air",
-        "label": "Đang bay",
-        "raw": "IN_AIR_ON_TIME",
+        "code": "landed",
+        "label": "Đã hạ cánh",
+        "raw": "ARRIVED",
         "live": true
       },
       "departure": {
@@ -93,7 +93,7 @@
         "delay_minutes": -22
       },
       "schedule_source": "Booked itinerary",
-      "checked_at": "2026-10-26T08:05:13.551Z",
+      "checked_at": "2026-10-26T15:26:41.831Z",
       "latest_update": null,
       "next_live_check_at": "2026-10-19T00:00:00.000Z",
       "provider_sources": [],
