@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-26T05:11:49.280Z",
+  "generated_at": "2026-10-26T08:05:13.551Z",
   "provider": "SerpApi · Google Search flight status",
   "live_mode": true,
   "message": "Operational status was checked against Google flight status data. Recheck with the airline before leaving for the airport.",
@@ -69,9 +69,9 @@
         "destination_name": "Quảng Châu Baiyun"
       },
       "status": {
-        "code": "departed",
-        "label": "Đã khởi hành",
-        "raw": "DEPARTING_ON_TIME",
+        "code": "in_air",
+        "label": "Đang bay",
+        "raw": "IN_AIR_ON_TIME",
         "live": true
       },
       "departure": {
@@ -81,7 +81,7 @@
         "time_zone": "Asia/Shanghai",
         "terminal": null,
         "gate": null,
-        "delay_minutes": 0
+        "delay_minutes": -6
       },
       "arrival": {
         "scheduled": "2026-10-26T16:45:00+08:00",
@@ -90,10 +90,10 @@
         "time_zone": "Asia/Shanghai",
         "terminal": "2",
         "gate": null,
-        "delay_minutes": -13
+        "delay_minutes": -22
       },
       "schedule_source": "Booked itinerary",
-      "checked_at": "2026-10-26T05:11:49.280Z",
+      "checked_at": "2026-10-26T08:05:13.551Z",
       "latest_update": null,
       "next_live_check_at": "2026-10-19T00:00:00.000Z",
       "provider_sources": [],
