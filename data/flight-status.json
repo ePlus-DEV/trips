@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-27T00:46:17.788Z",
+  "generated_at": "2026-10-27T05:29:18.527Z",
   "provider": "SerpApi · Google Search flight status",
   "live_mode": true,
   "message": "Operational status was checked against Google flight status data. Recheck with the airline before leaving for the airport.",
@@ -93,7 +93,7 @@
         "delay_minutes": -22
       },
       "schedule_source": "Booked itinerary",
-      "checked_at": "2026-10-27T00:46:17.788Z",
+      "checked_at": "2026-10-27T05:29:18.527Z",
       "latest_update": null,
       "next_live_check_at": "2026-10-19T00:00:00.000Z",
       "provider_sources": [],
