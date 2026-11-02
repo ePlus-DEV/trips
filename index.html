@@ -1,307 +1,115 @@
 <!doctype html>
 <html lang="vi">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-  <meta name="theme-color" content="#f6f8fc">
-  <meta name="description" content="TravelLog — lịch trình Trung Quốc 19–26/10/2026.">
-  <link rel="manifest" href="./manifest.webmanifest">
-  <link rel="icon" href="./icon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="./app.css">
-  <link rel="stylesheet" href="./product-ui.css">
-  <style>
-    .language-select{height:32px;min-width:76px;padding:0 25px 0 9px;border:1px solid var(--line);border-radius:8px;background:var(--surface);color:var(--text);font-size:11px;font-weight:700;outline:none;cursor:pointer}
-    .language-select:focus{border-color:#8eb0f6;box-shadow:0 0 0 3px var(--primary-soft)}
-    .mobile-header .language-select{max-width:92px}
-  </style>
-  <title>TravelLog · Trung Quốc 2026</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#f6f8f9">
+<meta name="description" content="TravelLog — những chuyến đi đã qua và những hành trình sắp tới.">
+<link rel="icon" href="./icon.svg" type="image/svg+xml">
+<title>TravelLog · Hành trình của bạn</title>
+<style>
+:root{color-scheme:light;--bg:#f6f8f9;--paper:#fff;--paper-2:#f9fafb;--ink:#142635;--muted:#6f808c;--line:#e6ebee;--brand:#096d65;--brand-hi:#0c8a7c;--soft:#e4f2ef;--shadow:0 16px 45px rgba(21,39,50,.045);--radius:20px}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;font-size:14px;-webkit-font-smoothing:antialiased}button,input,textarea{font:inherit}button{cursor:pointer}a{text-decoration:none;color:inherit}svg{display:block}button:focus-visible,a:focus-visible,input:focus-visible,textarea:focus-visible{outline:3px solid #5bb9a9;outline-offset:3px}
+.layout{display:grid;grid-template-columns:244px minmax(0,1fr);min-height:100vh}.sidebar{position:sticky;top:0;height:100vh;background:var(--paper);border-right:1px solid var(--line);padding:30px 16px 22px;display:flex;flex-direction:column;gap:30px;z-index:5}.brand{display:flex;align-items:center;gap:10px;padding:0 14px;font-size:21px;font-weight:850;letter-spacing:-.8px}.brand-logo{width:36px;height:36px;border-radius:12px;background:#0b756e;color:#fff;display:grid;place-items:center;box-shadow:0 8px 18px #096d6530}.brand-logo svg{width:20px;height:20px}.sidebar-label{padding:0 14px;color:#9ba7ac;font-size:10px;font-weight:800;letter-spacing:1.6px;text-transform:uppercase;margin:10px 0 8px}.nav-list{display:grid;gap:5px}.nav-item{display:flex;align-items:center;gap:12px;border-radius:12px;padding:12px 13px;color:#697985;font-weight:650;transition:.18s}.nav-item:hover{color:var(--ink);background:var(--paper-2)}.nav-item.active{background:var(--soft);color:#075f58}.nav-icon{width:20px;height:20px;display:grid;place-items:center;flex:none}.nav-icon svg{width:19px;height:19px;stroke:currentColor;stroke-width:1.8;fill:none;stroke-linecap:round;stroke-linejoin:round}.nav-item small{margin-left:auto;font-size:11px;background:#eef3f3;color:#517168;border-radius:20px;padding:3px 8px}.sidebar-bottom{margin-top:auto;border-top:1px solid var(--line);padding:18px 12px 0}.sidebar-bottom p{margin:9px 0 0;color:var(--muted);font-size:11px;line-height:1.7}.mini-tag{display:inline-flex;align-items:center;gap:6px;border-radius:30px;padding:6px 9px;background:#eff7f5;color:#0c7265;font-size:11px;font-weight:750}.mini-tag:before{content:"";width:6px;height:6px;border-radius:50%;background:#21ac86}
+.main{min-width:0}.topbar{height:83px;padding:0 5.2%;background:var(--paper);border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;gap:14px}.breadcrumb{font-size:13px;color:#84929a}.breadcrumb b{font-weight:750;color:var(--ink)}.top-actions{display:flex;align-items:center;gap:12px}.today{font-size:12px;color:var(--muted);font-weight:600}.icon-button{width:37px;height:37px;border:1px solid var(--line);border-radius:11px;background:var(--paper);display:grid;place-items:center;color:var(--ink)}.icon-button svg{width:19px;height:19px;stroke:currentColor;fill:none;stroke-width:1.9;stroke-linecap:round}.container{max-width:1440px;margin:0 auto;padding:33px 5.2% 55px}.eyebrow{font-size:11px;font-weight:850;letter-spacing:2px;text-transform:uppercase;color:var(--brand)}.page-title{font-weight:850;letter-spacing:-1.2px;font-size:clamp(26px,3.1vw,36px);line-height:1.18;margin:10px 0}.intro{color:var(--muted);font-size:14px;line-height:1.75;margin:0 0 24px}
+.hero{position:relative;isolation:isolate;overflow:hidden;min-height:276px;border-radius:23px;background:linear-gradient(114deg,#102d3c 2%,#14535b 57%,#1d726f 100%);color:#fff;display:flex;align-items:center;padding:33px 43px;box-shadow:0 18px 34px rgba(10,64,71,.1)}.hero:before{content:"";position:absolute;width:570px;height:570px;border-radius:50%;border:1px solid #ffffff24;right:-100px;top:-137px;box-shadow:0 0 0 52px #ffffff08,0 0 0 105px #ffffff06;z-index:-1}.hero-content{position:relative;z-index:2;max-width:500px}.hero-kicker{font-size:11px;letter-spacing:1.7px;font-weight:750;color:#8ce1cb;text-transform:uppercase}.hero h2{margin:10px 0 12px;font-size:clamp(28px,3.1vw,42px);line-height:1.13;letter-spacing:-1.4px;font-weight:850}.hero p{margin:0;color:#c9e4e2;line-height:1.8;max-width:420px}.primary-btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;background:var(--brand);color:white;border:0;border-radius:11px;padding:12px 17px;font-weight:750;transition:.2s}.primary-btn:hover{background:var(--brand-hi);transform:translateY(-1px)}.hero .primary-btn{background:#fff;color:#145653;margin-top:20px}.hero .primary-btn:hover{background:#e7f6f2}.btn-arrow{font-size:17px}.hero-visual{position:absolute;right:24px;bottom:-10px;width:44%;height:100%;max-width:480px;pointer-events:none}.orbit-svg{width:100%;height:100%;overflow:visible}.ticket{position:absolute;background:#fff;color:#18333f;border-radius:12px;padding:11px 16px;box-shadow:0 15px 25px #002e3440;display:flex;align-items:center;gap:10px;font-size:12px;font-weight:800;white-space:nowrap}.ticket span{font-size:23px}.ticket small{display:block;font-size:9px;letter-spacing:1.4px;color:#7c939d;text-transform:uppercase;margin-bottom:2px}.ticket.hk{top:37px;right:16px;transform:rotate(8deg)}.ticket.my{top:118px;left:12%;transform:rotate(-9deg)}.ticket.jp{bottom:35px;right:32px;transform:rotate(5deg)}
+.stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin:20px 0 36px}.stat{display:flex;gap:13px;align-items:center;background:var(--paper);border:1px solid var(--line);border-radius:15px;padding:17px 19px;min-width:0;box-shadow:var(--shadow)}.stat-ico{width:42px;height:42px;display:grid;place-items:center;flex:none;background:#ebf6f2;border-radius:11px;color:#13776a}.stat-ico svg{width:20px;height:20px;stroke:currentColor;stroke-width:2;fill:none}.stat b{display:block;font-size:22px;line-height:1.2;letter-spacing:-.6px}.stat span{font-size:11px;color:var(--muted);line-height:1.7}
+.section-head{display:flex;justify-content:space-between;align-items:end;gap:15px;margin-bottom:17px}.section-head h2{font-size:21px;letter-spacing:-.6px;margin:5px 0 0}.section-head p{margin:0;color:var(--muted);font-size:12px;line-height:1.65}.section-head .eyebrow{font-size:10px}.secondary-button{display:inline-flex;align-items:center;justify-content:center;gap:7px;background:var(--paper);color:var(--ink);border:1px solid var(--line);border-radius:10px;padding:10px 14px;font-size:12px;font-weight:750;white-space:nowrap}.secondary-button:hover{background:var(--soft);border-color:#b5d8d1}
+.dest-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:17px}.dest-card{min-width:0;background:var(--paper);overflow:hidden;border:1px solid var(--line);border-radius:18px;box-shadow:var(--shadow);transition:.2s}.dest-card:hover{transform:translateY(-3px);box-shadow:0 21px 42px #182f4614}.scene{height:168px;position:relative;overflow:hidden}.scene svg{width:100%;height:100%;object-fit:cover}.scene.hk{background:linear-gradient(150deg,#476d93,#a3a9b7 60%,#f1b799)}.scene.my{background:linear-gradient(140deg,#217e7c,#63aca8 63%,#eecfa4)}.scene.jp{background:linear-gradient(145deg,#d1adaf,#efc3bd 68%,#f1d9cc)}.flag{position:absolute;top:14px;left:14px;background:#fff;border-radius:8px;width:37px;height:32px;display:grid;place-items:center;font-size:23px;box-shadow:0 5px 15px #1b3e3840}.scene-label{position:absolute;right:14px;top:15px;border:1px solid #ffffff80;border-radius:30px;background:#102c3970;color:#fff;backdrop-filter:blur(5px);padding:6px 10px;font-size:10px;font-weight:800}.dest-content{padding:18px}.dest-content h3{font-size:19px;margin:0 0 5px;letter-spacing:-.4px}.dest-content p{color:var(--muted);margin:0;min-height:42px;font-size:12px;line-height:1.75}.dest-bottom{margin-top:16px;padding-top:14px;border-top:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;gap:9px}.days{font-size:11px;font-weight:750;color:#667c85}.card-action{border:0;background:transparent;color:var(--brand);font-weight:800;font-size:12px;padding:5px 0}.card-action:hover{text-decoration:underline}
+.below{display:grid;grid-template-columns:1.15fr .85fr;gap:18px;margin-top:36px}.panel{background:var(--paper);border:1px solid var(--line);border-radius:19px;padding:23px;min-width:0;box-shadow:var(--shadow)}.panel h2{font-size:20px;margin:3px 0 0;letter-spacing:-.5px}.panel-head{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:18px}.empty{border:1px dashed #cbd9d8;border-radius:14px;background:var(--paper-2);padding:28px 16px;text-align:center}.empty-icon{display:grid;place-items:center;margin:auto auto 10px;width:42px;height:42px;border-radius:50%;background:var(--soft);font-size:20px}.empty h3{margin:0 0 7px;font-size:14px}.empty p{margin:0 auto 14px;max-width:340px;color:var(--muted);font-size:12px;line-height:1.7}.empty button{background:transparent;border:0;color:var(--brand);font-weight:800;font-size:12px}.archive{border-radius:15px;overflow:hidden;background:#f1f4f2;border:1px solid var(--line)}.archive-art{background:linear-gradient(110deg,#597e86,#7ba6a1);height:112px;position:relative;overflow:hidden}.archive-art svg{height:100%;width:100%}.archive-body{padding:16px}.archive-top{display:flex;align-items:center;justify-content:space-between;gap:9px}.archive-top h3{margin:0;font-size:17px;letter-spacing:-.3px}.completed{display:inline-flex;gap:5px;align-items:center;padding:6px 9px;border-radius:20px;color:#067c59;background:#d6f1e4;font-size:10px;font-weight:800}.archive-body p{color:#637886;font-size:12px;line-height:1.75;margin:7px 0 12px}.archive-link{display:inline-flex;gap:5px;align-items:center;font-size:12px;color:#0b6f64;font-weight:800}.archive-link:hover{text-decoration:underline}
+.plan-list{display:grid;gap:10px}.plan-item{display:flex;gap:12px;align-items:center;border:1px solid var(--line);border-radius:13px;padding:14px}.plan-mark{flex:none;width:38px;height:38px;border-radius:11px;display:grid;place-items:center;background:var(--soft);font-size:20px}.plan-text{min-width:0;flex:1}.plan-text b{display:block;font-size:13px;overflow-wrap:anywhere}.plan-text small{color:var(--muted);display:block;margin-top:5px;line-height:1.5}.remove-btn{flex:none;border:0;background:transparent;color:#9ca5ac;padding:8px;font-size:17px}.remove-btn:hover{color:#bb514f}.footer{font-size:11px;color:#9ba6ad;display:flex;justify-content:space-between;gap:15px;margin-top:34px}
+dialog{border:0;border-radius:20px;max-width:min(92vw,475px);width:100%;padding:0;background:var(--paper);color:var(--ink);box-shadow:0 25px 100px #081d2b55}dialog::backdrop{background:rgba(8,29,40,.6);backdrop-filter:blur(3px)}.dialog-inner{padding:27px}.dialog-top{display:flex;justify-content:space-between;align-items:start;gap:10px}.dialog-top h2{font-size:23px;margin:5px 0 7px;letter-spacing:-.7px}.dialog-top p{margin:0;color:var(--muted);font-size:12px;line-height:1.6}.x-btn{border:0;background:var(--paper-2);width:32px;height:32px;border-radius:9px;font-size:20px;color:var(--muted)}.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:25px 0 18px}.field{display:grid;gap:7px}.field.wide{grid-column:1/-1}.field label{font-weight:750;font-size:12px}.field input,.field textarea{min-width:0;width:100%;border:1px solid var(--line);border-radius:10px;background:var(--paper-2);padding:11px 12px;color:var(--ink);outline:0}.field input:focus,.field textarea:focus{border-color:#41a69b;box-shadow:0 0 0 3px #41a69b22}.field textarea{min-height:70px;resize:vertical}.dialog-actions{display:flex;justify-content:space-between;align-items:center;gap:9px}.form-help{font-size:10px;line-height:1.5;color:var(--muted);max-width:225px}
+.mobile-nav{display:none}
+[data-theme="dark"]{color-scheme:dark;--bg:#101b25;--paper:#172632;--paper-2:#1c303c;--ink:#edf7f5;--muted:#a2b4bf;--line:#2c414d;--brand:#65b9a8;--brand-hi:#489e92;--soft:#244b4a;--shadow:0 14px 40px #0000000b}
+[data-theme="dark"] .sidebar .brand-logo{background:#1c8477}[data-theme="dark"] .stat-ico{background:var(--soft);color:#92cfc3}[data-theme="dark"] .mini-tag{background:var(--soft);color:#a3e1cf}[data-theme="dark"] .nav-item.active{background:var(--soft);color:#9ae4d8}[data-theme="dark"] .nav-item small{background:#244b4a;color:#c9e5df}[data-theme="dark"] .archive{background:var(--paper-2)}[data-theme="dark"] .archive-body p{color:var(--muted)}[data-theme="dark"] .completed{background:#255a4c;color:#bbf2d6}[data-theme="dark"] .archive-link{color:#78dbcb}[data-theme="dark"] .card-action{color:#79d8c8}[data-theme="dark"] .hero .primary-btn{color:#145653}[data-theme="dark"] .empty button{color:#79d8c8}
+@media(max-width:1180px){.layout{grid-template-columns:210px minmax(0,1fr)}.sidebar{padding-left:10px;padding-right:10px}.container{padding:27px 4.2% 45px}.topbar{padding:0 4.2%}.hero-visual{width:42%}.ticket.my{left:0}}@media(max-width:950px){.dest-grid{gap:10px}.dest-content{padding:14px}.dest-content h3{font-size:16px}.scene{height:140px}.hero-visual{opacity:.75;right:-5%}.ticket{padding:8px;font-size:10px}.ticket span{font-size:18px}.below{grid-template-columns:1fr}}@media(max-width:760px){.layout{display:block}.sidebar{display:none}.topbar{height:62px;padding:0 19px}.container{padding:25px 17px 95px}.today{display:none}.page-title{font-size:27px}.intro{font-size:13px}.hero{padding:28px 23px;min-height:295px;align-items:start}.hero h2{font-size:31px;max-width:330px}.hero p{max-width:285px;font-size:12px}.hero-visual{width:57%;opacity:.35;right:-17%;bottom:-25px}.ticket{display:none}.stats{gap:8px;margin:13px 0 30px}.stat{padding:13px 10px;gap:8px}.stat-ico{width:32px;height:32px;border-radius:9px}.stat-ico svg{width:15px;height:15px}.stat b{font-size:20px}.stat span{font-size:10px}.dest-grid{grid-template-columns:1fr;gap:13px}.dest-card{display:grid;grid-template-columns:39% 1fr;align-items:stretch}.scene{height:100%;min-height:160px}.scene svg{height:100%;min-height:160px}.dest-content{padding:16px 14px}.dest-content p{min-height:0}.dest-bottom{margin-top:10px;padding-top:10px}.section-head h2{font-size:19px}.below{margin-top:28px}.panel{padding:17px}.mobile-nav{position:fixed;bottom:0;left:0;right:0;height:68px;background:var(--paper);border-top:1px solid var(--line);display:flex;align-items:stretch;justify-content:space-around;z-index:9;padding-bottom:env(safe-area-inset-bottom)}.mobile-nav a{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;font-size:10px;color:var(--muted);font-weight:700}.mobile-nav a.active{color:var(--brand)}.mobile-nav svg{height:20px;width:20px;stroke:currentColor;stroke-width:1.8;fill:none}.footer{margin-top:22px;display:block;line-height:1.8}}@media(max-width:390px){.hero h2{font-size:28px}.dest-card{grid-template-columns:34% 1fr}.dest-content p{font-size:11px}.scene-label{display:none}.stat{gap:6px}.stat-ico{display:none}.form-grid{grid-template-columns:1fr}.field.wide{grid-column:auto}.dialog-actions{align-items:stretch;flex-direction:column-reverse}.dialog-actions .primary-btn{width:100%}}
+@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
+</style>
 </head>
 <body>
-<div class="app">
-  <aside class="sidebar">
-    <a class="brand" href="#top"><span class="brand-mark"><svg><use href="#i-plane"/></svg></span>TravelLog</a>
-    <nav class="side-nav">
-      <a class="active" href="#top"><span class="nav-icon"><svg><use href="#i-home"/></svg></span>Tổng quan</a>
-      <a href="#itinerary"><span class="nav-icon"><svg><use href="#i-calendar"/></svg></span>Lịch trình</a>
-      <a href="./flights/"><span class="nav-icon"><svg><use href="#i-plane"/></svg></span>Chuyến bay</a>
-      <a href="./hotels/"><span class="nav-icon"><svg><use href="#i-pin"/></svg></span>Lưu trú</a>
-      <a href="./sim/"><span class="nav-icon"><svg><use href="#i-sim"/></svg></span>SIM & Internet</a>
-      <a href="#checklist"><span class="nav-icon"><svg><use href="#i-check"/></svg></span>Chuẩn bị</a>
-    </nav>
-    <div class="sidebar-foot">
-      <button class="sidebar-action" data-theme-toggle><span class="nav-icon"><svg><use href="#i-moon"/></svg></span>Đổi giao diện</button>
-    </div>
-  </aside>
-
-  <div class="main">
-    <header class="topbar">
-      <div class="crumb"><strong>Trung Quốc 2026</strong><span>19–26/10/2026</span></div>
-      <div class="top-actions">
-        <select class="language-select" data-language-select aria-label="Ngôn ngữ">
-          <option value="vi">VI</option><option value="en">EN</option><option value="zh">中文</option><option value="ja">日本語</option>
-        </select>
-        <button class="icon-btn" data-theme-toggle aria-label="Đổi giao diện"><svg class="ui-icon"><use href="#i-moon"/></svg></button>
-      </div>
-    </header>
-
-    <header class="mobile-header">
-      <a class="brand" href="#top"><span class="brand-mark"><svg><use href="#i-plane"/></svg></span>TravelLog</a>
-      <div class="right">
-        <select class="language-select" data-language-select aria-label="Ngôn ngữ">
-          <option value="vi">VI</option><option value="en">EN</option><option value="zh">中文</option><option value="ja">日本語</option>
-        </select>
-        <button class="icon-btn" data-theme-toggle aria-label="Đổi giao diện"><svg class="ui-icon"><use href="#i-moon"/></svg></button>
-      </div>
-    </header>
-
-    <main class="content" id="top">
-      <section class="trip-hero">
-        <div class="hero-copy">
-          <div class="hero-kicker"><span class="booking-dot"></span> Chuyến đi đã được đặt</div>
-          <h1>Trung Quốc · 19–26/10/2026</h1>
-          <div class="hero-route">TP.HCM → Thượng Hải → Bắc Kinh → TP.HCM</div>
-          <div class="hero-meta">8 ngày 7 đêm · 6 người lớn + 1 em bé</div><div class="booking-summary"><span class="booking-chip success">✓ Vé máy bay</span><span class="booking-chip success">✓ Khách sạn</span></div>
-          <div class="hero-actions"><a class="btn" href="#itinerary">Xem lịch trình</a><a class="btn secondary" href="#priorities">Việc cần chốt</a></div>
-        </div>
-        <aside class="countdown"><span id="daysPrefix">Còn</span><strong id="daysLeft">—</strong><span id="daysUnit">ngày đến chuyến đi</span><b>Khởi hành 19/10/2026</b></aside>
-      </section>
-
-      <section class="priority-grid" id="priorities">
-        <article class="card priority-card">
-          <div class="priority-icon"><svg><use href="#i-passport"/></svg></div>
-          <div><span>Hộ chiếu</span><strong id="passportStatus">Cần kiểm tra</strong><small>Chỉ lưu trạng thái · không lưu số hoặc ảnh hộ chiếu</small></div>
-          <a href="#checklist">Kiểm tra</a>
-        </article>
-        <article class="card priority-card">
-          <div class="priority-icon"><svg><use href="#i-train"/></svg></div>
-          <div><span>Tàu cao tốc</span><strong>23/10 · Shanghai → Beijing</strong><small>Chưa mở bán · theo lịch trình chính</small></div>
-          <a href="https://www.12306.cn/en/index.html" target="_blank" rel="noopener">12306 ↗</a>
-        </article>
-        <article class="card priority-card">
-          <div class="priority-icon"><svg><use href="#i-sim"/></svg></div>
-          <div><span>SIM vật lý</span><strong>≤ 150k / SIM</strong><small>6 SIM · 8–10 ngày · 8–12GB</small></div>
-          <a href="./sim/">So sánh</a>
-        </article>
-      </section>
-
-      <section class="dashboard-grid">
-        <article class="card" id="itinerary">
-          <div class="card-head"><h2>Lịch trình chính</h2><a href="./flights/">Chuyến bay</a></div>
-          <div class="timeline">
-            <div class="timeline-item"><div class="date-box"><strong>19</strong><span>TH10</span></div><span class="time-dot"></span><div class="timeline-info"><strong>TP.HCM → Thượng Hải <span class="pill success" id="outboundBadge">Đang kiểm tra</span></strong><div class="sub" id="outboundFlightText">Đang tải chuyến bay phù hợp…</div><div class="detail" id="outboundFlightMeta">SGN → PVG / SHA</div></div><div class="timeline-photo shanghai">上海</div></div>
-            <div class="timeline-item"><div class="date-box"><strong>20</strong><span>TH10</span></div><span class="time-dot"></span><div class="timeline-info"><strong>Thượng Hải</strong><div class="sub">Bến Thượng Hải · Dự Viên · phố cổ</div><div class="detail">Lịch nhẹ ngày đầu, ưu tiên nghỉ ngơi</div></div><div class="timeline-photo shanghai">上海</div></div>
-            <div class="timeline-item"><div class="date-box"><strong>23</strong><span>TH10</span></div><span class="time-dot"></span><div class="timeline-info"><strong>Thượng Hải → Bắc Kinh</strong><div class="sub">Di chuyển nội địa</div><div class="detail">Chốt tàu cao tốc hoặc chuyến bay sau</div></div><div class="timeline-photo beijing">北京</div></div>
-            <div class="timeline-item"><div class="date-box"><strong>26</strong><span>TH10</span></div><span class="time-dot"></span><div class="timeline-info"><strong>Bắc Kinh → TP.HCM <span class="pill success" id="returnBadge">Đang kiểm tra</span></strong><div class="sub" id="returnFlightText">Đang tải chuyến bay phù hợp…</div><div class="detail" id="returnFlightMeta">PEK / PKX → SGN</div></div><div class="timeline-photo beijing">北京</div></div>
-          </div>
-        </article>
-
-        <div class="stack">
-          <article class="card" id="checklist">
-            <div class="card-head"><h3>Chuẩn bị trước chuyến đi</h3><span class="pill primary" id="checkHeaderStatus">0%</span></div>
-            <div class="checklist">
-              <label class="check-item"><input id="c1" type="checkbox">Hộ chiếu mới / còn hạn &gt; 6 tháng</label>
-              <label class="check-item"><input id="c2" type="checkbox">Visa Trung Quốc</label>
-              <label class="check-item"><input id="c3" type="checkbox">Khách sạn</label>
-              <label class="check-item"><input id="c4" type="checkbox">eSIM / SIM Trung Quốc</label>
-              <label class="check-item"><input id="c5" type="checkbox">Bảo hiểm du lịch</label>
-              <label class="check-item"><input id="c6" type="checkbox">Ngoại tệ / thanh toán</label>
-              <label class="check-item"><input id="c7" type="checkbox">Vé máy bay</label>
-              <div class="progress"><span id="checkProgress"></span></div>
-              <div class="progress-meta"><span id="checkText">0/7 đã hoàn thành</span><span id="checkPercent">0%</span></div>
-            </div>
-          </article>
-
-        </div>
-
-        <article class="card booking-center" id="bookings">
-          <div class="card-head"><div><h2>Booking Center</h2><small>Thông tin cần mở nhanh trong chuyến đi</small></div><span class="pill success">Đã đặt</span></div>
-          <div class="booking-center-grid">
-            <section class="booking-panel"><div class="booking-panel-head"><span>✈️</span><div><b>Chuyến bay</b><small>SGN → Shanghai · Beijing → SGN</small></div></div><a class="btn sm" href="./flight-status.html">Theo dõi trạng thái</a></section>
-            <section class="booking-panel"><div class="booking-panel-head"><span>🏨</span><div><b>Lưu trú</b><small>Shanghai · Beijing</small></div></div><a class="btn sm" href="./hotels/">Xem thông tin khách sạn</a></section>
-          </div>
-          <details class="booking-details">
-            <summary>Chi tiết đặt chỗ</summary>
-            <div class="booking-fields">
-              <label>Mã đặt chỗ / PNR<input data-booking="pnr" placeholder="Nhập mã booking"></label>
-              <label>Khách sạn / mã xác nhận<input data-booking="hotel" placeholder="Tên khách sạn hoặc mã xác nhận"></label>
-              <label>Tàu / số hiệu ghế<input data-booking="train" placeholder="VD: Gxx · Coach 05 · Seat 08A"></label>
-              <label>Ghi chú quan trọng<input data-booking="important" placeholder="Ga, terminal, giờ check-in..."></label>
-            </div>
-            <div class="booking-save"><span>Dữ liệu chỉ lưu cục bộ trên thiết bị này.</span><button class="btn sm" id="copyBookings">Sao chép</button></div>
-          </details>
-        </article>
-
-        <section class="utility-grid">
-          <details class="card utility-details" id="budget">
-            <summary><span><b>Ngân sách</b><small id="budgetSummaryHint">Theo dõi chi tiêu khi cần</small></span><strong id="summaryBudget">Chưa thiết lập</strong></summary>
-            <div class="budget">
-              <div class="budget-total"><div><span>Tổng dự kiến</span><strong id="budgetTotal">Chưa thiết lập</strong></div><span id="budgetHint">0/5 hạng mục</span></div>
-              <div class="progress"><span id="budgetProgress"></span></div>
-              <div class="budget-row"><span>Chuyến bay</span><input data-budget="flight" inputmode="numeric" placeholder="0"></div>
-              <div class="budget-row"><span>Khách sạn</span><input data-budget="hotel" inputmode="numeric" placeholder="0"></div>
-              <div class="budget-row"><span>Ăn uống</span><input data-budget="food" inputmode="numeric" placeholder="0"></div>
-              <div class="budget-row"><span>Di chuyển nội địa</span><input data-budget="transport" inputmode="numeric" placeholder="0"></div>
-              <div class="budget-row"><span>Mua sắm & khác</span><input data-budget="other" inputmode="numeric" placeholder="0"></div>
-              <span id="budgetPerPerson" class="utility-meta">Nhập ngân sách bên dưới</span>
-            </div>
-          </details>
-          <details class="card utility-details" id="notes">
-            <summary><span><b>Ghi chú chuyến đi</b><small>Địa chỉ, mã đặt chỗ, điều cần nhớ</small></span><span class="pill">Cục bộ</span></summary>
-            <div class="notes-wrap"><textarea id="tripNotes" placeholder="Địa chỉ khách sạn, mã đặt chỗ, quán ăn, chi tiết tàu, điều cần nhớ..."></textarea><div class="notes-actions"><button class="btn sm" id="copyNotes">Sao chép</button><button class="btn sm" id="exportData">Xuất dữ liệu</button><label class="btn sm" for="importData">Nhập dữ liệu<input id="importData" type="file" accept="application/json" hidden></label><span class="save-state" id="saveState">Sẵn sàng</span></div></div>
-          </details>
-        </section>
-      </section>
-    </main>
-  </div>
+<div class="layout">
+<aside class="sidebar" aria-label="Điều hướng chính">
+<a class="brand" href="./index.html"><span class="brand-logo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m3 13 17-9-6 17-3-7-8-1Z"/><path d="m11 14 9-10"/></svg></span>TravelLog</a>
+<div><div class="sidebar-label">Không gian của bạn</div><nav class="nav-list">
+<a href="#top" class="nav-item active"><span class="nav-icon"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="8" height="8" rx="2"/><rect x="13" y="3" width="8" height="8" rx="2"/><rect x="3" y="13" width="8" height="8" rx="2"/><rect x="13" y="13" width="8" height="8" rx="2"/></svg></span>Tổng quan</a>
+<a href="#ideas" class="nav-item"><span class="nav-icon"><svg viewBox="0 0 24 24"><path d="M12 22s7-6 7-13a7 7 0 1 0-14 0c0 7 7 13 7 13Z"/><circle cx="12" cy="9" r="2"/></svg></span>Điểm đến cân nhắc<small>3</small></a>
+<a href="#plans" class="nav-item"><span class="nav-icon"><svg viewBox="0 0 24 24"><path d="M4 5h16v15H4zM8 3v4M16 3v4M4 10h16"/></svg></span>Kế hoạch của tôi</a>
+<a href="#history" class="nav-item"><span class="nav-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l4 3"/></svg></span>Lịch sử chuyến đi<small>1</small></a>
+</nav></div>
+<div><div class="sidebar-label">Chuyến Trung Quốc 2026</div><nav class="nav-list">
+<a href="./china-2026.html" class="nav-item"><span class="nav-icon"><svg viewBox="0 0 24 24"><path d="M4 4h16v16H4zM8 8h8M8 12h8M8 16h5"/></svg></span>Xem lại hành trình</a>
+<a href="./flights/" class="nav-item"><span class="nav-icon"><svg viewBox="0 0 24 24"><path d="m3 13 17-9-6 17-3-7-8-1Z"/></svg></span>Dữ liệu chuyến bay</a>
+<a href="./hotels/" class="nav-item"><span class="nav-icon"><svg viewBox="0 0 24 24"><path d="M4 21V5l8-3 8 3v16M4 21h16M9 21v-6h6v6"/></svg></span>Lưu trú đã lưu</a>
+</nav></div>
+<div class="sidebar-bottom"><span class="mini-tag">Thiết kế thử nghiệm</span><p>Bản xem trước chưa thay đổi trang TravelLog đang hoạt động.</p></div>
+</aside>
+<div class="main">
+<header class="topbar"><div class="breadcrumb"><b>Hành trình của tôi</b> <span style="margin:0 8px;color:#bbc5ca">/</span> Tổng quan</div><div class="top-actions"><span class="today" id="current-date"></span><button class="icon-button" id="theme-toggle" aria-label="Đổi giao diện sáng tối" title="Đổi giao diện"><svg viewBox="0 0 24 24"><path d="M20 14a8 8 0 0 1-10-10A8 8 0 1 0 20 14Z"/></svg></button><button type="button" class="primary-btn" data-new-plan>+ <span class="desktop-create">Tạo kế hoạch</span></button></div></header>
+<main id="top" class="container">
+<div class="eyebrow">Personal travel space · 2026</div><h1 class="page-title">Hành trình của bạn, theo cách của bạn.</h1>
+<p class="intro">Một nơi để lưu lại những chuyến đi đáng nhớ và bắt đầu lên kế hoạch cho điểm đến tiếp theo.</p>
+<section class="hero" aria-label="Khởi đầu hành trình mới"><div class="hero-content"><div class="hero-kicker">✦ Hành trình tiếp theo</div><h2>Thế giới vẫn còn<br>nhiều điều để khám phá.</h2><p>Hong Kong, Malaysia hay Nhật Bản? Cùng biến những ý tưởng du lịch thành một kế hoạch thật rõ ràng.</p><a class="primary-btn" href="#ideas">Khám phá điểm đến <span class="btn-arrow">↗</span></a></div><div class="hero-visual" aria-hidden="true">
+<svg class="orbit-svg" viewBox="0 0 440 290"><circle cx="220" cy="152" r="117" fill="none" stroke="#ffffff30" stroke-width="1"/><circle cx="220" cy="152" r="81" fill="none" stroke="#ffffff40" stroke-width="1" stroke-dasharray="3 7"/><path d="M58 210 Q160 25 320 100 T410 215" fill="none" stroke="#ffffffa0" stroke-width="2" stroke-linecap="round" stroke-dasharray="7 9"/><circle cx="72" cy="188" r="6" fill="#baf8dc"/><circle cx="338" cy="111" r="6" fill="#baf8dc"/><path d="m196 112 86-46-27 66-19-27-40 7Z" fill="#b9f6e0" opacity=".95"/><path d="m236 105 46-39" fill="none" stroke="#205762" stroke-width="2"/></svg>
+<div class="ticket hk"><span>🇭🇰</span><div><small>Destination 01</small>HONG KONG</div></div><div class="ticket my"><span>🇲🇾</span><div><small>Destination 02</small>MALAYSIA</div></div><div class="ticket jp"><span>🇯🇵</span><div><small>Destination 03</small>JAPAN</div></div>
+</div></section>
+<div class="stats" aria-label="Tổng quan">
+<div class="stat"><div class="stat-ico"><svg viewBox="0 0 24 24"><path d="m5 13 4 4L19 7"/></svg></div><div><b>1</b><span>Chuyến đã hoàn thành</span></div></div>
+<div class="stat"><div class="stat-ico"><svg viewBox="0 0 24 24"><path d="M12 22s7-6 7-13a7 7 0 1 0-14 0c0 7 7 13 7 13Z"/><circle cx="12" cy="9" r="2"/></svg></div><div><b>3</b><span>Điểm đến đang cân nhắc</span></div></div>
+<div class="stat"><div class="stat-ico"><svg viewBox="0 0 24 24"><path d="M4 5h16v15H4zM8 3v4M16 3v4M4 10h16"/></svg></div><div><b id="count-plans">0</b><span>Kế hoạch đang lập</span></div></div>
 </div>
-
-<nav class="mobile-bottom">
-  <a class="active" href="#top"><span class="nav-icon"><svg><use href="#i-home"/></svg></span>Tổng quan</a>
-  <a href="./flights/"><span class="nav-icon"><svg><use href="#i-plane"/></svg></span>Chuyến bay</a>
-  <a href="./hotels/"><span class="nav-icon"><svg><use href="#i-pin"/></svg></span>Lưu trú</a>
-  <a href="./sim/"><span class="nav-icon"><svg><use href="#i-sim"/></svg></span>SIM</a>
-</nav>
-
-<svg width="0" height="0" style="position:absolute;overflow:hidden" aria-hidden="true">
-  <symbol id="i-plane" viewBox="0 0 24 24"><path d="M10.5 4h3l2.2 6H20a2 2 0 1 1 0 4h-4.3l-2.2 6h-3l1.2-6H7l-2 2H3l1.2-4L3 8h2l2 2h4.7l-1.2-6Z"/></symbol>
-  <symbol id="i-home" viewBox="0 0 24 24"><path d="m3 11 9-8 9 8v9a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1Z"/></symbol>
-  <symbol id="i-calendar" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2.5"/><path d="M16 3v4M8 3v4M3 10h18"/></symbol>
-  <symbol id="i-wallet" viewBox="0 0 24 24"><path d="M4 6h14a2 2 0 0 1 2 2v11H4a2 2 0 0 1-2-2V6a3 3 0 0 1 3-3h12"/><path d="M16 11h5v5h-5a2.5 2.5 0 0 1 0-5Z"/></symbol>
-  <symbol id="i-note" viewBox="0 0 24 24"><rect x="4" y="3" width="16" height="18" rx="2.5"/><path d="M8 8h8M8 12h8M8 16h5"/></symbol>
-  <symbol id="i-check" viewBox="0 0 24 24"><rect x="3.5" y="3.5" width="17" height="17" rx="4"/><path d="m8 12 2.5 2.5L16.5 9"/></symbol>
-  <symbol id="i-pin" viewBox="0 0 24 24"><path d="M20 10c0 5-8 12-8 12S4 15 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="2.5"/></symbol>
-  <symbol id="i-status" viewBox="0 0 24 24"><path d="M4 17h4l2-10 4 13 2-8h4"/><path d="M3 4h18v16H3z"/></symbol>
-  <symbol id="i-sim" viewBox="0 0 24 24"><path d="M7 3h7l4 4v14H7z"/><path d="M14 3v5h4M10 12h5M10 16h5"/></symbol>
-  <symbol id="i-passport" viewBox="0 0 24 24"><rect x="4" y="3" width="16" height="18" rx="2.5"/><circle cx="12" cy="10" r="3"/><path d="M8 16h8"/></symbol>
-  <symbol id="i-train" viewBox="0 0 24 24"><rect x="5" y="3" width="14" height="15" rx="3"/><path d="M8 8h8M8 13h.01M16 13h.01M8 18l-2 3M16 18l2 3"/></symbol>
-  <symbol id="i-moon" viewBox="0 0 24 24"><path d="M21 12.8A9 9 0 1 1 11.2 3 7 7 0 0 0 21 12.8Z"/></symbol>
-  <symbol id="i-arrow-right" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
-</svg>
-
+<section id="ideas"><div class="section-head"><div><div class="eyebrow">Next destinations</div><h2>Bạn muốn đi đâu tiếp theo?</h2></div><p>Ba điểm đến trong danh sách mong muốn</p></div>
+<div class="dest-grid">
+<article class="dest-card"><div class="scene hk"><span class="flag" aria-label="Cờ Hong Kong">🇭🇰</span><span class="scene-label">CITY ESCAPE</span><svg viewBox="0 0 400 200" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><defs><linearGradient id="hkSky" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#5d7a9b"/><stop offset=".65" stop-color="#9a9db0"/><stop offset="1" stop-color="#f1baa3"/></linearGradient></defs><rect width="400" height="200" fill="url(#hkSky)"/><circle cx="299" cy="55" r="28" fill="#ffe3be" opacity=".85"/><path d="M0 123Q95 80 174 118T400 91V170H0Z" fill="#526e83" opacity=".55"/><path d="M0 160V98h16v62M20 160V115h27V92h12v68M66 160V72h21v88M90 160V103h19v57M117 160V54h22v106M127 54V28M145 160V91h15v69M166 160V116h18v44M193 160V61h25v99M205 61V30M224 160V98h30v62M264 160V40h14v120M271 40V15M286 160V75h22v85M319 160V91h20v69M348 160V64h24v96M380 160V110h20v50" fill="#344d69"/><g fill="#ffdab2" opacity=".7"><path d="M70 82h4v8h-4zM79 82h4v8h-4zM122 67h4v8h-4zM132 79h4v8h-4zM198 74h4v8h-4zM207 87h4v8h-4zM266 54h3v6h-3zM272 70h3v6h-3zM353 75h4v8h-4zM362 92h4v8h-4z"/></g><path d="M0 160H400V200H0Z" fill="#56839a"/><path d="M0 171Q50 176 96 172T200 173T305 171T400 174M0 188Q65 191 134 186T278 190T400 187" fill="none" stroke="#f7d0b9" stroke-width="2" opacity=".4"/></svg></div><div class="dest-content"><h3>Hong Kong</h3><p>Nhịp sống đô thị, Victoria Harbour, Disneyland và ẩm thực đặc sắc.</p><div class="dest-bottom"><span class="days">◷ Gợi ý 4–5 ngày</span><button class="card-action" data-destination="Hong Kong">Lên kế hoạch ↗</button></div></div></article>
+<article class="dest-card"><div class="scene my"><span class="flag" aria-label="Cờ Malaysia">🇲🇾</span><span class="scene-label">EASY GETAWAY</span><svg viewBox="0 0 400 200" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><defs><linearGradient id="mySky" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#438d92"/><stop offset=".7" stop-color="#a6cac1"/><stop offset="1" stop-color="#f3d7aa"/></linearGradient></defs><rect width="400" height="200" fill="url(#mySky)"/><circle cx="315" cy="45" r="28" fill="#ffe9be" opacity=".75"/><path d="M0 170V132h30v38M37 170V119h38v51M87 170V92h30v78M290 170V124h35v46M329 170V100h32v70M366 170V128h34v42" fill="#5e8c91"/><g fill="#d4e7db"><path d="M143 170V55l9-12 9 12v115zM214 170V55l9-12 9 12v115z"/></g><g fill="#e9f4e7"><path d="M148 53 152 0l5 53M219 53l4-53 5 53" stroke="#dfeee8" stroke-width="3"/><rect x="139" y="63" width="26" height="5"/><rect x="139" y="82" width="26" height="5"/><rect x="139" y="101" width="26" height="5"/><rect x="139" y="120" width="26" height="5"/><rect x="210" y="63" width="26" height="5"/><rect x="210" y="82" width="26" height="5"/><rect x="210" y="101" width="26" height="5"/><rect x="210" y="120" width="26" height="5"/></g><path d="M162 99Q188 90 214 99M162 109Q188 100 214 109" fill="none" stroke="#edf8ef" stroke-width="4"/><path d="M0 171Q72 162 130 173T278 172T400 167V200H0Z" fill="#316f76"/><path d="M0 188Q95 181 164 191T400 185" fill="none" stroke="#d2e2c9" stroke-width="2" opacity=".4"/></svg></div><div class="dest-content"><h3>Malaysia</h3><p>Kuala Lumpur, Malacca, ẩm thực đa dạng và một hành trình nhẹ nhàng.</p><div class="dest-bottom"><span class="days">◷ Gợi ý 5–6 ngày</span><button class="card-action" data-destination="Malaysia">Lên kế hoạch ↗</button></div></div></article>
+<article class="dest-card"><div class="scene jp"><span class="flag" aria-label="Cờ Nhật Bản">🇯🇵</span><span class="scene-label">CULTURE & NATURE</span><svg viewBox="0 0 400 200" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><defs><linearGradient id="jpSky" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#dab2ba"/><stop offset="1" stop-color="#f7dcce"/></linearGradient></defs><rect width="400" height="200" fill="url(#jpSky)"/><circle cx="321" cy="56" r="27" fill="#fff4de" opacity=".7"/><path d="M185 145 287 37l110 108Z" fill="#9da9b4"/><path d="m254 71 33-34 35 34-20-7-17 10-13-10z" fill="#f7e8e7"/><path d="M0 153Q105 109 186 146T400 130V200H0Z" fill="#bca6a4"/><path d="M0 177Q100 147 188 177T400 159V200H0Z" fill="#738b85"/><g fill="#8d493d"><path d="M48 172V80h54v92Z"/><path d="M42 84h66l-33-25Z"/><path d="M55 76V55h41v21Z"/><path d="M47 58h57L75 38Z"/><path d="M63 43V30h24v13Z"/><path d="M56 32h38L75 16Z"/></g><path d="M74 15V8" stroke="#7c433d" stroke-width="3"/><g fill="#f9cfaf"><path d="M59 91h9v14h-9zM83 91h9v14h-9zM63 122h27v20H63z"/></g><g fill="#cb8392" opacity=".85"><circle cx="342" cy="110" r="21"/><circle cx="362" cy="99" r="26"/><circle cx="386" cy="112" r="19"/><circle cx="17" cy="137" r="17"/><circle cx="29" cy="122" r="20"/></g><path d="M369 124V190M25 133V190" stroke="#634e53" stroke-width="4"/></svg></div><div class="dest-content"><h3>Nhật Bản</h3><p>Kyoto cổ kính, Tokyo hiện đại, phong cảnh bốn mùa và tàu cao tốc.</p><div class="dest-bottom"><span class="days">◷ Gợi ý 7–9 ngày</span><button class="card-action" data-destination="Nhật Bản">Lên kế hoạch ↗</button></div></div></article>
+</div></section>
+<div class="below">
+<section class="panel" id="plans"><div class="panel-head"><div><div class="eyebrow">Planning board</div><h2>Kế hoạch đang lập</h2></div><button class="secondary-button" data-new-plan>+ Thêm mới</button></div><div class="empty" id="empty-plans"><span class="empty-icon">🧭</span><h3>Chưa có chuyến đi nào được lên kế hoạch</h3><p>Chọn Hong Kong, Malaysia, Nhật Bản ở phía trên hoặc tạo một điểm đến khác.</p><button data-new-plan>+ Bắt đầu kế hoạch đầu tiên</button></div><div class="plan-list" id="plan-list" aria-live="polite"></div></section>
+<section class="panel" id="history"><div class="panel-head"><div><div class="eyebrow">Travel memories</div><h2>Hành trình đã qua</h2></div><span class="completed">✓ 1 chuyến</span></div><div class="archive"><div class="archive-art"><svg viewBox="0 0 420 115" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><path d="M0 0H420V115H0z" fill="#769d9f"/><circle cx="339" cy="25" r="23" fill="#ffe5c3" opacity=".8"/><path d="M0 85V46h20v39M25 85V60h28v25M62 85V20h28v65M98 85V47h30v38M135 85V28h24v57M169 85V53h24v32M205 85V25h29v60M241 85V42h34v43M283 85V15h14v70M311 85V44h24v41M341 85V53h32v32M381 85V31h24v54" fill="#355e6b"/><path d="M0 85H420V115H0Z" fill="#406e79"/><path d="M0 100Q62 95 110 102T210 99T318 98T420 100" stroke="#c3dad1" stroke-width="2" fill="none" opacity=".5"/></svg></div><div class="archive-body"><div class="archive-top"><h3>🇨🇳 Trung Quốc 2026</h3><span class="completed">✓ Hoàn thành</span></div><p>19–26/10/2026 · 8 ngày 7 đêm<br>TP.HCM → Thượng Hải → Bắc Kinh → TP.HCM</p><a class="archive-link" href="./china-2026.html">Xem lại lịch trình và thông tin đã lưu ↗</a></div></div></section>
+</div>
+<footer class="footer"><span>TravelLog · Crafted for the journeys ahead</span><span>Bản preview · Dữ liệu kế hoạch mới chỉ lưu cục bộ trên trình duyệt này.</span></footer>
+</main></div></div>
+<nav class="mobile-nav" aria-label="Điều hướng trên điện thoại"><a class="active" href="#top"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="8" height="8" rx="2"/><rect x="13" y="3" width="8" height="8" rx="2"/><rect x="3" y="13" width="8" height="8" rx="2"/><rect x="13" y="13" width="8" height="8" rx="2"/></svg>Tổng quan</a><a href="#ideas"><svg viewBox="0 0 24 24"><path d="M12 22s7-6 7-13a7 7 0 1 0-14 0c0 7 7 13 7 13Z"/><circle cx="12" cy="9" r="2"/></svg>Ý tưởng</a><a href="#plans"><svg viewBox="0 0 24 24"><path d="M4 5h16v15H4zM8 3v4M16 3v4M4 10h16"/></svg>Kế hoạch</a><a href="#history"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l4 3"/></svg>Lịch sử</a></nav>
+<dialog id="plan-dialog" aria-labelledby="dialog-title"><form id="plan-form" class="dialog-inner"><div class="dialog-top"><div><div class="eyebrow">New journey</div><h2 id="dialog-title">Tạo kế hoạch mới</h2><p>Các thông tin bên dưới chỉ lưu trên trình duyệt của bạn.</p></div><button type="button" class="x-btn" id="close-dialog" aria-label="Đóng">×</button></div><div class="form-grid"><div class="field wide"><label for="trip-destination">Điểm đến *</label><input id="trip-destination" name="destination" maxlength="80" placeholder="Ví dụ: Hong Kong" required autocomplete="off"></div><div class="field"><label for="trip-date">Ngày dự kiến</label><input id="trip-date" name="date" type="date"></div><div class="field"><label for="trip-travelers">Số người</label><input id="trip-travelers" name="travelers" type="number" min="1" max="99" placeholder="Chưa xác định"></div><div class="field wide"><label for="trip-note">Ghi chú</label><textarea id="trip-note" name="note" maxlength="250" placeholder="Ý tưởng lịch trình, điều muốn trải nghiệm..."></textarea></div></div><div class="dialog-actions"><span class="form-help">Bản thử nghiệm không gửi dữ liệu lên máy chủ. Không nhập thông tin hộ chiếu hoặc mã đặt chỗ.</span><button class="primary-btn" type="submit">Lưu kế hoạch ↗</button></div></form></dialog>
 <script>
-(() => {
-  'use strict';
-  const STORAGE_KEY = 'travel-language';
-  const LANGS = {vi:'vi',en:'en',zh:'zh-CN',ja:'ja'};
-  const DICT = {
-    vi: {'上海':'TH','北京':'BK'},
-    en: {
-      'Tổng quan':'Overview','Lịch trình':'Itinerary','Giá vé':'Flight prices','Ngân sách':'Budget','Chuẩn bị':'Preparation','Ghi chú':'Notes','Đổi giao diện':'Switch theme','Ngôn ngữ':'Language','Trung Quốc 2026':'China 2026','Xem giá vé':'View fares','Chuyến đi sắp tới':'Upcoming trip','Trung Quốc · 19–26/10/2026':'China · 19–26 Oct 2026','TP.HCM → Thượng Hải → Bắc Kinh → TP.HCM':'Ho Chi Minh City → Shanghai → Beijing → Ho Chi Minh City','8 ngày 7 đêm · 6 người lớn + 1 em bé':'8 days 7 nights · 6 adults + 1 infant','Xem lịch trình':'View itinerary','Theo dõi giá vé':'Track flight prices','Còn':'Departure in','ngày đến chuyến đi':'days','khởi hành hôm nay':'departing today','chuyến đi đã bắt đầu':'trip has started','Khởi hành 19/10/2026':'Departure 19 Oct 2026','Ngân sách dự kiến':'Planned budget','Chưa thiết lập':'Not set','Nhập ngân sách bên dưới':'Enter budget below','Chuyến bay':'Flights','2 chặng':'2 legs','Đang tải dữ liệu giá vé…':'Loading flight data…','Thành phố chính':'Main cities','Thượng Hải · Bắc Kinh':'Shanghai · Beijing','Việc còn lại':'Remaining tasks','Lịch trình chính':'Main itinerary','Đang kiểm tra':'Checking','Đang tải chuyến bay phù hợp…':'Loading a suitable flight…','TP.HCM → Thượng Hải':'Ho Chi Minh City → Shanghai','上海':'SHA','Thượng Hải':'Shanghai','Bến Thượng Hải · Dự Viên · phố cổ':'The Bund · Yu Garden · Old Town','Lịch nhẹ ngày đầu, ưu tiên nghỉ ngơi':'Keep the first day light and prioritize rest','Thượng Hải → Bắc Kinh':'Shanghai → Beijing','Di chuyển nội địa':'Domestic transfer','Chốt tàu cao tốc hoặc chuyến bay sau':'Finalize high-speed rail or a flight later','北京':'BJS','Bắc Kinh → TP.HCM':'Beijing → Ho Chi Minh City','Chuẩn bị trước chuyến đi':'Before the trip','Hộ chiếu còn hạn > 6 tháng':'Passport valid for more than 6 months','Visa Trung Quốc':'China visa','Khách sạn':'Hotel','eSIM / SIM Trung Quốc':'China eSIM / SIM','SIM & Internet':'SIM & Internet','6 SIM vật lý · mục tiêu ≤ 150k/SIM':'6 physical SIMs · target ≤ 150k/SIM','So sánh SIM':'Compare SIMs','Chưa mua':'Not purchased','Bảo hiểm du lịch':'Travel insurance','Ngoại tệ / thanh toán':'Cash / payments','Vé máy bay':'Flight tickets','Tổng dự kiến':'Planned total','Ăn uống':'Food','Mua sắm & khác':'Shopping & other','Lưu trên thiết bị này':'Saved on this device','Địa chỉ khách sạn, mã đặt chỗ, quán ăn, chi tiết tàu, điều cần nhớ...':'Hotel address, booking codes, places to eat, train details, things to remember...','Sao chép':'Copy','Xuất dữ liệu':'Export data','Nhập dữ liệu':'Import data','Sẵn sàng':'Ready','TH10':'OCT','{done}/{total} đã hoàn thành':'{done}/{total} completed','Khoảng {amount} / người':'About {amount} / person','{filled}/{total} hạng mục':'{filled}/{total} categories','Đã lưu':'Saved','Đã sao chép':'Copied','Không thể sao chép':'Could not copy','File không hợp lệ':'Invalid file','Chưa có chuyến bay phù hợp':'No suitable flight found','Chưa có dữ liệu':'No data','Hãng bay':'Airline','Bay thẳng':'Direct','1 điểm dừng':'1 stop','{count} lựa chọn bay thẳng đang được theo dõi':'Tracking {count} direct-flight options','Có dữ liệu chuyến bay, chưa thấy lựa chọn bay thẳng':'Flight data loaded; no direct option found','Không tải được dữ liệu giá vé':'Could not load flight-price data','Trạng thái':'Status','Trạng thái chuyến bay':'Flight status'
-    },
-    zh: {
-      'Tổng quan':'概览','Lịch trình':'行程','Giá vé':'机票价格','Ngân sách':'预算','Chuẩn bị':'行前准备','Ghi chú':'备注','Đổi giao diện':'切换主题','Ngôn ngữ':'语言','Trung Quốc 2026':'中国 2026','Xem giá vé':'查看机票','Chuyến đi sắp tới':'即将出发','Trung Quốc · 19–26/10/2026':'中国 · 2026年10月19–26日','TP.HCM → Thượng Hải → Bắc Kinh → TP.HCM':'胡志明市 → 上海 → 北京 → 胡志明市','8 ngày 7 đêm · 6 người lớn + 1 em bé':'8天7晚 · 6名成人 + 1名婴儿','Xem lịch trình':'查看行程','Theo dõi giá vé':'跟踪机票价格','Còn':'距离出发还有','ngày đến chuyến đi':'天','khởi hành hôm nay':'今天出发','chuyến đi đã bắt đầu':'旅程已开始','Khởi hành 19/10/2026':'出发：2026年10月19日','Ngân sách dự kiến':'计划预算','Chưa thiết lập':'未设置','Nhập ngân sách bên dưới':'在下方输入预算','Chuyến bay':'航班','2 chặng':'2个航段','Đang tải dữ liệu giá vé…':'正在加载机票数据…','Thành phố chính':'主要城市','Thượng Hải · Bắc Kinh':'上海 · 北京','Việc còn lại':'剩余事项','Lịch trình chính':'主要行程','Đang kiểm tra':'正在检查','Đang tải chuyến bay phù hợp…':'正在加载合适的航班…','TP.HCM → Thượng Hải':'胡志明市 → 上海','上海':'上海','Thượng Hải':'上海','Bến Thượng Hải · Dự Viên · phố cổ':'外滩 · 豫园 · 老城','Lịch nhẹ ngày đầu, ưu tiên nghỉ ngơi':'首日安排轻松，优先休息','Thượng Hải → Bắc Kinh':'上海 → 北京','Di chuyển nội địa':'国内交通','Chốt tàu cao tốc hoặc chuyến bay sau':'稍后确认高铁或航班','北京':'北京','Bắc Kinh → TP.HCM':'北京 → 胡志明市','Chuẩn bị trước chuyến đi':'出发前准备','Hộ chiếu còn hạn > 6 tháng':'护照有效期超过6个月','Visa Trung Quốc':'中国签证','Khách sạn':'酒店','eSIM / SIM Trung Quốc':'中国 eSIM / SIM','SIM & Internet':'SIM 与网络','6 SIM vật lý · mục tiêu ≤ 150k/SIM':'6 张实体 SIM · 目标 ≤ 150k/SIM','So sánh SIM':'比较 SIM','Chưa mua':'尚未购买','Bảo hiểm du lịch':'旅行保险','Ngoại tệ / thanh toán':'现金 / 支付','Vé máy bay':'机票','Tổng dự kiến':'预计总额','Ăn uống':'餐饮','Mua sắm & khác':'购物及其他','Lưu trên thiết bị này':'保存在此设备','Địa chỉ khách sạn, mã đặt chỗ, quán ăn, chi tiết tàu, điều cần nhớ...':'酒店地址、预订编号、餐厅、火车信息、需要记住的事项...','Sao chép':'复制','Xuất dữ liệu':'导出数据','Nhập dữ liệu':'导入数据','Sẵn sàng':'就绪','TH10':'10月','{done}/{total} đã hoàn thành':'已完成 {done}/{total}','Khoảng {amount} / người':'约 {amount} / 人','{filled}/{total} hạng mục':'{filled}/{total} 个类别','Đã lưu':'已保存','Đã sao chép':'已复制','Không thể sao chép':'无法复制','File không hợp lệ':'文件无效','Chưa có chuyến bay phù hợp':'没有合适的航班','Chưa có dữ liệu':'暂无数据','Hãng bay':'航空公司','Bay thẳng':'直飞','1 điểm dừng':'1次中转','{count} lựa chọn bay thẳng đang được theo dõi':'正在跟踪 {count} 个直飞选项','Có dữ liệu chuyến bay, chưa thấy lựa chọn bay thẳng':'已加载航班数据，暂未发现直飞选项','Không tải được dữ liệu giá vé':'无法加载机票价格数据','Trạng thái':'状态','Trạng thái chuyến bay':'航班状态'
-    },
-    ja: {
-      'Tổng quan':'概要','Lịch trình':'旅程','Giá vé':'航空券価格','Ngân sách':'予算','Chuẩn bị':'準備','Ghi chú':'メモ','Đổi giao diện':'テーマ切替','Ngôn ngữ':'言語','Trung Quốc 2026':'中国 2026','Xem giá vé':'航空券を見る','Chuyến đi sắp tới':'次の旅行','Trung Quốc · 19–26/10/2026':'中国 · 2026年10月19日〜26日','TP.HCM → Thượng Hải → Bắc Kinh → TP.HCM':'ホーチミン市 → 上海 → 北京 → ホーチミン市','8 ngày 7 đêm · 6 người lớn + 1 em bé':'8日7泊 · 大人6名 + 乳児1名','Xem lịch trình':'旅程を見る','Theo dõi giá vé':'航空券価格を追跡','Còn':'出発まであと','ngày đến chuyến đi':'日','khởi hành hôm nay':'本日出発','chuyến đi đã bắt đầu':'旅行は開始済み','Khởi hành 19/10/2026':'出発：2026年10月19日','Ngân sách dự kiến':'予定予算','Chưa thiết lập':'未設定','Nhập ngân sách bên dưới':'下に予算を入力','Chuyến bay':'フライト','2 chặng':'2区間','Đang tải dữ liệu giá vé…':'航空券データを読み込み中…','Thành phố chính':'主要都市','Thượng Hải · Bắc Kinh':'上海 · 北京','Việc còn lại':'残りのタスク','Lịch trình chính':'主な旅程','Đang kiểm tra':'確認中','Đang tải chuyến bay phù hợp…':'適切なフライトを読み込み中…','TP.HCM → Thượng Hải':'ホーチミン市 → 上海','上海':'上海','Thượng Hải':'上海','Bến Thượng Hải · Dự Viên · phố cổ':'外灘 · 豫園 · 旧市街','Lịch nhẹ ngày đầu, ưu tiên nghỉ ngơi':'初日はゆったり、休息を優先','Thượng Hải → Bắc Kinh':'上海 → 北京','Di chuyển nội địa':'国内移動','Chốt tàu cao tốc hoặc chuyến bay sau':'高速鉄道またはフライトを後で確定','北京':'北京','Bắc Kinh → TP.HCM':'北京 → ホーチミン市','Chuẩn bị trước chuyến đi':'旅行前の準備','Hộ chiếu còn hạn > 6 tháng':'パスポート残存期間6か月超','Visa Trung Quốc':'中国ビザ','Khách sạn':'ホテル','eSIM / SIM Trung Quốc':'中国 eSIM / SIM','SIM & Internet':'SIM・通信','6 SIM vật lý · mục tiêu ≤ 150k/SIM':'物理SIM 6枚 · 目標 ≤ 150k/SIM','So sánh SIM':'SIMを比較','Chưa mua':'未購入','Bảo hiểm du lịch':'海外旅行保険','Ngoại tệ / thanh toán':'現金 / 支払い','Vé máy bay':'航空券','Tổng dự kiến':'予定合計','Ăn uống':'食事','Mua sắm & khác':'買い物・その他','Lưu trên thiết bị này':'この端末に保存','Địa chỉ khách sạn, mã đặt chỗ, quán ăn, chi tiết tàu, điều cần nhớ...':'ホテル住所、予約番号、食事場所、鉄道情報、覚えておくこと...','Sao chép':'コピー','Xuất dữ liệu':'データを書き出す','Nhập dữ liệu':'データを読み込む','Sẵn sàng':'準備完了','TH10':'10月','{done}/{total} đã hoàn thành':'{done}/{total} 完了','Khoảng {amount} / người':'約 {amount} / 人','{filled}/{total} hạng mục':'{filled}/{total} カテゴリ','Đã lưu':'保存済み','Đã sao chép':'コピーしました','Không thể sao chép':'コピーできません','File không hợp lệ':'無効なファイル','Chưa có chuyến bay phù hợp':'適切なフライトがありません','Chưa có dữ liệu':'データなし','Hãng bay':'航空会社','Bay thẳng':'直行便','1 điểm dừng':'乗継1回','{count} lựa chọn bay thẳng đang được theo dõi':'直行便 {count} 件を追跡中','Có dữ liệu chuyến bay, chưa thấy lựa chọn bay thẳng':'フライトデータはありますが直行便は見つかりません','Không tải được dữ liệu giá vé':'航空券価格データを読み込めません','Trạng thái':'運航状況','Trạng thái chuyến bay':'フライト状況'
-    }
-  };
-  const TITLES = {vi:'TravelLog · Trung Quốc 2026',en:'TravelLog · China 2026',zh:'TravelLog · 中国 2026',ja:'TravelLog · 中国 2026'};
-  const DESCRIPTIONS = {vi:'TravelLog — lịch trình Trung Quốc 19–26/10/2026.',en:'TravelLog — China itinerary, 19–26 Oct 2026.',zh:'TravelLog — 2026年10月19–26日中国行程。',ja:'TravelLog — 2026年10月19日〜26日の中国旅行。'};
-  const originalText = new WeakMap();
-  const originalAttrs = new WeakMap();
-  let currentLang = localStorage.getItem(STORAGE_KEY);
-  if (!LANGS[currentLang]) currentLang = 'vi';
-  const format = (template, vars={}) => String(template).replace(/\{(\w+)\}/g, (_, key) => vars[key] ?? `{${key}}`);
-  const t = (source, vars={}) => format(DICT[currentLang]?.[source] ?? source, vars);
-
-  function translateTextNode(node) {
-    const raw = node.nodeValue;
-    if (!raw || !raw.trim() || node.parentElement?.closest('script,style,textarea,option')) return;
-    if (!originalText.has(node)) originalText.set(node, raw.trim());
-    const source = originalText.get(node);
-    const lead = raw.match(/^\s*/)?.[0] || '';
-    const tail = raw.match(/\s*$/)?.[0] || '';
-    node.nodeValue = lead + t(source) + tail;
-  }
-
-  function translateAttributes(el) {
-    if (!(el instanceof Element)) return;
-    let saved = originalAttrs.get(el);
-    if (!saved) { saved = {}; originalAttrs.set(el, saved); }
-    for (const attr of ['placeholder','aria-label','title']) {
-      if (!el.hasAttribute(attr)) continue;
-      if (!(attr in saved)) saved[attr] = el.getAttribute(attr);
-      el.setAttribute(attr, t(saved[attr]));
-    }
-  }
-
-  function translateTree() {
-    const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_ELEMENT | NodeFilter.SHOW_TEXT);
-    let node;
-    while ((node = walker.nextNode())) {
-      if (node.nodeType === Node.TEXT_NODE) translateTextNode(node);
-      else translateAttributes(node);
-    }
-  }
-
-  function setLanguage(lang, notify=true) {
-    if (!LANGS[lang]) lang = 'vi';
-    currentLang = lang;
-    localStorage.setItem(STORAGE_KEY, lang);
-    document.documentElement.lang = LANGS[lang];
-    document.title = TITLES[lang];
-    const meta = document.querySelector('meta[name="description"]');
-    if (meta) meta.content = DESCRIPTIONS[lang];
-    translateTree();
-    document.querySelectorAll('[data-language-select]').forEach(select => { select.value = lang; });
-    if (notify) document.dispatchEvent(new CustomEvent('travel-language-change', {detail:{lang}}));
-  }
-
-  document.querySelectorAll('[data-language-select]').forEach(select => select.addEventListener('change', () => setLanguage(select.value)));
-  window.TravelDashboardI18n = {t:(source, vars={})=>t(source, vars), getLanguage:()=>currentLang, setLanguage};
-  setLanguage(currentLang, false);
+(function(){
+'use strict';
+var KEY='travellog-plans-preview-v1';
+var themeKey='travel-theme';
+var root=document.documentElement;
+var theme=localStorage.getItem(themeKey);
+if(theme==='dark')root.setAttribute('data-theme','dark');
+var themeToggle=document.getElementById('theme-toggle');
+themeToggle.addEventListener('click',function(){var dark=root.getAttribute('data-theme')!=='dark';root.setAttribute('data-theme',dark?'dark':'light');localStorage.setItem(themeKey,dark?'dark':'light')});
+document.getElementById('current-date').textContent=new Intl.DateTimeFormat('vi-VN',{day:'2-digit',month:'long',year:'numeric'}).format(new Date());
+var dialog=document.getElementById('plan-dialog');
+var form=document.getElementById('plan-form');
+var dest=document.getElementById('trip-destination');
+var date=document.getElementById('trip-date');
+var travelers=document.getElementById('trip-travelers');
+var note=document.getElementById('trip-note');
+var plans=[];
+try{var saved=JSON.parse(localStorage.getItem(KEY)||'[]');if(Array.isArray(saved))plans=saved.filter(function(p){return p&&typeof p.destination==='string'})}catch(e){}
+function openDialog(destination){form.reset();dest.value=destination||'';dialog.showModal();dest.focus()}
+document.querySelectorAll('[data-new-plan]').forEach(function(button){button.addEventListener('click',function(){openDialog('')})});
+document.querySelectorAll('[data-destination]').forEach(function(button){button.addEventListener('click',function(){openDialog(button.getAttribute('data-destination'))})});
+document.getElementById('close-dialog').addEventListener('click',function(){dialog.close()});
+dialog.addEventListener('click',function(e){if(e.target===dialog)dialog.close()});
+function flagFor(name){var s=name.toLowerCase();if(s.includes('hong kong'))return '🇭🇰';if(s.includes('malaysia')||s.includes('kuala'))return '🇲🇾';if(s.includes('nhật')||s.includes('japan')||s.includes('tokyo'))return '🇯🇵';return '🌍'}
+function save(){try{localStorage.setItem(KEY,JSON.stringify(plans))}catch(e){alert('Trình duyệt không cho phép lưu dữ liệu. Vui lòng kiểm tra chế độ riêng tư hoặc dung lượng lưu trữ.')}}
+function render(){var list=document.getElementById('plan-list');list.replaceChildren();document.getElementById('empty-plans').hidden=plans.length>0;document.getElementById('count-plans').textContent=String(plans.length);plans.forEach(function(plan){
+var row=document.createElement('article');row.className='plan-item';
+var mark=document.createElement('span');mark.className='plan-mark';mark.textContent=flagFor(plan.destination);
+var info=document.createElement('div');info.className='plan-text';
+var title=document.createElement('b');title.textContent=plan.destination;
+var meta=document.createElement('small');var parts=['Đang lên kế hoạch'];if(plan.date){var d=new Date(plan.date+'T00:00:00');if(!isNaN(d))parts.push(d.toLocaleDateString('vi-VN'))}if(plan.travelers)parts.push(plan.travelers+' người');if(plan.note)parts.push(plan.note);meta.textContent=parts.join(' · ');
+info.append(title,meta);
+var remove=document.createElement('button');remove.type='button';remove.className='remove-btn';remove.textContent='×';remove.title='Xóa kế hoạch';remove.setAttribute('aria-label','Xóa kế hoạch '+plan.destination);remove.addEventListener('click',function(){if(!confirm('Xóa kế hoạch '+plan.destination+' khỏi trình duyệt này?'))return;plans=plans.filter(function(p){return p.id!==plan.id});save();render()});
+row.append(mark,info,remove);list.append(row);
+})}
+form.addEventListener('submit',function(e){e.preventDefault();var name=dest.value.trim();if(!name){dest.focus();return}plans.unshift({id:String(Date.now())+'-'+Math.random().toString(36).slice(2),destination:name,date:date.value,travelers:travelers.value,note:note.value.trim()});save();render();dialog.close();document.getElementById('plans').scrollIntoView({behavior:'smooth',block:'center'})});
+render();
 })();
-</script>
-
-<script>
-(() => {
-  const S='travel-log-v3', $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)], state=JSON.parse(localStorage.getItem(S)||'{}'), save=()=>localStorage.setItem(S,JSON.stringify(state));
-  const I18N=window.TravelDashboardI18n, t=(source,vars={})=>I18N.t(source,vars);
-  const locale=()=>({vi:'vi-VN',en:'en-US',zh:'zh-CN',ja:'ja-JP'}[I18N.getLanguage()]||'vi-VN');
-  const money=n=>`${new Intl.NumberFormat(locale()).format(Number(n)||0)}${I18N.getLanguage()==='vi'?' đ':' VND'}`;
-
-  $$('[data-theme-toggle]').forEach(b=>b.onclick=()=>{const dark=document.documentElement.dataset.theme==='dark';document.documentElement.dataset.theme=dark?'light':'dark';localStorage.setItem('travel-theme',dark?'light':'dark')});
-  const theme=localStorage.getItem('travel-theme'); if(theme) document.documentElement.dataset.theme=theme;
-
-  const dep=new Date('2026-10-19T20:00:00+07:00');
-  function renderCountdown(){const days=Math.ceil((dep-new Date())/86400000);if(days>0){$('#daysPrefix').textContent=t('Còn');$('#daysLeft').textContent=days;$('#daysUnit').textContent=t('ngày đến chuyến đi')}else if(days===0){$('#daysPrefix').textContent='';$('#daysLeft').textContent='0';$('#daysUnit').textContent=t('khởi hành hôm nay')}else{$('#daysPrefix').textContent='';$('#daysLeft').textContent='✓';$('#daysUnit').textContent=t('chuyến đi đã bắt đầu')}}
-  renderCountdown();
-
-  const checks=$$('.check-item input');
-  checks.forEach(c=>{c.checked=!!state[c.id];c.onchange=()=>{state[c.id]=c.checked;save();renderChecks()}});
-  function renderChecks(){const done=checks.filter(c=>c.checked).length,p=Math.round(done/checks.length*100),status=t('{done}/{total} đã hoàn thành',{done,total:checks.length});if($('#taskCount'))$('#taskCount').textContent=checks.length-done;if($('#taskStatus'))$('#taskStatus').textContent=status;$('#checkText').textContent=status;$('#checkPercent').textContent=p+'%';$('#checkHeaderStatus').textContent=p+'%';$('#checkProgress').style.width=p+'%';const passport=$('#passportStatus');if(passport){passport.textContent=$('#c1')?.checked?'Đã kiểm tra':'Cần kiểm tra';passport.classList.toggle('ready',!!$('#c1')?.checked)}}
-  renderChecks();
-
-  const inputs=$$('[data-budget]');
-  inputs.forEach(i=>{i.value=state.budget?.[i.dataset.budget]||'';i.oninput=()=>{state.budget=state.budget||{};state.budget[i.dataset.budget]=i.value.replace(/\D/g,'');i.value=state.budget[i.dataset.budget];save();renderBudget()}});
-  function renderBudget(){const vals=inputs.map(i=>Number(i.value)||0),total=vals.reduce((a,b)=>a+b,0),filled=inputs.filter(i=>Number(i.value)>0).length,p=filled/inputs.length*100;$('#budgetTotal').textContent=total?money(total):t('Chưa thiết lập');$('#summaryBudget').textContent=total?money(total):t('Chưa thiết lập');$('#budgetPerPerson').textContent=total?t('Khoảng {amount} / người',{amount:money(Math.round(total/7))}):t('Nhập ngân sách bên dưới');$('#budgetHint').textContent=t('{filled}/{total} hạng mục',{filled,total:inputs.length});$('#budgetProgress').style.width=p+'%'}
-  renderBudget();
-
-  let saveStateMessage='Sẵn sàng';
-  const setSaveState=source=>{saveStateMessage=source;$('#saveState').textContent=t(source)};
-  const notes=$('#tripNotes'); notes.value=state.notes||'';
-  notes.oninput=()=>{state.notes=notes.value;save();setSaveState('Đã lưu')};
-  $('#copyNotes').onclick=async()=>{try{await navigator.clipboard.writeText(notes.value);setSaveState('Đã sao chép')}catch{setSaveState('Không thể sao chép')}};
-  $('#exportData').onclick=()=>{const a=document.createElement('a'),blob=new Blob([JSON.stringify({version:3,state},null,2)],{type:'application/json'});a.href=URL.createObjectURL(blob);a.download='travellog-backup.json';a.click();URL.revokeObjectURL(a.href)};
-  $('#importData').onchange=e=>{const f=e.target.files[0];if(!f)return;const r=new FileReader;r.onload=()=>{try{const d=JSON.parse(r.result);localStorage.setItem(S,JSON.stringify(d.state||d));location.reload()}catch{setSaveState('File không hợp lệ')}};r.readAsText(f)};
-
-  const isDirect=o=>o?.is_direct===true||Number(o?.stops)===0;
-  const time=v=>!v?'—':String(v).slice(11,16);
-  const preferred=r=>[...(r?.offers||[])].sort((a,b)=>{if(isDirect(a)!==isDirect(b))return isDirect(a)?-1:1;return Number(a.total_amount)-Number(b.total_amount)})[0];
-  function paintFlight(r,text,meta,badge){const o=preferred(r);if(!o){$(text).textContent=t('Chưa có chuyến bay phù hợp');$(badge).textContent=t('Chưa có dữ liệu');$(badge).className='pill';return}const s=o.slices?.[0],seg=s?.segments?.[0],last=s?.segments?.at(-1);$(text).textContent=`${time(seg?.departing_at)} ${s?.origin||seg?.origin} → ${time(last?.arriving_at)} ${s?.destination||last?.destination}`;$(meta).textContent=`${o.owner?.name||t('Hãng bay')}${seg?.flight_number?' · '+seg.flight_number:''} · ${money(o.total_amount)}`;$(badge).textContent=isDirect(o)?t('Bay thẳng'):t('1 điểm dừng');$(badge).className='pill '+(isDirect(o)?'success':'warning')}
-
-  let flightData=null;
-  function renderFlights(data){const out=data.routes?.find(r=>r.id==='outbound'),ret=data.routes?.find(r=>r.id==='return');paintFlight(out,'#outboundFlightText','#outboundFlightMeta','#outboundBadge');paintFlight(ret,'#returnFlightText','#returnFlightMeta','#returnBadge')}
-
-  fetch(`./data/flights.json?t=${Date.now()}`,{cache:'no-store'}).then(r=>r.json()).then(data=>{flightData=data;renderFlights(data)}).catch(()=>{});
-
-  document.addEventListener('travel-language-change',()=>{renderCountdown();renderChecks();renderBudget();setSaveState(saveStateMessage);if(flightData)renderFlights(flightData)});
-
-  if('serviceWorker'in navigator)window.addEventListener('load',()=>navigator.serviceWorker.register('./sw.js').catch(()=>{}));
-})();
-</script>
-<script>
-(()=>{const key="travel-booking-center-v1";const fields=[...document.querySelectorAll("[data-booking]")];let saved={};try{saved=JSON.parse(localStorage.getItem(key)||"{}")}catch{}fields.forEach(el=>{el.value=saved[el.dataset.booking]||"";el.addEventListener("input",()=>{const data=Object.fromEntries(fields.map(x=>[x.dataset.booking,x.value]));localStorage.setItem(key,JSON.stringify(data))})});document.getElementById("copyBookings")?.addEventListener("click",async()=>{const lines=fields.filter(x=>x.value.trim()).map(x=>`${x.closest("label")?.childNodes[0]?.textContent?.trim()}: ${x.value.trim()}`);if(!lines.length)return;try{await navigator.clipboard.writeText(lines.join("\\n"))}catch{}})})();
 </script>
 </body>
 </html>
