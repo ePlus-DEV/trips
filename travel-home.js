@@ -25,7 +25,8 @@
     window.clearTimeout(toastTimeout);
     toastTimeout = window.setTimeout(() => { toast.hidden = true; }, 3600);
   }
-  const THEME = localStorage.getItem(THEME_KEY);
+  let THEME = 'light';
+  try { THEME = localStorage.getItem(THEME_KEY) || 'light'; } catch {}
   if (THEME === 'dark') document.documentElement.setAttribute('data-theme', 'dark');
   $$('[data-toggle-theme]').forEach(button => button.addEventListener('click', () => {
     const dark = document.documentElement.getAttribute('data-theme') !== 'dark';
@@ -114,7 +115,7 @@
 
   const rawPlans = loadJson(PLAN_KEY, []);
   let plans = Array.isArray(rawPlans) ? rawPlans.filter(plan => plan && typeof plan.destination === 'string').map(plan => ({
-    id: String(plan.id || crypto.randomUUID()),
+    id: String(plan.id || (typeof crypto.randomUUID === 'function' ? crypto.randomUUID() : String(Date.now()) + Math.random().toString(36).slice(2))),
     destination: String(plan.destination).trim().slice(0, 80),
     date: typeof plan.date === 'string' ? plan.date : '',
     people: String(plan.people || plan.travelers || '').slice(0, 3),
