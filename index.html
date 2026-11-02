@@ -3,305 +3,203 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-  <meta name="theme-color" content="#f6f8fc">
-  <meta name="description" content="TravelLog — lịch trình Trung Quốc 19–26/10/2026.">
-  <link rel="manifest" href="./manifest.webmanifest">
+  <meta name="theme-color" content="#f7f8fd">
+  <meta name="description" content="TravelLog — lên kế hoạch cho Hong Kong, Malaysia, Nhật Bản và lưu lại chuyến Trung Quốc 2026.">
   <link rel="icon" href="./icon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="./app.css">
-  <link rel="stylesheet" href="./product-ui.css">
-  <style>
-    .language-select{height:32px;min-width:76px;padding:0 25px 0 9px;border:1px solid var(--line);border-radius:8px;background:var(--surface);color:var(--text);font-size:11px;font-weight:700;outline:none;cursor:pointer}
-    .language-select:focus{border-color:#8eb0f6;box-shadow:0 0 0 3px var(--primary-soft)}
-    .mobile-header .language-select{max-width:92px}
-  </style>
-  <title>TravelLog · Trung Quốc 2026</title>
+  <link rel="stylesheet" href="./travel-home.css">
+  <title>TravelLog · My Travel Planner</title>
 </head>
 <body>
-<div class="app">
-  <aside class="sidebar">
-    <a class="brand" href="#top"><span class="brand-mark"><svg><use href="#i-plane"/></svg></span>TravelLog</a>
-    <nav class="side-nav">
-      <a class="active" href="#top"><span class="nav-icon"><svg><use href="#i-home"/></svg></span>Tổng quan</a>
-      <a href="#itinerary"><span class="nav-icon"><svg><use href="#i-calendar"/></svg></span>Lịch trình</a>
-      <a href="./flights/"><span class="nav-icon"><svg><use href="#i-plane"/></svg></span>Chuyến bay</a>
-      <a href="./hotels/"><span class="nav-icon"><svg><use href="#i-pin"/></svg></span>Lưu trú</a>
-      <a href="./sim/"><span class="nav-icon"><svg><use href="#i-sim"/></svg></span>SIM & Internet</a>
-      <a href="#checklist"><span class="nav-icon"><svg><use href="#i-check"/></svg></span>Chuẩn bị</a>
-    </nav>
-    <div class="sidebar-foot">
-      <button class="sidebar-action" data-theme-toggle><span class="nav-icon"><svg><use href="#i-moon"/></svg></span>Đổi giao diện</button>
-    </div>
-  </aside>
-
-  <div class="main">
-    <header class="topbar">
-      <div class="crumb"><strong>Trung Quốc 2026</strong><span>19–26/10/2026</span></div>
-      <div class="top-actions">
-        <select class="language-select" data-language-select aria-label="Ngôn ngữ">
-          <option value="vi">VI</option><option value="en">EN</option><option value="zh">中文</option><option value="ja">日本語</option>
-        </select>
-        <button class="icon-btn" data-theme-toggle aria-label="Đổi giao diện"><svg class="ui-icon"><use href="#i-moon"/></svg></button>
-      </div>
-    </header>
-
-    <header class="mobile-header">
-      <a class="brand" href="#top"><span class="brand-mark"><svg><use href="#i-plane"/></svg></span>TravelLog</a>
-      <div class="right">
-        <select class="language-select" data-language-select aria-label="Ngôn ngữ">
-          <option value="vi">VI</option><option value="en">EN</option><option value="zh">中文</option><option value="ja">日本語</option>
-        </select>
-        <button class="icon-btn" data-theme-toggle aria-label="Đổi giao diện"><svg class="ui-icon"><use href="#i-moon"/></svg></button>
-      </div>
-    </header>
-
-    <main class="content" id="top">
-      <section class="trip-hero">
-        <div class="hero-copy">
-          <div class="hero-kicker"><span class="booking-dot"></span> Chuyến đi đã được đặt</div>
-          <h1>Trung Quốc · 19–26/10/2026</h1>
-          <div class="hero-route">TP.HCM → Thượng Hải → Bắc Kinh → TP.HCM</div>
-          <div class="hero-meta">8 ngày 7 đêm · 6 người lớn + 1 em bé</div><div class="booking-summary"><span class="booking-chip success">✓ Vé máy bay</span><span class="booking-chip success">✓ Khách sạn</span></div>
-          <div class="hero-actions"><a class="btn" href="#itinerary">Xem lịch trình</a><a class="btn secondary" href="#priorities">Việc cần chốt</a></div>
-        </div>
-        <aside class="countdown"><span id="daysPrefix">Còn</span><strong id="daysLeft">—</strong><span id="daysUnit">ngày đến chuyến đi</span><b>Khởi hành 19/10/2026</b></aside>
-      </section>
-
-      <section class="priority-grid" id="priorities">
-        <article class="card priority-card">
-          <div class="priority-icon"><svg><use href="#i-passport"/></svg></div>
-          <div><span>Hộ chiếu</span><strong id="passportStatus">Cần kiểm tra</strong><small>Chỉ lưu trạng thái · không lưu số hoặc ảnh hộ chiếu</small></div>
-          <a href="#checklist">Kiểm tra</a>
-        </article>
-        <article class="card priority-card">
-          <div class="priority-icon"><svg><use href="#i-train"/></svg></div>
-          <div><span>Tàu cao tốc</span><strong>23/10 · Shanghai → Beijing</strong><small>Chưa mở bán · theo lịch trình chính</small></div>
-          <a href="https://www.12306.cn/en/index.html" target="_blank" rel="noopener">12306 ↗</a>
-        </article>
-        <article class="card priority-card">
-          <div class="priority-icon"><svg><use href="#i-sim"/></svg></div>
-          <div><span>SIM vật lý</span><strong>≤ 150k / SIM</strong><small>6 SIM · 8–10 ngày · 8–12GB</small></div>
-          <a href="./sim/">So sánh</a>
-        </article>
-      </section>
-
-      <section class="dashboard-grid">
-        <article class="card" id="itinerary">
-          <div class="card-head"><h2>Lịch trình chính</h2><a href="./flights/">Chuyến bay</a></div>
-          <div class="timeline">
-            <div class="timeline-item"><div class="date-box"><strong>19</strong><span>TH10</span></div><span class="time-dot"></span><div class="timeline-info"><strong>TP.HCM → Thượng Hải <span class="pill success" id="outboundBadge">Đang kiểm tra</span></strong><div class="sub" id="outboundFlightText">Đang tải chuyến bay phù hợp…</div><div class="detail" id="outboundFlightMeta">SGN → PVG / SHA</div></div><div class="timeline-photo shanghai">上海</div></div>
-            <div class="timeline-item"><div class="date-box"><strong>20</strong><span>TH10</span></div><span class="time-dot"></span><div class="timeline-info"><strong>Thượng Hải</strong><div class="sub">Bến Thượng Hải · Dự Viên · phố cổ</div><div class="detail">Lịch nhẹ ngày đầu, ưu tiên nghỉ ngơi</div></div><div class="timeline-photo shanghai">上海</div></div>
-            <div class="timeline-item"><div class="date-box"><strong>23</strong><span>TH10</span></div><span class="time-dot"></span><div class="timeline-info"><strong>Thượng Hải → Bắc Kinh</strong><div class="sub">Di chuyển nội địa</div><div class="detail">Chốt tàu cao tốc hoặc chuyến bay sau</div></div><div class="timeline-photo beijing">北京</div></div>
-            <div class="timeline-item"><div class="date-box"><strong>26</strong><span>TH10</span></div><span class="time-dot"></span><div class="timeline-info"><strong>Bắc Kinh → TP.HCM <span class="pill success" id="returnBadge">Đang kiểm tra</span></strong><div class="sub" id="returnFlightText">Đang tải chuyến bay phù hợp…</div><div class="detail" id="returnFlightMeta">PEK / PKX → SGN</div></div><div class="timeline-photo beijing">北京</div></div>
-          </div>
-        </article>
-
-        <div class="stack">
-          <article class="card" id="checklist">
-            <div class="card-head"><h3>Chuẩn bị trước chuyến đi</h3><span class="pill primary" id="checkHeaderStatus">0%</span></div>
-            <div class="checklist">
-              <label class="check-item"><input id="c1" type="checkbox">Hộ chiếu mới / còn hạn &gt; 6 tháng</label>
-              <label class="check-item"><input id="c2" type="checkbox">Visa Trung Quốc</label>
-              <label class="check-item"><input id="c3" type="checkbox">Khách sạn</label>
-              <label class="check-item"><input id="c4" type="checkbox">eSIM / SIM Trung Quốc</label>
-              <label class="check-item"><input id="c5" type="checkbox">Bảo hiểm du lịch</label>
-              <label class="check-item"><input id="c6" type="checkbox">Ngoại tệ / thanh toán</label>
-              <label class="check-item"><input id="c7" type="checkbox">Vé máy bay</label>
-              <div class="progress"><span id="checkProgress"></span></div>
-              <div class="progress-meta"><span id="checkText">0/7 đã hoàn thành</span><span id="checkPercent">0%</span></div>
-            </div>
-          </article>
-
-        </div>
-
-        <article class="card booking-center" id="bookings">
-          <div class="card-head"><div><h2>Booking Center</h2><small>Thông tin cần mở nhanh trong chuyến đi</small></div><span class="pill success">Đã đặt</span></div>
-          <div class="booking-center-grid">
-            <section class="booking-panel"><div class="booking-panel-head"><span>✈️</span><div><b>Chuyến bay</b><small>SGN → Shanghai · Beijing → SGN</small></div></div><a class="btn sm" href="./flight-status.html">Theo dõi trạng thái</a></section>
-            <section class="booking-panel"><div class="booking-panel-head"><span>🏨</span><div><b>Lưu trú</b><small>Shanghai · Beijing</small></div></div><a class="btn sm" href="./hotels/">Xem thông tin khách sạn</a></section>
-          </div>
-          <details class="booking-details">
-            <summary>Chi tiết đặt chỗ</summary>
-            <div class="booking-fields">
-              <label>Mã đặt chỗ / PNR<input data-booking="pnr" placeholder="Nhập mã booking"></label>
-              <label>Khách sạn / mã xác nhận<input data-booking="hotel" placeholder="Tên khách sạn hoặc mã xác nhận"></label>
-              <label>Tàu / số hiệu ghế<input data-booking="train" placeholder="VD: Gxx · Coach 05 · Seat 08A"></label>
-              <label>Ghi chú quan trọng<input data-booking="important" placeholder="Ga, terminal, giờ check-in..."></label>
-            </div>
-            <div class="booking-save"><span>Dữ liệu chỉ lưu cục bộ trên thiết bị này.</span><button class="btn sm" id="copyBookings">Sao chép</button></div>
-          </details>
-        </article>
-
-        <section class="utility-grid">
-          <details class="card utility-details" id="budget">
-            <summary><span><b>Ngân sách</b><small id="budgetSummaryHint">Theo dõi chi tiêu khi cần</small></span><strong id="summaryBudget">Chưa thiết lập</strong></summary>
-            <div class="budget">
-              <div class="budget-total"><div><span>Tổng dự kiến</span><strong id="budgetTotal">Chưa thiết lập</strong></div><span id="budgetHint">0/5 hạng mục</span></div>
-              <div class="progress"><span id="budgetProgress"></span></div>
-              <div class="budget-row"><span>Chuyến bay</span><input data-budget="flight" inputmode="numeric" placeholder="0"></div>
-              <div class="budget-row"><span>Khách sạn</span><input data-budget="hotel" inputmode="numeric" placeholder="0"></div>
-              <div class="budget-row"><span>Ăn uống</span><input data-budget="food" inputmode="numeric" placeholder="0"></div>
-              <div class="budget-row"><span>Di chuyển nội địa</span><input data-budget="transport" inputmode="numeric" placeholder="0"></div>
-              <div class="budget-row"><span>Mua sắm & khác</span><input data-budget="other" inputmode="numeric" placeholder="0"></div>
-              <span id="budgetPerPerson" class="utility-meta">Nhập ngân sách bên dưới</span>
-            </div>
-          </details>
-          <details class="card utility-details" id="notes">
-            <summary><span><b>Ghi chú chuyến đi</b><small>Địa chỉ, mã đặt chỗ, điều cần nhớ</small></span><span class="pill">Cục bộ</span></summary>
-            <div class="notes-wrap"><textarea id="tripNotes" placeholder="Địa chỉ khách sạn, mã đặt chỗ, quán ăn, chi tiết tàu, điều cần nhớ..."></textarea><div class="notes-actions"><button class="btn sm" id="copyNotes">Sao chép</button><button class="btn sm" id="exportData">Xuất dữ liệu</button><label class="btn sm" for="importData">Nhập dữ liệu<input id="importData" type="file" accept="application/json" hidden></label><span class="save-state" id="saveState">Sẵn sàng</span></div></div>
-          </details>
-        </section>
-      </section>
-    </main>
-  </div>
-</div>
-
-<nav class="mobile-bottom">
-  <a class="active" href="#top"><span class="nav-icon"><svg><use href="#i-home"/></svg></span>Tổng quan</a>
-  <a href="./flights/"><span class="nav-icon"><svg><use href="#i-plane"/></svg></span>Chuyến bay</a>
-  <a href="./hotels/"><span class="nav-icon"><svg><use href="#i-pin"/></svg></span>Lưu trú</a>
-  <a href="./sim/"><span class="nav-icon"><svg><use href="#i-sim"/></svg></span>SIM</a>
-</nav>
-
-<svg width="0" height="0" style="position:absolute;overflow:hidden" aria-hidden="true">
-  <symbol id="i-plane" viewBox="0 0 24 24"><path d="M10.5 4h3l2.2 6H20a2 2 0 1 1 0 4h-4.3l-2.2 6h-3l1.2-6H7l-2 2H3l1.2-4L3 8h2l2 2h4.7l-1.2-6Z"/></symbol>
-  <symbol id="i-home" viewBox="0 0 24 24"><path d="m3 11 9-8 9 8v9a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1Z"/></symbol>
-  <symbol id="i-calendar" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2.5"/><path d="M16 3v4M8 3v4M3 10h18"/></symbol>
-  <symbol id="i-wallet" viewBox="0 0 24 24"><path d="M4 6h14a2 2 0 0 1 2 2v11H4a2 2 0 0 1-2-2V6a3 3 0 0 1 3-3h12"/><path d="M16 11h5v5h-5a2.5 2.5 0 0 1 0-5Z"/></symbol>
-  <symbol id="i-note" viewBox="0 0 24 24"><rect x="4" y="3" width="16" height="18" rx="2.5"/><path d="M8 8h8M8 12h8M8 16h5"/></symbol>
-  <symbol id="i-check" viewBox="0 0 24 24"><rect x="3.5" y="3.5" width="17" height="17" rx="4"/><path d="m8 12 2.5 2.5L16.5 9"/></symbol>
-  <symbol id="i-pin" viewBox="0 0 24 24"><path d="M20 10c0 5-8 12-8 12S4 15 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="2.5"/></symbol>
-  <symbol id="i-status" viewBox="0 0 24 24"><path d="M4 17h4l2-10 4 13 2-8h4"/><path d="M3 4h18v16H3z"/></symbol>
-  <symbol id="i-sim" viewBox="0 0 24 24"><path d="M7 3h7l4 4v14H7z"/><path d="M14 3v5h4M10 12h5M10 16h5"/></symbol>
-  <symbol id="i-passport" viewBox="0 0 24 24"><rect x="4" y="3" width="16" height="18" rx="2.5"/><circle cx="12" cy="10" r="3"/><path d="M8 16h8"/></symbol>
-  <symbol id="i-train" viewBox="0 0 24 24"><rect x="5" y="3" width="14" height="15" rx="3"/><path d="M8 8h8M8 13h.01M16 13h.01M8 18l-2 3M16 18l2 3"/></symbol>
-  <symbol id="i-moon" viewBox="0 0 24 24"><path d="M21 12.8A9 9 0 1 1 11.2 3 7 7 0 0 0 21 12.8Z"/></symbol>
-  <symbol id="i-arrow-right" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" width="0" height="0" style="position:absolute;overflow:hidden">
+  <symbol id="i-plane" viewBox="0 0 24 24"><path d="M2 12.5 21 3l-6.5 18-4-7-8.5-1.5Z"/><path d="m10.5 14 10.5-11"/></symbol>
+  <symbol id="i-home" viewBox="0 0 24 24"><path d="m3 10 9-7 9 7v11H3Z"/><path d="M9 21v-7h6v7"/></symbol>
+  <symbol id="i-suitcase" viewBox="0 0 24 24"><rect x="3" y="7" width="18" height="14" rx="2"/><path d="M9 7V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v3M8 7v14M16 7v14"/></symbol>
+  <symbol id="i-history" viewBox="0 0 24 24"><path d="M3 12a9 9 0 1 0 3-7M3 4v5h5"/><path d="M12 7v5l4 2"/></symbol>
+  <symbol id="i-note" viewBox="0 0 24 24"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 8h8M8 12h8M8 16h5"/></symbol>
+  <symbol id="i-grid" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></symbol>
+  <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></symbol>
+  <symbol id="i-moon" viewBox="0 0 24 24"><path d="M20 14a8.4 8.4 0 0 1-10-10A8.5 8.5 0 1 0 20 14Z"/></symbol>
+  <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m16 16 5 5"/></symbol>
+  <symbol id="i-bell" viewBox="0 0 24 24"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 8-3 10h18c0-2-3-3-3-10ZM10 22h4"/></symbol>
+  <symbol id="i-calendar" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M8 3v4M16 3v4M3 10h18"/></symbol>
+  <symbol id="i-users" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3"/><path d="M2 20v-3c0-3 3-5 7-5s7 2 7 5v3ZM16 5a3 3 0 0 1 0 6M18 14c3 .5 4 2 4 5v1"/></symbol>
+  <symbol id="i-heart" viewBox="0 0 24 24"><path d="M20.8 8.6c0 4.1-6.3 9.3-8.8 11.1-2.5-1.8-8.8-7-8.8-11.1a5.1 5.1 0 0 1 8.8-3.4 5.1 5.1 0 0 1 8.8 3.4Z"/></symbol>
+  <symbol id="i-map" viewBox="0 0 24 24"><path d="m3 6 6-3 6 3 6-3v15l-6 3-6-3-6 3Z"/><path d="M9 3v15M15 6v15"/></symbol>
+  <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M4 12h16m-7-7 7 7-7 7"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="m5 12 5 5L20 7"/></symbol>
+  <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 22S5 15 5 10a7 7 0 0 1 14 0c0 5-7 12-7 12Z"/><circle cx="12" cy="10" r="2.5"/></symbol>
+  <symbol id="i-spark" viewBox="0 0 24 24"><path d="m12 2 2.4 7.6L22 12l-7.6 2.4L12 22l-2.4-7.6L2 12l7.6-2.4ZM4 2v4M2 4h4"/></symbol>
+  <symbol id="i-compass" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="m15.4 8.6-2 4.8-4.8 2 2-4.8Z"/></symbol>
 </svg>
-
-<script>
-(() => {
-  'use strict';
-  const STORAGE_KEY = 'travel-language';
-  const LANGS = {vi:'vi',en:'en',zh:'zh-CN',ja:'ja'};
-  const DICT = {
-    vi: {'上海':'TH','北京':'BK'},
-    en: {
-      'Tổng quan':'Overview','Lịch trình':'Itinerary','Giá vé':'Flight prices','Ngân sách':'Budget','Chuẩn bị':'Preparation','Ghi chú':'Notes','Đổi giao diện':'Switch theme','Ngôn ngữ':'Language','Trung Quốc 2026':'China 2026','Xem giá vé':'View fares','Chuyến đi sắp tới':'Upcoming trip','Trung Quốc · 19–26/10/2026':'China · 19–26 Oct 2026','TP.HCM → Thượng Hải → Bắc Kinh → TP.HCM':'Ho Chi Minh City → Shanghai → Beijing → Ho Chi Minh City','8 ngày 7 đêm · 6 người lớn + 1 em bé':'8 days 7 nights · 6 adults + 1 infant','Xem lịch trình':'View itinerary','Theo dõi giá vé':'Track flight prices','Còn':'Departure in','ngày đến chuyến đi':'days','khởi hành hôm nay':'departing today','chuyến đi đã bắt đầu':'trip has started','Khởi hành 19/10/2026':'Departure 19 Oct 2026','Ngân sách dự kiến':'Planned budget','Chưa thiết lập':'Not set','Nhập ngân sách bên dưới':'Enter budget below','Chuyến bay':'Flights','2 chặng':'2 legs','Đang tải dữ liệu giá vé…':'Loading flight data…','Thành phố chính':'Main cities','Thượng Hải · Bắc Kinh':'Shanghai · Beijing','Việc còn lại':'Remaining tasks','Lịch trình chính':'Main itinerary','Đang kiểm tra':'Checking','Đang tải chuyến bay phù hợp…':'Loading a suitable flight…','TP.HCM → Thượng Hải':'Ho Chi Minh City → Shanghai','上海':'SHA','Thượng Hải':'Shanghai','Bến Thượng Hải · Dự Viên · phố cổ':'The Bund · Yu Garden · Old Town','Lịch nhẹ ngày đầu, ưu tiên nghỉ ngơi':'Keep the first day light and prioritize rest','Thượng Hải → Bắc Kinh':'Shanghai → Beijing','Di chuyển nội địa':'Domestic transfer','Chốt tàu cao tốc hoặc chuyến bay sau':'Finalize high-speed rail or a flight later','北京':'BJS','Bắc Kinh → TP.HCM':'Beijing → Ho Chi Minh City','Chuẩn bị trước chuyến đi':'Before the trip','Hộ chiếu còn hạn > 6 tháng':'Passport valid for more than 6 months','Visa Trung Quốc':'China visa','Khách sạn':'Hotel','eSIM / SIM Trung Quốc':'China eSIM / SIM','SIM & Internet':'SIM & Internet','6 SIM vật lý · mục tiêu ≤ 150k/SIM':'6 physical SIMs · target ≤ 150k/SIM','So sánh SIM':'Compare SIMs','Chưa mua':'Not purchased','Bảo hiểm du lịch':'Travel insurance','Ngoại tệ / thanh toán':'Cash / payments','Vé máy bay':'Flight tickets','Tổng dự kiến':'Planned total','Ăn uống':'Food','Mua sắm & khác':'Shopping & other','Lưu trên thiết bị này':'Saved on this device','Địa chỉ khách sạn, mã đặt chỗ, quán ăn, chi tiết tàu, điều cần nhớ...':'Hotel address, booking codes, places to eat, train details, things to remember...','Sao chép':'Copy','Xuất dữ liệu':'Export data','Nhập dữ liệu':'Import data','Sẵn sàng':'Ready','TH10':'OCT','{done}/{total} đã hoàn thành':'{done}/{total} completed','Khoảng {amount} / người':'About {amount} / person','{filled}/{total} hạng mục':'{filled}/{total} categories','Đã lưu':'Saved','Đã sao chép':'Copied','Không thể sao chép':'Could not copy','File không hợp lệ':'Invalid file','Chưa có chuyến bay phù hợp':'No suitable flight found','Chưa có dữ liệu':'No data','Hãng bay':'Airline','Bay thẳng':'Direct','1 điểm dừng':'1 stop','{count} lựa chọn bay thẳng đang được theo dõi':'Tracking {count} direct-flight options','Có dữ liệu chuyến bay, chưa thấy lựa chọn bay thẳng':'Flight data loaded; no direct option found','Không tải được dữ liệu giá vé':'Could not load flight-price data','Trạng thái':'Status','Trạng thái chuyến bay':'Flight status'
-    },
-    zh: {
-      'Tổng quan':'概览','Lịch trình':'行程','Giá vé':'机票价格','Ngân sách':'预算','Chuẩn bị':'行前准备','Ghi chú':'备注','Đổi giao diện':'切换主题','Ngôn ngữ':'语言','Trung Quốc 2026':'中国 2026','Xem giá vé':'查看机票','Chuyến đi sắp tới':'即将出发','Trung Quốc · 19–26/10/2026':'中国 · 2026年10月19–26日','TP.HCM → Thượng Hải → Bắc Kinh → TP.HCM':'胡志明市 → 上海 → 北京 → 胡志明市','8 ngày 7 đêm · 6 người lớn + 1 em bé':'8天7晚 · 6名成人 + 1名婴儿','Xem lịch trình':'查看行程','Theo dõi giá vé':'跟踪机票价格','Còn':'距离出发还有','ngày đến chuyến đi':'天','khởi hành hôm nay':'今天出发','chuyến đi đã bắt đầu':'旅程已开始','Khởi hành 19/10/2026':'出发：2026年10月19日','Ngân sách dự kiến':'计划预算','Chưa thiết lập':'未设置','Nhập ngân sách bên dưới':'在下方输入预算','Chuyến bay':'航班','2 chặng':'2个航段','Đang tải dữ liệu giá vé…':'正在加载机票数据…','Thành phố chính':'主要城市','Thượng Hải · Bắc Kinh':'上海 · 北京','Việc còn lại':'剩余事项','Lịch trình chính':'主要行程','Đang kiểm tra':'正在检查','Đang tải chuyến bay phù hợp…':'正在加载合适的航班…','TP.HCM → Thượng Hải':'胡志明市 → 上海','上海':'上海','Thượng Hải':'上海','Bến Thượng Hải · Dự Viên · phố cổ':'外滩 · 豫园 · 老城','Lịch nhẹ ngày đầu, ưu tiên nghỉ ngơi':'首日安排轻松，优先休息','Thượng Hải → Bắc Kinh':'上海 → 北京','Di chuyển nội địa':'国内交通','Chốt tàu cao tốc hoặc chuyến bay sau':'稍后确认高铁或航班','北京':'北京','Bắc Kinh → TP.HCM':'北京 → 胡志明市','Chuẩn bị trước chuyến đi':'出发前准备','Hộ chiếu còn hạn > 6 tháng':'护照有效期超过6个月','Visa Trung Quốc':'中国签证','Khách sạn':'酒店','eSIM / SIM Trung Quốc':'中国 eSIM / SIM','SIM & Internet':'SIM 与网络','6 SIM vật lý · mục tiêu ≤ 150k/SIM':'6 张实体 SIM · 目标 ≤ 150k/SIM','So sánh SIM':'比较 SIM','Chưa mua':'尚未购买','Bảo hiểm du lịch':'旅行保险','Ngoại tệ / thanh toán':'现金 / 支付','Vé máy bay':'机票','Tổng dự kiến':'预计总额','Ăn uống':'餐饮','Mua sắm & khác':'购物及其他','Lưu trên thiết bị này':'保存在此设备','Địa chỉ khách sạn, mã đặt chỗ, quán ăn, chi tiết tàu, điều cần nhớ...':'酒店地址、预订编号、餐厅、火车信息、需要记住的事项...','Sao chép':'复制','Xuất dữ liệu':'导出数据','Nhập dữ liệu':'导入数据','Sẵn sàng':'就绪','TH10':'10月','{done}/{total} đã hoàn thành':'已完成 {done}/{total}','Khoảng {amount} / người':'约 {amount} / 人','{filled}/{total} hạng mục':'{filled}/{total} 个类别','Đã lưu':'已保存','Đã sao chép':'已复制','Không thể sao chép':'无法复制','File không hợp lệ':'文件无效','Chưa có chuyến bay phù hợp':'没有合适的航班','Chưa có dữ liệu':'暂无数据','Hãng bay':'航空公司','Bay thẳng':'直飞','1 điểm dừng':'1次中转','{count} lựa chọn bay thẳng đang được theo dõi':'正在跟踪 {count} 个直飞选项','Có dữ liệu chuyến bay, chưa thấy lựa chọn bay thẳng':'已加载航班数据，暂未发现直飞选项','Không tải được dữ liệu giá vé':'无法加载机票价格数据','Trạng thái':'状态','Trạng thái chuyến bay':'航班状态'
-    },
-    ja: {
-      'Tổng quan':'概要','Lịch trình':'旅程','Giá vé':'航空券価格','Ngân sách':'予算','Chuẩn bị':'準備','Ghi chú':'メモ','Đổi giao diện':'テーマ切替','Ngôn ngữ':'言語','Trung Quốc 2026':'中国 2026','Xem giá vé':'航空券を見る','Chuyến đi sắp tới':'次の旅行','Trung Quốc · 19–26/10/2026':'中国 · 2026年10月19日〜26日','TP.HCM → Thượng Hải → Bắc Kinh → TP.HCM':'ホーチミン市 → 上海 → 北京 → ホーチミン市','8 ngày 7 đêm · 6 người lớn + 1 em bé':'8日7泊 · 大人6名 + 乳児1名','Xem lịch trình':'旅程を見る','Theo dõi giá vé':'航空券価格を追跡','Còn':'出発まであと','ngày đến chuyến đi':'日','khởi hành hôm nay':'本日出発','chuyến đi đã bắt đầu':'旅行は開始済み','Khởi hành 19/10/2026':'出発：2026年10月19日','Ngân sách dự kiến':'予定予算','Chưa thiết lập':'未設定','Nhập ngân sách bên dưới':'下に予算を入力','Chuyến bay':'フライト','2 chặng':'2区間','Đang tải dữ liệu giá vé…':'航空券データを読み込み中…','Thành phố chính':'主要都市','Thượng Hải · Bắc Kinh':'上海 · 北京','Việc còn lại':'残りのタスク','Lịch trình chính':'主な旅程','Đang kiểm tra':'確認中','Đang tải chuyến bay phù hợp…':'適切なフライトを読み込み中…','TP.HCM → Thượng Hải':'ホーチミン市 → 上海','上海':'上海','Thượng Hải':'上海','Bến Thượng Hải · Dự Viên · phố cổ':'外灘 · 豫園 · 旧市街','Lịch nhẹ ngày đầu, ưu tiên nghỉ ngơi':'初日はゆったり、休息を優先','Thượng Hải → Bắc Kinh':'上海 → 北京','Di chuyển nội địa':'国内移動','Chốt tàu cao tốc hoặc chuyến bay sau':'高速鉄道またはフライトを後で確定','北京':'北京','Bắc Kinh → TP.HCM':'北京 → ホーチミン市','Chuẩn bị trước chuyến đi':'旅行前の準備','Hộ chiếu còn hạn > 6 tháng':'パスポート残存期間6か月超','Visa Trung Quốc':'中国ビザ','Khách sạn':'ホテル','eSIM / SIM Trung Quốc':'中国 eSIM / SIM','SIM & Internet':'SIM・通信','6 SIM vật lý · mục tiêu ≤ 150k/SIM':'物理SIM 6枚 · 目標 ≤ 150k/SIM','So sánh SIM':'SIMを比較','Chưa mua':'未購入','Bảo hiểm du lịch':'海外旅行保険','Ngoại tệ / thanh toán':'現金 / 支払い','Vé máy bay':'航空券','Tổng dự kiến':'予定合計','Ăn uống':'食事','Mua sắm & khác':'買い物・その他','Lưu trên thiết bị này':'この端末に保存','Địa chỉ khách sạn, mã đặt chỗ, quán ăn, chi tiết tàu, điều cần nhớ...':'ホテル住所、予約番号、食事場所、鉄道情報、覚えておくこと...','Sao chép':'コピー','Xuất dữ liệu':'データを書き出す','Nhập dữ liệu':'データを読み込む','Sẵn sàng':'準備完了','TH10':'10月','{done}/{total} đã hoàn thành':'{done}/{total} 完了','Khoảng {amount} / người':'約 {amount} / 人','{filled}/{total} hạng mục':'{filled}/{total} カテゴリ','Đã lưu':'保存済み','Đã sao chép':'コピーしました','Không thể sao chép':'コピーできません','File không hợp lệ':'無効なファイル','Chưa có chuyến bay phù hợp':'適切なフライトがありません','Chưa có dữ liệu':'データなし','Hãng bay':'航空会社','Bay thẳng':'直行便','1 điểm dừng':'乗継1回','{count} lựa chọn bay thẳng đang được theo dõi':'直行便 {count} 件を追跡中','Có dữ liệu chuyến bay, chưa thấy lựa chọn bay thẳng':'フライトデータはありますが直行便は見つかりません','Không tải được dữ liệu giá vé':'航空券価格データを読み込めません','Trạng thái':'運航状況','Trạng thái chuyến bay':'フライト状況'
-    }
-  };
-  const TITLES = {vi:'TravelLog · Trung Quốc 2026',en:'TravelLog · China 2026',zh:'TravelLog · 中国 2026',ja:'TravelLog · 中国 2026'};
-  const DESCRIPTIONS = {vi:'TravelLog — lịch trình Trung Quốc 19–26/10/2026.',en:'TravelLog — China itinerary, 19–26 Oct 2026.',zh:'TravelLog — 2026年10月19–26日中国行程。',ja:'TravelLog — 2026年10月19日〜26日の中国旅行。'};
-  const originalText = new WeakMap();
-  const originalAttrs = new WeakMap();
-  let currentLang = localStorage.getItem(STORAGE_KEY);
-  if (!LANGS[currentLang]) currentLang = 'vi';
-  const format = (template, vars={}) => String(template).replace(/\{(\w+)\}/g, (_, key) => vars[key] ?? `{${key}}`);
-  const t = (source, vars={}) => format(DICT[currentLang]?.[source] ?? source, vars);
-
-  function translateTextNode(node) {
-    const raw = node.nodeValue;
-    if (!raw || !raw.trim() || node.parentElement?.closest('script,style,textarea,option')) return;
-    if (!originalText.has(node)) originalText.set(node, raw.trim());
-    const source = originalText.get(node);
-    const lead = raw.match(/^\s*/)?.[0] || '';
-    const tail = raw.match(/\s*$/)?.[0] || '';
-    node.nodeValue = lead + t(source) + tail;
-  }
-
-  function translateAttributes(el) {
-    if (!(el instanceof Element)) return;
-    let saved = originalAttrs.get(el);
-    if (!saved) { saved = {}; originalAttrs.set(el, saved); }
-    for (const attr of ['placeholder','aria-label','title']) {
-      if (!el.hasAttribute(attr)) continue;
-      if (!(attr in saved)) saved[attr] = el.getAttribute(attr);
-      el.setAttribute(attr, t(saved[attr]));
-    }
-  }
-
-  function translateTree() {
-    const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_ELEMENT | NodeFilter.SHOW_TEXT);
-    let node;
-    while ((node = walker.nextNode())) {
-      if (node.nodeType === Node.TEXT_NODE) translateTextNode(node);
-      else translateAttributes(node);
-    }
-  }
-
-  function setLanguage(lang, notify=true) {
-    if (!LANGS[lang]) lang = 'vi';
-    currentLang = lang;
-    localStorage.setItem(STORAGE_KEY, lang);
-    document.documentElement.lang = LANGS[lang];
-    document.title = TITLES[lang];
-    const meta = document.querySelector('meta[name="description"]');
-    if (meta) meta.content = DESCRIPTIONS[lang];
-    translateTree();
-    document.querySelectorAll('[data-language-select]').forEach(select => { select.value = lang; });
-    if (notify) document.dispatchEvent(new CustomEvent('travel-language-change', {detail:{lang}}));
-  }
-
-  document.querySelectorAll('[data-language-select]').forEach(select => select.addEventListener('change', () => setLanguage(select.value)));
-  window.TravelDashboardI18n = {t:(source, vars={})=>t(source, vars), getLanguage:()=>currentLang, setLanguage};
-  setLanguage(currentLang, false);
-})();
-</script>
-
-<script>
-(() => {
-  const S='travel-log-v3', $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)], state=JSON.parse(localStorage.getItem(S)||'{}'), save=()=>localStorage.setItem(S,JSON.stringify(state));
-  const I18N=window.TravelDashboardI18n, t=(source,vars={})=>I18N.t(source,vars);
-  const locale=()=>({vi:'vi-VN',en:'en-US',zh:'zh-CN',ja:'ja-JP'}[I18N.getLanguage()]||'vi-VN');
-  const money=n=>`${new Intl.NumberFormat(locale()).format(Number(n)||0)}${I18N.getLanguage()==='vi'?' đ':' VND'}`;
-
-  $$('[data-theme-toggle]').forEach(b=>b.onclick=()=>{const dark=document.documentElement.dataset.theme==='dark';document.documentElement.dataset.theme=dark?'light':'dark';localStorage.setItem('travel-theme',dark?'light':'dark')});
-  const theme=localStorage.getItem('travel-theme'); if(theme) document.documentElement.dataset.theme=theme;
-
-  const dep=new Date('2026-10-19T20:00:00+07:00');
-  function renderCountdown(){const days=Math.ceil((dep-new Date())/86400000);if(days>0){$('#daysPrefix').textContent=t('Còn');$('#daysLeft').textContent=days;$('#daysUnit').textContent=t('ngày đến chuyến đi')}else if(days===0){$('#daysPrefix').textContent='';$('#daysLeft').textContent='0';$('#daysUnit').textContent=t('khởi hành hôm nay')}else{$('#daysPrefix').textContent='';$('#daysLeft').textContent='✓';$('#daysUnit').textContent=t('chuyến đi đã bắt đầu')}}
-  renderCountdown();
-
-  const checks=$$('.check-item input');
-  checks.forEach(c=>{c.checked=!!state[c.id];c.onchange=()=>{state[c.id]=c.checked;save();renderChecks()}});
-  function renderChecks(){const done=checks.filter(c=>c.checked).length,p=Math.round(done/checks.length*100),status=t('{done}/{total} đã hoàn thành',{done,total:checks.length});if($('#taskCount'))$('#taskCount').textContent=checks.length-done;if($('#taskStatus'))$('#taskStatus').textContent=status;$('#checkText').textContent=status;$('#checkPercent').textContent=p+'%';$('#checkHeaderStatus').textContent=p+'%';$('#checkProgress').style.width=p+'%';const passport=$('#passportStatus');if(passport){passport.textContent=$('#c1')?.checked?'Đã kiểm tra':'Cần kiểm tra';passport.classList.toggle('ready',!!$('#c1')?.checked)}}
-  renderChecks();
-
-  const inputs=$$('[data-budget]');
-  inputs.forEach(i=>{i.value=state.budget?.[i.dataset.budget]||'';i.oninput=()=>{state.budget=state.budget||{};state.budget[i.dataset.budget]=i.value.replace(/\D/g,'');i.value=state.budget[i.dataset.budget];save();renderBudget()}});
-  function renderBudget(){const vals=inputs.map(i=>Number(i.value)||0),total=vals.reduce((a,b)=>a+b,0),filled=inputs.filter(i=>Number(i.value)>0).length,p=filled/inputs.length*100;$('#budgetTotal').textContent=total?money(total):t('Chưa thiết lập');$('#summaryBudget').textContent=total?money(total):t('Chưa thiết lập');$('#budgetPerPerson').textContent=total?t('Khoảng {amount} / người',{amount:money(Math.round(total/7))}):t('Nhập ngân sách bên dưới');$('#budgetHint').textContent=t('{filled}/{total} hạng mục',{filled,total:inputs.length});$('#budgetProgress').style.width=p+'%'}
-  renderBudget();
-
-  let saveStateMessage='Sẵn sàng';
-  const setSaveState=source=>{saveStateMessage=source;$('#saveState').textContent=t(source)};
-  const notes=$('#tripNotes'); notes.value=state.notes||'';
-  notes.oninput=()=>{state.notes=notes.value;save();setSaveState('Đã lưu')};
-  $('#copyNotes').onclick=async()=>{try{await navigator.clipboard.writeText(notes.value);setSaveState('Đã sao chép')}catch{setSaveState('Không thể sao chép')}};
-  $('#exportData').onclick=()=>{const a=document.createElement('a'),blob=new Blob([JSON.stringify({version:3,state},null,2)],{type:'application/json'});a.href=URL.createObjectURL(blob);a.download='travellog-backup.json';a.click();URL.revokeObjectURL(a.href)};
-  $('#importData').onchange=e=>{const f=e.target.files[0];if(!f)return;const r=new FileReader;r.onload=()=>{try{const d=JSON.parse(r.result);localStorage.setItem(S,JSON.stringify(d.state||d));location.reload()}catch{setSaveState('File không hợp lệ')}};r.readAsText(f)};
-
-  const isDirect=o=>o?.is_direct===true||Number(o?.stops)===0;
-  const time=v=>!v?'—':String(v).slice(11,16);
-  const preferred=r=>[...(r?.offers||[])].sort((a,b)=>{if(isDirect(a)!==isDirect(b))return isDirect(a)?-1:1;return Number(a.total_amount)-Number(b.total_amount)})[0];
-  function paintFlight(r,text,meta,badge){const o=preferred(r);if(!o){$(text).textContent=t('Chưa có chuyến bay phù hợp');$(badge).textContent=t('Chưa có dữ liệu');$(badge).className='pill';return}const s=o.slices?.[0],seg=s?.segments?.[0],last=s?.segments?.at(-1);$(text).textContent=`${time(seg?.departing_at)} ${s?.origin||seg?.origin} → ${time(last?.arriving_at)} ${s?.destination||last?.destination}`;$(meta).textContent=`${o.owner?.name||t('Hãng bay')}${seg?.flight_number?' · '+seg.flight_number:''} · ${money(o.total_amount)}`;$(badge).textContent=isDirect(o)?t('Bay thẳng'):t('1 điểm dừng');$(badge).className='pill '+(isDirect(o)?'success':'warning')}
-
-  let flightData=null;
-  function renderFlights(data){const out=data.routes?.find(r=>r.id==='outbound'),ret=data.routes?.find(r=>r.id==='return');paintFlight(out,'#outboundFlightText','#outboundFlightMeta','#outboundBadge');paintFlight(ret,'#returnFlightText','#returnFlightMeta','#returnBadge')}
-
-  fetch(`./data/flights.json?t=${Date.now()}`,{cache:'no-store'}).then(r=>r.json()).then(data=>{flightData=data;renderFlights(data)}).catch(()=>{});
-
-  document.addEventListener('travel-language-change',()=>{renderCountdown();renderChecks();renderBudget();setSaveState(saveStateMessage);if(flightData)renderFlights(flightData)});
-
-  if('serviceWorker'in navigator)window.addEventListener('load',()=>navigator.serviceWorker.register('./sw.js').catch(()=>{}));
-})();
-</script>
-<script>
-(()=>{const key="travel-booking-center-v1";const fields=[...document.querySelectorAll("[data-booking]")];let saved={};try{saved=JSON.parse(localStorage.getItem(key)||"{}")}catch{}fields.forEach(el=>{el.value=saved[el.dataset.booking]||"";el.addEventListener("input",()=>{const data=Object.fromEntries(fields.map(x=>[x.dataset.booking,x.value]));localStorage.setItem(key,JSON.stringify(data))})});document.getElementById("copyBookings")?.addEventListener("click",async()=>{const lines=fields.filter(x=>x.value.trim()).map(x=>`${x.closest("label")?.childNodes[0]?.textContent?.trim()}: ${x.value.trim()}`);if(!lines.length)return;try{await navigator.clipboard.writeText(lines.join("\\n"))}catch{}})})();
-</script>
+<div class="app">
+<aside class="sidebar" aria-label="Điều hướng chính">
+  <a class="brand" href="#top"><span class="brand-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><use href="#i-plane"/></svg></span><span><strong>TravelLog</strong><small>My Travel Planner</small></span></a>
+  <nav class="side-nav">
+    <a href="#top" class="nav-link active"><svg><use href="#i-home"/></svg>Trang chủ</a>
+    <a href="#plans" class="nav-link"><svg><use href="#i-suitcase"/></svg>Hành trình <span class="count" id="sidebar-plan-count">0</span></a>
+    <a href="#history" class="nav-link"><svg><use href="#i-history"/></svg>Lịch sử</a>
+    <a href="#notes" class="nav-link"><svg><use href="#i-note"/></svg>Ghi chú</a>
+    <a href="#tools" class="nav-link"><svg><use href="#i-grid"/></svg>Tiện ích</a>
+  </nav>
+  <div class="sidebar-decoration" aria-hidden="true">
+    <svg viewBox="0 0 238 190" xmlns="http://www.w3.org/2000/svg">
+      <path d="M-7 152q45-54 95-3 46-62 99-12 36-32 70 2V190H-7Z" fill="#e3eafc"/>
+      <path d="m33 139 62-91 60 91Z" fill="#b8cdef"/><path d="m74 79 21-31 21 31-13-8-8 9-9-9Z" fill="#fff"/>
+      <path d="M-4 179q45-31 104 0 77-32 146 0v20H-4Z" fill="#d1dcfb"/>
+      <path d="M177 145V90M150 103h52M157 90h38M164 80h24" stroke="#bf727f" stroke-width="4" stroke-linecap="round"/>
+      <path d="m143 103 34-23 32 23M151 90l26-23 25 23M159 80l18-23 18 23" stroke="#b45b70" stroke-width="5" fill="none" stroke-linejoin="round"/>
+      <g stroke="#9e7699" stroke-width="2" fill="none"><path d="M-5 75 50 40 79 11M21 58l22 24M50 40l8-30M-5 70l-4-36"/></g>
+      <g fill="#f9b2d1"><circle cx="24" cy="57" r="7"/><circle cx="48" cy="38" r="9"/><circle cx="62" cy="28" r="6"/><circle cx="38" cy="83" r="7"/><circle cx="79" cy="11" r="7"/><circle cx="11" cy="49" r="5"/></g>
+    </svg>
+  </div>
+  <div class="sidebar-foot"><button class="theme-btn" data-toggle-theme title="Đổi giao diện sáng/tối"><svg><use href="#i-sun"/></svg><svg><use href="#i-moon"/></svg></button><span class="small-print">TRAVELLOG 2.0</span></div>
+</aside>
+<div class="main">
+  <div class="topbar">
+    <button type="button" class="top-icon" id="search-toggle" aria-label="Tìm kiếm điểm đến" aria-expanded="false"><svg><use href="#i-search"/></svg></button>
+    <button type="button" class="top-icon" id="new-trip-shortcut" aria-label="Tạo hành trình mới"><svg><use href="#i-calendar"/></svg></button>
+    <span class="avatar" aria-hidden="true">✈️</span>
+  </div>
+  <div class="search-box" id="search-box" hidden><svg style="width:18px;height:18px;stroke:#6b7f9d;fill:none;stroke-width:2"><use href="#i-search"/></svg><input type="search" id="search-input" placeholder="Tìm Hong Kong, Malaysia, Nhật Bản..." aria-label="Tìm điểm đến"><button type="button" id="search-close" aria-label="Đóng tìm kiếm">×</button></div>
+  <header class="hero" id="top">
+    <img class="hero-image" src="https://images.unsplash.com/photo-1578665546766-353296fde16c?auto=format&fit=crop&w=1800&q=80" alt="" fetchpriority="high">
+    <div class="hero-copy">
+      <p class="hello">Xin chào! 👋</p>
+      <h1>Lên kế hoạch cho<br>hành trình tiếp theo?</h1>
+      <p class="hero-desc">Khám phá điểm đến, chuẩn bị lịch trình và quản lý mọi thông tin cho chuyến đi của bạn.</p>
+      <div class="hero-stats">
+        <div class="hero-stat"><span class="stat-icon"><svg><use href="#i-plane"/></svg></span><span class="stat-info"><b>1</b><small>Chuyến đã đi</small></span></div>
+        <div class="hero-stat"><span class="stat-icon violet"><svg><use href="#i-calendar"/></svg></span><span class="stat-info"><b>3</b><small>Điểm đến cân nhắc</small></span></div>
+        <div class="hero-stat"><span class="stat-icon pink"><svg><use href="#i-heart"/></svg></span><span class="stat-info"><b>∞</b><small>Kế hoạch sắp tới</small></span></div>
+      </div>
+    </div>
+  </header>
+  <div class="body-grid">
+  <div class="primary-column">
+    <section class="section" id="destinations">
+      <div class="section-head"><h2 class="section-title"><span class="symbol">✧</span> Điểm đến đang cân nhắc</h2><a href="#plans" class="simple-link">Kế hoạch của tôi <svg><use href="#i-arrow"/></svg></a></div>
+      <div class="destinations" id="destination-cards">
+        <article class="destination" data-searchable="hong kong hồng kông city trip disneyland mua sắm">
+          <div class="photo hongkong">
+            <img src="https://images.unsplash.com/photo-1536599018102-9f803c140fc1?auto=format&fit=crop&w=900&q=85" alt="Khung cảnh Hong Kong về đêm" loading="lazy">
+            <button type="button" class="favorite" data-favorite="hongkong" aria-label="Yêu thích Hong Kong" aria-pressed="false" title="Thêm vào yêu thích"><svg><use href="#i-heart"/></svg></button>
+            <div class="photo-bottom"><span class="flag">🇭🇰</span><h3>Hong Kong</h3></div>
+          </div>
+          <div class="destination-detail">
+            <div class="detail-row"><svg><use href="#i-calendar"/></svg><span>4 – 5 ngày</span></div>
+            <div class="detail-row"><svg><use href="#i-users"/></svg><span>City trip, Disneyland, mua sắm</span></div>
+            <div class="destination-foot"><span class="visa required">▣ Cần visa</span><button class="round-arrow" type="button" data-plan="Hong Kong" aria-label="Lên kế hoạch Hong Kong"><svg><use href="#i-arrow"/></svg></button></div>
+          </div>
+        </article>
+        <article class="destination" data-searchable="malaysia mã lai kuala lumpur malacca penang ẩm thực">
+          <div class="photo malaysia">
+            <img src="https://images.unsplash.com/photo-1596422846543-75c6fc197f07?auto=format&fit=crop&w=900&q=85" alt="Tháp đôi Petronas ở Kuala Lumpur" loading="lazy">
+            <button type="button" class="favorite" data-favorite="malaysia" aria-label="Yêu thích Malaysia" aria-pressed="false" title="Thêm vào yêu thích"><svg><use href="#i-heart"/></svg></button>
+            <div class="photo-bottom"><span class="flag">🇲🇾</span><h3>Malaysia</h3></div>
+          </div>
+          <div class="destination-detail">
+            <div class="detail-row"><svg><use href="#i-calendar"/></svg><span>5 – 6 ngày</span></div>
+            <div class="detail-row"><svg><use href="#i-users"/></svg><span>Kuala Lumpur, Malacca, Penang</span></div>
+            <div class="destination-foot"><span class="visa free">✓ Miễn visa ngắn hạn*</span><button class="round-arrow" type="button" data-plan="Malaysia" aria-label="Lên kế hoạch Malaysia"><svg><use href="#i-arrow"/></svg></button></div>
+          </div>
+        </article>
+        <article class="destination" data-searchable="nhật bản japan kyoto osaka tokyo núi phú sĩ hoa anh đào">
+          <div class="photo japan">
+            <img src="https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?auto=format&fit=crop&w=900&q=85" alt="Khung cảnh đền chùa tại Nhật Bản" loading="lazy">
+            <button type="button" class="favorite" data-favorite="japan" aria-label="Yêu thích Nhật Bản" aria-pressed="false" title="Thêm vào yêu thích"><svg><use href="#i-heart"/></svg></button>
+            <div class="photo-bottom"><span class="flag">🇯🇵</span><h3>Nhật Bản</h3></div>
+          </div>
+          <div class="destination-detail">
+            <div class="detail-row"><svg><use href="#i-calendar"/></svg><span>7 – 9 ngày</span></div>
+            <div class="detail-row"><svg><use href="#i-users"/></svg><span>Osaka, Kyoto, Tokyo</span></div>
+            <div class="destination-foot"><span class="visa required">▣ Cần visa</span><button class="round-arrow" type="button" data-plan="Nhật Bản" aria-label="Lên kế hoạch Nhật Bản"><svg><use href="#i-arrow"/></svg></button></div>
+          </div>
+        </article>
+      </div>
+      <div class="search-empty" id="no-results" hidden>Không tìm thấy điểm đến phù hợp. Bạn vẫn có thể tạo kế hoạch mới với điểm đến khác.</div>
+      <div class="hint">* Thông tin visa tham khảo cho hộ chiếu phổ thông Việt Nam; cần kiểm tra lại quy định trước khi đặt vé.</div>
+    </section>
+    <section class="section" id="history">
+      <div class="section-head"><h2 class="section-title"><span class="symbol check">✓</span> Hành trình đã hoàn thành</h2></div>
+      <article class="archive">
+        <div class="archive-photo"><img src="data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201600%20700%22%20role%3D%22img%22%20aria-label%3D%22Shanghai%20skyline%20at%20dusk%22%3E%0A%3Cdefs%3E%0A%20%20%3ClinearGradient%20id%3D%22sky%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%220%22%20y2%3D%221%22%3E%3Cstop%20offset%3D%220%22%20stop-color%3D%22%2377a8e8%22%2F%3E%3Cstop%20offset%3D%22.46%22%20stop-color%3D%22%234779bd%22%2F%3E%3Cstop%20offset%3D%221%22%20stop-color%3D%22%23173961%22%2F%3E%3C%2FlinearGradient%3E%0A%20%20%3ClinearGradient%20id%3D%22water%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%220%22%20y2%3D%221%22%3E%3Cstop%20offset%3D%220%22%20stop-color%3D%22%23173b68%22%2F%3E%3Cstop%20offset%3D%221%22%20stop-color%3D%22%230b2341%22%2F%3E%3C%2FlinearGradient%3E%0A%20%20%3ClinearGradient%20id%3D%22tower%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%221%22%20y2%3D%221%22%3E%3Cstop%20offset%3D%220%22%20stop-color%3D%22%23d94c51%22%2F%3E%3Cstop%20offset%3D%221%22%20stop-color%3D%22%237e1f34%22%2F%3E%3C%2FlinearGradient%3E%0A%20%20%3Cfilter%20id%3D%22blur%22%3E%3CfeGaussianBlur%20stdDeviation%3D%2218%22%2F%3E%3C%2Ffilter%3E%0A%3C%2Fdefs%3E%0A%3Crect%20width%3D%221600%22%20height%3D%22700%22%20fill%3D%22url(%23sky)%22%2F%3E%0A%3Ccircle%20cx%3D%221320%22%20cy%3D%22120%22%20r%3D%22170%22%20fill%3D%22%23ffd68a%22%20opacity%3D%22.15%22%20filter%3D%22url(%23blur)%22%2F%3E%0A%3Cg%20opacity%3D%22.23%22%20fill%3D%22%23d9ecff%22%3E%3Ccircle%20cx%3D%22225%22%20cy%3D%22115%22%20r%3D%223%22%2F%3E%3Ccircle%20cx%3D%22480%22%20cy%3D%2286%22%20r%3D%222.5%22%2F%3E%3Ccircle%20cx%3D%22865%22%20cy%3D%22145%22%20r%3D%223%22%2F%3E%3Ccircle%20cx%3D%221100%22%20cy%3D%2274%22%20r%3D%222%22%2F%3E%3C%2Fg%3E%0A%3Crect%20y%3D%22535%22%20width%3D%221600%22%20height%3D%22165%22%20fill%3D%22url(%23water)%22%2F%3E%0A%3Cg%20fill%3D%22%23173253%22%3E%0A%20%20%3Crect%20x%3D%220%22%20y%3D%22405%22%20width%3D%2275%22%20height%3D%22130%22%2F%3E%3Crect%20x%3D%2282%22%20y%3D%22360%22%20width%3D%2262%22%20height%3D%22175%22%2F%3E%3Crect%20x%3D%22150%22%20y%3D%22390%22%20width%3D%2290%22%20height%3D%22145%22%2F%3E%0A%20%20%3Crect%20x%3D%22255%22%20y%3D%22330%22%20width%3D%2270%22%20height%3D%22205%22%2F%3E%3Crect%20x%3D%22338%22%20y%3D%22388%22%20width%3D%2280%22%20height%3D%22147%22%2F%3E%3Crect%20x%3D%22430%22%20y%3D%22300%22%20width%3D%2278%22%20height%3D%22235%22%2F%3E%0A%20%20%3Crect%20x%3D%221010%22%20y%3D%22350%22%20width%3D%2272%22%20height%3D%22185%22%2F%3E%3Crect%20x%3D%221090%22%20y%3D%22292%22%20width%3D%2295%22%20height%3D%22243%22%2F%3E%3Crect%20x%3D%221195%22%20y%3D%22382%22%20width%3D%2278%22%20height%3D%22153%22%2F%3E%0A%20%20%3Crect%20x%3D%221285%22%20y%3D%22330%22%20width%3D%2285%22%20height%3D%22205%22%2F%3E%3Crect%20x%3D%221380%22%20y%3D%22270%22%20width%3D%2295%22%20height%3D%22265%22%2F%3E%3Crect%20x%3D%221490%22%20y%3D%22365%22%20width%3D%22110%22%20height%3D%22170%22%2F%3E%0A%3C%2Fg%3E%0A%3Cg%20fill%3D%22%2321466f%22%3E%0A%20%20%3Crect%20x%3D%22545%22%20y%3D%22270%22%20width%3D%2278%22%20height%3D%22265%22%20rx%3D%224%22%2F%3E%3Crect%20x%3D%22635%22%20y%3D%22235%22%20width%3D%2292%22%20height%3D%22300%22%20rx%3D%224%22%2F%3E%0A%20%20%3Crect%20x%3D%22745%22%20y%3D%22315%22%20width%3D%2278%22%20height%3D%22220%22%2F%3E%3Crect%20x%3D%22835%22%20y%3D%22250%22%20width%3D%2270%22%20height%3D%22285%22%2F%3E%0A%3C%2Fg%3E%0A%3C!--%20Shanghai%20Tower%20--%3E%0A%3Cpath%20d%3D%22M930%20535%20L946%20145%20Q970%2070%20988%2042%20Q1005%20112%201009%20179%20L1018%20535%20Z%22%20fill%3D%22%23204f7e%22%2F%3E%0A%3Cpath%20d%3D%22M956%20145%20Q984%2098%20996%2065%22%20fill%3D%22none%22%20stroke%3D%22%239bc6f2%22%20stroke-width%3D%226%22%20opacity%3D%22.55%22%2F%3E%0A%3C!--%20Oriental%20Pearl%20Tower%20--%3E%0A%3Cg%20transform%3D%22translate(480%200)%22%3E%0A%20%20%3Crect%20x%3D%2234%22%20y%3D%22197%22%20width%3D%2210%22%20height%3D%22338%22%20fill%3D%22%23c4d8ee%22%2F%3E%0A%20%20%3Cpath%20d%3D%22M39%2095%20L39%20197%22%20stroke%3D%22%23d8e9f8%22%20stroke-width%3D%225%22%2F%3E%0A%20%20%3Cpath%20d%3D%22M39%2060%20L39%20104%22%20stroke%3D%22%23f1d3d7%22%20stroke-width%3D%223%22%2F%3E%0A%20%20%3Ccircle%20cx%3D%2239%22%20cy%3D%22246%22%20r%3D%2248%22%20fill%3D%22url(%23tower)%22%2F%3E%0A%20%20%3Ccircle%20cx%3D%2239%22%20cy%3D%22246%22%20r%3D%2231%22%20fill%3D%22%23d84854%22%2F%3E%0A%20%20%3Ccircle%20cx%3D%2239%22%20cy%3D%22148%22%20r%3D%2223%22%20fill%3D%22%23c93a4b%22%2F%3E%0A%20%20%3Ccircle%20cx%3D%2239%22%20cy%3D%22370%22%20r%3D%2218%22%20fill%3D%22%23cc4350%22%2F%3E%0A%20%20%3Cpath%20d%3D%22M8%20535%20L39%20336%20L70%20535%20Z%22%20fill%3D%22%23b6cce4%22%20opacity%3D%22.9%22%2F%3E%0A%3C%2Fg%3E%0A%3C!--%20windows%20--%3E%0A%3Cg%20fill%3D%22%23ffd98b%22%20opacity%3D%22.62%22%3E%0A%20%20%3Cpath%20d%3D%22M92%20385h8v5h-8zm18%200h8v5h-8zm18%200h8v5h-8zm165-25h8v5h-8zm18%200h8v5h-8zm143-30h8v5h-8zm20%200h8v5h-8z%22%2F%3E%0A%20%20%3Cpath%20d%3D%22M566%20320h8v5h-8zm20%200h8v5h-8zm70-45h9v5h-9zm22%200h9v5h-9zm130%2070h8v5h-8zm52-55h8v5h-8z%22%2F%3E%0A%20%20%3Cpath%20d%3D%22M1120%20332h8v5h-8zm22%200h8v5h-8zm175%2045h8v5h-8zm24%200h8v5h-8zm80-70h9v5h-9zm25%200h9v5h-9z%22%2F%3E%0A%3C%2Fg%3E%0A%3C!--%20shoreline%20and%20reflections%20--%3E%0A%3Crect%20y%3D%22529%22%20width%3D%221600%22%20height%3D%228%22%20fill%3D%22%238eb6de%22%20opacity%3D%22.28%22%2F%3E%0A%3Cg%20opacity%3D%22.13%22%20fill%3D%22%238bc5ff%22%3E%3Cpath%20d%3D%22M480%20545h80l-18%20120h-46z%22%2F%3E%3Cpath%20d%3D%22M930%20545h92l-15%20128h-63z%22%2F%3E%3Cpath%20d%3D%22M1090%20545h96l-28%20110h-54z%22%2F%3E%3C%2Fg%3E%0A%3C%2Fsvg%3E" alt="Minh họa chuyến đi Trung Quốc" loading="lazy"></div>
+        <div class="archive-content">
+          <div class="archive-title"><span class="flag">🇨🇳</span> Trung Quốc 2026</div>
+          <div class="archive-meta"><span><svg><use href="#i-calendar"/></svg>19 – 26/10/2026 (8 ngày 7 đêm)</span><span><svg><use href="#i-pin"/></svg>Thượng Hải – Bắc Kinh</span><span><svg><use href="#i-users"/></svg>6 người lớn, 1 em bé</span></div>
+        </div>
+        <div class="archive-actions"><span class="completed">✓ Đã hoàn thành</span><a href="./china-2026.html" class="outline-btn">Xem chi tiết <svg><use href="#i-arrow"/></svg></a></div>
+      </article>
+    </section>
+    <section class="section" id="plans">
+      <div class="section-head"><h2 class="section-title"><span class="symbol"><svg style="width:17px;height:17px;stroke:currentColor;fill:none;stroke-width:2"><use href="#i-suitcase"/></svg></span> Kế hoạch đang lập <span id="plan-counter" style="color:#8490a9;font-size:13px;font-weight:600">(0)</span></h2><button class="outline-btn" type="button" data-new-trip>+ Tạo mới</button></div>
+      <div class="empty-plans" id="empty-plans"><svg><use href="#i-compass"/></svg><div><b>Chưa có kế hoạch nào.</b><br>Chọn một điểm đến phía trên để bắt đầu, thông tin sẽ được lưu trên thiết bị này.</div></div>
+      <div class="plan-list" id="plan-list" aria-live="polite"></div>
+    </section>
+  </div>
+  <aside class="right-rail" id="tools">
+    <div class="side-panel">
+      <div class="action-list">
+        <button type="button" class="action" data-new-trip><span class="action-icon"><svg><use href="#i-calendar"/></svg></span><span class="action-copy"><b>Tạo hành trình mới</b><small>Lên kế hoạch cho chuyến đi tiếp theo</small></span><span class="action-chevron">›</span></button>
+        <button type="button" class="action" id="idea-trigger"><span class="action-icon spark"><svg><use href="#i-spark"/></svg></span><span class="action-copy"><b>Gợi ý lịch trình</b><small>Mẫu hành trình theo số ngày và điểm đến</small></span><span class="action-chevron">›</span></button>
+      </div>
+      <div class="map-card" aria-label="Bản đồ minh họa các điểm đến châu Á">
+        <div class="map-canvas">
+          <svg viewBox="0 0 320 170" role="img" aria-label="Bản đồ thế giới cách điệu">
+            <path d="M1 33 22 20 52 21 67 30 85 25 101 39 89 54 68 56 61 76 48 85 41 67 23 61 17 45 3 47Z"/>
+            <path d="m68 93 22-7 17 18-2 21-18 40-8-17-12-21z"/>
+            <path d="m139 44 12-14 21 7 12-6 19 13 13-2 21-11 26 2 15-8 35 14-4 17-26 11-12 13-17-3-11 19-16-2-5-22-15-4-9 21-24-8-16 4-17-15z"/>
+            <path d="m167 82 30-3 18 19-5 30-12 35-24-15-16-30z"/>
+            <path d="m262 112 21-8 25 12 12 21-15 16-25-9-17-17z"/>
+            <path d="m236 88 12 8-5 20-9-10zM289 87l7 7-4 14-7-10z"/>
+          </svg>
+          <span class="map-pin hk"><svg viewBox="0 0 20 27"><path d="M10 0a10 10 0 0 0-10 10c0 7 10 17 10 17s10-10 10-17A10 10 0 0 0 10 0Zm0 14a4 4 0 1 1 0-8 4 4 0 0 1 0 8Z"/></svg></span>
+          <span class="map-pin my"><svg viewBox="0 0 20 27"><path d="M10 0a10 10 0 0 0-10 10c0 7 10 17 10 17s10-10 10-17A10 10 0 0 0 10 0Zm0 14a4 4 0 1 1 0-8 4 4 0 0 1 0 8Z"/></svg></span>
+          <span class="map-pin jp"><svg viewBox="0 0 20 27"><path d="M10 0a10 10 0 0 0-10 10c0 7 10 17 10 17s10-10 10-17A10 10 0 0 0 10 0Zm0 14a4 4 0 1 1 0-8 4 4 0 0 1 0 8Z"/></svg></span>
+        </div>
+        <div class="map-counts">
+          <div class="count-row"><svg><use href="#i-plane"/></svg> Đã ghé thăm <b>1</b></div>
+          <div class="count-row"><svg><use href="#i-calendar"/></svg> Đang lên kế hoạch <b id="rail-plan-count">0</b></div>
+          <div class="count-row"><svg><use href="#i-heart"/></svg> Điểm đến yêu thích <b id="fav-count">0</b></div>
+        </div>
+      </div>
+    </div>
+    <div class="quote"><img src="https://images.unsplash.com/photo-1508804185872-d7badad00f7d?auto=format&fit=crop&w=800&q=82" alt="Vạn Lý Trường Thành, Trung Quốc" loading="lazy"><p>Du lịch không chỉ là đi đến một nơi, mà là lưu giữ những trải nghiệm.</p></div>
+    <div class="rail-heading" id="notes">Mở lại thông tin chuyến Trung Quốc</div>
+    <div class="rail-shortcuts"><a href="./flights/">✈ Chuyến bay</a><a href="./hotels/">⌂ Khách sạn</a><a href="./sim/">▣ SIM & Internet</a></div>
+  </aside>
+  </div>
+  <footer class="footer"><span>TravelLog · My Travel Planner · Bản thiết kế thử nghiệm</span><span>Ảnh tham khảo từ <a href="https://unsplash.com/" target="_blank" rel="noopener noreferrer">Unsplash</a>. Kế hoạch mới chỉ lưu trên trình duyệt.</span></footer>
+</div>
+</div>
+<nav class="mobile-bar" aria-label="Điều hướng trên điện thoại">
+ <a href="#top" class="active"><svg><use href="#i-home"/></svg>Trang chủ</a>
+ <a href="#destinations"><svg><use href="#i-compass"/></svg>Khám phá</a>
+ <a href="#plans"><svg><use href="#i-calendar"/></svg>Kế hoạch</a>
+ <a href="#history"><svg><use href="#i-history"/></svg>Lịch sử</a>
+</nav>
+<dialog id="trip-dialog" aria-labelledby="trip-dialog-title">
+  <form id="trip-form" class="dialog-content">
+    <div class="dialog-head"><div><span class="dialog-eyebrow">Start your journey</span><h2 id="trip-dialog-title">Tạo hành trình mới</h2><p>Chuẩn bị các thông tin cơ bản để bắt đầu kế hoạch.</p></div><button type="button" class="close" data-close-trip aria-label="Đóng">×</button></div>
+    <div class="form-grid">
+      <div class="field full"><label for="trip-destination">Điểm đến *</label><input id="trip-destination" name="destination" maxlength="80" required placeholder="Hong Kong, Malaysia, Nhật Bản..." autocomplete="off"></div>
+      <div class="field"><label for="trip-date">Ngày dự kiến</label><input id="trip-date" name="date" type="date"></div>
+      <div class="field"><label for="trip-people">Số người</label><input id="trip-people" name="people" type="number" min="1" max="99" placeholder="Chưa xác định"></div>
+      <div class="field full"><label for="trip-notes">Ghi chú / ý tưởng lịch trình</label><textarea id="trip-notes" name="notes" maxlength="500" placeholder="Điểm tham quan, khách sạn, ẩm thực..."></textarea></div>
+    </div>
+    <div class="dialog-foot"><span class="privacy">Dữ liệu mới chỉ lưu trong trình duyệt hiện tại. Không nhập số hộ chiếu, mã vé hay dữ liệu nhạy cảm.</span><button type="submit" class="btn-primary">Lưu kế hoạch →</button></div>
+  </form>
+</dialog>
+<dialog id="idea-dialog" aria-labelledby="idea-dialog-title">
+  <div class="dialog-content">
+    <div class="dialog-head"><div><span class="dialog-eyebrow">Trip inspiration</span><h2 id="idea-dialog-title">Chọn mẫu hành trình</h2><p>Chọn điểm đến để mở một kế hoạch có sẵn gợi ý ban đầu. Có thể sửa mọi thông tin trước khi lưu.</p></div><button type="button" class="close" data-close-idea aria-label="Đóng">×</button></div>
+    <div style="display:grid;gap:11px;margin-top:20px">
+      <button type="button" class="action" data-suggestion="Hong Kong"><span style="font-size:27px">🇭🇰</span><span class="action-copy"><b>Hong Kong · 5 ngày</b><small>Victoria Harbour · Disneyland · Ngong Ping</small></span><span class="action-chevron">›</span></button>
+      <button type="button" class="action" data-suggestion="Malaysia"><span style="font-size:27px">🇲🇾</span><span class="action-copy"><b>Malaysia · 6 ngày</b><small>Kuala Lumpur · Malacca · Putrajaya</small></span><span class="action-chevron">›</span></button>
+      <button type="button" class="action" data-suggestion="Nhật Bản"><span style="font-size:27px">🇯🇵</span><span class="action-copy"><b>Nhật Bản · 8 ngày</b><small>Osaka · Kyoto · Tokyo</small></span><span class="action-chevron">›</span></button>
+    </div>
+  </div>
+</dialog>
+<div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
+<script src="./travel-home.js" defer></script>
 </body>
 </html>
